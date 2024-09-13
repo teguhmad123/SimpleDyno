@@ -39,23 +39,11 @@ Partial Class Dyno
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtSignalsPerRPM1 = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.txtExtraWallThickness = New System.Windows.Forms.TextBox()
         Me.txtRollerDiameter = New System.Windows.Forms.TextBox()
-        Me.txtExtraMass = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.txtRollerWallThickness = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.txtExtraDiameter = New System.Windows.Forms.TextBox()
         Me.txtRollerMass = New System.Windows.Forms.TextBox()
-        Me.txtEndCapMass = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtAxleMass = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
         Me.txtAxleDiameter = New System.Windows.Forms.TextBox()
         Me.picDynoSettings = New System.Windows.Forms.PictureBox()
         Me.lblTargetRollerMass = New System.Windows.Forms.Label()
@@ -200,7 +188,7 @@ Partial Class Dyno
         '
         Me.txtSignalsPerRPM2.CausesValidation = False
         Me.txtSignalsPerRPM2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSignalsPerRPM2.Location = New System.Drawing.Point(176, 427)
+        Me.txtSignalsPerRPM2.Location = New System.Drawing.Point(176, 283)
         Me.txtSignalsPerRPM2.Name = "txtSignalsPerRPM2"
         Me.txtSignalsPerRPM2.Size = New System.Drawing.Size(72, 22)
         Me.txtSignalsPerRPM2.TabIndex = 296
@@ -211,18 +199,18 @@ Partial Class Dyno
         'Label24
         '
         Me.Label24.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(37, 427)
+        Me.Label24.Location = New System.Drawing.Point(27, 283)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(131, 20)
+        Me.Label24.Size = New System.Drawing.Size(141, 20)
         Me.Label24.TabIndex = 297
-        Me.Label24.Text = "Signals per RPM2"
+        Me.Label24.Text = "Signals per Engine RPM"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtSignalsPerRPM1
         '
         Me.txtSignalsPerRPM1.CausesValidation = False
         Me.txtSignalsPerRPM1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSignalsPerRPM1.Location = New System.Drawing.Point(176, 403)
+        Me.txtSignalsPerRPM1.Location = New System.Drawing.Point(176, 259)
         Me.txtSignalsPerRPM1.Name = "txtSignalsPerRPM1"
         Me.txtSignalsPerRPM1.Size = New System.Drawing.Size(72, 22)
         Me.txtSignalsPerRPM1.TabIndex = 285
@@ -233,24 +221,12 @@ Partial Class Dyno
         'Label23
         '
         Me.Label23.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(72, 403)
+        Me.Label23.Location = New System.Drawing.Point(40, 259)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(96, 20)
+        Me.Label23.Size = New System.Drawing.Size(128, 20)
         Me.Label23.TabIndex = 289
-        Me.Label23.Text = "Signals per RPM"
+        Me.Label23.Text = "Signals per Roller RPM"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtExtraWallThickness
-        '
-        Me.txtExtraWallThickness.CausesValidation = False
-        Me.txtExtraWallThickness.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtExtraWallThickness.Location = New System.Drawing.Point(176, 355)
-        Me.txtExtraWallThickness.Name = "txtExtraWallThickness"
-        Me.txtExtraWallThickness.Size = New System.Drawing.Size(72, 22)
-        Me.txtExtraWallThickness.TabIndex = 283
-        Me.txtExtraWallThickness.Tag = ""
-        Me.txtExtraWallThickness.Text = "0"
-        Me.txtExtraWallThickness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtRollerDiameter
         '
@@ -264,37 +240,15 @@ Partial Class Dyno
         Me.txtRollerDiameter.Text = "100"
         Me.txtRollerDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtExtraMass
-        '
-        Me.txtExtraMass.CausesValidation = False
-        Me.txtExtraMass.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtExtraMass.Location = New System.Drawing.Point(176, 379)
-        Me.txtExtraMass.Name = "txtExtraMass"
-        Me.txtExtraMass.Size = New System.Drawing.Size(72, 22)
-        Me.txtExtraMass.TabIndex = 284
-        Me.txtExtraMass.Tag = ""
-        Me.txtExtraMass.Text = "0"
-        Me.txtExtraMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Label22
         '
         Me.Label22.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(8, 235)
+        Me.Label22.Location = New System.Drawing.Point(8, 211)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(160, 20)
         Me.Label22.TabIndex = 288
         Me.Label22.Text = "Roller Mass (g)"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label31
-        '
-        Me.Label31.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(8, 357)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(160, 20)
-        Me.Label31.TabIndex = 294
-        Me.Label31.Text = "Extra Wall Thickness (mm)"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label19
         '
@@ -306,65 +260,11 @@ Partial Class Dyno
         Me.Label19.Text = "Roller Diameter (mm)"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label32
-        '
-        Me.Label32.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(8, 333)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(160, 20)
-        Me.Label32.TabIndex = 293
-        Me.Label32.Text = "Extra Diameter (mm)"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtRollerWallThickness
-        '
-        Me.txtRollerWallThickness.CausesValidation = False
-        Me.txtRollerWallThickness.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRollerWallThickness.Location = New System.Drawing.Point(176, 211)
-        Me.txtRollerWallThickness.Name = "txtRollerWallThickness"
-        Me.txtRollerWallThickness.Size = New System.Drawing.Size(72, 22)
-        Me.txtRollerWallThickness.TabIndex = 277
-        Me.txtRollerWallThickness.Tag = ""
-        Me.txtRollerWallThickness.Text = "50"
-        Me.txtRollerWallThickness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label33
-        '
-        Me.Label33.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(8, 381)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(160, 20)
-        Me.Label33.TabIndex = 295
-        Me.Label33.Text = "Extra Mass (g)"
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label21
-        '
-        Me.Label21.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(8, 211)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(160, 20)
-        Me.Label21.TabIndex = 287
-        Me.Label21.Text = "Roller Wall Thickness (mm)"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtExtraDiameter
-        '
-        Me.txtExtraDiameter.CausesValidation = False
-        Me.txtExtraDiameter.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtExtraDiameter.Location = New System.Drawing.Point(176, 331)
-        Me.txtExtraDiameter.Name = "txtExtraDiameter"
-        Me.txtExtraDiameter.Size = New System.Drawing.Size(72, 22)
-        Me.txtExtraDiameter.TabIndex = 282
-        Me.txtExtraDiameter.Tag = ""
-        Me.txtExtraDiameter.Text = "0"
-        Me.txtExtraDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'txtRollerMass
         '
         Me.txtRollerMass.CausesValidation = False
         Me.txtRollerMass.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRollerMass.Location = New System.Drawing.Point(176, 235)
+        Me.txtRollerMass.Location = New System.Drawing.Point(176, 211)
         Me.txtRollerMass.Name = "txtRollerMass"
         Me.txtRollerMass.Size = New System.Drawing.Size(72, 22)
         Me.txtRollerMass.TabIndex = 278
@@ -372,65 +272,21 @@ Partial Class Dyno
         Me.txtRollerMass.Text = "1000"
         Me.txtRollerMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtEndCapMass
-        '
-        Me.txtEndCapMass.CausesValidation = False
-        Me.txtEndCapMass.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndCapMass.Location = New System.Drawing.Point(176, 307)
-        Me.txtEndCapMass.Name = "txtEndCapMass"
-        Me.txtEndCapMass.Size = New System.Drawing.Size(72, 22)
-        Me.txtEndCapMass.TabIndex = 281
-        Me.txtEndCapMass.Tag = ""
-        Me.txtEndCapMass.Text = "0"
-        Me.txtEndCapMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label15
-        '
-        Me.Label15.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(8, 283)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(160, 20)
-        Me.Label15.TabIndex = 291
-        Me.Label15.Text = "Axle Mass (g)"
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtAxleMass
-        '
-        Me.txtAxleMass.CausesValidation = False
-        Me.txtAxleMass.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAxleMass.Location = New System.Drawing.Point(176, 283)
-        Me.txtAxleMass.Name = "txtAxleMass"
-        Me.txtAxleMass.Size = New System.Drawing.Size(72, 22)
-        Me.txtAxleMass.TabIndex = 280
-        Me.txtAxleMass.Tag = ""
-        Me.txtAxleMass.Text = "0"
-        Me.txtAxleMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Label27
         '
         Me.Label27.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(8, 259)
+        Me.Label27.Location = New System.Drawing.Point(8, 235)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(160, 20)
         Me.Label27.TabIndex = 290
         Me.Label27.Text = "Axle Diameter (mm)"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label28
-        '
-        Me.Label28.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(8, 307)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(160, 20)
-        Me.Label28.TabIndex = 292
-        Me.Label28.Text = "End Cap Mass (g)"
-        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'txtAxleDiameter
         '
         Me.txtAxleDiameter.CausesValidation = False
         Me.txtAxleDiameter.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAxleDiameter.Location = New System.Drawing.Point(176, 259)
+        Me.txtAxleDiameter.Location = New System.Drawing.Point(176, 235)
         Me.txtAxleDiameter.Name = "txtAxleDiameter"
         Me.txtAxleDiameter.Size = New System.Drawing.Size(72, 22)
         Me.txtAxleDiameter.TabIndex = 279
@@ -451,7 +307,7 @@ Partial Class Dyno
         'lblTargetRollerMass
         '
         Me.lblTargetRollerMass.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTargetRollerMass.Location = New System.Drawing.Point(8, 521)
+        Me.lblTargetRollerMass.Location = New System.Drawing.Point(8, 395)
         Me.lblTargetRollerMass.Name = "lblTargetRollerMass"
         Me.lblTargetRollerMass.Size = New System.Drawing.Size(241, 25)
         Me.lblTargetRollerMass.TabIndex = 302
@@ -461,7 +317,7 @@ Partial Class Dyno
         'lblActualMomentOfInertia
         '
         Me.lblActualMomentOfInertia.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActualMomentOfInertia.Location = New System.Drawing.Point(8, 472)
+        Me.lblActualMomentOfInertia.Location = New System.Drawing.Point(8, 346)
         Me.lblActualMomentOfInertia.Name = "lblActualMomentOfInertia"
         Me.lblActualMomentOfInertia.Size = New System.Drawing.Size(241, 24)
         Me.lblActualMomentOfInertia.TabIndex = 301
@@ -471,7 +327,7 @@ Partial Class Dyno
         'lblTargetMomentOfInertia
         '
         Me.lblTargetMomentOfInertia.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTargetMomentOfInertia.Location = New System.Drawing.Point(8, 496)
+        Me.lblTargetMomentOfInertia.Location = New System.Drawing.Point(8, 370)
         Me.lblTargetMomentOfInertia.Name = "lblTargetMomentOfInertia"
         Me.lblTargetMomentOfInertia.Size = New System.Drawing.Size(241, 25)
         Me.lblTargetMomentOfInertia.TabIndex = 300
@@ -490,7 +346,7 @@ Partial Class Dyno
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(89, 452)
+        Me.Label1.Location = New System.Drawing.Point(89, 326)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(160, 20)
         Me.Label1.TabIndex = 304
@@ -513,23 +369,11 @@ Partial Class Dyno
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.txtSignalsPerRPM1)
         Me.Controls.Add(Me.Label23)
-        Me.Controls.Add(Me.txtExtraWallThickness)
         Me.Controls.Add(Me.txtRollerDiameter)
-        Me.Controls.Add(Me.txtExtraMass)
         Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.Label31)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.Label32)
-        Me.Controls.Add(Me.txtRollerWallThickness)
-        Me.Controls.Add(Me.Label33)
-        Me.Controls.Add(Me.Label21)
-        Me.Controls.Add(Me.txtExtraDiameter)
         Me.Controls.Add(Me.txtRollerMass)
-        Me.Controls.Add(Me.txtEndCapMass)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.txtAxleMass)
         Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.txtAxleDiameter)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label20)
@@ -569,23 +413,11 @@ Partial Class Dyno
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents txtSignalsPerRPM1 As System.Windows.Forms.TextBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents txtExtraWallThickness As System.Windows.Forms.TextBox
     Friend WithEvents txtRollerDiameter As System.Windows.Forms.TextBox
-    Friend WithEvents txtExtraMass As System.Windows.Forms.TextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents txtRollerWallThickness As System.Windows.Forms.TextBox
-    Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents txtExtraDiameter As System.Windows.Forms.TextBox
     Friend WithEvents txtRollerMass As System.Windows.Forms.TextBox
-    Friend WithEvents txtEndCapMass As System.Windows.Forms.TextBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents txtAxleMass As System.Windows.Forms.TextBox
     Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents txtAxleDiameter As System.Windows.Forms.TextBox
     Friend WithEvents picDynoSettings As System.Windows.Forms.PictureBox
     Friend WithEvents lblTargetRollerMass As System.Windows.Forms.Label

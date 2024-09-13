@@ -169,29 +169,29 @@
             End With
         End If
     End Sub
-    Private Sub txtRollerWallThickness_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRollerWallThickness.Enter
-        picDynoSettings.BackgroundImage = My.Resources.RollerWallThickness
-        lblDynoSettings.Text = _
-            "Enter the roller wall thickness in mm.  This value is CRITICAL for accurate dyno results.  " & _
-            "This value is used to calculate the moment of inertia of your rollers and therefore impacts the torque and power results.  " & _
-            "Additionally, based on the assumed design of your rollers, the roller wall thickness is used to calculate the End Cap diameter " & _
-            "(i.e. it is assumed that your End Caps fit into the end of your rollers).  Note: If you are using a solid roller, this value should be half of the entered value for Roller Diameter" &
-            " This value cannot be greater than 1/2 the value entered for Roller Diameter"
-    End Sub
-    Private Sub txtRollerWallThickness_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRollerWallThickness.Leave
-        Dim LocalMin As Double = 1
-        Dim LocalMax As Double = RollerDiameter / 2
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            RollerWallThickness = TempDouble
-            UpdateMomentOfInertias()
-        Else
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            With CType(sender, TextBox)
-                .Text = RollerWallThickness.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
+    'Private Sub txtRollerWallThickness_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRollerWallThickness.Enter
+    '    picDynoSettings.BackgroundImage = My.Resources.RollerWallThickness
+    '    lblDynoSettings.Text = _
+    '        "Enter the roller wall thickness in mm.  This value is CRITICAL for accurate dyno results.  " & _
+    '        "This value is used to calculate the moment of inertia of your rollers and therefore impacts the torque and power results.  " & _
+    '        "Additionally, based on the assumed design of your rollers, the roller wall thickness is used to calculate the End Cap diameter " & _
+    '        "(i.e. it is assumed that your End Caps fit into the end of your rollers).  Note: If you are using a solid roller, this value should be half of the entered value for Roller Diameter" &
+    '        " This value cannot be greater than 1/2 the value entered for Roller Diameter"
+    'End Sub
+    'Private Sub txtRollerWallThickness_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRollerWallThickness.Leave
+    '    Dim LocalMin As Double = 1
+    '    Dim LocalMax As Double = RollerDiameter / 2
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        RollerWallThickness = TempDouble
+    '        UpdateMomentOfInertias()
+    '    Else
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        With CType(sender, TextBox)
+    '            .Text = RollerWallThickness.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
     Private Sub txtRollerMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRollerMass.Enter
         picDynoSettings.BackgroundImage = My.Resources.RollerMass
         lblDynoSettings.Text = _
@@ -235,113 +235,113 @@
             End With
         End If
     End Sub
-    Private Sub txtAxleMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtAxleMass.Enter
-        picDynoSettings.BackgroundImage = My.Resources.AxelMass
-        lblDynoSettings.Text = _
-            "Enter the axle mass in grams.  This value is IMPORTANT for accurate dyno results.  " & _
-            "This value is used to calculate the moment of inertia of your axles and therefore impacts the torque and power results.  " & _
-            "Note: Only enter a mass for your axle(s) if the axles rotate witht the roller.  If you are using a fixed axle that does not rotate with the roller, enter zero for its mass"
-    End Sub
-    Private Sub txtAxleMass_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtAxleMass.Leave
-        Dim LocalMin As Double = 0
-        Dim LocalMax As Double = 999999
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            AxleMass = TempDouble
-            UpdateMomentOfInertias()
-        Else
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            With CType(sender, TextBox)
-                .Text = AxleMass.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
-    Private Sub txtEndCapMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEndCapMass.Enter
-        picDynoSettings.BackgroundImage = My.Resources.EndCapMass
-        lblDynoSettings.Text = _
-            "Enter the total mass of the end caps in grams.  This value is CRITICAL for accurate dyno results.  " & _
-            "This value is used to calculate the moment of inertia of your end caps and therefore impacts the torque and power results."
-    End Sub
-    Private Sub txtEndCapMass_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEndCapMass.Leave
-        Dim LocalMin As Double = 0
-        Dim LocalMax As Double = 999999
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            EndCapMass = TempDouble
-            UpdateMomentOfInertias()
-        Else
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            With CType(sender, TextBox)
-                .Text = EndCapMass.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
-    Private Sub txtExtraDiameter_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraDiameter.Enter
-        picDynoSettings.BackgroundImage = My.Resources.ExtraDiameter
-        lblDynoSettings.Text = _
-            "Enter the extra diameter in mm.  If you are using extra components this value is CRITICAL for accurate dyno results.  " & _
-            "This value is used to calculate the moment of inertia of your extra dyno components.  These components are typically disks " & _
-            "that you can add to the ends of your rollers to increase the overall moment of inertia.  Extras can be mounted on the axle " & _
-            "or attached directly to the ends of the roller / end cap components."
-    End Sub
-    Private Sub txtExtraDiameter_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraDiameter.Leave
-        Dim LocalMin As Double = 0
-        Dim LocalMax As Double = 999999
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            ExtraDiameter = TempDouble
-            UpdateMomentOfInertias()
-        Else
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            With CType(sender, TextBox)
-                .Text = ExtraDiameter.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
-    Private Sub txtExtraWallThickness_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraWallThickness.Enter
-        picDynoSettings.BackgroundImage = My.Resources.ExtraWallThickness
-        lblDynoSettings.Text = _
-           "Enter the extra wall thickness in mm.  If you are using extra components this value is CRITICAL for accurate dyno results.  " & _
-           "This value is used to calculate the moment of inertia of your extra dyno components.  These components are typically disks " & _
-           "that you can add to the ends of your rollers to increase the overall moment of inertia.  Extras can be mounted on the axle " & _
-           "or attached directly to the ends of the roller / end cap components."
-    End Sub
-    Private Sub txtExtraWallThickness_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraWallThickness.Leave
-        Dim LocalMin As Double = 0
-        Dim LocalMax As Double = 999999
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            ExtraWallThickness = TempDouble
-            UpdateMomentOfInertias()
-        Else
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            With CType(sender, TextBox)
-                .Text = ExtraWallThickness.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
-    Private Sub txtExtraMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraMass.Enter
-        picDynoSettings.BackgroundImage = My.Resources.ExtraMass
-        lblDynoSettings.Text = _
-           "Enter the masses of all the extra components in grams.  If you are using extra components this value is CRITICAL for accurate dyno results.  " & _
-           "This value is used to calculate the moment of inertia of your extra dyno components.  These components are typicall disks " & _
-           "that you can add to the ends of your rollers to increase the overall moment of inertia.  Extras can be mounted on the axle " & _
-           "or attached directly to the ends of the roller / end cap components."
-    End Sub
-    Private Sub txtExtraMass_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraMass.Leave
-        Dim LocalMin As Double = 0
-        Dim LocalMax As Double = 999999
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            ExtraMass = TempDouble
-            UpdateMomentOfInertias()
-        Else
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            With CType(sender, TextBox)
-                .Text = ExtraMass.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
+    'Private Sub txtAxleMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtAxleMass.Enter
+    '    picDynoSettings.BackgroundImage = My.Resources.AxelMass
+    '    lblDynoSettings.Text = _
+    '        "Enter the axle mass in grams.  This value is IMPORTANT for accurate dyno results.  " & _
+    '        "This value is used to calculate the moment of inertia of your axles and therefore impacts the torque and power results.  " & _
+    '        "Note: Only enter a mass for your axle(s) if the axles rotate witht the roller.  If you are using a fixed axle that does not rotate with the roller, enter zero for its mass"
+    'End Sub
+    'Private Sub txtAxleMass_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtAxleMass.Leave
+    '    Dim LocalMin As Double = 0
+    '    Dim LocalMax As Double = 999999
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        AxleMass = TempDouble
+    '        UpdateMomentOfInertias()
+    '    Else
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        With CType(sender, TextBox)
+    '            .Text = AxleMass.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
+    'Private Sub txtEndCapMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEndCapMass.Enter
+    '    picDynoSettings.BackgroundImage = My.Resources.EndCapMass
+    '    lblDynoSettings.Text = _
+    '        "Enter the total mass of the end caps in grams.  This value is CRITICAL for accurate dyno results.  " & _
+    '        "This value is used to calculate the moment of inertia of your end caps and therefore impacts the torque and power results."
+    'End Sub
+    'Private Sub txtEndCapMass_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtEndCapMass.Leave
+    '    Dim LocalMin As Double = 0
+    '    Dim LocalMax As Double = 999999
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        EndCapMass = TempDouble
+    '        UpdateMomentOfInertias()
+    '    Else
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        With CType(sender, TextBox)
+    '            .Text = EndCapMass.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
+    'Private Sub txtExtraDiameter_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraDiameter.Enter
+    '    picDynoSettings.BackgroundImage = My.Resources.ExtraDiameter
+    '    lblDynoSettings.Text = _
+    '        "Enter the extra diameter in mm.  If you are using extra components this value is CRITICAL for accurate dyno results.  " & _
+    '        "This value is used to calculate the moment of inertia of your extra dyno components.  These components are typically disks " & _
+    '        "that you can add to the ends of your rollers to increase the overall moment of inertia.  Extras can be mounted on the axle " & _
+    '        "or attached directly to the ends of the roller / end cap components."
+    'End Sub
+    'Private Sub txtExtraDiameter_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraDiameter.Leave
+    '    Dim LocalMin As Double = 0
+    '    Dim LocalMax As Double = 999999
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        ExtraDiameter = TempDouble
+    '        UpdateMomentOfInertias()
+    '    Else
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        With CType(sender, TextBox)
+    '            .Text = ExtraDiameter.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
+    'Private Sub txtExtraWallThickness_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraWallThickness.Enter
+    '    picDynoSettings.BackgroundImage = My.Resources.ExtraWallThickness
+    '    lblDynoSettings.Text = _
+    '       "Enter the extra wall thickness in mm.  If you are using extra components this value is CRITICAL for accurate dyno results.  " & _
+    '       "This value is used to calculate the moment of inertia of your extra dyno components.  These components are typically disks " & _
+    '       "that you can add to the ends of your rollers to increase the overall moment of inertia.  Extras can be mounted on the axle " & _
+    '       "or attached directly to the ends of the roller / end cap components."
+    'End Sub
+    'Private Sub txtExtraWallThickness_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraWallThickness.Leave
+    '    Dim LocalMin As Double = 0
+    '    Dim LocalMax As Double = 999999
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        ExtraWallThickness = TempDouble
+    '        UpdateMomentOfInertias()
+    '    Else
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        With CType(sender, TextBox)
+    '            .Text = ExtraWallThickness.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
+    'Private Sub txtExtraMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraMass.Enter
+    '    picDynoSettings.BackgroundImage = My.Resources.ExtraMass
+    '    lblDynoSettings.Text = _
+    '       "Enter the masses of all the extra components in grams.  If you are using extra components this value is CRITICAL for accurate dyno results.  " & _
+    '       "This value is used to calculate the moment of inertia of your extra dyno components.  These components are typicall disks " & _
+    '       "that you can add to the ends of your rollers to increase the overall moment of inertia.  Extras can be mounted on the axle " & _
+    '       "or attached directly to the ends of the roller / end cap components."
+    'End Sub
+    'Private Sub txtExtraMass_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtExtraMass.Leave
+    '    Dim LocalMin As Double = 0
+    '    Dim LocalMax As Double = 999999
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso Main.CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        ExtraMass = TempDouble
+    '        UpdateMomentOfInertias()
+    '    Else
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        With CType(sender, TextBox)
+    '            .Text = ExtraMass.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
     Private Sub txtSignalsPerRPM_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSignalsPerRPM1.Enter
         picDynoSettings.BackgroundImage = My.Resources.SignalsPerRPM
         lblDynoSettings.Text = _
@@ -398,7 +398,9 @@
         m = RollerMass / 1000.0
         r1 = (RollerDiameter / 2.0 - RollerWallThickness) / 1000.0
         r2 = RollerDiameter / 2.0 / 1000.0
-        RollerMomentOfInertia = 1 / 2 * m * (r1 ^ 2 + r2 ^ 2)
+        'RollerMomentOfInertia = 1 / 2 * m * (r1 ^ 2 + r2 ^ 2)
+        RollerMomentOfInertia = 1 / 2 * m * r2 ^ 2
+        'Axle
         'Axle
         m = AxleMass / 1000.0
         r1 = 0
@@ -415,7 +417,8 @@
         r2 = (ExtraDiameter / 2.0 - ExtraWallThickness) / 1000.0
         ExtraMomentOfInertia = 1 / 2 * m * (r1 ^ 2 + r2 ^ 2)
         'Total
-        Main.DynoMomentOfInertia = RollerMomentOfInertia + AxleMomentOfInertia + EndCapMomentOfInertia + ExtraMomentOfInertia
+        'Main.DynoMomentOfInertia = RollerMomentOfInertia + AxleMomentOfInertia + EndCapMomentOfInertia + ExtraMomentOfInertia
+        Main.DynoMomentOfInertia = RollerMomentOfInertia
         'Ideal Roller Mass
         'Car outputs 1 N force which will give F/m acceleration
         Dim CarAcceleration As Double = 1 / (CarMass / 1000.0) 'm/s^2
@@ -458,5 +461,4 @@
         Main.ElapsedTimeToRadPerSec2 = 2 * Math.PI / SignalsPerRPM2
 
     End Sub
-
 End Class
