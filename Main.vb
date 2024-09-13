@@ -1876,10 +1876,10 @@ Public Class Main
         DataActions(TORQUE_MOTOR) = Function(x) x.Motor_Torque
 
         DataTags(POWER) = "Power"
-        DataUnitTags(POWER) = "W kW HP"
-        DataUnits(POWER, 0) = 1
+        DataUnitTags(POWER) = "HP kW W"
+        DataUnits(POWER, 0) = 0.00134
         DataUnits(POWER, 1) = 0.001
-        DataUnits(POWER, 2) = 0.00134
+        DataUnits(POWER, 2) = 1
         DataActions(POWER) = Function(x) x.Power
 
         DataTags(DRAG) = "Drag"
@@ -1934,7 +1934,7 @@ Public Class Main
         Data(TEMPERATURE1, MINIMUM) = 10000
         DataActions(TEMPERATURE2) = Function(x) x.Temperature2
 
-        DataTags(PIN04VALUE) = "Pin 4 Value"
+        DataTags(PIN04VALUE) = "AFR"
         DataUnitTags(PIN04VALUE) = "Units"
         DataUnits(PIN04VALUE, 0) = 1
         Data(PIN04VALUE, MINIMUM) = 10000

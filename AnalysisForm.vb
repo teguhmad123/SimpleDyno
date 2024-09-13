@@ -72,10 +72,10 @@ Public Class AnalysisForm
         tempsplit2 = Split(Main.DataUnitTags(Main.SPEED), " ")
         cmbOverlayCorrectedSpeedUnits.Items.AddRange(tempsplit2)
         cmbOverlayDataX.SelectedIndex = 0
-        cmbOverlayDataY1.SelectedIndex = 0
-        cmbOverlayDataY2.SelectedIndex = 0
-        cmbOverlayDataY3.SelectedIndex = 0
-        cmbOverlayDataY4.SelectedIndex = 0
+        cmbOverlayDataY1.SelectedIndex = 21
+        cmbOverlayDataY2.SelectedIndex = 16
+        cmbOverlayDataY3.SelectedIndex = 34
+        cmbOverlayDataY4.SelectedIndex = 27
         cmbOverlayCorrectedSpeedUnits.SelectedIndex = 0
 
         'pnlOverlaySetup()
@@ -804,7 +804,7 @@ Public Class AnalysisForm
                 lineSeries2 = New OxyPlot.Series.LineSeries With {
                     .YAxisKey = "y2",
                     .LineStyle = LineStyle.Dash,
-                    .Color = colors(row),
+                    .Color = OxyColor.FromArgb(200, colors(row).R, colors(row).G, colors(row).B),
                     .Title = y2AxisTitle
                 }
                 plotModel.Series.Add(lineSeries2)
@@ -816,7 +816,7 @@ Public Class AnalysisForm
                 lineSeries3 = New OxyPlot.Series.LineSeries With {
                     .YAxisKey = "y3",
                     .LineStyle = LineStyle.DashDashDot,
-                    .Color = colors(row),
+                    .Color = OxyColor.FromArgb(150, colors(row).R, colors(row).G, colors(row).B),
                     .Title = y3AxisTitle
                 }
 
@@ -828,25 +828,34 @@ Public Class AnalysisForm
                 lineSeries4 = New OxyPlot.Series.LineSeries With {
                     .YAxisKey = "y4",
                     .LineStyle = LineStyle.DashDotDot,
-                    .Color = colors(row),
+                    .Color = OxyColor.FromArgb(100, colors(row).R, colors(row).G, colors(row).B),
                     .Title = y4AxisTitle
                 }
 
                 plotModel.Series.Add(lineSeries4)
             End If
 
+            Dim rpmIndex As Integer = 8
+            Dim rpmUnitIndex As Integer = 1
+            Dim rpmUnit As String = Main.DataUnitTags(rpmIndex).Split(CType(" ", Char()))(rpmUnitIndex)
+
             Dim x1Max As Double = 0
             Dim y1Max As Double = 0
             Dim y1MaxX As Double = 0
+            Dim rpm1Max As Double = 0
             Dim y2Max As Double = 0
             Dim y2MaxX As Double = 0
+            Dim rpm2Max As Double = 0
             Dim y3Max As Double = 0
             Dim y3MaxX As Double = 0
+            Dim rpm3Max As Double = 0
             Dim y4Max As Double = 0
             Dim y4MaxX As Double = 0
+            Dim rpm4Max As Double = 0
 
             For Each dataRecord As DataRecord In dataRecordsList(i)
                 Dim xValue As Double = Main.DataActions(xIndex)(dataRecord) * Main.DataUnits(xIndex, xUnitsIndex)
+                Dim rpmValue As Double = Main.DataActions(rpmIndex)(dataRecord) * Main.DataUnits(rpmIndex, rpmUnitIndex)
                 Dim y1Value As Double = 0
                 Dim y2Value As Double = 0
                 Dim y3Value As Double = 0
@@ -861,6 +870,7 @@ Public Class AnalysisForm
                     If (y1Value > y1Max) Then
                         y1Max = y1Value
                         y1MaxX = xValue
+                        rpm1Max = rpmValue
                     End If
                 End If
 
@@ -870,6 +880,7 @@ Public Class AnalysisForm
                     If (y2Value > y2Max) Then
                         y2Max = y2Value
                         y2MaxX = xValue
+                        rpm2Max = rpmValue
                     End If
                 End If
 
@@ -879,6 +890,7 @@ Public Class AnalysisForm
                     If (y3Value > y3Max) Then
                         y3Max = y3Value
                         y3MaxX = xValue
+                        rpm3Max = rpmValue
                     End If
                 End If
 
@@ -888,6 +900,7 @@ Public Class AnalysisForm
                     If (y4Value > y4Max) Then
                         y4Max = y4Value
                         y4MaxX = xValue
+                        rpm4Max = rpmValue
                     End If
                 End If
 
@@ -897,38 +910,38 @@ Public Class AnalysisForm
                 Case 0
                     lblFile1.Text = clbFiles.Items.Item(i).ToString()
                     lblXMax1.Text = Main.NewCustomFormat(x1Max)
-                    lblY1Max1.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit
-                    lblY2Max1.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit
-                    lblY3Max1.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit
-                    lblY4Max1.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit
+                    lblY1Max1.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm1Max) & " " & rpmUnit
+                    lblY2Max1.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm2Max) & " " & rpmUnit
+                    lblY3Max1.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm3Max) & " " & rpmUnit
+                    lblY4Max1.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm4Max) & " " & rpmUnit
                 Case 1
                     lblFile2.Text = clbFiles.Items.Item(i).ToString()
                     lblXMax2.Text = Main.NewCustomFormat(x1Max)
-                    lblY1Max2.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit
-                    lblY2Max2.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit
-                    lblY3Max2.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit
-                    lblY4Max2.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit
+                    lblY1Max2.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm1Max) & " " & rpmUnit
+                    lblY2Max2.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm2Max) & " " & rpmUnit
+                    lblY3Max2.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm3Max) & " " & rpmUnit
+                    lblY4Max2.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm4Max) & " " & rpmUnit
                 Case 2
                     lblFile3.Text = clbFiles.Items.Item(i).ToString()
                     lblXMax3.Text = Main.NewCustomFormat(x1Max)
-                    lblY1Max3.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit
-                    lblY2Max3.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit
-                    lblY3Max3.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit
-                    lblY4Max3.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit
+                    lblY1Max3.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm1Max) & " " & rpmUnit
+                    lblY2Max3.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm2Max) & " " & rpmUnit
+                    lblY3Max3.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm3Max) & " " & rpmUnit
+                    lblY4Max3.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm4Max) & " " & rpmUnit
                 Case 3
                     lblFile4.Text = clbFiles.Items.Item(i).ToString()
                     lblXMax4.Text = Main.NewCustomFormat(x1Max)
-                    lblY1Max4.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit
-                    lblY2Max4.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit
-                    lblY3Max4.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit
-                    lblY4Max4.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit
+                    lblY1Max4.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm1Max) & " " & rpmUnit
+                    lblY2Max4.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm2Max) & " " & rpmUnit
+                    lblY3Max4.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm3Max) & " " & rpmUnit
+                    lblY4Max4.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm4Max) & " " & rpmUnit
                 Case 4
                     lblFile5.Text = clbFiles.Items.Item(i).ToString()
                     lblXMax5.Text = Main.NewCustomFormat(x1Max)
-                    lblY1Max5.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit
-                    lblY2Max5.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit
-                    lblY3Max5.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit
-                    lblY4Max5.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit
+                    lblY1Max5.Text = Main.NewCustomFormat(y1Max) & " @ " & Main.NewCustomFormat(y1MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm1Max) & " " & rpmUnit
+                    lblY2Max5.Text = Main.NewCustomFormat(y2Max) & " @ " & Main.NewCustomFormat(y2MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm2Max) & " " & rpmUnit
+                    lblY3Max5.Text = Main.NewCustomFormat(y3Max) & " @ " & Main.NewCustomFormat(y3MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm3Max) & " " & rpmUnit
+                    lblY4Max5.Text = Main.NewCustomFormat(y4Max) & " @ " & Main.NewCustomFormat(y4MaxX) & " " & xAxisUnit & " @ " & Main.NewCustomFormat(rpm4Max) & " " & rpmUnit
             End Select
 
             row = row + 1
