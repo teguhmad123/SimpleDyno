@@ -1824,7 +1824,7 @@ Public Class Main
         DataUnits(RPM1_MOTOR, 1) = 60 / (2 * Math.PI)
         DataActions(RPM1_MOTOR) = Function(x) x.RPM1_Motor
 
-        DataTags(RPM2) = "RPM2"
+        DataTags(RPM2) = "Engine RPM"
         DataUnitTags(RPM2) = "rad/s RPM"
         DataUnits(RPM2, 0) = 1
         DataUnits(RPM2, 1) = 60 / (2 * Math.PI)
