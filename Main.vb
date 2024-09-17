@@ -150,6 +150,22 @@ Public Class Main
     Private Const MAXIMUM As Integer = 2
     Private Const MINCURMAXPOINTER As Integer = 3
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents AGaugeRPM As AGauge
+    Friend WithEvents LabelRPM As Label
+    Friend WithEvents LabelSubRPM As Label
+    Friend WithEvents LabelValRPM As Label
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents LabelValSpeed As Label
+    Friend WithEvents LabelSubSpeed As Label
+    Friend WithEvents LabelSpeed As Label
+    Friend WithEvents AGaugeSpeed As AGauge
+    Friend WithEvents LabelValAFR As Label
+    Friend WithEvents LabelAFR As Label
+    Friend WithEvents AGaugeAFR As AGauge
+    Friend WithEvents LabelPower As Label
+    Friend WithEvents LabelValPower As Label
+    Friend WithEvents LabelValMotorTorque As Label
+    Friend WithEvents LabelMotorTorque As Label
 
 #End Region
 #Region "SimpleDyno Function Declarations"
@@ -491,6 +507,7 @@ Public Class Main
     Friend WithEvents cmbBufferSize As System.Windows.Forms.ComboBox
     Friend WithEvents btnPerformanceTest As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.btnStartLoggingRaw = New System.Windows.Forms.Button()
@@ -528,7 +545,23 @@ Public Class Main
         Me.cmbBufferSize = New System.Windows.Forms.ComboBox()
         Me.btnPerformanceTest = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.AGaugeRPM = New System.Windows.Forms.AGauge()
         Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
+        Me.LabelRPM = New System.Windows.Forms.Label()
+        Me.LabelSubRPM = New System.Windows.Forms.Label()
+        Me.LabelValRPM = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.LabelValSpeed = New System.Windows.Forms.Label()
+        Me.LabelSubSpeed = New System.Windows.Forms.Label()
+        Me.LabelSpeed = New System.Windows.Forms.Label()
+        Me.AGaugeSpeed = New System.Windows.Forms.AGauge()
+        Me.LabelValAFR = New System.Windows.Forms.Label()
+        Me.LabelAFR = New System.Windows.Forms.Label()
+        Me.AGaugeAFR = New System.Windows.Forms.AGauge()
+        Me.LabelPower = New System.Windows.Forms.Label()
+        Me.LabelValPower = New System.Windows.Forms.Label()
+        Me.LabelValMotorTorque = New System.Windows.Forms.Label()
+        Me.LabelMotorTorque = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'SaveFileDialog1
@@ -847,7 +880,6 @@ Public Class Main
         Me.txtInterface.Size = New System.Drawing.Size(23, 21)
         Me.txtInterface.TabIndex = 175
         Me.txtInterface.Tag = ""
-        Me.txtInterface.Text = Path.Combine(Me.SettingsDirectory, "DefaultView.sdi")
         Me.txtInterface.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtInterface.Visible = False
         '
@@ -892,6 +924,51 @@ Public Class Main
         Me.Button1.TabIndex = 185
         Me.Button1.Text = "Correction"
         '
+        'AGaugeRPM
+        '
+        Me.AGaugeRPM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AGaugeRPM.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGaugeRPM.BaseArcRadius = 250
+        Me.AGaugeRPM.BaseArcStart = 135
+        Me.AGaugeRPM.BaseArcSweep = 270
+        Me.AGaugeRPM.BaseArcWidth = 2
+        Me.AGaugeRPM.Center = New System.Drawing.Point(255, 255)
+        Me.AGaugeRPM.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGaugeRPM.Location = New System.Drawing.Point(18, 137)
+        Me.AGaugeRPM.MaxValue = 18.0!
+        Me.AGaugeRPM.MinValue = 0!
+        Me.AGaugeRPM.Name = "AGaugeRPM"
+        Me.AGaugeRPM.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGaugeRPM.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGaugeRPM.NeedleRadius = 230
+        Me.AGaugeRPM.NeedleType = System.Windows.Forms.NeedleType.Advance
+        Me.AGaugeRPM.NeedleWidth = 2
+        Me.AGaugeRPM.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGaugeRPM.ScaleLinesInterInnerRadius = 230
+        Me.AGaugeRPM.ScaleLinesInterOuterRadius = 220
+        Me.AGaugeRPM.ScaleLinesInterWidth = 1
+        Me.AGaugeRPM.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGaugeRPM.ScaleLinesMajorInnerRadius = 230
+        Me.AGaugeRPM.ScaleLinesMajorOuterRadius = 215
+        Me.AGaugeRPM.ScaleLinesMajorStepValue = 1.0!
+        Me.AGaugeRPM.ScaleLinesMajorWidth = 2
+        Me.AGaugeRPM.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGaugeRPM.ScaleLinesMinorInnerRadius = 230
+        Me.AGaugeRPM.ScaleLinesMinorOuterRadius = 225
+        Me.AGaugeRPM.ScaleLinesMinorTicks = 9
+        Me.AGaugeRPM.ScaleLinesMinorWidth = 1
+        Me.AGaugeRPM.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGaugeRPM.ScaleNumbersFormat = Nothing
+        Me.AGaugeRPM.ScaleNumbersRadius = 240
+        Me.AGaugeRPM.ScaleNumbersRotation = 0
+        Me.AGaugeRPM.ScaleNumbersStartScaleLine = 0
+        Me.AGaugeRPM.ScaleNumbersStepScaleLines = 1
+        Me.AGaugeRPM.Size = New System.Drawing.Size(512, 451)
+        Me.AGaugeRPM.TabIndex = 188
+        Me.AGaugeRPM.Tag = ""
+        Me.AGaugeRPM.Text = "AGauge1"
+        Me.AGaugeRPM.Value = 0!
+        '
         'pnlSignalWindow
         '
         Me.pnlSignalWindow.BackColor = System.Drawing.SystemColors.Control
@@ -902,12 +979,252 @@ Public Class Main
         Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
         Me.pnlSignalWindow.TabIndex = 33
         '
+        'LabelRPM
+        '
+        Me.LabelRPM.AutoSize = True
+        Me.LabelRPM.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelRPM.Location = New System.Drawing.Point(208, 257)
+        Me.LabelRPM.Name = "LabelRPM"
+        Me.LabelRPM.Size = New System.Drawing.Size(134, 25)
+        Me.LabelRPM.TabIndex = 189
+        Me.LabelRPM.Text = "ENGINE RPM"
+        '
+        'LabelSubRPM
+        '
+        Me.LabelSubRPM.AutoSize = True
+        Me.LabelSubRPM.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.LabelSubRPM.Location = New System.Drawing.Point(235, 282)
+        Me.LabelSubRPM.Name = "LabelSubRPM"
+        Me.LabelSubRPM.Size = New System.Drawing.Size(75, 16)
+        Me.LabelSubRPM.TabIndex = 190
+        Me.LabelSubRPM.Text = "x1000(rpm)"
+        '
+        'LabelValRPM
+        '
+        Me.LabelValRPM.AutoSize = True
+        Me.LabelValRPM.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValRPM.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValRPM.Location = New System.Drawing.Point(234, 500)
+        Me.LabelValRPM.Name = "LabelValRPM"
+        Me.LabelValRPM.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValRPM.TabIndex = 191
+        Me.LabelValRPM.Text = "00000"
+        Me.LabelValRPM.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
+        '
+        'LabelValSpeed
+        '
+        Me.LabelValSpeed.AutoSize = True
+        Me.LabelValSpeed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValSpeed.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValSpeed.Location = New System.Drawing.Point(1562, 500)
+        Me.LabelValSpeed.Name = "LabelValSpeed"
+        Me.LabelValSpeed.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValSpeed.TabIndex = 195
+        Me.LabelValSpeed.Text = "00000"
+        Me.LabelValSpeed.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'LabelSubSpeed
+        '
+        Me.LabelSubSpeed.AutoSize = True
+        Me.LabelSubSpeed.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.LabelSubSpeed.Location = New System.Drawing.Point(1583, 282)
+        Me.LabelSubSpeed.Name = "LabelSubSpeed"
+        Me.LabelSubSpeed.Size = New System.Drawing.Size(30, 16)
+        Me.LabelSubSpeed.TabIndex = 194
+        Me.LabelSubSpeed.Text = "KPH"
+        '
+        'LabelSpeed
+        '
+        Me.LabelSpeed.AutoSize = True
+        Me.LabelSpeed.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelSpeed.Location = New System.Drawing.Point(1559, 257)
+        Me.LabelSpeed.Name = "LabelSpeed"
+        Me.LabelSpeed.Size = New System.Drawing.Size(74, 25)
+        Me.LabelSpeed.TabIndex = 193
+        Me.LabelSpeed.Text = "SPEED"
+        '
+        'AGaugeSpeed
+        '
+        Me.AGaugeSpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AGaugeSpeed.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGaugeSpeed.BaseArcRadius = 250
+        Me.AGaugeSpeed.BaseArcStart = 135
+        Me.AGaugeSpeed.BaseArcSweep = 270
+        Me.AGaugeSpeed.BaseArcWidth = 2
+        Me.AGaugeSpeed.Center = New System.Drawing.Point(255, 255)
+        Me.AGaugeSpeed.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGaugeSpeed.Location = New System.Drawing.Point(1346, 137)
+        Me.AGaugeSpeed.MaxValue = 180.0!
+        Me.AGaugeSpeed.MinValue = 0!
+        Me.AGaugeSpeed.Name = "AGaugeSpeed"
+        Me.AGaugeSpeed.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGaugeSpeed.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGaugeSpeed.NeedleRadius = 230
+        Me.AGaugeSpeed.NeedleType = System.Windows.Forms.NeedleType.Advance
+        Me.AGaugeSpeed.NeedleWidth = 2
+        Me.AGaugeSpeed.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGaugeSpeed.ScaleLinesInterInnerRadius = 225
+        Me.AGaugeSpeed.ScaleLinesInterOuterRadius = 215
+        Me.AGaugeSpeed.ScaleLinesInterWidth = 1
+        Me.AGaugeSpeed.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGaugeSpeed.ScaleLinesMajorInnerRadius = 225
+        Me.AGaugeSpeed.ScaleLinesMajorOuterRadius = 210
+        Me.AGaugeSpeed.ScaleLinesMajorStepValue = 10.0!
+        Me.AGaugeSpeed.ScaleLinesMajorWidth = 2
+        Me.AGaugeSpeed.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGaugeSpeed.ScaleLinesMinorInnerRadius = 225
+        Me.AGaugeSpeed.ScaleLinesMinorOuterRadius = 220
+        Me.AGaugeSpeed.ScaleLinesMinorTicks = 9
+        Me.AGaugeSpeed.ScaleLinesMinorWidth = 1
+        Me.AGaugeSpeed.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGaugeSpeed.ScaleNumbersFormat = Nothing
+        Me.AGaugeSpeed.ScaleNumbersRadius = 235
+        Me.AGaugeSpeed.ScaleNumbersRotation = 0
+        Me.AGaugeSpeed.ScaleNumbersStartScaleLine = 0
+        Me.AGaugeSpeed.ScaleNumbersStepScaleLines = 1
+        Me.AGaugeSpeed.Size = New System.Drawing.Size(512, 451)
+        Me.AGaugeSpeed.TabIndex = 192
+        Me.AGaugeSpeed.Tag = ""
+        Me.AGaugeSpeed.Text = "AGaugeSpeed"
+        Me.AGaugeSpeed.Value = 0!
+        '
+        'LabelValAFR
+        '
+        Me.LabelValAFR.AutoSize = True
+        Me.LabelValAFR.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValAFR.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValAFR.Location = New System.Drawing.Point(902, 477)
+        Me.LabelValAFR.Name = "LabelValAFR"
+        Me.LabelValAFR.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValAFR.TabIndex = 199
+        Me.LabelValAFR.Text = "00000"
+        Me.LabelValAFR.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'LabelAFR
+        '
+        Me.LabelAFR.AutoSize = True
+        Me.LabelAFR.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelAFR.Location = New System.Drawing.Point(914, 281)
+        Me.LabelAFR.Name = "LabelAFR"
+        Me.LabelAFR.Size = New System.Drawing.Size(49, 25)
+        Me.LabelAFR.TabIndex = 197
+        Me.LabelAFR.Text = "AFR"
+        '
+        'AGaugeAFR
+        '
+        Me.AGaugeAFR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AGaugeAFR.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGaugeAFR.BaseArcRadius = 200
+        Me.AGaugeAFR.BaseArcStart = 135
+        Me.AGaugeAFR.BaseArcSweep = 270
+        Me.AGaugeAFR.BaseArcWidth = 2
+        Me.AGaugeAFR.Center = New System.Drawing.Point(255, 255)
+        Me.AGaugeAFR.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGaugeAFR.Location = New System.Drawing.Point(685, 137)
+        Me.AGaugeAFR.MaxValue = 18.0!
+        Me.AGaugeAFR.MinValue = 10.0!
+        Me.AGaugeAFR.Name = "AGaugeAFR"
+        Me.AGaugeAFR.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGaugeAFR.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGaugeAFR.NeedleRadius = 180
+        Me.AGaugeAFR.NeedleType = System.Windows.Forms.NeedleType.Advance
+        Me.AGaugeAFR.NeedleWidth = 2
+        Me.AGaugeAFR.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGaugeAFR.ScaleLinesInterInnerRadius = 180
+        Me.AGaugeAFR.ScaleLinesInterOuterRadius = 170
+        Me.AGaugeAFR.ScaleLinesInterWidth = 1
+        Me.AGaugeAFR.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGaugeAFR.ScaleLinesMajorInnerRadius = 180
+        Me.AGaugeAFR.ScaleLinesMajorOuterRadius = 165
+        Me.AGaugeAFR.ScaleLinesMajorStepValue = 1.0!
+        Me.AGaugeAFR.ScaleLinesMajorWidth = 2
+        Me.AGaugeAFR.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGaugeAFR.ScaleLinesMinorInnerRadius = 180
+        Me.AGaugeAFR.ScaleLinesMinorOuterRadius = 175
+        Me.AGaugeAFR.ScaleLinesMinorTicks = 9
+        Me.AGaugeAFR.ScaleLinesMinorWidth = 1
+        Me.AGaugeAFR.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGaugeAFR.ScaleNumbersFormat = Nothing
+        Me.AGaugeAFR.ScaleNumbersRadius = 190
+        Me.AGaugeAFR.ScaleNumbersRotation = 0
+        Me.AGaugeAFR.ScaleNumbersStartScaleLine = 0
+        Me.AGaugeAFR.ScaleNumbersStepScaleLines = 1
+        Me.AGaugeAFR.Size = New System.Drawing.Size(512, 451)
+        Me.AGaugeAFR.TabIndex = 196
+        Me.AGaugeAFR.Tag = ""
+        Me.AGaugeAFR.Text = "AGaugeAFR"
+        Me.AGaugeAFR.Value = 10.0!
+        '
+        'LabelPower
+        '
+        Me.LabelPower.AutoSize = True
+        Me.LabelPower.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelPower.Location = New System.Drawing.Point(565, 282)
+        Me.LabelPower.Name = "LabelPower"
+        Me.LabelPower.Size = New System.Drawing.Size(129, 27)
+        Me.LabelPower.TabIndex = 200
+        Me.LabelPower.Text = "POWER(Hp)"
+        '
+        'LabelValPower
+        '
+        Me.LabelValPower.AutoSize = True
+        Me.LabelValPower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValPower.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValPower.Location = New System.Drawing.Point(586, 343)
+        Me.LabelValPower.Name = "LabelValPower"
+        Me.LabelValPower.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValPower.TabIndex = 201
+        Me.LabelValPower.Text = "00000"
+        Me.LabelValPower.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'LabelValMotorTorque
+        '
+        Me.LabelValMotorTorque.AutoSize = True
+        Me.LabelValMotorTorque.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValMotorTorque.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValMotorTorque.Location = New System.Drawing.Point(1212, 343)
+        Me.LabelValMotorTorque.Name = "LabelValMotorTorque"
+        Me.LabelValMotorTorque.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValMotorTorque.TabIndex = 203
+        Me.LabelValMotorTorque.Text = "00000"
+        Me.LabelValMotorTorque.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'LabelMotorTorque
+        '
+        Me.LabelMotorTorque.AutoSize = True
+        Me.LabelMotorTorque.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelMotorTorque.Location = New System.Drawing.Point(1147, 282)
+        Me.LabelMotorTorque.Name = "LabelMotorTorque"
+        Me.LabelMotorTorque.Size = New System.Drawing.Size(193, 27)
+        Me.LabelMotorTorque.TabIndex = 202
+        Me.LabelMotorTorque.Text = "Motor Torque(Nm)"
+        '
         'Main
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.AutoScroll = True
         Me.CausesValidation = False
-        Me.ClientSize = New System.Drawing.Size(626, 112)
+        Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.Controls.Add(Me.LabelValMotorTorque)
+        Me.Controls.Add(Me.LabelMotorTorque)
+        Me.Controls.Add(Me.LabelValPower)
+        Me.Controls.Add(Me.LabelPower)
+        Me.Controls.Add(Me.LabelValAFR)
+        Me.Controls.Add(Me.LabelAFR)
+        Me.Controls.Add(Me.AGaugeAFR)
+        Me.Controls.Add(Me.LabelValSpeed)
+        Me.Controls.Add(Me.LabelSubSpeed)
+        Me.Controls.Add(Me.LabelSpeed)
+        Me.Controls.Add(Me.AGaugeSpeed)
+        Me.Controls.Add(Me.LabelValRPM)
+        Me.Controls.Add(Me.LabelSubRPM)
+        Me.Controls.Add(Me.LabelRPM)
+        Me.Controls.Add(Me.AGaugeRPM)
         Me.Controls.Add(Me.txtThreshold1)
         Me.Controls.Add(Me.pnlSignalWindow)
         Me.Controls.Add(Me.txtThreshold2)
@@ -1287,8 +1604,8 @@ Public Class Main
                     .WriteLine("Target_MOI: " & Main.IdealMomentOfInertia.ToString & " kg/m2")
                     .WriteLine("Actual_MOI: " & Main.DynoMomentOfInertia.ToString & " kg/m2")
                     .WriteLine("Target_Roller_Mass: " & Main.IdealRollerMass.ToString & " grams")
-                    .WriteLine("Signals_Per_RPM1: " & Main.frmDyno.SignalsPerRPM.ToString)
-                    .WriteLine("Signals_Per_RPM2: " & Main.frmDyno.SignalsPerRPM2.ToString)
+                    .WriteLine("Signals_Per_Roller_RPM: " & Main.frmDyno.SignalsPerRPM.ToString)
+                    .WriteLine("Signals_Per_Engine_RPM: " & Main.frmDyno.SignalsPerRPM2.ToString)
                     .WriteLine("Channel_1_Threshold " & HighSignalThreshold.ToString)
                     .WriteLine("Channel_2_Threshold " & HighSignalThreshold2.ToString)
                     'The following not needed for Log Raw
@@ -1806,7 +2123,7 @@ Public Class Main
         DataAreUsed(CORRECTED_TORQUE_ROLLER) = False
         DataAreUsed(CORRECTED_TORQUE_WHEEL) = False
 
-        DataTags(RPM1_ROLLER) = "RPM1 Roller"
+        DataTags(RPM1_ROLLER) = "Roller RPM"
         DataUnitTags(RPM1_ROLLER) = "rad/s RPM"
         DataUnits(RPM1_ROLLER, 0) = 1
         DataUnits(RPM1_ROLLER, 1) = 60 / (2 * Math.PI)
@@ -1923,13 +2240,13 @@ Public Class Main
         DataActions(CORRECTED_EFFICIENCY) = Function(x) x.Corr_Efficiency
 
         DataTags(TEMPERATURE1) = "Temperature1"
-        DataUnitTags(TEMPERATURE1) = "°C"
+        DataUnitTags(TEMPERATURE1) = "Â°C"
         DataUnits(TEMPERATURE1, 0) = 1
         Data(TEMPERATURE1, MINIMUM) = 10000
         DataActions(TEMPERATURE1) = Function(x) x.Temperature1
 
         DataTags(TEMPERATURE2) = "Temperature2"
-        DataUnitTags(TEMPERATURE2) = "°C"
+        DataUnitTags(TEMPERATURE2) = "Â°C"
         DataUnits(TEMPERATURE2, 0) = 1
         Data(TEMPERATURE1, MINIMUM) = 10000
         DataActions(TEMPERATURE2) = Function(x) x.Temperature2
@@ -2043,7 +2360,7 @@ Public Class Main
         DataUnits(CORRECTED_POWER_MOTOR, 0) = 1
         DataUnits(CORRECTED_POWER_MOTOR, 1) = 0.001
         DataUnits(CORRECTED_POWER_MOTOR, 2) = 0.00134
-        DataActions(CORRECTED_POWER_MOTOR) = Function(x) x.Corr_Motor_Power 
+        DataActions(CORRECTED_POWER_MOTOR) = Function(x) x.Corr_Motor_Power
 
 #If QueryPerformance Then
         DataTags(PERFORMANCE) = "Performance"
@@ -2419,95 +2736,95 @@ Public Class Main
                                     End If
                             End Select
                         End If
+                    End If
+                    If (WhichSignal = HIGHSIGNAL AndAlso RawWaveData(j) <= HighSignalThreshold - 3) Or (WhichSignal = LOWSIGNAL AndAlso RawWaveData(j) >= HighSignalThreshold + 3) Then
+                        If FoundHighSignal = True Then
+                            Data(CHAN1_PULSEWIDTH, ACTUAL) = k * BytesToSeconds * 1000
+                            If Data(CHAN1_PULSEWIDTH, ACTUAL) > Data(CHAN1_PULSEWIDTH, MAXIMUM) Then Data(CHAN1_PULSEWIDTH, MAXIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+                            If Data(CHAN1_PULSEWIDTH, ACTUAL) < Data(CHAN1_PULSEWIDTH, MINIMUM) Then Data(CHAN1_PULSEWIDTH, MINIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+                            k = 0
+                            Data(CHAN1_DUTYCYCLE, ACTUAL) = Data(CHAN1_PULSEWIDTH, ACTUAL) * Data(CHAN1_FREQUENCY, ACTUAL) / 10
+                            If Data(CHAN1_DUTYCYCLE, ACTUAL) > Data(CHAN1_DUTYCYCLE, MAXIMUM) Then Data(CHAN1_DUTYCYCLE, MAXIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
+                            If Data(CHAN1_DUTYCYCLE, ACTUAL) < Data(CHAN1_DUTYCYCLE, MINIMUM) Then Data(CHAN1_DUTYCYCLE, MINIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
                         End If
-                        If (WhichSignal = HIGHSIGNAL AndAlso RawWaveData(j) <= HighSignalThreshold - 3) Or (WhichSignal = LOWSIGNAL AndAlso RawWaveData(j) >= HighSignalThreshold + 3) Then
-                            If FoundHighSignal = True Then
-                                Data(CHAN1_PULSEWIDTH, ACTUAL) = k * BytesToSeconds * 1000
-                                If Data(CHAN1_PULSEWIDTH, ACTUAL) > Data(CHAN1_PULSEWIDTH, MAXIMUM) Then Data(CHAN1_PULSEWIDTH, MAXIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                                If Data(CHAN1_PULSEWIDTH, ACTUAL) < Data(CHAN1_PULSEWIDTH, MINIMUM) Then Data(CHAN1_PULSEWIDTH, MINIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                                k = 0
-                                Data(CHAN1_DUTYCYCLE, ACTUAL) = Data(CHAN1_PULSEWIDTH, ACTUAL) * Data(CHAN1_FREQUENCY, ACTUAL) / 10
-                                If Data(CHAN1_DUTYCYCLE, ACTUAL) > Data(CHAN1_DUTYCYCLE, MAXIMUM) Then Data(CHAN1_DUTYCYCLE, MAXIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                                If Data(CHAN1_DUTYCYCLE, ACTUAL) < Data(CHAN1_DUTYCYCLE, MINIMUM) Then Data(CHAN1_DUTYCYCLE, MINIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                            End If
-                            FoundHighSignal = False
-                        End If
+                        FoundHighSignal = False
+                    End If
 
-                        LastSignal = RawWaveData(j) 'remember the last high signal and the current correction time
+                    LastSignal = RawWaveData(j) 'remember the last high signal and the current correction time
 
-                        If NUMBER_OF_CHANNELS = 2 Then
+                    If NUMBER_OF_CHANNELS = 2 Then
 
-                            SignalWindowBMP.DrawLine(Channel2ThresholdPen, 0, SignalThreshold2YConverted, PicSignalWidth, SignalThreshold2YConverted)
-                            NextYPosition2 = CInt(PicSignalHeight - RawWaveData(j + 1) * SignalYConversion) + 1    'calculate coordinate for next channel 2 signal point
-                            SignalWindowBMP.DrawLine(Channel2SignalPen, CInt(CurrentSignalXPosition - SignalXConversion), LastYPosition2, CInt(CurrentSignalXPosition), NextYPosition2) 'draw line to the newly calculated point...
-                            LastYPosition2 = NextYPosition2 '...and remember the new position for the next cycle
+                        SignalWindowBMP.DrawLine(Channel2ThresholdPen, 0, SignalThreshold2YConverted, PicSignalWidth, SignalThreshold2YConverted)
+                        NextYPosition2 = CInt(PicSignalHeight - RawWaveData(j + 1) * SignalYConversion) + 1    'calculate coordinate for next channel 2 signal point
+                        SignalWindowBMP.DrawLine(Channel2SignalPen, CInt(CurrentSignalXPosition - SignalXConversion), LastYPosition2, CInt(CurrentSignalXPosition), NextYPosition2) 'draw line to the newly calculated point...
+                        LastYPosition2 = NextYPosition2 '...and remember the new position for the next cycle
 
-                            If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) > HighSignalThreshold2) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) < HighSignalThreshold2) Then 'Check is we have found a signal depending on where the threshold line is set
+                        If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) > HighSignalThreshold2) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) < HighSignalThreshold2) Then 'Check is we have found a signal depending on where the threshold line is set
 
-                                k2 = k2 + NUMBER_OF_CHANNELS 'count bytes for channel 2 pulsewidth
+                            k2 = k2 + NUMBER_OF_CHANNELS 'count bytes for channel 2 pulsewidth
 
-                                If FoundHighSignal2 = False Then    'if FoundHighSigal is false, then this is the start of a new pulse not the middle of an existing pulse
+                            If FoundHighSignal2 = False Then    'if FoundHighSigal is false, then this is the start of a new pulse not the middle of an existing pulse
 
-                                    FoundHighSignal2 = True 'flag that we are in the middle of a pulse
+                                FoundHighSignal2 = True 'flag that we are in the middle of a pulse
 
-                                    Select Case UseAdvancedProcessing 'Calculate elapsed time simply by the byte count since last or by interpolation through the threshold line
-                                        Case Is = False
-                                            ElapsedTime2 = (j + 1 - LastHighBufferPosition2) * BytesToSeconds 'calculate the elapsed time by multiplying the number of bytes since the last pulse 'by the time taken for each byte (which depends on the sampling rate)
-                                        Case Is = True
-                                            NewElapsedTimeCorrection2 = Math.Abs((RawWaveData(j + 1) - HighSignalThreshold) / (RawWaveData(j + 1) - LastSignal2))
-                                            ElapsedTime2 = ((j + 1 - LastHighBufferPosition2) + OldElapsedTimeCorrection2 - NewElapsedTimeCorrection2) * BytesToSeconds
-                                            OldElapsedTimeCorrection2 = NewElapsedTimeCorrection2
-                                    End Select
+                                Select Case UseAdvancedProcessing 'Calculate elapsed time simply by the byte count since last or by interpolation through the threshold line
+                                    Case Is = False
+                                        ElapsedTime2 = (j + 1 - LastHighBufferPosition2) * BytesToSeconds 'calculate the elapsed time by multiplying the number of bytes since the last pulse 'by the time taken for each byte (which depends on the sampling rate)
+                                    Case Is = True
+                                        NewElapsedTimeCorrection2 = Math.Abs((RawWaveData(j + 1) - HighSignalThreshold) / (RawWaveData(j + 1) - LastSignal2))
+                                        ElapsedTime2 = ((j + 1 - LastHighBufferPosition2) + OldElapsedTimeCorrection2 - NewElapsedTimeCorrection2) * BytesToSeconds
+                                        OldElapsedTimeCorrection2 = NewElapsedTimeCorrection2
+                                End Select
 
-                                    LastHighBufferPosition2 = j + 1   'set the current buffer position for the next pulse
+                                LastHighBufferPosition2 = j + 1   'set the current buffer position for the next pulse
 
-                                    Data(CHAN2_FREQUENCY, ACTUAL) = 1 / ElapsedTime2 'calculate frequency for scope work 
-                                    If Data(CHAN2_FREQUENCY, ACTUAL) > Data(CHAN2_FREQUENCY, MAXIMUM) Then Data(CHAN2_FREQUENCY, MAXIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
-                                    If Data(CHAN2_FREQUENCY, ACTUAL) < Data(CHAN2_FREQUENCY, MINIMUM) Then Data(CHAN2_FREQUENCY, MINIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
+                                Data(CHAN2_FREQUENCY, ACTUAL) = 1 / ElapsedTime2 'calculate frequency for scope work 
+                                If Data(CHAN2_FREQUENCY, ACTUAL) > Data(CHAN2_FREQUENCY, MAXIMUM) Then Data(CHAN2_FREQUENCY, MAXIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
+                                If Data(CHAN2_FREQUENCY, ACTUAL) < Data(CHAN2_FREQUENCY, MINIMUM) Then Data(CHAN2_FREQUENCY, MINIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
 
 
-                                    Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / ElapsedTime2 'calculate roller angular velocity in Rad/s
-                                    Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'calculate the ratios between RPM2 and RPM1 - wheel
+                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / ElapsedTime2 'calculate roller angular velocity in Rad/s
+                                Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'calculate the ratios between RPM2 and RPM1 - wheel
 
-                                    Data(RPM2_ROLLOUT, ACTUAL) = WheelCircumference / Data(RPM2_RATIO, ACTUAL) 'calculate Rollout (default unit is mm).  This assumes RPM2 is measuring motor RPM   'Rollout is the number of mm traveled for 1 rotation of the wheel
+                                Data(RPM2_ROLLOUT, ACTUAL) = WheelCircumference / Data(RPM2_RATIO, ACTUAL) 'calculate Rollout (default unit is mm).  This assumes RPM2 is measuring motor RPM   'Rollout is the number of mm traveled for 1 rotation of the wheel
 
-                                    If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then 'check and set maximum values for RPM2, Ratio and rollout
-                                        Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
-                                    End If
-                                    If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
-                                        Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
-                                    End If
-                                    If Data(RPM2_RATIO, ACTUAL) > Data(RPM2_RATIO, MAXIMUM) Then
-                                        Data(RPM2_RATIO, MAXIMUM) = Data(RPM2_RATIO, ACTUAL)
-                                    End If
-                                    If Data(RPM2_RATIO, ACTUAL) < Data(RPM2_RATIO, MINIMUM) Then
-                                        Data(RPM2_RATIO, MINIMUM) = Data(RPM2_RATIO, ACTUAL)
-                                    End If
-                                    If Data(RPM2_ROLLOUT, ACTUAL) > Data(RPM2_ROLLOUT, MAXIMUM) Then
-                                        Data(RPM2_ROLLOUT, MAXIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
-                                    End If
-                                    If Data(RPM2_ROLLOUT, ACTUAL) < Data(RPM2_ROLLOUT, MINIMUM) Then
-                                        Data(RPM2_ROLLOUT, MINIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
-                                    End If
+                                If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then 'check and set maximum values for RPM2, Ratio and rollout
+                                    Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
+                                End If
+                                If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
+                                    Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
+                                End If
+                                If Data(RPM2_RATIO, ACTUAL) > Data(RPM2_RATIO, MAXIMUM) Then
+                                    Data(RPM2_RATIO, MAXIMUM) = Data(RPM2_RATIO, ACTUAL)
+                                End If
+                                If Data(RPM2_RATIO, ACTUAL) < Data(RPM2_RATIO, MINIMUM) Then
+                                    Data(RPM2_RATIO, MINIMUM) = Data(RPM2_RATIO, ACTUAL)
+                                End If
+                                If Data(RPM2_ROLLOUT, ACTUAL) > Data(RPM2_ROLLOUT, MAXIMUM) Then
+                                    Data(RPM2_ROLLOUT, MAXIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
+                                End If
+                                If Data(RPM2_ROLLOUT, ACTUAL) < Data(RPM2_ROLLOUT, MINIMUM) Then
+                                    Data(RPM2_ROLLOUT, MINIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
                                 End If
                             End If
-                            If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) <= HighSignalThreshold2 - 3) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) >= HighSignalThreshold2 + 3) Then
-                                If FoundHighSignal2 = True Then
-                                    Data(CHAN2_PULSEWIDTH, ACTUAL) = k2 * BytesToSeconds * 1000
-                                    k2 = 0
-                                    If Data(CHAN2_PULSEWIDTH, ACTUAL) > Data(CHAN2_PULSEWIDTH, MAXIMUM) Then Data(CHAN2_PULSEWIDTH, MAXIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                                    If Data(CHAN2_PULSEWIDTH, ACTUAL) < Data(CHAN2_PULSEWIDTH, MINIMUM) Then Data(CHAN2_PULSEWIDTH, MINIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                                    Data(CHAN2_DUTYCYCLE, ACTUAL) = Data(CHAN2_PULSEWIDTH, ACTUAL) * Data(CHAN2_FREQUENCY, ACTUAL) / 10
-                                    If Data(CHAN2_DUTYCYCLE, ACTUAL) > Data(CHAN2_DUTYCYCLE, MAXIMUM) Then Data(CHAN2_DUTYCYCLE, MAXIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                                    If Data(CHAN2_DUTYCYCLE, ACTUAL) < Data(CHAN2_DUTYCYCLE, MINIMUM) Then Data(CHAN2_DUTYCYCLE, MINIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                                End If
-
-                                FoundHighSignal2 = False
-
-                            End If
-                            LastSignal2 = RawWaveData(j + 1) 'remember the last high signal and the current correction time
                         End If
-                        CurrentSignalXPosition = (CurrentSignalXPosition + SignalXConversion) Mod PicSignalWidth
+                        If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) <= HighSignalThreshold2 - 3) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) >= HighSignalThreshold2 + 3) Then
+                            If FoundHighSignal2 = True Then
+                                Data(CHAN2_PULSEWIDTH, ACTUAL) = k2 * BytesToSeconds * 1000
+                                k2 = 0
+                                If Data(CHAN2_PULSEWIDTH, ACTUAL) > Data(CHAN2_PULSEWIDTH, MAXIMUM) Then Data(CHAN2_PULSEWIDTH, MAXIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+                                If Data(CHAN2_PULSEWIDTH, ACTUAL) < Data(CHAN2_PULSEWIDTH, MINIMUM) Then Data(CHAN2_PULSEWIDTH, MINIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+                                Data(CHAN2_DUTYCYCLE, ACTUAL) = Data(CHAN2_PULSEWIDTH, ACTUAL) * Data(CHAN2_FREQUENCY, ACTUAL) / 10
+                                If Data(CHAN2_DUTYCYCLE, ACTUAL) > Data(CHAN2_DUTYCYCLE, MAXIMUM) Then Data(CHAN2_DUTYCYCLE, MAXIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+                                If Data(CHAN2_DUTYCYCLE, ACTUAL) < Data(CHAN2_DUTYCYCLE, MINIMUM) Then Data(CHAN2_DUTYCYCLE, MINIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+                            End If
+
+                            FoundHighSignal2 = False
+
+                        End If
+                        LastSignal2 = RawWaveData(j + 1) 'remember the last high signal and the current correction time
+                    End If
+                    CurrentSignalXPosition = (CurrentSignalXPosition + SignalXConversion) Mod PicSignalWidth
 
                 Next
 
@@ -2798,7 +3115,7 @@ Public Class Main
             DataAreUsed(PIN05VALUE) = False
         End If
 
-        
+
 
 
         btnResetMaxima_Click(Me, System.EventArgs.Empty)
@@ -2992,7 +3309,7 @@ Public Class Main
                                 End If
                                 Data(TORQUE_WHEEL, ACTUAL) = Data(POWER, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'back calculate the torque at the wheel and motor based on the calculated power
                                 Data(TORQUE_MOTOR, ACTUAL) = Data(POWER, ACTUAL) / Data(RPM1_MOTOR, ACTUAL)
-                            
+
                                 If Data(TORQUE_ROLLER, ACTUAL) > Data(TORQUE_ROLLER, MAXIMUM) Then 'set the maximum values for torque
                                     Data(TORQUE_ROLLER, MAXIMUM) = Data(TORQUE_ROLLER, ACTUAL)
                                     Data(TORQUE_WHEEL, MAXIMUM) = Data(TORQUE_WHEEL, ACTUAL)
@@ -3082,7 +3399,7 @@ Public Class Main
                             RPM2NewTriggerTime = CDbl(COMPortMessage(3)) / 1000000
                             RPM2ElapsedTime = CDbl(COMPortMessage(4)) / 1000000
                             If RPM2NewTriggerTime <> RPM2OldTriggerTime Then
-                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec / RPM2ElapsedTime
+                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / RPM2ElapsedTime
                                 Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL)
                                 Data(RPM2_ROLLOUT, ACTUAL) = WheelCircumference / Data(RPM2_RATIO, ACTUAL)
                                 If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then
@@ -3177,7 +3494,7 @@ Public Class Main
                     btnHide.Enabled = True
                     btnShow.Enabled = False
             End Select
-           
+
         End If
     End Sub
     Private Sub LoadInterface()
@@ -3269,8 +3586,8 @@ Public Class Main
                     InterfaceInputFile.Close()
                     InterfaceInputFile.Dispose()
             End Select
-           
-            
+
+
 
 
         End If
@@ -3569,8 +3886,22 @@ Public Class Main
     End Sub
 #End If
 #End Region
+    Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
 
-   
+        Me.AGaugeRPM.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
+        Me.LabelValRPM.Text = NewCustomFormat(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
+
+        Me.AGaugeSpeed.Value = CSng(Data(SPEED, ACTUAL) * DataUnits(SPEED, 2))
+        Me.LabelValSpeed.Text = NewCustomFormat(Data(SPEED, ACTUAL) * DataUnits(SPEED, 2))
+
+        Me.AGaugeAFR.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+        Me.LabelValAFR.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+
+        Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
+        Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
+    End Sub
+
+
 End Class
 #Region "DoubleBufferPanel Class"
 Public Class DoubleBufferPanel

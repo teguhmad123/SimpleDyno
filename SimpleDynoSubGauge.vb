@@ -87,12 +87,12 @@ Public Class SimpleDynoSubGauge
         Dim TempWidth As Double, TempHeight As Double, TempCenterX As Double, TempCenterY As Double
 
         For Arc As Integer = CInt(StartAngle) To CInt(StartAngle + Angle)
-            TempX = Math.Cos(ConvertedToRadians(360 - Arc))
-            TempY = Math.Sin(ConvertedToRadians(360 - Arc))
-            If TempX < MinX Then MinX = TempX
-            If TempX > MaxX Then MaxX = TempX
-            If TempY < MinY Then MinY = TempY
-            If TempY > MaxY Then MaxY = TempY
+        TempX = Math.Cos(ConvertedToRadians(360 - Arc))
+        TempY = Math.Sin(ConvertedToRadians(360 - Arc))
+        If TempX < MinX Then MinX = TempX
+        If TempX > MaxX Then MaxX = TempX
+        If TempY < MinY Then MinY = TempY
+        If TempY > MaxY Then MaxY = TempY
         Next
 
         MaxX = (CInt(MaxX * 1000) / 1000)
@@ -160,7 +160,7 @@ Public Class SimpleDynoSubGauge
                 Else
                     TickLabels(Count) = NewCustomFormat(Y_Maximum(Y_Number_Allowed) - (Y_Maximum(Y_Number_Allowed) - Y_Minimum(Y_Number_Allowed)) / (NumberOfMajorTicks - 1) * (Count - 1))
                 End If
-Next
+            Next
             For Count = 1 To NumberOfMinorTicks
                 MinorTickOuter(Count).X = CInt(Center.X + .Width / 2 * Math.Cos(ConvertedToRadians(StartAngle + (Angle / (NumberOfMinorTicks - 1) * (Count - 1)))))
                 MinorTickOuter(Count).Y = CInt(Center.Y + .Height / 2 * Math.Sin(ConvertedToRadians(StartAngle + (Angle / (NumberOfMinorTicks - 1) * (Count - 1)))))

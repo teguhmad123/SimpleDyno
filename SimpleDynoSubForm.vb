@@ -55,7 +55,7 @@ Public MustInherit Class SimpleDynoSubForm
 
     Friend timer1 As System.Windows.Forms.Timer
     Friend TimerTiggered As Boolean
-    
+
     Friend Y_Number_Allowed As Integer
     Friend XY_Selected As Integer
 

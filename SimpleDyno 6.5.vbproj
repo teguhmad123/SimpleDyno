@@ -112,6 +112,9 @@
     <OptionInfer>Off</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AGauge, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\AGauge_V2.2.0.2\lib\AGauge.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.0.9.7\lib\net40\LiveCharts.dll</HintPath>
     </Reference>
