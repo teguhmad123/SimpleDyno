@@ -64,7 +64,7 @@ Public Class Fit
             Me.Hide()
             e.Cancel = True
             Main.RestartForms()
-            Main.btnShow_Click(Me, System.EventArgs.Empty)
+            'Main.btnShow_Click(Me, System.EventArgs.Empty)
         End If
     End Sub
     Private Sub scrlStartFit_Scroll(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles scrlStartFit.Scroll
@@ -348,7 +348,7 @@ Public Class Fit
                 blnVoltageFit = False
                 blnCurrentFit = False
 
-                Main.btnHide_Click(Me, System.EventArgs.Empty)
+                'Main.btnHide_Click(Me, System.EventArgs.Empty)
                 Me.Show()
 
 
@@ -358,7 +358,7 @@ Public Class Fit
                 '//////////////////////////////////////////////
 #If LoadOldPowerRunData = 1 Then
                 'If Main.GearRatio = 999.0 AndAlso inputdialog.FileName = "" Then
-                setxyc() 'reads an existing data file for the raw RPM numbers
+                'setxyc() 'reads an existing data file for the raw RPM numbers
                 'End If
 #End If
                 'Copy all collected data to fit data
@@ -1549,7 +1549,7 @@ Public Class Fit
     Private Sub btnDone_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddAnalysis.Click
         inputdialog.FileName = "" 'reset for the setxyc hack
         Me.Hide()
-        Main.btnStartLoggingRaw.Enabled = True
+        'Main.btnStartLoggingRaw.Enabled = True
         'If blnfit Then
         If blnRPMFit AndAlso blnCoastDownDownFit AndAlso blnVoltageFit AndAlso blnCurrentFit Then
             WritePowerFile()

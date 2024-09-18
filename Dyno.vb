@@ -31,7 +31,7 @@
         If e.CloseReason <> CloseReason.FormOwnerClosing Then
             Me.Hide()
             e.Cancel = True
-            Main.btnShow_click(Me, System.EventArgs.Empty)
+            'Main.btnShow_click(Me, System.EventArgs.Empty)
         End If
     End Sub
     Private Sub txtCarMass_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCarMass.Enter

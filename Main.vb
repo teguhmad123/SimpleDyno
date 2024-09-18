@@ -149,7 +149,6 @@ Public Class Main
     Private Const ACTUAL As Integer = 1
     Private Const MAXIMUM As Integer = 2
     Private Const MINCURMAXPOINTER As Integer = 3
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents AGaugeRPM As AGauge
     Friend WithEvents LabelRPM As Label
     Friend WithEvents LabelSubRPM As Label
@@ -166,6 +165,10 @@ Public Class Main
     Friend WithEvents LabelValPower As Label
     Friend WithEvents LabelValMotorTorque As Label
     Friend WithEvents LabelMotorTorque As Label
+    Friend WithEvents ButtonProfile As Button
+    '
+    'Friend WithEvents ButtonCorrection As Button
+    '
 
 #End Region
 #Region "SimpleDyno Function Declarations"
@@ -473,22 +476,26 @@ Public Class Main
     Friend WithEvents txtPowerRunThreshold As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents btnStartLoggingRaw As System.Windows.Forms.Button
-    Friend WithEvents btnResetMaxima As System.Windows.Forms.Button
+    '
+    'Friend WithEvents btnStartLoggingRaw As System.Windows.Forms.Button
+    'Friend WithEvents btnResetMaxima As System.Windows.Forms.Button
+    '
     Public WithEvents btnStartPowerRun As System.Windows.Forms.Button
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents txtZeroTimeDetect As System.Windows.Forms.TextBox
     Friend WithEvents lblZeroDetect As System.Windows.Forms.Label
     Friend WithEvents pnlSignalWindow As SimpleDyno.DoubleBufferPanel
-    Friend WithEvents btnClose As System.Windows.Forms.Button
-    Friend WithEvents btnMultiYTime As System.Windows.Forms.Button
-    Friend WithEvents btnNewGauge As System.Windows.Forms.Button
-    Friend WithEvents btnNewLabel As System.Windows.Forms.Button
-    Friend WithEvents btnShow As System.Windows.Forms.Button
-    Friend WithEvents btnHide As System.Windows.Forms.Button
-    Friend WithEvents btnSaveAs As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents btnLoad As System.Windows.Forms.Button
+    '
+    'Friend WithEvents btnClose As System.Windows.Forms.Button
+    'Friend WithEvents btnMultiYTime As System.Windows.Forms.Button
+    'Friend WithEvents btnNewGauge As System.Windows.Forms.Button
+    'Friend WithEvents btnNewLabel As System.Windows.Forms.Button
+    'Friend WithEvents btnShow As System.Windows.Forms.Button
+    'Friend WithEvents btnHide As System.Windows.Forms.Button
+    'Friend WithEvents btnSaveAs As System.Windows.Forms.Button
+    'Friend WithEvents btnSave As System.Windows.Forms.Button
+    'Friend WithEvents btnLoad As System.Windows.Forms.Button
+    '
     Friend WithEvents btnStartAcquisition As System.Windows.Forms.Button
     Friend WithEvents cmbAcquisition As System.Windows.Forms.ComboBox
     Friend WithEvents cmbSampleRate As System.Windows.Forms.ComboBox
@@ -501,7 +508,9 @@ Public Class Main
     Friend WithEvents btnCOM As System.Windows.Forms.Button
     Friend WithEvents btnAnalysis As System.Windows.Forms.Button
     Friend WithEvents btnDyno As System.Windows.Forms.Button
-    Friend WithEvents lblInterface As System.Windows.Forms.Label
+    '
+    'Friend WithEvents lblInterface As System.Windows.Forms.Label
+    '
     Friend WithEvents txtInterface As System.Windows.Forms.TextBox
     Friend WithEvents chkAdvancedProcessing As System.Windows.Forms.CheckBox
     Friend WithEvents cmbBufferSize As System.Windows.Forms.ComboBox
@@ -510,24 +519,30 @@ Public Class Main
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.btnStartLoggingRaw = New System.Windows.Forms.Button()
-        Me.btnResetMaxima = New System.Windows.Forms.Button()
+        '
+        'Me.btnStartLoggingRaw = New System.Windows.Forms.Button()
+        'Me.btnResetMaxima = New System.Windows.Forms.Button()
+        '
         Me.btnStartPowerRun = New System.Windows.Forms.Button()
         Me.btnCOM = New System.Windows.Forms.Button()
         Me.btnDyno = New System.Windows.Forms.Button()
         Me.btnAnalysis = New System.Windows.Forms.Button()
         Me.txtThreshold2 = New System.Windows.Forms.TextBox()
         Me.txtThreshold1 = New System.Windows.Forms.TextBox()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnMultiYTime = New System.Windows.Forms.Button()
-        Me.btnLoad = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnNewGauge = New System.Windows.Forms.Button()
-        Me.btnSaveAs = New System.Windows.Forms.Button()
+        '
+        'Me.btnClose = New System.Windows.Forms.Button()
+        'Me.btnMultiYTime = New System.Windows.Forms.Button()
+        'Me.btnLoad = New System.Windows.Forms.Button()
+        'Me.btnSave = New System.Windows.Forms.Button()
+        'Me.btnNewGauge = New System.Windows.Forms.Button()
+        'Me.btnSaveAs = New System.Windows.Forms.Button()
+        '
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.btnNewLabel = New System.Windows.Forms.Button()
-        Me.btnHide = New System.Windows.Forms.Button()
-        Me.btnShow = New System.Windows.Forms.Button()
+        '
+        'Me.btnNewLabel = New System.Windows.Forms.Button()
+        'Me.btnHide = New System.Windows.Forms.Button()
+        'Me.btnShow = New System.Windows.Forms.Button()
+        '
         Me.txtPowerRunThreshold = New System.Windows.Forms.TextBox()
         Me.txtZeroTimeDetect = New System.Windows.Forms.TextBox()
         Me.lblZeroDetect = New System.Windows.Forms.Label()
@@ -539,14 +554,20 @@ Public Class Main
         Me.cmbCOMPorts = New System.Windows.Forms.ComboBox()
         Me.lblCOMActive = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.lblInterface = New System.Windows.Forms.Label()
+        '
+        'Me.lblInterface = New System.Windows.Forms.Label()
+        '
         Me.txtInterface = New System.Windows.Forms.TextBox()
         Me.chkAdvancedProcessing = New System.Windows.Forms.CheckBox()
         Me.cmbBufferSize = New System.Windows.Forms.ComboBox()
         Me.btnPerformanceTest = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        '
+        'Me.Button1 = New System.Windows.Forms.Button()
+        '
         Me.AGaugeRPM = New System.Windows.Forms.AGauge()
-        Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
+        '
+        'Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
+        '
         Me.LabelRPM = New System.Windows.Forms.Label()
         Me.LabelSubRPM = New System.Windows.Forms.Label()
         Me.LabelValRPM = New System.Windows.Forms.Label()
@@ -562,34 +583,38 @@ Public Class Main
         Me.LabelValPower = New System.Windows.Forms.Label()
         Me.LabelValMotorTorque = New System.Windows.Forms.Label()
         Me.LabelMotorTorque = New System.Windows.Forms.Label()
+        Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
+        Me.ButtonProfile = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'SaveFileDialog1
         '
         Me.SaveFileDialog1.Filter = "Text files (*.txt)|*.txt"
         '
-        'btnStartLoggingRaw
+        ''
+        ''btnStartLoggingRaw
+        ''
+        'Me.btnStartLoggingRaw.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnStartLoggingRaw.Location = New System.Drawing.Point(274, 1)
+        'Me.btnStartLoggingRaw.Name = "btnStartLoggingRaw"
+        'Me.btnStartLoggingRaw.Size = New System.Drawing.Size(68, 21)
+        'Me.btnStartLoggingRaw.TabIndex = 42
+        'Me.btnStartLoggingRaw.Text = "Log Raw Data"
+        ''
+        ''btnResetMaxima
+        ''
+        'Me.btnResetMaxima.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnResetMaxima.Location = New System.Drawing.Point(138, 1)
+        'Me.btnResetMaxima.Name = "btnResetMaxima"
+        'Me.btnResetMaxima.Size = New System.Drawing.Size(68, 21)
+        'Me.btnResetMaxima.TabIndex = 41
+        'Me.btnResetMaxima.Text = "Reset"
         '
-        Me.btnStartLoggingRaw.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStartLoggingRaw.Location = New System.Drawing.Point(274, 1)
-        Me.btnStartLoggingRaw.Name = "btnStartLoggingRaw"
-        Me.btnStartLoggingRaw.Size = New System.Drawing.Size(68, 21)
-        Me.btnStartLoggingRaw.TabIndex = 42
-        Me.btnStartLoggingRaw.Text = "Log Raw Data"
-        '
-        'btnResetMaxima
-        '
-        Me.btnResetMaxima.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnResetMaxima.Location = New System.Drawing.Point(138, 1)
-        Me.btnResetMaxima.Name = "btnResetMaxima"
-        Me.btnResetMaxima.Size = New System.Drawing.Size(68, 21)
-        Me.btnResetMaxima.TabIndex = 41
-        Me.btnResetMaxima.Text = "Reset"
         '
         'btnStartPowerRun
         '
         Me.btnStartPowerRun.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStartPowerRun.Location = New System.Drawing.Point(342, 1)
+        Me.btnStartPowerRun.Location = New System.Drawing.Point(298, 2)
         Me.btnStartPowerRun.Name = "btnStartPowerRun"
         Me.btnStartPowerRun.Size = New System.Drawing.Size(68, 21)
         Me.btnStartPowerRun.TabIndex = 43
@@ -598,7 +623,7 @@ Public Class Main
         'btnCOM
         '
         Me.btnCOM.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCOM.Location = New System.Drawing.Point(70, 1)
+        Me.btnCOM.Location = New System.Drawing.Point(76, 1)
         Me.btnCOM.Name = "btnCOM"
         Me.btnCOM.Size = New System.Drawing.Size(68, 21)
         Me.btnCOM.TabIndex = 172
@@ -618,7 +643,7 @@ Public Class Main
         'btnAnalysis
         '
         Me.btnAnalysis.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAnalysis.Location = New System.Drawing.Point(206, 1)
+        Me.btnAnalysis.Location = New System.Drawing.Point(150, 2)
         Me.btnAnalysis.Name = "btnAnalysis"
         Me.btnAnalysis.Size = New System.Drawing.Size(68, 21)
         Me.btnAnalysis.TabIndex = 171
@@ -653,119 +678,123 @@ Public Class Main
         Me.txtThreshold1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtThreshold1.Visible = False
         '
-        'btnClose
+        ''
+        ''btnClose
+        ''
+        'Me.btnClose.Enabled = False
+        'Me.btnClose.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnClose.Location = New System.Drawing.Point(206, 90)
+        'Me.btnClose.Name = "btnClose"
+        'Me.btnClose.Size = New System.Drawing.Size(68, 21)
+        'Me.btnClose.TabIndex = 86
+        'Me.btnClose.Text = "Close"
+        'Me.btnClose.UseVisualStyleBackColor = True
+        ''
+        ''btnMultiYTime
+        ''
+        'Me.btnMultiYTime.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnMultiYTime.Location = New System.Drawing.Point(138, 68)
+        'Me.btnMultiYTime.Name = "btnMultiYTime"
+        'Me.btnMultiYTime.Size = New System.Drawing.Size(68, 21)
+        'Me.btnMultiYTime.TabIndex = 85
+        'Me.btnMultiYTime.Text = "Y vs Time"
+        'Me.btnMultiYTime.UseVisualStyleBackColor = True
+        ''
+        ''btnLoad
+        ''
+        'Me.btnLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        'Me.btnLoad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnLoad.Location = New System.Drawing.Point(2, 90)
+        'Me.btnLoad.Name = "btnLoad"
+        'Me.btnLoad.Size = New System.Drawing.Size(68, 21)
+        'Me.btnLoad.TabIndex = 77
+        'Me.btnLoad.Text = "Load"
+        'Me.btnLoad.UseVisualStyleBackColor = True
+        ''
+        ''btnSave
+        ''
+        'Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        'Me.btnSave.Enabled = False
+        'Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnSave.Location = New System.Drawing.Point(70, 90)
+        'Me.btnSave.Name = "btnSave"
+        'Me.btnSave.Size = New System.Drawing.Size(68, 21)
+        'Me.btnSave.TabIndex = 78
+        'Me.btnSave.Text = "Save"
+        'Me.btnSave.UseVisualStyleBackColor = True
+        ''
+        ''btnNewGauge
+        ''
+        'Me.btnNewGauge.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnNewGauge.Location = New System.Drawing.Point(70, 68)
+        'Me.btnNewGauge.Name = "btnNewGauge"
+        'Me.btnNewGauge.Size = New System.Drawing.Size(68, 21)
+        'Me.btnNewGauge.TabIndex = 83
+        'Me.btnNewGauge.Text = "Gauge"
+        'Me.btnNewGauge.UseVisualStyleBackColor = True
+        ''
+        ''btnSaveAs
+        ''
+        'Me.btnSaveAs.Enabled = False
+        'Me.btnSaveAs.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnSaveAs.Location = New System.Drawing.Point(138, 90)
+        'Me.btnSaveAs.Name = "btnSaveAs"
+        'Me.btnSaveAs.Size = New System.Drawing.Size(68, 21)
+        'Me.btnSaveAs.TabIndex = 79
+        'Me.btnSaveAs.Text = "Save As"
+        'Me.btnSaveAs.UseVisualStyleBackColor = True
         '
-        Me.btnClose.Enabled = False
-        Me.btnClose.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Location = New System.Drawing.Point(206, 90)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(68, 21)
-        Me.btnClose.TabIndex = 86
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnMultiYTime
-        '
-        Me.btnMultiYTime.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMultiYTime.Location = New System.Drawing.Point(138, 68)
-        Me.btnMultiYTime.Name = "btnMultiYTime"
-        Me.btnMultiYTime.Size = New System.Drawing.Size(68, 21)
-        Me.btnMultiYTime.TabIndex = 85
-        Me.btnMultiYTime.Text = "Y vs Time"
-        Me.btnMultiYTime.UseVisualStyleBackColor = True
-        '
-        'btnLoad
-        '
-        Me.btnLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnLoad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLoad.Location = New System.Drawing.Point(2, 90)
-        Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(68, 21)
-        Me.btnLoad.TabIndex = 77
-        Me.btnLoad.Text = "Load"
-        Me.btnLoad.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSave.Enabled = False
-        Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(70, 90)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(68, 21)
-        Me.btnSave.TabIndex = 78
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnNewGauge
-        '
-        Me.btnNewGauge.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNewGauge.Location = New System.Drawing.Point(70, 68)
-        Me.btnNewGauge.Name = "btnNewGauge"
-        Me.btnNewGauge.Size = New System.Drawing.Size(68, 21)
-        Me.btnNewGauge.TabIndex = 83
-        Me.btnNewGauge.Text = "Gauge"
-        Me.btnNewGauge.UseVisualStyleBackColor = True
-        '
-        'btnSaveAs
-        '
-        Me.btnSaveAs.Enabled = False
-        Me.btnSaveAs.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSaveAs.Location = New System.Drawing.Point(138, 90)
-        Me.btnSaveAs.Name = "btnSaveAs"
-        Me.btnSaveAs.Size = New System.Drawing.Size(68, 21)
-        Me.btnSaveAs.TabIndex = 79
-        Me.btnSaveAs.Text = "Save As"
-        Me.btnSaveAs.UseVisualStyleBackColor = True
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(274, 27)
+        Me.Label17.Location = New System.Drawing.Point(226, 27)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(66, 13)
         Me.Label17.TabIndex = 58
         Me.Label17.Text = "Run Start at"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'btnNewLabel
+        ''
+        ''btnNewLabel
+        ''
+        'Me.btnNewLabel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnNewLabel.Location = New System.Drawing.Point(2, 68)
+        'Me.btnNewLabel.Name = "btnNewLabel"
+        'Me.btnNewLabel.Size = New System.Drawing.Size(68, 21)
+        'Me.btnNewLabel.TabIndex = 82
+        'Me.btnNewLabel.Text = "Label"
+        'Me.btnNewLabel.UseVisualStyleBackColor = True
+        ''
+        ''btnHide
+        ''
+        'Me.btnHide.Enabled = False
+        'Me.btnHide.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnHide.Location = New System.Drawing.Point(274, 90)
+        'Me.btnHide.Name = "btnHide"
+        'Me.btnHide.Size = New System.Drawing.Size(68, 21)
+        'Me.btnHide.TabIndex = 80
+        'Me.btnHide.Text = "Hide"
+        'Me.btnHide.UseVisualStyleBackColor = True
+        ''
+        ''btnShow
+        ''
+        'Me.btnShow.Enabled = False
+        'Me.btnShow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.btnShow.Location = New System.Drawing.Point(342, 90)
+        'Me.btnShow.Name = "btnShow"
+        'Me.btnShow.Size = New System.Drawing.Size(68, 21)
+        'Me.btnShow.TabIndex = 81
+        'Me.btnShow.Text = "Show"
+        'Me.btnShow.UseVisualStyleBackColor = True
         '
-        Me.btnNewLabel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNewLabel.Location = New System.Drawing.Point(2, 68)
-        Me.btnNewLabel.Name = "btnNewLabel"
-        Me.btnNewLabel.Size = New System.Drawing.Size(68, 21)
-        Me.btnNewLabel.TabIndex = 82
-        Me.btnNewLabel.Text = "Label"
-        Me.btnNewLabel.UseVisualStyleBackColor = True
-        '
-        'btnHide
-        '
-        Me.btnHide.Enabled = False
-        Me.btnHide.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHide.Location = New System.Drawing.Point(274, 90)
-        Me.btnHide.Name = "btnHide"
-        Me.btnHide.Size = New System.Drawing.Size(68, 21)
-        Me.btnHide.TabIndex = 80
-        Me.btnHide.Text = "Hide"
-        Me.btnHide.UseVisualStyleBackColor = True
-        '
-        'btnShow
-        '
-        Me.btnShow.Enabled = False
-        Me.btnShow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnShow.Location = New System.Drawing.Point(342, 90)
-        Me.btnShow.Name = "btnShow"
-        Me.btnShow.Size = New System.Drawing.Size(68, 21)
-        Me.btnShow.TabIndex = 81
-        Me.btnShow.Text = "Show"
-        Me.btnShow.UseVisualStyleBackColor = True
         '
         'txtPowerRunThreshold
         '
         Me.txtPowerRunThreshold.CausesValidation = False
         Me.txtPowerRunThreshold.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPowerRunThreshold.Location = New System.Drawing.Point(342, 24)
+        Me.txtPowerRunThreshold.Location = New System.Drawing.Point(298, 24)
         Me.txtPowerRunThreshold.Name = "txtPowerRunThreshold"
         Me.txtPowerRunThreshold.Size = New System.Drawing.Size(67, 21)
         Me.txtPowerRunThreshold.TabIndex = 44
@@ -860,15 +889,17 @@ Public Class Main
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'lblInterface
+        ''
+        ''lblInterface
+        ''
+        'Me.lblInterface.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.lblInterface.Location = New System.Drawing.Point(1, 54)
+        'Me.lblInterface.Name = "lblInterface"
+        'Me.lblInterface.Size = New System.Drawing.Size(205, 13)
+        'Me.lblInterface.TabIndex = 174
+        'Me.lblInterface.Text = "Currently using:"
+        'Me.lblInterface.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        Me.lblInterface.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInterface.Location = New System.Drawing.Point(1, 54)
-        Me.lblInterface.Name = "lblInterface"
-        Me.lblInterface.Size = New System.Drawing.Size(205, 13)
-        Me.lblInterface.TabIndex = 174
-        Me.lblInterface.Text = "Currently using:"
-        Me.lblInterface.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtInterface
         '
@@ -915,14 +946,16 @@ Public Class Main
         Me.btnPerformanceTest.UseVisualStyleBackColor = True
         Me.btnPerformanceTest.Visible = False
         '
-        'Button1
+        ''
+        ''Button1
+        ''
+        'Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'Me.Button1.Location = New System.Drawing.Point(2, 23)
+        'Me.Button1.Name = "Button1"
+        'Me.Button1.Size = New System.Drawing.Size(68, 21)
+        'Me.Button1.TabIndex = 185
+        'Me.Button1.Text = "Correction"
         '
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(2, 23)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(68, 21)
-        Me.Button1.TabIndex = 185
-        Me.Button1.Text = "Correction"
         '
         'AGaugeRPM
         '
@@ -969,15 +1002,17 @@ Public Class Main
         Me.AGaugeRPM.Text = "AGauge1"
         Me.AGaugeRPM.Value = 0!
         '
-        'pnlSignalWindow
+        ''
+        ''pnlSignalWindow
+        ''
+        'Me.pnlSignalWindow.BackColor = System.Drawing.SystemColors.Control
+        'Me.pnlSignalWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        'Me.pnlSignalWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        'Me.pnlSignalWindow.Location = New System.Drawing.Point(599, 2)
+        'Me.pnlSignalWindow.Name = "pnlSignalWindow"
+        'Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
+        'Me.pnlSignalWindow.TabIndex = 33
         '
-        Me.pnlSignalWindow.BackColor = System.Drawing.SystemColors.Control
-        Me.pnlSignalWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.pnlSignalWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlSignalWindow.Location = New System.Drawing.Point(599, 2)
-        Me.pnlSignalWindow.Name = "pnlSignalWindow"
-        Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
-        Me.pnlSignalWindow.TabIndex = 33
         '
         'LabelRPM
         '
@@ -1204,12 +1239,32 @@ Public Class Main
         Me.LabelMotorTorque.TabIndex = 202
         Me.LabelMotorTorque.Text = "Motor Torque(Nm)"
         '
+        'pnlSignalWindow
+        '
+        Me.pnlSignalWindow.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlSignalWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.pnlSignalWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlSignalWindow.Location = New System.Drawing.Point(599, 2)
+        Me.pnlSignalWindow.Name = "pnlSignalWindow"
+        Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
+        Me.pnlSignalWindow.TabIndex = 33
+        '
+        'ButtonProfile
+        '
+        Me.ButtonProfile.Location = New System.Drawing.Point(224, 1)
+        Me.ButtonProfile.Name = "ButtonProfile"
+        Me.ButtonProfile.Size = New System.Drawing.Size(68, 21)
+        Me.ButtonProfile.TabIndex = 204
+        Me.ButtonProfile.Text = "Profile"
+        Me.ButtonProfile.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.AutoScroll = True
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.Controls.Add(Me.ButtonProfile)
         Me.Controls.Add(Me.LabelValMotorTorque)
         Me.Controls.Add(Me.LabelMotorTorque)
         Me.Controls.Add(Me.LabelValPower)
@@ -1238,28 +1293,40 @@ Public Class Main
         Me.Controls.Add(Me.lblZeroDetect)
         Me.Controls.Add(Me.txtZeroTimeDetect)
         Me.Controls.Add(Me.txtInterface)
-        Me.Controls.Add(Me.lblInterface)
+        '
+        'Me.Controls.Add(Me.lblInterface)
+        '
         Me.Controls.Add(Me.btnCOM)
         Me.Controls.Add(Me.btnDyno)
         Me.Controls.Add(Me.btnAnalysis)
-        Me.Controls.Add(Me.btnResetMaxima)
-        Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.btnMultiYTime)
-        Me.Controls.Add(Me.btnLoad)
+        '
+        'Me.Controls.Add(Me.btnResetMaxima)
+        'Me.Controls.Add(Me.btnClose)
+        'Me.Controls.Add(Me.btnMultiYTime)
+        'Me.Controls.Add(Me.btnLoad)
+        '
         Me.Controls.Add(Me.txtPowerRunThreshold)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.btnShow)
+        '
+        'Me.Controls.Add(Me.btnSave)
+        'Me.Controls.Add(Me.btnShow)
+        '
         Me.Controls.Add(Me.btnStartPowerRun)
-        Me.Controls.Add(Me.btnStartLoggingRaw)
-        Me.Controls.Add(Me.btnNewGauge)
-        Me.Controls.Add(Me.btnHide)
-        Me.Controls.Add(Me.btnSaveAs)
+        '
+        'Me.Controls.Add(Me.btnStartLoggingRaw)
+        'Me.Controls.Add(Me.btnNewGauge)
+        'Me.Controls.Add(Me.btnHide)
+        'Me.Controls.Add(Me.btnSaveAs)
+        '
         Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.btnNewLabel)
+        '
+        'Me.Controls.Add(Me.btnNewLabel)
+        '
         Me.Controls.Add(Me.chkAdvancedProcessing)
         Me.Controls.Add(Me.btnPerformanceTest)
         Me.Controls.Add(Me.cmbBufferSize)
-        Me.Controls.Add(Me.Button1)
+        '
+        'Me.Controls.Add(Me.Button1)
+        '
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1330,35 +1397,37 @@ Public Class Main
         Me.Text = "SimpleDyno 6.5.3" ' MainTitle
 
         'Open Up the default interface
-        LoadInterface()
+        'LoadInterface()
     End Sub
     Private Sub Form1_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
         Formloaded = True
     End Sub
     Private Sub Form1_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         SaveParametersToFile()
-        btnClose_Click(Me, EventArgs.Empty)
+        'btnClose_Click(Me, EventArgs.Empty)
         ShutDownWaves()
         myCallBackFunction = Nothing
         SerialClose()
     End Sub
     Private Sub btnDyno_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDyno.Click
-        btnHide_Click(Me, EventArgs.Empty)
+        'btnHide_Click(Me, EventArgs.Empty)
         frmDyno.ShowDialog()
     End Sub
     Private Sub btnAnalysis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnalysis.Click
-        btnHide_Click(Me, EventArgs.Empty)
+        'btnHide_Click(Me, EventArgs.Empty)
         frmAnalysis.ShowDialog()
         frmAnalysis.pnlOverlaySetup()
     End Sub
     Private Sub btnCOM_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCOM.Click
-        btnHide_Click(Me, EventArgs.Empty)
+        'btnHide_Click(Me, EventArgs.Empty)
         frmCOM.ShowDialog()
     End Sub
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        btnHide_Click(Me, EventArgs.Empty)
-        frmCorrection.ShowDialog()
-    End Sub
+    '
+    'Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonCorrection.Click
+    '    'btnHide_Click(Me, EventArgs.Empty)
+    '    frmCorrection.ShowDialog()
+    'End Sub
+    '
     Private Sub pnlSignalWindow_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pnlSignalWindow.MouseClick
         If e.Button = MouseButtons.Right Then
             'set the RPM2 channel threshold
@@ -1522,15 +1591,15 @@ Public Class Main
             frmFit.rdoRPM1.Checked = True
             If WhichDataMode = POWERRUN Then 'We are cancelling the power run
                 'CHECK - WE SHOULD REALLY MAKE SURE WE UNDO EVERYTHING THAT WAS DONE WHEN THE POWERRUN WAS INITIATED
-                btnStartLoggingRaw.Enabled = True
-                btnShow_Click(Me, EventArgs.Empty)
+                'btnStartLoggingRaw.Enabled = True
+                'btnShow_Click(Me, EventArgs.Empty)
                 With btnStartPowerRun
                     .BackColor = System.Windows.Forms.Control.DefaultBackColor
                 End With
                 StopFitting = True
                 WhichDataMode = LIVE
             Else
-                btnHide_Click(Me, EventArgs.Empty)
+                'btnHide_Click(Me, EventArgs.Empty)
                 With SaveFileDialog1
                     .Reset()
                     .Filter = "Power Run files (*.sdp)|*.sdp"
@@ -1541,8 +1610,8 @@ Public Class Main
                     ResetValues()
                     DataPoints = 0
                     ' DataPoints2 = 0
-                    btnStartLoggingRaw.Enabled = False
-                    btnShow_Click(Me, EventArgs.Empty)
+                    'btnStartLoggingRaw.Enabled = False
+                    'btnShow_Click(Me, EventArgs.Empty)
                     With btnStartPowerRun
                         .BackColor = Color.Red
                     End With
@@ -1550,172 +1619,174 @@ Public Class Main
                     StopFitting = False
                     frmFit.ProcessData()
                 Else
-                    btnShow_Click(Me, EventArgs.Empty)
+                    'btnShow_Click(Me, EventArgs.Empty)
                 End If
             End If
         Catch e1 As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("btnStartPowerRun_Click Error: " & e1.ToString, MsgBoxStyle.Exclamation)
-            btnShow_Click(Me, EventArgs.Empty)
+            'btnShow_Click(Me, EventArgs.Empty)
             End
         End Try
     End Sub
-    Private Sub btnResetMaxima_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnResetMaxima.Click
-        ResetValues()
-    End Sub
-    Private Sub btnStartLoggingRaw_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStartLoggingRaw.Click
-        'Copied power run code
-        Try
-            If WhichDataMode = LOGRAW Then 'We are stopping the log raw session and should write the data
-                'WRITE THE DATA
-                Dim DataOutputFile As New System.IO.StreamWriter(LogRawDataFileName)
-                With DataOutputFile
-                    'NOTE: The data files are space delimited
-                    'Write out the header information
-                    .WriteLine(LogRawVersion) 'Confirms log raw version
-                    .WriteLine(LogRawDataFileName & vbCrLf & DateAndTime.Today.ToString & vbCrLf)
-                    .WriteLine("Acquisition: " & cmbAcquisition.SelectedItem.ToString)
-                    .WriteLine("Number_of_Channels: " & NUMBER_OF_CHANNELS.ToString)
-                    .WriteLine("Sampling_Rate " & SAMPLE_RATE.ToString)
-                    If cmbCOMPorts.SelectedItem IsNot Nothing Then
-                        .WriteLine("COM_Port: " & cmbCOMPorts.SelectedItem.ToString)
-                    Else
-                        .WriteLine("No_COM_Port_Selected")
-                    End If
-                    If cmbBaudRate.SelectedItem IsNot Nothing Then
-                        .WriteLine("Baud_Rate: " & cmbBaudRate.SelectedItem.ToString)
-                    Else
-                        .WriteLine("No_Baud_Rate_Selected")
-                    End If
-                    .WriteLine("Car_Mass: " & Main.frmDyno.CarMass.ToString & " grams")
-                    .WriteLine("Frontal_Area: " & Main.frmDyno.FrontalArea.ToString & " mm2")
-                    .WriteLine("Drag_Coefficient: " & Main.frmDyno.DragCoefficient.ToString)
-                    .WriteLine("Gear_Ratio: " & Main.GearRatio.ToString)
-                    .WriteLine("Wheel_Diameter: " & Main.frmDyno.WheelDiameter.ToString & " mm")
-                    .WriteLine("Roller_Diameter: " & Main.frmDyno.RollerDiameter.ToString & " mm")
-                    .WriteLine("Roller_Wall_Thickness: " & Main.frmDyno.RollerWallThickness.ToString & " mm")
-                    .WriteLine("Roller_Mass: " & Main.frmDyno.RollerMass.ToString & " grams")
-                    .WriteLine("Axle_Diameter: " & Main.frmDyno.AxleDiameter.ToString & " mm")
-                    .WriteLine("Axle_Mass: " & Main.frmDyno.AxleMass.ToString & " grams")
-                    .WriteLine("End_Cap_Mass: " & Main.frmDyno.EndCapMass.ToString & " grams")
-                    .WriteLine("Extra_Diameter: " & Main.frmDyno.ExtraDiameter.ToString & " mm")
-                    .WriteLine("Extra_Wall_Thickness: " & Main.frmDyno.ExtraWallThickness.ToString & " mm")
-                    .WriteLine("Extra_Mass: " & Main.frmDyno.ExtraMass.ToString & " grams")
-                    .WriteLine("Target_MOI: " & Main.IdealMomentOfInertia.ToString & " kg/m2")
-                    .WriteLine("Actual_MOI: " & Main.DynoMomentOfInertia.ToString & " kg/m2")
-                    .WriteLine("Target_Roller_Mass: " & Main.IdealRollerMass.ToString & " grams")
-                    .WriteLine("Signals_Per_Roller_RPM: " & Main.frmDyno.SignalsPerRPM.ToString)
-                    .WriteLine("Signals_Per_Engine_RPM: " & Main.frmDyno.SignalsPerRPM2.ToString)
-                    .WriteLine("Channel_1_Threshold " & HighSignalThreshold.ToString)
-                    .WriteLine("Channel_2_Threshold " & HighSignalThreshold2.ToString)
-                    'The following not needed for Log Raw
-                    '.WriteLine("Run_RPM_Threshold " & PowerRunThreshold.ToString)
-                    '.WriteLine("Run_Spike_Removal_Threshold " & Fit.PowerRunSpikeLevel.ToString)
-                    .WriteLine(vbCrLf)
+    '
+    'Private Sub btnResetMaxima_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnResetMaxima.Click
+    '    ResetValues()
+    'End Sub
+    'Private Sub btnStartLoggingRaw_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStartLoggingRaw.Click
+    '    'Copied power run code
+    '    Try
+    '        If WhichDataMode = LOGRAW Then 'We are stopping the log raw session and should write the data
+    '            'WRITE THE DATA
+    '            Dim DataOutputFile As New System.IO.StreamWriter(LogRawDataFileName)
+    '            With DataOutputFile
+    '                'NOTE: The data files are space delimited
+    '                'Write out the header information
+    '                .WriteLine(LogRawVersion) 'Confirms log raw version
+    '                .WriteLine(LogRawDataFileName & vbCrLf & DateAndTime.Today.ToString & vbCrLf)
+    '                .WriteLine("Acquisition: " & cmbAcquisition.SelectedItem.ToString)
+    '                .WriteLine("Number_of_Channels: " & NUMBER_OF_CHANNELS.ToString)
+    '                .WriteLine("Sampling_Rate " & SAMPLE_RATE.ToString)
+    '                If cmbCOMPorts.SelectedItem IsNot Nothing Then
+    '                    .WriteLine("COM_Port: " & cmbCOMPorts.SelectedItem.ToString)
+    '                Else
+    '                    .WriteLine("No_COM_Port_Selected")
+    '                End If
+    '                If cmbBaudRate.SelectedItem IsNot Nothing Then
+    '                    .WriteLine("Baud_Rate: " & cmbBaudRate.SelectedItem.ToString)
+    '                Else
+    '                    .WriteLine("No_Baud_Rate_Selected")
+    '                End If
+    '                .WriteLine("Car_Mass: " & Main.frmDyno.CarMass.ToString & " grams")
+    '                .WriteLine("Frontal_Area: " & Main.frmDyno.FrontalArea.ToString & " mm2")
+    '                .WriteLine("Drag_Coefficient: " & Main.frmDyno.DragCoefficient.ToString)
+    '                .WriteLine("Gear_Ratio: " & Main.GearRatio.ToString)
+    '                .WriteLine("Wheel_Diameter: " & Main.frmDyno.WheelDiameter.ToString & " mm")
+    '                .WriteLine("Roller_Diameter: " & Main.frmDyno.RollerDiameter.ToString & " mm")
+    '                .WriteLine("Roller_Wall_Thickness: " & Main.frmDyno.RollerWallThickness.ToString & " mm")
+    '                .WriteLine("Roller_Mass: " & Main.frmDyno.RollerMass.ToString & " grams")
+    '                .WriteLine("Axle_Diameter: " & Main.frmDyno.AxleDiameter.ToString & " mm")
+    '                .WriteLine("Axle_Mass: " & Main.frmDyno.AxleMass.ToString & " grams")
+    '                .WriteLine("End_Cap_Mass: " & Main.frmDyno.EndCapMass.ToString & " grams")
+    '                .WriteLine("Extra_Diameter: " & Main.frmDyno.ExtraDiameter.ToString & " mm")
+    '                .WriteLine("Extra_Wall_Thickness: " & Main.frmDyno.ExtraWallThickness.ToString & " mm")
+    '                .WriteLine("Extra_Mass: " & Main.frmDyno.ExtraMass.ToString & " grams")
+    '                .WriteLine("Target_MOI: " & Main.IdealMomentOfInertia.ToString & " kg/m2")
+    '                .WriteLine("Actual_MOI: " & Main.DynoMomentOfInertia.ToString & " kg/m2")
+    '                .WriteLine("Target_Roller_Mass: " & Main.IdealRollerMass.ToString & " grams")
+    '                .WriteLine("Signals_Per_Roller_RPM: " & Main.frmDyno.SignalsPerRPM.ToString)
+    '                .WriteLine("Signals_Per_Engine_RPM: " & Main.frmDyno.SignalsPerRPM2.ToString)
+    '                .WriteLine("Channel_1_Threshold " & HighSignalThreshold.ToString)
+    '                .WriteLine("Channel_2_Threshold " & HighSignalThreshold2.ToString)
+    '                'The following not needed for Log Raw
+    '                '.WriteLine("Run_RPM_Threshold " & PowerRunThreshold.ToString)
+    '                '.WriteLine("Run_Spike_Removal_Threshold " & Fit.PowerRunSpikeLevel.ToString)
+    '                .WriteLine(vbCrLf)
 
-                    'Create the column headings string based on the Data structure 
-                    'Only Primary SI units of the values are written
-                    Dim tempstring As String = ""
-                    Dim tempsplit As String()
-                    Dim paramcount As Integer
-                    Dim count As Integer
+    '                'Create the column headings string based on the Data structure 
+    '                'Only Primary SI units of the values are written
+    '                Dim tempstring As String = ""
+    '                Dim tempsplit As String()
+    '                Dim paramcount As Integer
+    '                Dim count As Integer
 
-                    'Add the raw data.  In V6 we are also calculating the raw torques, powers etc. This makes the file larger but will make Excel work easier
-                    .WriteLine(vbCrLf & "PRIMARY_CHANNEL_RAW_DATA")
-                    .WriteLine("NUMBER_OF_POINTS_COLLECTED" & " " & Main.DataPoints.ToString)
-                    'Again, create the header row
-                    tempstring = ""
-                    For paramcount = 0 To Main.LAST - 1
-                        tempsplit = Split(Main.DataUnitTags(paramcount), " ")
-                        tempstring = tempstring & Main.DataTags(paramcount).Replace(" ", "_") & "(" & tempsplit(0) & ") "
-                    Next
-                    'Write the column headings
-                    .WriteLine(tempstring)
-                    'Need to set the zeroth value to support using the count and count-1 approach to torque and power calculations
-                    Main.CollectedData(Main.RPM1_ROLLER, 0) = Main.CollectedData(Main.RPM1_ROLLER, 1)
-                    For count = 1 To Main.DataPoints - 1
-                        're-calc speed, wheel and motor RPMs based on collected data
-                        Main.CollectedData(Main.SPEED, count) = Main.CollectedData(Main.RPM1_ROLLER, count) * Main.RollerRadsPerSecToMetersPerSec
-                        Main.CollectedData(Main.RPM1_WHEEL, count) = Main.CollectedData(Main.RPM1_ROLLER, count) * Main.RollerRPMtoWheelRPM
-                        Main.CollectedData(Main.RPM1_MOTOR, count) = Main.CollectedData(Main.RPM1_ROLLER, count) * Main.RollerRPMtoMotorRPM
-                        're-calc roller torque and power useing the collected data
-                        Main.CollectedData(Main.TORQUE_ROLLER, count) = (Main.CollectedData(Main.RPM1_ROLLER, count) - Main.CollectedData(Main.RPM1_ROLLER, count - 1)) / (Main.CollectedData(Main.SESSIONTIME, count) - Main.CollectedData(Main.SESSIONTIME, count - 1)) * Main.DynoMomentOfInertia 'this is the roller torque, should calc the wheel and motor at this point also
-                        'NOTE - new power calculation uses (new-old) / 2
-                        Main.CollectedData(Main.POWER, count) = Main.CollectedData(Main.TORQUE_ROLLER, count) * ((Main.CollectedData(Main.RPM1_ROLLER, count) + Main.CollectedData(Main.RPM1_ROLLER, count - 1)) / 2)
-                        'now re-calc wheel and motor torque based on Power
-                        Main.CollectedData(Main.TORQUE_WHEEL, count) = Main.CollectedData(Main.POWER, count) / Main.CollectedData(Main.RPM1_WHEEL, count)
-                        Main.CollectedData(Main.TORQUE_MOTOR, count) = Main.CollectedData(Main.POWER, count) / Main.CollectedData(Main.RPM1_MOTOR, count)
-                        'recalc Drag and set a max speed based on it
-                        Main.CollectedData(Main.DRAG, count) = Main.CollectedData(Main.SPEED, count) ^ 3 * Main.ForceAir
-                        'Update other parameters requiring calculations
-                        'Main.RPM2 will be already there but the ratio and rollout need to be calculated
-                        If Main.CollectedData(Main.RPM2, count) <> 0 Then
-                            Main.CollectedData(Main.RPM2_RATIO, count) = Main.CollectedData(Main.RPM2, count) / Main.CollectedData(Main.RPM1_WHEEL, count)
-                            Main.CollectedData(Main.RPM2_ROLLOUT, count) = Main.WheelCircumference / Main.CollectedData(Main.RPM2_RATIO, count)
-                        Else
-                            Main.CollectedData(Main.RPM2_RATIO, count) = 0
-                            Main.CollectedData(Main.RPM2_ROLLOUT, count) = 0
-                        End If
-                        'Volts and Amps will already be there but watts in and efficiency need to be added
-                        Main.CollectedData(Main.WATTS_IN, count) = Main.CollectedData(Main.VOLTS, count) * Main.CollectedData(Main.AMPS, count)
-                        If Main.CollectedData(Main.WATTS_IN, count) <> 0 Then
-                            Main.CollectedData(Main.EFFICIENCY, count) = Main.CollectedData(Main.POWER, count) / Main.CollectedData(Main.WATTS_IN, count) * 100
-                        Else
-                            Main.CollectedData(Main.EFFICIENCY, count) = 0
-                        End If
-                        'Build the results string...
-                        tempstring = ""
-                        For paramcount = 0 To Main.LAST - 1
-                            tempsplit = Split(Main.DataUnitTags(paramcount), " ") ' How many units are there
-                            tempstring = tempstring & Main.CollectedData(paramcount, count) * Main.DataUnits(paramcount, 0) & " " 'DataTags(paramcount).Replace(" ", "_") & "(" & tempsplit(unitcount) & ") "
-                        Next
-                        '...and write it
-                        .WriteLine(tempstring)
-                    Next
+    '                'Add the raw data.  In V6 we are also calculating the raw torques, powers etc. This makes the file larger but will make Excel work easier
+    '                .WriteLine(vbCrLf & "PRIMARY_CHANNEL_RAW_DATA")
+    '                .WriteLine("NUMBER_OF_POINTS_COLLECTED" & " " & Main.DataPoints.ToString)
+    '                'Again, create the header row
+    '                tempstring = ""
+    '                For paramcount = 0 To Main.LAST - 1
+    '                    tempsplit = Split(Main.DataUnitTags(paramcount), " ")
+    '                    tempstring = tempstring & Main.DataTags(paramcount).Replace(" ", "_") & "(" & tempsplit(0) & ") "
+    '                Next
+    '                'Write the column headings
+    '                .WriteLine(tempstring)
+    '                'Need to set the zeroth value to support using the count and count-1 approach to torque and power calculations
+    '                Main.CollectedData(Main.RPM1_ROLLER, 0) = Main.CollectedData(Main.RPM1_ROLLER, 1)
+    '                For count = 1 To Main.DataPoints - 1
+    '                    're-calc speed, wheel and motor RPMs based on collected data
+    '                    Main.CollectedData(Main.SPEED, count) = Main.CollectedData(Main.RPM1_ROLLER, count) * Main.RollerRadsPerSecToMetersPerSec
+    '                    Main.CollectedData(Main.RPM1_WHEEL, count) = Main.CollectedData(Main.RPM1_ROLLER, count) * Main.RollerRPMtoWheelRPM
+    '                    Main.CollectedData(Main.RPM1_MOTOR, count) = Main.CollectedData(Main.RPM1_ROLLER, count) * Main.RollerRPMtoMotorRPM
+    '                    're-calc roller torque and power useing the collected data
+    '                    Main.CollectedData(Main.TORQUE_ROLLER, count) = (Main.CollectedData(Main.RPM1_ROLLER, count) - Main.CollectedData(Main.RPM1_ROLLER, count - 1)) / (Main.CollectedData(Main.SESSIONTIME, count) - Main.CollectedData(Main.SESSIONTIME, count - 1)) * Main.DynoMomentOfInertia 'this is the roller torque, should calc the wheel and motor at this point also
+    '                    'NOTE - new power calculation uses (new-old) / 2
+    '                    Main.CollectedData(Main.POWER, count) = Main.CollectedData(Main.TORQUE_ROLLER, count) * ((Main.CollectedData(Main.RPM1_ROLLER, count) + Main.CollectedData(Main.RPM1_ROLLER, count - 1)) / 2)
+    '                    'now re-calc wheel and motor torque based on Power
+    '                    Main.CollectedData(Main.TORQUE_WHEEL, count) = Main.CollectedData(Main.POWER, count) / Main.CollectedData(Main.RPM1_WHEEL, count)
+    '                    Main.CollectedData(Main.TORQUE_MOTOR, count) = Main.CollectedData(Main.POWER, count) / Main.CollectedData(Main.RPM1_MOTOR, count)
+    '                    'recalc Drag and set a max speed based on it
+    '                    Main.CollectedData(Main.DRAG, count) = Main.CollectedData(Main.SPEED, count) ^ 3 * Main.ForceAir
+    '                    'Update other parameters requiring calculations
+    '                    'Main.RPM2 will be already there but the ratio and rollout need to be calculated
+    '                    If Main.CollectedData(Main.RPM2, count) <> 0 Then
+    '                        Main.CollectedData(Main.RPM2_RATIO, count) = Main.CollectedData(Main.RPM2, count) / Main.CollectedData(Main.RPM1_WHEEL, count)
+    '                        Main.CollectedData(Main.RPM2_ROLLOUT, count) = Main.WheelCircumference / Main.CollectedData(Main.RPM2_RATIO, count)
+    '                    Else
+    '                        Main.CollectedData(Main.RPM2_RATIO, count) = 0
+    '                        Main.CollectedData(Main.RPM2_ROLLOUT, count) = 0
+    '                    End If
+    '                    'Volts and Amps will already be there but watts in and efficiency need to be added
+    '                    Main.CollectedData(Main.WATTS_IN, count) = Main.CollectedData(Main.VOLTS, count) * Main.CollectedData(Main.AMPS, count)
+    '                    If Main.CollectedData(Main.WATTS_IN, count) <> 0 Then
+    '                        Main.CollectedData(Main.EFFICIENCY, count) = Main.CollectedData(Main.POWER, count) / Main.CollectedData(Main.WATTS_IN, count) * 100
+    '                    Else
+    '                        Main.CollectedData(Main.EFFICIENCY, count) = 0
+    '                    End If
+    '                    'Build the results string...
+    '                    tempstring = ""
+    '                    For paramcount = 0 To Main.LAST - 1
+    '                        tempsplit = Split(Main.DataUnitTags(paramcount), " ") ' How many units are there
+    '                        tempstring = tempstring & Main.CollectedData(paramcount, count) * Main.DataUnits(paramcount, 0) & " " 'DataTags(paramcount).Replace(" ", "_") & "(" & tempsplit(unitcount) & ") "
+    '                    Next
+    '                    '...and write it
+    '                    .WriteLine(tempstring)
+    '                Next
 
-                End With
-                'Save the file
-                DataOutputFile.Close()
-                btnStartLoggingRaw.Enabled = True
+    '            End With
+    '            'Save the file
+    '            DataOutputFile.Close()
+    '            btnStartLoggingRaw.Enabled = True
 
-                '/////////////////////END COPIED CODE
-                btnStartPowerRun.Enabled = True
-                btnShow_Click(Me, EventArgs.Empty)
-                With btnStartLoggingRaw
-                    .BackColor = System.Windows.Forms.Control.DefaultBackColor
-                End With
-                'StopFitting = True
-                WhichDataMode = LIVE
-            Else
-                btnHide_Click(Me, EventArgs.Empty)
-                With SaveFileDialog1
-                    .Reset()
-                    .Filter = "Log Raw files (*.sdr)|*.sdr"
-                    .ShowDialog()
-                End With
-                If SaveFileDialog1.FileName <> "" Then
-                    LogRawDataFileName = SaveFileDialog1.FileName
-                    ResetValues()
-                    DataPoints = 0
-                    Data(SESSIONTIME, ACTUAL) = 0
-                    btnStartPowerRun.Enabled = False
-                    btnShow_Click(Me, EventArgs.Empty)
-                    With btnStartLoggingRaw
-                        .BackColor = Color.Red
-                    End With
-                    WhichDataMode = LOGRAW
-                Else
-                    btnShow_Click(Me, EventArgs.Empty)
-                End If
-            End If
-        Catch e1 As Exception
-            btnHide_Click(Me, EventArgs.Empty)
-            MsgBox("btnStartLoggingRaw Error: " & e1.ToString, MsgBoxStyle.Exclamation)
-            btnShow_Click(Me, EventArgs.Empty)
-            End
-        End Try
+    '            '/////////////////////END COPIED CODE
+    '            btnStartPowerRun.Enabled = True
+    '            'btnShow_Click(Me, EventArgs.Empty)
+    '            With btnStartLoggingRaw
+    '                .BackColor = System.Windows.Forms.Control.DefaultBackColor
+    '            End With
+    '            'StopFitting = True
+    '            WhichDataMode = LIVE
+    '        Else
+    '            'btnHide_Click(Me, EventArgs.Empty)
+    '            With SaveFileDialog1
+    '                .Reset()
+    '                .Filter = "Log Raw files (*.sdr)|*.sdr"
+    '                .ShowDialog()
+    '            End With
+    '            If SaveFileDialog1.FileName <> "" Then
+    '                LogRawDataFileName = SaveFileDialog1.FileName
+    '                ResetValues()
+    '                DataPoints = 0
+    '                Data(SESSIONTIME, ACTUAL) = 0
+    '                btnStartPowerRun.Enabled = False
+    '                'btnShow_Click(Me, EventArgs.Empty)
+    '                With btnStartLoggingRaw
+    '                    .BackColor = Color.Red
+    '                End With
+    '                WhichDataMode = LOGRAW
+    '            Else
+    '                'btnShow_Click(Me, EventArgs.Empty)
+    '            End If
+    '        End If
+    '    Catch e1 As Exception
+    '        'btnHide_Click(Me, EventArgs.Empty)
+    '        MsgBox("btnStartLoggingRaw Error: " & e1.ToString, MsgBoxStyle.Exclamation)
+    '        'btnShow_Click(Me, EventArgs.Empty)
+    '        End
+    '    End Try
 
-    End Sub
+    'End Sub
+    '
 #End Region
 #Region "Text Box Checking"
     'Assigns single sub to handle text box entries ensuring only allowed chars are entered
@@ -1755,8 +1826,8 @@ Public Class Main
         If e.KeyChar = Chr(13) Then SendKeys.Send("{TAB}")
     End Sub
     Private Sub txtInterface_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtInterface.TextChanged
-        'This is an invisible box so text validation should not be needed
-        lblInterface.Text = txtInterface.Text.Substring(txtInterface.Text.LastIndexOf("\") + 1)
+        ''This is an invisible box so text validation should not be needed
+        'lblInterface.Text = txtInterface.Text.Substring(txtInterface.Text.LastIndexOf("\") + 1)
     End Sub
     Private Sub txtZeroTimeDetect_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtZeroTimeDetect.Leave
         Dim LocalMin As Double = 0.1
@@ -1764,9 +1835,9 @@ Public Class Main
         If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
             WaitForNewSignal = TempDouble
         Else
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            btnShow_Click(Me, EventArgs.Empty)
+            'btnShow_Click(Me, EventArgs.Empty)
             With CType(sender, TextBox)
                 .Text = WaitForNewSignal.ToString
                 .Focus()
@@ -1783,9 +1854,9 @@ Public Class Main
             'CHECK - this should also be set when Signals per RPM changes
             MinimumPowerRunPoints = frmDyno.SignalsPerRPM * 10 'This somewhat arbitrary 
         Else
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            btnShow_Click(Me, EventArgs.Empty)
+            'btnShow_Click(Me, EventArgs.Empty)
             With CType(sender, TextBox)
                 .Text = PowerRunThreshold.ToString
                 .Focus()
@@ -1940,7 +2011,7 @@ Public Class Main
                 CreateDefaultView()
             End If
         Catch e As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("LoadParametersFromFile Error: " & e.ToString, MsgBoxStyle.Exclamation)
             End
         End Try
@@ -2099,7 +2170,7 @@ Public Class Main
             ParameterOutputFile.Close()
 
         Catch e As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("From SaveParameters Error: " & e.ToString, MsgBoxStyle.Exclamation)
             End
         End Try
@@ -2426,7 +2497,7 @@ Public Class Main
             SignalThreshold2YConverted = CInt(PicSignalHeight - HighSignalThreshold2 * SignalYConversion)
 
         Catch e As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("PrepareGraphicsParameters Error: " & e.ToString, MsgBoxStyle.Exclamation)
             End
 
@@ -2446,7 +2517,7 @@ Public Class Main
             Data(SESSIONTIME, ACTUAL) = 0
 
         Catch e As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("ResetValues Error: " & e.ToString, MsgBoxStyle.Exclamation)
             End
         End Try
@@ -2468,7 +2539,7 @@ Public Class Main
 
         i = waveInOpen(WaveInHandle, IntPtr.op_Explicit(WAVE_MAPPER), waveFormat, myCallBackFunction, IntPtr.Zero, CALLBACK_FUNCTION)
         If i <> 0 Then
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("InitializeWaveInput / WaveInOpen Error", MsgBoxStyle.Exclamation)
             End
         End If
@@ -2532,7 +2603,7 @@ Public Class Main
         For j = 0 To NUMBER_OF_BUFFERS - 1
             i = waveInPrepareHeader(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
             If i <> 0 Then
-                btnHide_Click(Me, EventArgs.Empty)
+                'btnHide_Click(Me, EventArgs.Empty)
                 MsgBox("InitializeWaveInput / waveInPrepareHeader Error", MsgBoxStyle.Exclamation)
                 End
             End If
@@ -2541,7 +2612,7 @@ Public Class Main
         For j = 0 To NUMBER_OF_BUFFERS - 1
             i = waveInAddBuffer(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
             If i <> 0 Then
-                btnHide_Click(Me, EventArgs.Empty)
+                'btnHide_Click(Me, EventArgs.Empty)
                 MsgBox("InitializeWaveInput / waveInAddBuffer Error", MsgBoxStyle.Exclamation)
                 End
             End If
@@ -2549,7 +2620,7 @@ Public Class Main
 
         i = waveInStart(WaveInHandle)
         If i <> 0 Then
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("InitializeWaveInput / waveInStart Error", MsgBoxStyle.Exclamation)
             End
         Else
@@ -2575,7 +2646,7 @@ Public Class Main
                 WaveBufferHeaders(BufferCount).dwBytesRecorded = 0     'Reset bytes recorded...
                 i = waveInAddBuffer(WaveInHandle, WaveBufferHeaders(BufferCount), Marshal.SizeOf(WaveBufferHeaders(BufferCount)))  '...and add the buffer back to the queue
                 If i <> 0 Then 'Check that there were no problems adding back the buffer.'This could be skipped in a release version using a compiler constant
-                    btnHide_Click(Me, EventArgs.Empty)
+                    'btnHide_Click(Me, EventArgs.Empty)
                     MsgBox("myWaveHandler_ProcessWave / waveInAddBuffer Error" & i, MsgBoxStyle.Exclamation)
                     End
                 End If
@@ -2709,7 +2780,7 @@ Public Class Main
                                 Case Is = LOGRAW
                                     DataPoints += 1
                                     If DataPoints = 1 Then
-                                        btnStartLoggingRaw.BackColor = Color.Green
+                                        'btnStartLoggingRaw.BackColor = Color.Green
                                         TotalElapsedTime = 0
                                     Else
                                         TotalElapsedTime += ElapsedTime
@@ -2732,7 +2803,7 @@ Public Class Main
                                     ' DataPoints += 1
                                     If DataPoints = MAXDATAPOINTS Then
                                         DataPoints = MAXDATAPOINTS - 1
-                                        btnStartLoggingRaw.BackColor = Color.Red
+                                        'btnStartLoggingRaw.BackColor = Color.Red
                                     End If
                             End Select
                         End If
@@ -2877,7 +2948,7 @@ Public Class Main
                         DataPoints += 1
                         If DataPoints = MAXDATAPOINTS Then
                             DataPoints = MAXDATAPOINTS - 1
-                            btnStartLoggingRaw.BackColor = Color.Red
+                            'btnStartLoggingRaw.BackColor = Color.Red
                         End If
                     End If
                 End If
@@ -2905,7 +2976,7 @@ Public Class Main
             '19SEP13 Max Processing time for 2Ch, 44K, COM Port 9600 Baud is 47ms
 #End If
         Catch e As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("myWaveHandler_ProcessWave Error: " & e.ToString, MsgBoxStyle.Exclamation)
             End
         End Try
@@ -2926,20 +2997,20 @@ Public Class Main
                 Loop Until temp = NUMBER_OF_BUFFERS 'Not InCallBackProcedure
                 i = waveInReset(WaveInHandle)
                 If i <> 0 Then
-                    btnHide_Click(Me, EventArgs.Empty)
+                    'btnHide_Click(Me, EventArgs.Empty)
                     MsgBox("ShutDownWaves / waveInReset Error", MsgBoxStyle.Exclamation)
                     End
                 End If
                 i = waveInStop(WaveInHandle)
                 If i <> 0 Then
-                    btnHide_Click(Me, EventArgs.Empty)
+                    'btnHide_Click(Me, EventArgs.Empty)
                     MsgBox("ShutDownWaves / waveInStop Error", MsgBoxStyle.Exclamation)
                     End
                 End If
                 For j = 0 To NUMBER_OF_BUFFERS - 1
                     i = waveInUnprepareHeader(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
                     If i <> 0 Then
-                        btnHide_Click(Me, EventArgs.Empty)
+                        'btnHide_Click(Me, EventArgs.Empty)
                         MsgBox("ShutDownWaves / waveInUnprepareHeader Error" & i, MsgBoxStyle.Exclamation)
                         End
                     End If
@@ -2966,7 +3037,7 @@ Public Class Main
                 bufferpin19.Free()
                 i = waveInClose(WaveInHandle)
                 If i <> 0 Then
-                    btnHide_Click(Me, EventArgs.Empty)
+                    'btnHide_Click(Me, EventArgs.Empty)
                     MsgBox("ShutDownWaves / waveInClose Error", MsgBoxStyle.Exclamation)
                     End
                 Else
@@ -2976,7 +3047,7 @@ Public Class Main
                 StopAddingBuffers = False
                 WavesStarted = False
             Catch e As Exception
-                btnHide_Click(Me, EventArgs.Empty)
+                'btnHide_Click(Me, EventArgs.Empty)
                 MsgBox("ShutDownWaves Error: " & e.ToString, MsgBoxStyle.Exclamation)
                 End
             End Try
@@ -3118,7 +3189,8 @@ Public Class Main
 
 
 
-        btnResetMaxima_Click(Me, System.EventArgs.Empty)
+        'btnResetMaxima_Click(Me, System.EventArgs.Empty)
+        ResetValues()
         btnStartAcquisition.Enabled = True
 
         'Need to update the menus available in already loaded graphical interface components
@@ -3160,9 +3232,9 @@ Public Class Main
             End If
             'MsgBox("No Problems Found", MsgBoxStyle.OkOnly)
         Catch ex As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("Error found is " & Problem & " " & ex.ToString, MsgBoxStyle.Exclamation)
-            btnShow_Click(Me, EventArgs.Empty)
+            'btnShow_Click(Me, EventArgs.Empty)
             'Maybe Use GetPortNames 
             'Dim AvailablePorts() As String = SerialPort.GetPortNames
             'If AvailablePorts.Length > 0 Then ...
@@ -3193,7 +3265,7 @@ Public Class Main
                 End If
             Next
         Catch e As Exception
-            btnHide_Click(Me, EventArgs.Empty)
+            'btnHide_Click(Me, EventArgs.Empty)
             MsgBox("Error reading COM Port.", CType(vbOK, MsgBoxStyle))
             If mySerialPort.IsOpen Then mySerialPort.Close()
             'Enable Calibration buttons on com form
@@ -3202,7 +3274,7 @@ Public Class Main
                     c.Enabled = False
                 End If
             Next
-            btnShow_Click(Me, EventArgs.Empty)
+            'btnShow_Click(Me, EventArgs.Empty)
         End Try
     End Sub
     Private Sub SerialClose()
@@ -3365,7 +3437,7 @@ Public Class Main
                                         DataPoints += 1
                                         If DataPoints = 1 Then
                                             TotalElapsedTime = 0
-                                            btnStartLoggingRaw.BackColor = Color.Green
+                                            'btnStartLoggingRaw.BackColor = Color.Green
                                         Else
                                             TotalElapsedTime += ElapsedTime
                                         End If
@@ -3456,7 +3528,7 @@ Public Class Main
 
                 End If
             Catch ex As Exception
-                btnHide_Click(Me, EventArgs.Empty)
+                'btnHide_Click(Me, EventArgs.Empty)
                 MsgBox("Serial Port Data Received Error: " & ex.ToString, MsgBoxStyle.Exclamation)
                 'btnShow_Click(Me, EventArgs.Empty)
                 End
@@ -3465,133 +3537,133 @@ Public Class Main
     End Sub
 #End Region
 #Region "New Interface Code"
-    Private Sub btnLoad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoad.Click
-        btnHide_Click(Me, EventArgs.Empty)
-        With OpenFileDialog1
-            .Reset()
-            .Filter = "Interface files (*.sdi)|*.sdi"
-            .ShowDialog()
-        End With
+    'Private Sub btnLoad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoad.Click
+    '    btnHide_Click(Me, EventArgs.Empty)
+    '    With OpenFileDialog1
+    '        .Reset()
+    '        .Filter = "Interface files (*.sdi)|*.sdi"
+    '        .ShowDialog()
+    '    End With
 
-        'templine dfor no reason
-        If OpenFileDialog1.FileName <> "" Then
-            btnClose_Click(Me, EventArgs.Empty)
-            txtInterface.Text = OpenFileDialog1.FileName
-            LoadInterface()
-        Else
-            Select Case txtInterface.Text
-                Case Is = "No Interface Loaded"
-                    btnSave.Enabled = False
-                    btnSaveAs.Enabled = False
-                    btnClose.Enabled = False
-                    btnHide.Enabled = False
-                    btnShow.Enabled = False
-                Case Else
-                    btnShow_Click(Me, EventArgs.Empty)
-                    btnSave.Enabled = True
-                    btnSaveAs.Enabled = True
-                    btnClose.Enabled = True
-                    btnHide.Enabled = True
-                    btnShow.Enabled = False
-            End Select
+    '    'templine dfor no reason
+    '    If OpenFileDialog1.FileName <> "" Then
+    '        btnClose_Click(Me, EventArgs.Empty)
+    '        txtInterface.Text = OpenFileDialog1.FileName
+    '        LoadInterface()
+    '    Else
+    '        Select Case txtInterface.Text
+    '            Case Is = "No Interface Loaded"
+    '                btnSave.Enabled = False
+    '                btnSaveAs.Enabled = False
+    '                btnClose.Enabled = False
+    '                btnHide.Enabled = False
+    '                btnShow.Enabled = False
+    '            Case Else
+    '                btnShow_Click(Me, EventArgs.Empty)
+    '                btnSave.Enabled = True
+    '                btnSaveAs.Enabled = True
+    '                btnClose.Enabled = True
+    '                btnHide.Enabled = True
+    '                btnShow.Enabled = False
+    '        End Select
 
-        End If
-    End Sub
-    Private Sub LoadInterface()
-        If txtInterface.Text <> "No Interface Loaded" Then
-            Dim TempString As String
-            Dim InterfaceInputFile As New System.IO.StreamReader(txtInterface.Text)
-            TempString = InterfaceInputFile.ReadLine
-            Select Case TempString
-                Case Is = InterfaceVersion, "SimpleDyno_Interface_6_4"
-                    Do Until InterfaceInputFile.EndOfStream
-                        TempString = InterfaceInputFile.ReadLine
-                        If TempString = "Label" Then
-                            TempString = InterfaceInputFile.ReadLine
-                            f.Add(New SimpleDynoSubLabel())
-                            AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-                            AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-                            f(f.Count - 1).myType = "Label"
-                            f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-                            f.Item(f.Count - 1).CreateFromSerializedData(TempString)
-                        ElseIf TempString = "Gauge" Then
-                            TempString = InterfaceInputFile.ReadLine
-                            f.Add(New SimpleDynoSubGauge())
-                            AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-                            AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-                            f(f.Count - 1).myType = "Gauge"
-                            f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-                            f.Item(f.Count - 1).CreateFromSerializedData(TempString)
-                        ElseIf TempString = "MultiYTimeGraph" Then
-                            TempString = InterfaceInputFile.ReadLine
-                            f.Add(New SimpleDynoSubMultiYTimeGraph())
-                            AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-                            AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-                            f(f.Count - 1).myType = "MultiYTimeGraph"
-                            f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-                            f.Item(f.Count - 1).CreateFromSerializedData(TempString)
-                        End If
-                    Loop
-                    btnSave.Enabled = True
-                    btnSaveAs.Enabled = True
-                    btnClose.Enabled = True
-                    btnHide.Enabled = True
-                    btnShow.Enabled = False
-                    InterfaceInputFile.Close()
-                    InterfaceInputFile.Dispose()
-                Case Is = "SimpleDyno_Interface_6_3"
-                    Do Until InterfaceInputFile.EndOfStream
-                        TempString = InterfaceInputFile.ReadLine
-                        If TempString = "Label" Then
-                            TempString = InterfaceInputFile.ReadLine
-                            f.Add(New SimpleDynoSubLabel())
-                            AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-                            AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-                            f(f.Count - 1).myType = "Label"
-                            f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-                            'This is the point to translate old pointers to new pointers
+    '    End If
+    'End Sub
+    'Private Sub LoadInterface()
+    '    If txtInterface.Text <> "No Interface Loaded" Then
+    '        Dim TempString As String
+    '        Dim InterfaceInputFile As New System.IO.StreamReader(txtInterface.Text)
+    '        TempString = InterfaceInputFile.ReadLine
+    '        Select Case TempString
+    '            Case Is = InterfaceVersion, "SimpleDyno_Interface_6_4"
+    '                Do Until InterfaceInputFile.EndOfStream
+    '                    TempString = InterfaceInputFile.ReadLine
+    '                    If TempString = "Label" Then
+    '                        TempString = InterfaceInputFile.ReadLine
+    '                        f.Add(New SimpleDynoSubLabel())
+    '                        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '                        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '                        f(f.Count - 1).myType = "Label"
+    '                        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    '                        f.Item(f.Count - 1).CreateFromSerializedData(TempString)
+    '                    ElseIf TempString = "Gauge" Then
+    '                        TempString = InterfaceInputFile.ReadLine
+    '                        f.Add(New SimpleDynoSubGauge())
+    '                        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '                        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '                        f(f.Count - 1).myType = "Gauge"
+    '                        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    '                        f.Item(f.Count - 1).CreateFromSerializedData(TempString)
+    '                    ElseIf TempString = "MultiYTimeGraph" Then
+    '                        TempString = InterfaceInputFile.ReadLine
+    '                        f.Add(New SimpleDynoSubMultiYTimeGraph())
+    '                        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '                        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '                        f(f.Count - 1).myType = "MultiYTimeGraph"
+    '                        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    '                        f.Item(f.Count - 1).CreateFromSerializedData(TempString)
+    '                    End If
+    '                Loop
+    '                btnSave.Enabled = True
+    '                btnSaveAs.Enabled = True
+    '                btnClose.Enabled = True
+    '                btnHide.Enabled = True
+    '                btnShow.Enabled = False
+    '                InterfaceInputFile.Close()
+    '                InterfaceInputFile.Dispose()
+    '            Case Is = "SimpleDyno_Interface_6_3"
+    '                Do Until InterfaceInputFile.EndOfStream
+    '                    TempString = InterfaceInputFile.ReadLine
+    '                    If TempString = "Label" Then
+    '                        TempString = InterfaceInputFile.ReadLine
+    '                        f.Add(New SimpleDynoSubLabel())
+    '                        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '                        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '                        f(f.Count - 1).myType = "Label"
+    '                        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    '                        'This is the point to translate old pointers to new pointers
 
-                            f.Item(f.Count - 1).CreateFromSerializedData(InterfaceConvert_63_toCurrent(TempString))
-                        ElseIf TempString = "Gauge" Then
-                            TempString = InterfaceInputFile.ReadLine
-                            Debug.Print(TempString)
-                            f.Add(New SimpleDynoSubGauge())
-                            AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-                            AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-                            f(f.Count - 1).myType = "Gauge"
-                            f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-                            f.Item(f.Count - 1).CreateFromSerializedData(InterfaceConvert_63_toCurrent(TempString))
-                        ElseIf TempString = "MultiYTimeGraph" Then
-                            TempString = InterfaceInputFile.ReadLine
-                            f.Add(New SimpleDynoSubMultiYTimeGraph())
-                            AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-                            AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-                            f(f.Count - 1).myType = "MultiYTimeGraph"
-                            f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-                            f.Item(f.Count - 1).CreateFromSerializedData(InterfaceConvert_63_toCurrent(TempString))
-                        End If
-                    Loop
-                    btnSave.Enabled = True
-                    btnSaveAs.Enabled = True
-                    btnClose.Enabled = True
-                    btnHide.Enabled = True
-                    btnShow.Enabled = False
-                    InterfaceInputFile.Close()
-                    InterfaceInputFile.Dispose()
-                    btnSave_Click(Me, EventArgs.Empty) ' This added here to make sure any version changes are saved
-                Case Else
-                    btnHide_Click(Me, EventArgs.Empty)
-                    MsgBox("Not a valid Interface File", vbOKOnly)
-                    btnShow_Click(Me, EventArgs.Empty)
-                    InterfaceInputFile.Close()
-                    InterfaceInputFile.Dispose()
-            End Select
-
-
+    '                        f.Item(f.Count - 1).CreateFromSerializedData(InterfaceConvert_63_toCurrent(TempString))
+    '                    ElseIf TempString = "Gauge" Then
+    '                        TempString = InterfaceInputFile.ReadLine
+    '                        Debug.Print(TempString)
+    '                        f.Add(New SimpleDynoSubGauge())
+    '                        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '                        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '                        f(f.Count - 1).myType = "Gauge"
+    '                        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    '                        f.Item(f.Count - 1).CreateFromSerializedData(InterfaceConvert_63_toCurrent(TempString))
+    '                    ElseIf TempString = "MultiYTimeGraph" Then
+    '                        TempString = InterfaceInputFile.ReadLine
+    '                        f.Add(New SimpleDynoSubMultiYTimeGraph())
+    '                        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '                        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '                        f(f.Count - 1).myType = "MultiYTimeGraph"
+    '                        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    '                        f.Item(f.Count - 1).CreateFromSerializedData(InterfaceConvert_63_toCurrent(TempString))
+    '                    End If
+    '                Loop
+    '                btnSave.Enabled = True
+    '                btnSaveAs.Enabled = True
+    '                btnClose.Enabled = True
+    '                btnHide.Enabled = True
+    '                btnShow.Enabled = False
+    '                InterfaceInputFile.Close()
+    '                InterfaceInputFile.Dispose()
+    '                btnSave_Click(Me, EventArgs.Empty) ' This added here to make sure any version changes are saved
+    '            Case Else
+    '                btnHide_Click(Me, EventArgs.Empty)
+    '                MsgBox("Not a valid Interface File", vbOKOnly)
+    '                btnShow_Click(Me, EventArgs.Empty)
+    '                InterfaceInputFile.Close()
+    '                InterfaceInputFile.Dispose()
+    '        End Select
 
 
-        End If
-    End Sub
+
+
+    '    End If
+    'End Sub
     Private Function InterfaceConvert_63_toCurrent(ByVal Sent As String) As String
         'Receives the 6.3 version of the string and updates the x and y pointers to the new ones
         'Because the only x pointer in 6.3 was time, there is no need to convert this one.
@@ -3647,64 +3719,64 @@ Public Class Main
         InterfaceConvert_63_toCurrent = TempReply
 
     End Function
-    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        Dim TempString As String = InterfaceVersion & vbCrLf
-        Dim frmcount As Integer
-        For Each SDFrm As SimpleDynoSubForm In f
-            If SDFrm.Visible <> False Then
-                frmcount += 1
-                If SDFrm.myType = "Label" Then TempString = TempString & "Label" & vbCrLf
-                If SDFrm.myType = "Gauge" Then TempString = TempString & "Gauge" & vbCrLf
-                If SDFrm.myType = "MultiYTimeGraph" Then TempString = TempString & "MultiYTimeGraph" & vbCrLf
-                TempString = TempString & SDFrm.ReportForSerialization & vbCrLf
-            End If
-        Next
-        Dim InterfaceOutPutFile As New System.IO.StreamWriter(txtInterface.Text)
-        InterfaceOutPutFile.WriteLine(TempString)
-        InterfaceOutPutFile.Close()
-        InterfaceOutPutFile.Dispose()
-    End Sub
-    Private Sub btnSaveAs_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveAs.Click
-        Dim TempString As String = InterfaceVersion & vbCrLf
-        Dim frmcount As Integer
-        For Each SDFrm As SimpleDynoSubForm In f
-            If SDFrm.Visible <> False Then
-                frmcount += 1
-                If SDFrm.myType = "Label" Then TempString = TempString & "Label" & vbCrLf
-                If SDFrm.myType = "Gauge" Then TempString = TempString & "Gauge" & vbCrLf
-                If SDFrm.myType = "MultiYTimeGraph" Then TempString = TempString & "MultiYTimeGraph" & vbCrLf
-                TempString = TempString & SDFrm.ReportForSerialization & vbCrLf
-            End If
-        Next
-        btnHide_Click(Me, EventArgs.Empty)
-        With SaveFileDialog1
-            .Reset()
-            .Filter = "Text files (*.sdi)|*.sdi"
-            .ShowDialog()
-            If .FileName <> "" Then
-                txtInterface.Text = .FileName
-                Dim InterfaceOutPutFile As New System.IO.StreamWriter(txtInterface.Text)
-                InterfaceOutPutFile.WriteLine(TempString)
-                InterfaceOutPutFile.Close()
-                InterfaceOutPutFile.Dispose()
-            End If
-        End With
-        btnShow_Click(Me, EventArgs.Empty)
-    End Sub
-    Friend Sub btnHide_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHide.Click
-        For Each SDFrm As SimpleDynoSubForm In f
-            SDFrm.HideYourSelf()
-        Next
-        btnShow.Enabled = True
-        btnHide.Enabled = False
-    End Sub
-    Friend Sub btnShow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShow.Click
-        For Each SDFrm As SimpleDynoSubForm In f
-            SDFrm.ShowYourSelf()
-        Next
-        btnShow.Enabled = False
-        btnHide.Enabled = True
-    End Sub
+    'Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
+    '    Dim TempString As String = InterfaceVersion & vbCrLf
+    '    Dim frmcount As Integer
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        If SDFrm.Visible <> False Then
+    '            frmcount += 1
+    '            If SDFrm.myType = "Label" Then TempString = TempString & "Label" & vbCrLf
+    '            If SDFrm.myType = "Gauge" Then TempString = TempString & "Gauge" & vbCrLf
+    '            If SDFrm.myType = "MultiYTimeGraph" Then TempString = TempString & "MultiYTimeGraph" & vbCrLf
+    '            TempString = TempString & SDFrm.ReportForSerialization & vbCrLf
+    '        End If
+    '    Next
+    '    Dim InterfaceOutPutFile As New System.IO.StreamWriter(txtInterface.Text)
+    '    InterfaceOutPutFile.WriteLine(TempString)
+    '    InterfaceOutPutFile.Close()
+    '    InterfaceOutPutFile.Dispose()
+    'End Sub
+    'Private Sub btnSaveAs_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveAs.Click
+    '    Dim TempString As String = InterfaceVersion & vbCrLf
+    '    Dim frmcount As Integer
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        If SDFrm.Visible <> False Then
+    '            frmcount += 1
+    '            If SDFrm.myType = "Label" Then TempString = TempString & "Label" & vbCrLf
+    '            If SDFrm.myType = "Gauge" Then TempString = TempString & "Gauge" & vbCrLf
+    '            If SDFrm.myType = "MultiYTimeGraph" Then TempString = TempString & "MultiYTimeGraph" & vbCrLf
+    '            TempString = TempString & SDFrm.ReportForSerialization & vbCrLf
+    '        End If
+    '    Next
+    '    btnHide_Click(Me, EventArgs.Empty)
+    '    With SaveFileDialog1
+    '        .Reset()
+    '        .Filter = "Text files (*.sdi)|*.sdi"
+    '        .ShowDialog()
+    '        If .FileName <> "" Then
+    '            txtInterface.Text = .FileName
+    '            Dim InterfaceOutPutFile As New System.IO.StreamWriter(txtInterface.Text)
+    '            InterfaceOutPutFile.WriteLine(TempString)
+    '            InterfaceOutPutFile.Close()
+    '            InterfaceOutPutFile.Dispose()
+    '        End If
+    '    End With
+    '    btnShow_Click(Me, EventArgs.Empty)
+    'End Sub
+    'Friend Sub btnHide_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHide.Click
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        SDFrm.HideYourSelf()
+    '    Next
+    '    btnShow.Enabled = True
+    '    btnHide.Enabled = False
+    'End Sub
+    'Friend Sub btnShow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShow.Click
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        SDFrm.ShowYourSelf()
+    '    Next
+    '    btnShow.Enabled = False
+    '    btnHide.Enabled = True
+    'End Sub
     Friend Sub PauseForms()
         For Each SDFrm As SimpleDynoSubForm In f
             SDFrm.Pause()
@@ -3722,54 +3794,54 @@ Public Class Main
             End If
         Next
     End Sub
-    Private Sub btnNewLabel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewLabel.Click
-        'New Label
-        btnShow_Click(Me, EventArgs.Empty)
-        btnSaveAs.Enabled = True
-        btnClose.Enabled = True
-        btnHide.Enabled = True
-        f.Add(New SimpleDynoSubLabel())
-        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-    End Sub
-    Private Sub btnNewGauge_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewGauge.Click
-        'New Gauge
-        btnShow_Click(Me, EventArgs.Empty)
-        btnSaveAs.Enabled = True
-        btnClose.Enabled = True
-        btnHide.Enabled = True
-        f.Add(New SimpleDynoSubGauge())
-        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-    End Sub
-    Private Sub btnMultiYTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMultiYTime.Click
-        btnShow_Click(Me, EventArgs.Empty)
-        btnSaveAs.Enabled = True
-        btnClose.Enabled = True
-        btnHide.Enabled = True
-        f.Add(New SimpleDynoSubMultiYTimeGraph())
-        AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
-        AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
-        f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
-    End Sub
+    'Private Sub btnNewLabel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewLabel.Click
+    '    'New Label
+    '    btnShow_Click(Me, EventArgs.Empty)
+    '    btnSaveAs.Enabled = True
+    '    btnClose.Enabled = True
+    '    btnHide.Enabled = True
+    '    f.Add(New SimpleDynoSubLabel())
+    '    AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '    AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '    f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    'End Sub
+    'Private Sub btnNewGauge_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewGauge.Click
+    '    'New Gauge
+    '    btnShow_Click(Me, EventArgs.Empty)
+    '    btnSaveAs.Enabled = True
+    '    btnClose.Enabled = True
+    '    btnHide.Enabled = True
+    '    f.Add(New SimpleDynoSubGauge())
+    '    AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '    AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '    f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    'End Sub
+    'Private Sub btnMultiYTime_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMultiYTime.Click
+    '    btnShow_Click(Me, EventArgs.Empty)
+    '    btnSaveAs.Enabled = True
+    '    btnClose.Enabled = True
+    '    btnHide.Enabled = True
+    '    f.Add(New SimpleDynoSubMultiYTimeGraph())
+    '    AddHandler f(f.Count - 1).RemoveYourself, AddressOf RemoveForm
+    '    AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
+    '    f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
+    'End Sub
     Private Sub btnResetSDForm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ResetAllYTimeGraphs()
     End Sub
-    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
-        'Remove interface if it is closed down
-        Do Until f.Count = 0
-            f.Item(f.Count - 1).Dispose()
-            f.Remove(f.Item(f.Count - 1))
-        Loop
-        txtInterface.Text = "No Interface Loaded"
-        btnClose.Enabled = False
-        btnShow.Enabled = False
-        btnHide.Enabled = False
-        btnSave.Enabled = False
-        btnSaveAs.Enabled = False
-    End Sub
+    'Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
+    '    'Remove interface if it is closed down
+    '    Do Until f.Count = 0
+    '        f.Item(f.Count - 1).Dispose()
+    '        f.Remove(f.Item(f.Count - 1))
+    '    Loop
+    '    txtInterface.Text = "No Interface Loaded"
+    '    btnClose.Enabled = False
+    '    btnShow.Enabled = False
+    '    btnHide.Enabled = False
+    '    btnSave.Enabled = False
+    '    btnSaveAs.Enabled = False
+    'End Sub
     Private Sub RemoveForm(ByVal SentToRemove As Integer)
         For Each SDFrm As SimpleDynoSubForm In f
             If SDFrm.myNumber = SentToRemove Then

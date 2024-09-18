@@ -40,7 +40,7 @@
             Else
                 Me.Hide()
                 e.Cancel = True
-                Main.btnShow_Click(Me, System.EventArgs.Empty)
+                'Main.btnShow_Click(Me, System.EventArgs.Empty)
             End If
         End If
     End Sub
