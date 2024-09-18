@@ -149,23 +149,24 @@ Public Class Main
     Private Const ACTUAL As Integer = 1
     Private Const MAXIMUM As Integer = 2
     Private Const MINCURMAXPOINTER As Integer = 3
-    Friend WithEvents AGaugeRPM As AGauge
-    Friend WithEvents LabelRPM As Label
-    Friend WithEvents LabelSubRPM As Label
-    Friend WithEvents LabelValRPM As Label
+    Friend WithEvents AGauge1 As AGauge
+    Friend WithEvents LabelGauge1 As Label
+    Friend WithEvents LabelSubGauge1 As Label
+    Friend WithEvents LabelValGauge1 As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents LabelValSpeed As Label
-    Friend WithEvents LabelSubSpeed As Label
-    Friend WithEvents LabelSpeed As Label
-    Friend WithEvents AGaugeSpeed As AGauge
-    Friend WithEvents LabelValAFR As Label
-    Friend WithEvents LabelAFR As Label
-    Friend WithEvents AGaugeAFR As AGauge
+    Friend WithEvents LabelValGauge3 As Label
+    Friend WithEvents LabelSubGauge3 As Label
+    Friend WithEvents LabelGauge3 As Label
+    Friend WithEvents AGauge3 As AGauge
+    Friend WithEvents LabelValGauge2 As Label
+    Friend WithEvents LabelGauge2 As Label
+    Friend WithEvents AGauge2 As AGauge
     Friend WithEvents LabelPower As Label
     Friend WithEvents LabelValPower As Label
     Friend WithEvents LabelValMotorTorque As Label
     Friend WithEvents LabelMotorTorque As Label
-    Friend WithEvents ButtonProfile As Button
+    Friend WithEvents btnProfile As Button
+    Friend WithEvents CartesianChart1 As LiveCharts.WinForms.CartesianChart
     '
     'Friend WithEvents ButtonCorrection As Button
     '
@@ -519,30 +520,13 @@ Public Class Main
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        '
-        'Me.btnStartLoggingRaw = New System.Windows.Forms.Button()
-        'Me.btnResetMaxima = New System.Windows.Forms.Button()
-        '
         Me.btnStartPowerRun = New System.Windows.Forms.Button()
         Me.btnCOM = New System.Windows.Forms.Button()
         Me.btnDyno = New System.Windows.Forms.Button()
         Me.btnAnalysis = New System.Windows.Forms.Button()
         Me.txtThreshold2 = New System.Windows.Forms.TextBox()
         Me.txtThreshold1 = New System.Windows.Forms.TextBox()
-        '
-        'Me.btnClose = New System.Windows.Forms.Button()
-        'Me.btnMultiYTime = New System.Windows.Forms.Button()
-        'Me.btnLoad = New System.Windows.Forms.Button()
-        'Me.btnSave = New System.Windows.Forms.Button()
-        'Me.btnNewGauge = New System.Windows.Forms.Button()
-        'Me.btnSaveAs = New System.Windows.Forms.Button()
-        '
         Me.Label17 = New System.Windows.Forms.Label()
-        '
-        'Me.btnNewLabel = New System.Windows.Forms.Button()
-        'Me.btnHide = New System.Windows.Forms.Button()
-        'Me.btnShow = New System.Windows.Forms.Button()
-        '
         Me.txtPowerRunThreshold = New System.Windows.Forms.TextBox()
         Me.txtZeroTimeDetect = New System.Windows.Forms.TextBox()
         Me.lblZeroDetect = New System.Windows.Forms.Label()
@@ -554,62 +538,34 @@ Public Class Main
         Me.cmbCOMPorts = New System.Windows.Forms.ComboBox()
         Me.lblCOMActive = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        '
-        'Me.lblInterface = New System.Windows.Forms.Label()
-        '
         Me.txtInterface = New System.Windows.Forms.TextBox()
         Me.chkAdvancedProcessing = New System.Windows.Forms.CheckBox()
         Me.cmbBufferSize = New System.Windows.Forms.ComboBox()
         Me.btnPerformanceTest = New System.Windows.Forms.Button()
-        '
-        'Me.Button1 = New System.Windows.Forms.Button()
-        '
-        Me.AGaugeRPM = New System.Windows.Forms.AGauge()
-        '
-        'Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
-        '
-        Me.LabelRPM = New System.Windows.Forms.Label()
-        Me.LabelSubRPM = New System.Windows.Forms.Label()
-        Me.LabelValRPM = New System.Windows.Forms.Label()
+        Me.AGauge1 = New System.Windows.Forms.AGauge()
+        Me.LabelGauge1 = New System.Windows.Forms.Label()
+        Me.LabelSubGauge1 = New System.Windows.Forms.Label()
+        Me.LabelValGauge1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelValSpeed = New System.Windows.Forms.Label()
-        Me.LabelSubSpeed = New System.Windows.Forms.Label()
-        Me.LabelSpeed = New System.Windows.Forms.Label()
-        Me.AGaugeSpeed = New System.Windows.Forms.AGauge()
-        Me.LabelValAFR = New System.Windows.Forms.Label()
-        Me.LabelAFR = New System.Windows.Forms.Label()
-        Me.AGaugeAFR = New System.Windows.Forms.AGauge()
+        Me.LabelValGauge3 = New System.Windows.Forms.Label()
+        Me.LabelSubGauge3 = New System.Windows.Forms.Label()
+        Me.LabelGauge3 = New System.Windows.Forms.Label()
+        Me.AGauge3 = New System.Windows.Forms.AGauge()
+        Me.LabelValGauge2 = New System.Windows.Forms.Label()
+        Me.LabelGauge2 = New System.Windows.Forms.Label()
+        Me.AGauge2 = New System.Windows.Forms.AGauge()
         Me.LabelPower = New System.Windows.Forms.Label()
         Me.LabelValPower = New System.Windows.Forms.Label()
         Me.LabelValMotorTorque = New System.Windows.Forms.Label()
         Me.LabelMotorTorque = New System.Windows.Forms.Label()
         Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
-        Me.ButtonProfile = New System.Windows.Forms.Button()
+        Me.btnProfile = New System.Windows.Forms.Button()
+        Me.CartesianChart1 = New LiveCharts.WinForms.CartesianChart()
         Me.SuspendLayout()
         '
         'SaveFileDialog1
         '
         Me.SaveFileDialog1.Filter = "Text files (*.txt)|*.txt"
-        '
-        ''
-        ''btnStartLoggingRaw
-        ''
-        'Me.btnStartLoggingRaw.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnStartLoggingRaw.Location = New System.Drawing.Point(274, 1)
-        'Me.btnStartLoggingRaw.Name = "btnStartLoggingRaw"
-        'Me.btnStartLoggingRaw.Size = New System.Drawing.Size(68, 21)
-        'Me.btnStartLoggingRaw.TabIndex = 42
-        'Me.btnStartLoggingRaw.Text = "Log Raw Data"
-        ''
-        ''btnResetMaxima
-        ''
-        'Me.btnResetMaxima.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnResetMaxima.Location = New System.Drawing.Point(138, 1)
-        'Me.btnResetMaxima.Name = "btnResetMaxima"
-        'Me.btnResetMaxima.Size = New System.Drawing.Size(68, 21)
-        'Me.btnResetMaxima.TabIndex = 41
-        'Me.btnResetMaxima.Text = "Reset"
-        '
         '
         'btnStartPowerRun
         '
@@ -678,73 +634,6 @@ Public Class Main
         Me.txtThreshold1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtThreshold1.Visible = False
         '
-        ''
-        ''btnClose
-        ''
-        'Me.btnClose.Enabled = False
-        'Me.btnClose.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnClose.Location = New System.Drawing.Point(206, 90)
-        'Me.btnClose.Name = "btnClose"
-        'Me.btnClose.Size = New System.Drawing.Size(68, 21)
-        'Me.btnClose.TabIndex = 86
-        'Me.btnClose.Text = "Close"
-        'Me.btnClose.UseVisualStyleBackColor = True
-        ''
-        ''btnMultiYTime
-        ''
-        'Me.btnMultiYTime.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnMultiYTime.Location = New System.Drawing.Point(138, 68)
-        'Me.btnMultiYTime.Name = "btnMultiYTime"
-        'Me.btnMultiYTime.Size = New System.Drawing.Size(68, 21)
-        'Me.btnMultiYTime.TabIndex = 85
-        'Me.btnMultiYTime.Text = "Y vs Time"
-        'Me.btnMultiYTime.UseVisualStyleBackColor = True
-        ''
-        ''btnLoad
-        ''
-        'Me.btnLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        'Me.btnLoad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnLoad.Location = New System.Drawing.Point(2, 90)
-        'Me.btnLoad.Name = "btnLoad"
-        'Me.btnLoad.Size = New System.Drawing.Size(68, 21)
-        'Me.btnLoad.TabIndex = 77
-        'Me.btnLoad.Text = "Load"
-        'Me.btnLoad.UseVisualStyleBackColor = True
-        ''
-        ''btnSave
-        ''
-        'Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        'Me.btnSave.Enabled = False
-        'Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnSave.Location = New System.Drawing.Point(70, 90)
-        'Me.btnSave.Name = "btnSave"
-        'Me.btnSave.Size = New System.Drawing.Size(68, 21)
-        'Me.btnSave.TabIndex = 78
-        'Me.btnSave.Text = "Save"
-        'Me.btnSave.UseVisualStyleBackColor = True
-        ''
-        ''btnNewGauge
-        ''
-        'Me.btnNewGauge.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnNewGauge.Location = New System.Drawing.Point(70, 68)
-        'Me.btnNewGauge.Name = "btnNewGauge"
-        'Me.btnNewGauge.Size = New System.Drawing.Size(68, 21)
-        'Me.btnNewGauge.TabIndex = 83
-        'Me.btnNewGauge.Text = "Gauge"
-        'Me.btnNewGauge.UseVisualStyleBackColor = True
-        ''
-        ''btnSaveAs
-        ''
-        'Me.btnSaveAs.Enabled = False
-        'Me.btnSaveAs.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnSaveAs.Location = New System.Drawing.Point(138, 90)
-        'Me.btnSaveAs.Name = "btnSaveAs"
-        'Me.btnSaveAs.Size = New System.Drawing.Size(68, 21)
-        'Me.btnSaveAs.TabIndex = 79
-        'Me.btnSaveAs.Text = "Save As"
-        'Me.btnSaveAs.UseVisualStyleBackColor = True
-        '
-        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -755,40 +644,6 @@ Public Class Main
         Me.Label17.TabIndex = 58
         Me.Label17.Text = "Run Start at"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        ''
-        ''btnNewLabel
-        ''
-        'Me.btnNewLabel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnNewLabel.Location = New System.Drawing.Point(2, 68)
-        'Me.btnNewLabel.Name = "btnNewLabel"
-        'Me.btnNewLabel.Size = New System.Drawing.Size(68, 21)
-        'Me.btnNewLabel.TabIndex = 82
-        'Me.btnNewLabel.Text = "Label"
-        'Me.btnNewLabel.UseVisualStyleBackColor = True
-        ''
-        ''btnHide
-        ''
-        'Me.btnHide.Enabled = False
-        'Me.btnHide.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnHide.Location = New System.Drawing.Point(274, 90)
-        'Me.btnHide.Name = "btnHide"
-        'Me.btnHide.Size = New System.Drawing.Size(68, 21)
-        'Me.btnHide.TabIndex = 80
-        'Me.btnHide.Text = "Hide"
-        'Me.btnHide.UseVisualStyleBackColor = True
-        ''
-        ''btnShow
-        ''
-        'Me.btnShow.Enabled = False
-        'Me.btnShow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.btnShow.Location = New System.Drawing.Point(342, 90)
-        'Me.btnShow.Name = "btnShow"
-        'Me.btnShow.Size = New System.Drawing.Size(68, 21)
-        'Me.btnShow.TabIndex = 81
-        'Me.btnShow.Text = "Show"
-        'Me.btnShow.UseVisualStyleBackColor = True
-        '
         '
         'txtPowerRunThreshold
         '
@@ -889,18 +744,6 @@ Public Class Main
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        ''
-        ''lblInterface
-        ''
-        'Me.lblInterface.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.lblInterface.Location = New System.Drawing.Point(1, 54)
-        'Me.lblInterface.Name = "lblInterface"
-        'Me.lblInterface.Size = New System.Drawing.Size(205, 13)
-        'Me.lblInterface.TabIndex = 174
-        'Me.lblInterface.Text = "Currently using:"
-        'Me.lblInterface.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        '
         'txtInterface
         '
         Me.txtInterface.CausesValidation = False
@@ -946,254 +789,231 @@ Public Class Main
         Me.btnPerformanceTest.UseVisualStyleBackColor = True
         Me.btnPerformanceTest.Visible = False
         '
-        ''
-        ''Button1
-        ''
-        'Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'Me.Button1.Location = New System.Drawing.Point(2, 23)
-        'Me.Button1.Name = "Button1"
-        'Me.Button1.Size = New System.Drawing.Size(68, 21)
-        'Me.Button1.TabIndex = 185
-        'Me.Button1.Text = "Correction"
+        'AGauge1
         '
+        Me.AGauge1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AGauge1.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge1.BaseArcRadius = 250
+        Me.AGauge1.BaseArcStart = 135
+        Me.AGauge1.BaseArcSweep = 270
+        Me.AGauge1.BaseArcWidth = 2
+        Me.AGauge1.Center = New System.Drawing.Point(255, 255)
+        Me.AGauge1.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGauge1.Location = New System.Drawing.Point(18, 137)
+        Me.AGauge1.MaxValue = 18.0!
+        Me.AGauge1.MinValue = 0!
+        Me.AGauge1.Name = "AGauge1"
+        Me.AGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGauge1.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge1.NeedleRadius = 230
+        Me.AGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance
+        Me.AGauge1.NeedleWidth = 2
+        Me.AGauge1.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge1.ScaleLinesInterInnerRadius = 230
+        Me.AGauge1.ScaleLinesInterOuterRadius = 220
+        Me.AGauge1.ScaleLinesInterWidth = 1
+        Me.AGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge1.ScaleLinesMajorInnerRadius = 230
+        Me.AGauge1.ScaleLinesMajorOuterRadius = 215
+        Me.AGauge1.ScaleLinesMajorStepValue = 1.0!
+        Me.AGauge1.ScaleLinesMajorWidth = 2
+        Me.AGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge1.ScaleLinesMinorInnerRadius = 230
+        Me.AGauge1.ScaleLinesMinorOuterRadius = 225
+        Me.AGauge1.ScaleLinesMinorTicks = 9
+        Me.AGauge1.ScaleLinesMinorWidth = 1
+        Me.AGauge1.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge1.ScaleNumbersFormat = Nothing
+        Me.AGauge1.ScaleNumbersRadius = 240
+        Me.AGauge1.ScaleNumbersRotation = 0
+        Me.AGauge1.ScaleNumbersStartScaleLine = 0
+        Me.AGauge1.ScaleNumbersStepScaleLines = 1
+        Me.AGauge1.Size = New System.Drawing.Size(512, 451)
+        Me.AGauge1.TabIndex = 188
+        Me.AGauge1.Tag = ""
+        Me.AGauge1.Text = "AGauge1"
+        Me.AGauge1.Value = 0!
         '
-        'AGaugeRPM
+        'LabelGauge1
         '
-        Me.AGaugeRPM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGaugeRPM.BaseArcColor = System.Drawing.Color.Gray
-        Me.AGaugeRPM.BaseArcRadius = 250
-        Me.AGaugeRPM.BaseArcStart = 135
-        Me.AGaugeRPM.BaseArcSweep = 270
-        Me.AGaugeRPM.BaseArcWidth = 2
-        Me.AGaugeRPM.Center = New System.Drawing.Point(255, 255)
-        Me.AGaugeRPM.Font = New System.Drawing.Font("Tahoma", 9.25!)
-        Me.AGaugeRPM.Location = New System.Drawing.Point(18, 137)
-        Me.AGaugeRPM.MaxValue = 18.0!
-        Me.AGaugeRPM.MinValue = 0!
-        Me.AGaugeRPM.Name = "AGaugeRPM"
-        Me.AGaugeRPM.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
-        Me.AGaugeRPM.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGaugeRPM.NeedleRadius = 230
-        Me.AGaugeRPM.NeedleType = System.Windows.Forms.NeedleType.Advance
-        Me.AGaugeRPM.NeedleWidth = 2
-        Me.AGaugeRPM.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGaugeRPM.ScaleLinesInterInnerRadius = 230
-        Me.AGaugeRPM.ScaleLinesInterOuterRadius = 220
-        Me.AGaugeRPM.ScaleLinesInterWidth = 1
-        Me.AGaugeRPM.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGaugeRPM.ScaleLinesMajorInnerRadius = 230
-        Me.AGaugeRPM.ScaleLinesMajorOuterRadius = 215
-        Me.AGaugeRPM.ScaleLinesMajorStepValue = 1.0!
-        Me.AGaugeRPM.ScaleLinesMajorWidth = 2
-        Me.AGaugeRPM.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGaugeRPM.ScaleLinesMinorInnerRadius = 230
-        Me.AGaugeRPM.ScaleLinesMinorOuterRadius = 225
-        Me.AGaugeRPM.ScaleLinesMinorTicks = 9
-        Me.AGaugeRPM.ScaleLinesMinorWidth = 1
-        Me.AGaugeRPM.ScaleNumbersColor = System.Drawing.Color.Black
-        Me.AGaugeRPM.ScaleNumbersFormat = Nothing
-        Me.AGaugeRPM.ScaleNumbersRadius = 240
-        Me.AGaugeRPM.ScaleNumbersRotation = 0
-        Me.AGaugeRPM.ScaleNumbersStartScaleLine = 0
-        Me.AGaugeRPM.ScaleNumbersStepScaleLines = 1
-        Me.AGaugeRPM.Size = New System.Drawing.Size(512, 451)
-        Me.AGaugeRPM.TabIndex = 188
-        Me.AGaugeRPM.Tag = ""
-        Me.AGaugeRPM.Text = "AGauge1"
-        Me.AGaugeRPM.Value = 0!
+        Me.LabelGauge1.AutoSize = True
+        Me.LabelGauge1.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelGauge1.Location = New System.Drawing.Point(208, 257)
+        Me.LabelGauge1.Name = "LabelGauge1"
+        Me.LabelGauge1.Size = New System.Drawing.Size(134, 25)
+        Me.LabelGauge1.TabIndex = 189
+        Me.LabelGauge1.Text = "ENGINE RPM"
         '
-        ''
-        ''pnlSignalWindow
-        ''
-        'Me.pnlSignalWindow.BackColor = System.Drawing.SystemColors.Control
-        'Me.pnlSignalWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        'Me.pnlSignalWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        'Me.pnlSignalWindow.Location = New System.Drawing.Point(599, 2)
-        'Me.pnlSignalWindow.Name = "pnlSignalWindow"
-        'Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
-        'Me.pnlSignalWindow.TabIndex = 33
+        'LabelSubGauge1
         '
+        Me.LabelSubGauge1.AutoSize = True
+        Me.LabelSubGauge1.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.LabelSubGauge1.Location = New System.Drawing.Point(235, 282)
+        Me.LabelSubGauge1.Name = "LabelSubGauge1"
+        Me.LabelSubGauge1.Size = New System.Drawing.Size(75, 16)
+        Me.LabelSubGauge1.TabIndex = 190
+        Me.LabelSubGauge1.Text = "x1000(rpm)"
         '
-        'LabelRPM
+        'LabelValGauge1
         '
-        Me.LabelRPM.AutoSize = True
-        Me.LabelRPM.Font = New System.Drawing.Font("Tahoma", 15.25!)
-        Me.LabelRPM.Location = New System.Drawing.Point(208, 257)
-        Me.LabelRPM.Name = "LabelRPM"
-        Me.LabelRPM.Size = New System.Drawing.Size(134, 25)
-        Me.LabelRPM.TabIndex = 189
-        Me.LabelRPM.Text = "ENGINE RPM"
-        '
-        'LabelSubRPM
-        '
-        Me.LabelSubRPM.AutoSize = True
-        Me.LabelSubRPM.Font = New System.Drawing.Font("Tahoma", 9.25!)
-        Me.LabelSubRPM.Location = New System.Drawing.Point(235, 282)
-        Me.LabelSubRPM.Name = "LabelSubRPM"
-        Me.LabelSubRPM.Size = New System.Drawing.Size(75, 16)
-        Me.LabelSubRPM.TabIndex = 190
-        Me.LabelSubRPM.Text = "x1000(rpm)"
-        '
-        'LabelValRPM
-        '
-        Me.LabelValRPM.AutoSize = True
-        Me.LabelValRPM.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValRPM.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValRPM.Location = New System.Drawing.Point(234, 500)
-        Me.LabelValRPM.Name = "LabelValRPM"
-        Me.LabelValRPM.Size = New System.Drawing.Size(74, 29)
-        Me.LabelValRPM.TabIndex = 191
-        Me.LabelValRPM.Text = "00000"
-        Me.LabelValRPM.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelValGauge1.AutoSize = True
+        Me.LabelValGauge1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValGauge1.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValGauge1.Location = New System.Drawing.Point(234, 500)
+        Me.LabelValGauge1.Name = "LabelValGauge1"
+        Me.LabelValGauge1.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValGauge1.TabIndex = 191
+        Me.LabelValGauge1.Text = "00000"
+        Me.LabelValGauge1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Timer1
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
-        'LabelValSpeed
+        'LabelValGauge3
         '
-        Me.LabelValSpeed.AutoSize = True
-        Me.LabelValSpeed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValSpeed.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValSpeed.Location = New System.Drawing.Point(1562, 500)
-        Me.LabelValSpeed.Name = "LabelValSpeed"
-        Me.LabelValSpeed.Size = New System.Drawing.Size(74, 29)
-        Me.LabelValSpeed.TabIndex = 195
-        Me.LabelValSpeed.Text = "00000"
-        Me.LabelValSpeed.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelValGauge3.AutoSize = True
+        Me.LabelValGauge3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValGauge3.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValGauge3.Location = New System.Drawing.Point(1562, 500)
+        Me.LabelValGauge3.Name = "LabelValGauge3"
+        Me.LabelValGauge3.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValGauge3.TabIndex = 195
+        Me.LabelValGauge3.Text = "00000"
+        Me.LabelValGauge3.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'LabelSubSpeed
+        'LabelSubGauge3
         '
-        Me.LabelSubSpeed.AutoSize = True
-        Me.LabelSubSpeed.Font = New System.Drawing.Font("Tahoma", 9.25!)
-        Me.LabelSubSpeed.Location = New System.Drawing.Point(1583, 282)
-        Me.LabelSubSpeed.Name = "LabelSubSpeed"
-        Me.LabelSubSpeed.Size = New System.Drawing.Size(30, 16)
-        Me.LabelSubSpeed.TabIndex = 194
-        Me.LabelSubSpeed.Text = "KPH"
+        Me.LabelSubGauge3.AutoSize = True
+        Me.LabelSubGauge3.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.LabelSubGauge3.Location = New System.Drawing.Point(1561, 282)
+        Me.LabelSubGauge3.Name = "LabelSubGauge3"
+        Me.LabelSubGauge3.Size = New System.Drawing.Size(75, 16)
+        Me.LabelSubGauge3.TabIndex = 194
+        Me.LabelSubGauge3.Text = "x1000(rpm)"
         '
-        'LabelSpeed
+        'LabelGauge3
         '
-        Me.LabelSpeed.AutoSize = True
-        Me.LabelSpeed.Font = New System.Drawing.Font("Tahoma", 15.25!)
-        Me.LabelSpeed.Location = New System.Drawing.Point(1559, 257)
-        Me.LabelSpeed.Name = "LabelSpeed"
-        Me.LabelSpeed.Size = New System.Drawing.Size(74, 25)
-        Me.LabelSpeed.TabIndex = 193
-        Me.LabelSpeed.Text = "SPEED"
+        Me.LabelGauge3.AutoSize = True
+        Me.LabelGauge3.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelGauge3.Location = New System.Drawing.Point(1531, 257)
+        Me.LabelGauge3.Name = "LabelGauge3"
+        Me.LabelGauge3.Size = New System.Drawing.Size(133, 25)
+        Me.LabelGauge3.TabIndex = 193
+        Me.LabelGauge3.Text = "ROLLER RPM"
         '
-        'AGaugeSpeed
+        'AGauge3
         '
-        Me.AGaugeSpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGaugeSpeed.BaseArcColor = System.Drawing.Color.Gray
-        Me.AGaugeSpeed.BaseArcRadius = 250
-        Me.AGaugeSpeed.BaseArcStart = 135
-        Me.AGaugeSpeed.BaseArcSweep = 270
-        Me.AGaugeSpeed.BaseArcWidth = 2
-        Me.AGaugeSpeed.Center = New System.Drawing.Point(255, 255)
-        Me.AGaugeSpeed.Font = New System.Drawing.Font("Tahoma", 9.25!)
-        Me.AGaugeSpeed.Location = New System.Drawing.Point(1346, 137)
-        Me.AGaugeSpeed.MaxValue = 180.0!
-        Me.AGaugeSpeed.MinValue = 0!
-        Me.AGaugeSpeed.Name = "AGaugeSpeed"
-        Me.AGaugeSpeed.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
-        Me.AGaugeSpeed.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGaugeSpeed.NeedleRadius = 230
-        Me.AGaugeSpeed.NeedleType = System.Windows.Forms.NeedleType.Advance
-        Me.AGaugeSpeed.NeedleWidth = 2
-        Me.AGaugeSpeed.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGaugeSpeed.ScaleLinesInterInnerRadius = 225
-        Me.AGaugeSpeed.ScaleLinesInterOuterRadius = 215
-        Me.AGaugeSpeed.ScaleLinesInterWidth = 1
-        Me.AGaugeSpeed.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGaugeSpeed.ScaleLinesMajorInnerRadius = 225
-        Me.AGaugeSpeed.ScaleLinesMajorOuterRadius = 210
-        Me.AGaugeSpeed.ScaleLinesMajorStepValue = 10.0!
-        Me.AGaugeSpeed.ScaleLinesMajorWidth = 2
-        Me.AGaugeSpeed.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGaugeSpeed.ScaleLinesMinorInnerRadius = 225
-        Me.AGaugeSpeed.ScaleLinesMinorOuterRadius = 220
-        Me.AGaugeSpeed.ScaleLinesMinorTicks = 9
-        Me.AGaugeSpeed.ScaleLinesMinorWidth = 1
-        Me.AGaugeSpeed.ScaleNumbersColor = System.Drawing.Color.Black
-        Me.AGaugeSpeed.ScaleNumbersFormat = Nothing
-        Me.AGaugeSpeed.ScaleNumbersRadius = 235
-        Me.AGaugeSpeed.ScaleNumbersRotation = 0
-        Me.AGaugeSpeed.ScaleNumbersStartScaleLine = 0
-        Me.AGaugeSpeed.ScaleNumbersStepScaleLines = 1
-        Me.AGaugeSpeed.Size = New System.Drawing.Size(512, 451)
-        Me.AGaugeSpeed.TabIndex = 192
-        Me.AGaugeSpeed.Tag = ""
-        Me.AGaugeSpeed.Text = "AGaugeSpeed"
-        Me.AGaugeSpeed.Value = 0!
+        Me.AGauge3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AGauge3.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge3.BaseArcRadius = 250
+        Me.AGauge3.BaseArcStart = 135
+        Me.AGauge3.BaseArcSweep = 270
+        Me.AGauge3.BaseArcWidth = 2
+        Me.AGauge3.Center = New System.Drawing.Point(255, 255)
+        Me.AGauge3.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGauge3.Location = New System.Drawing.Point(1346, 137)
+        Me.AGauge3.MaxValue = 180.0!
+        Me.AGauge3.MinValue = 0!
+        Me.AGauge3.Name = "AGauge3"
+        Me.AGauge3.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGauge3.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge3.NeedleRadius = 230
+        Me.AGauge3.NeedleType = System.Windows.Forms.NeedleType.Advance
+        Me.AGauge3.NeedleWidth = 2
+        Me.AGauge3.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleLinesInterInnerRadius = 225
+        Me.AGauge3.ScaleLinesInterOuterRadius = 215
+        Me.AGauge3.ScaleLinesInterWidth = 1
+        Me.AGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleLinesMajorInnerRadius = 225
+        Me.AGauge3.ScaleLinesMajorOuterRadius = 210
+        Me.AGauge3.ScaleLinesMajorStepValue = 10.0!
+        Me.AGauge3.ScaleLinesMajorWidth = 2
+        Me.AGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge3.ScaleLinesMinorInnerRadius = 225
+        Me.AGauge3.ScaleLinesMinorOuterRadius = 220
+        Me.AGauge3.ScaleLinesMinorTicks = 9
+        Me.AGauge3.ScaleLinesMinorWidth = 1
+        Me.AGauge3.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleNumbersFormat = Nothing
+        Me.AGauge3.ScaleNumbersRadius = 235
+        Me.AGauge3.ScaleNumbersRotation = 0
+        Me.AGauge3.ScaleNumbersStartScaleLine = 0
+        Me.AGauge3.ScaleNumbersStepScaleLines = 1
+        Me.AGauge3.Size = New System.Drawing.Size(512, 451)
+        Me.AGauge3.TabIndex = 192
+        Me.AGauge3.Tag = ""
+        Me.AGauge3.Text = "AGaugeSpeed"
+        Me.AGauge3.Value = 0!
         '
-        'LabelValAFR
+        'LabelValGauge2
         '
-        Me.LabelValAFR.AutoSize = True
-        Me.LabelValAFR.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValAFR.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValAFR.Location = New System.Drawing.Point(902, 477)
-        Me.LabelValAFR.Name = "LabelValAFR"
-        Me.LabelValAFR.Size = New System.Drawing.Size(74, 29)
-        Me.LabelValAFR.TabIndex = 199
-        Me.LabelValAFR.Text = "00000"
-        Me.LabelValAFR.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LabelValGauge2.AutoSize = True
+        Me.LabelValGauge2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelValGauge2.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValGauge2.Location = New System.Drawing.Point(902, 477)
+        Me.LabelValGauge2.Name = "LabelValGauge2"
+        Me.LabelValGauge2.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValGauge2.TabIndex = 199
+        Me.LabelValGauge2.Text = "00000"
+        Me.LabelValGauge2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'LabelAFR
+        'LabelGauge2
         '
-        Me.LabelAFR.AutoSize = True
-        Me.LabelAFR.Font = New System.Drawing.Font("Tahoma", 15.25!)
-        Me.LabelAFR.Location = New System.Drawing.Point(914, 281)
-        Me.LabelAFR.Name = "LabelAFR"
-        Me.LabelAFR.Size = New System.Drawing.Size(49, 25)
-        Me.LabelAFR.TabIndex = 197
-        Me.LabelAFR.Text = "AFR"
+        Me.LabelGauge2.AutoSize = True
+        Me.LabelGauge2.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelGauge2.Location = New System.Drawing.Point(914, 281)
+        Me.LabelGauge2.Name = "LabelGauge2"
+        Me.LabelGauge2.Size = New System.Drawing.Size(49, 25)
+        Me.LabelGauge2.TabIndex = 197
+        Me.LabelGauge2.Text = "AFR"
         '
-        'AGaugeAFR
+        'AGauge2
         '
-        Me.AGaugeAFR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGaugeAFR.BaseArcColor = System.Drawing.Color.Gray
-        Me.AGaugeAFR.BaseArcRadius = 200
-        Me.AGaugeAFR.BaseArcStart = 135
-        Me.AGaugeAFR.BaseArcSweep = 270
-        Me.AGaugeAFR.BaseArcWidth = 2
-        Me.AGaugeAFR.Center = New System.Drawing.Point(255, 255)
-        Me.AGaugeAFR.Font = New System.Drawing.Font("Tahoma", 9.25!)
-        Me.AGaugeAFR.Location = New System.Drawing.Point(685, 137)
-        Me.AGaugeAFR.MaxValue = 18.0!
-        Me.AGaugeAFR.MinValue = 10.0!
-        Me.AGaugeAFR.Name = "AGaugeAFR"
-        Me.AGaugeAFR.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
-        Me.AGaugeAFR.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGaugeAFR.NeedleRadius = 180
-        Me.AGaugeAFR.NeedleType = System.Windows.Forms.NeedleType.Advance
-        Me.AGaugeAFR.NeedleWidth = 2
-        Me.AGaugeAFR.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGaugeAFR.ScaleLinesInterInnerRadius = 180
-        Me.AGaugeAFR.ScaleLinesInterOuterRadius = 170
-        Me.AGaugeAFR.ScaleLinesInterWidth = 1
-        Me.AGaugeAFR.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGaugeAFR.ScaleLinesMajorInnerRadius = 180
-        Me.AGaugeAFR.ScaleLinesMajorOuterRadius = 165
-        Me.AGaugeAFR.ScaleLinesMajorStepValue = 1.0!
-        Me.AGaugeAFR.ScaleLinesMajorWidth = 2
-        Me.AGaugeAFR.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGaugeAFR.ScaleLinesMinorInnerRadius = 180
-        Me.AGaugeAFR.ScaleLinesMinorOuterRadius = 175
-        Me.AGaugeAFR.ScaleLinesMinorTicks = 9
-        Me.AGaugeAFR.ScaleLinesMinorWidth = 1
-        Me.AGaugeAFR.ScaleNumbersColor = System.Drawing.Color.Black
-        Me.AGaugeAFR.ScaleNumbersFormat = Nothing
-        Me.AGaugeAFR.ScaleNumbersRadius = 190
-        Me.AGaugeAFR.ScaleNumbersRotation = 0
-        Me.AGaugeAFR.ScaleNumbersStartScaleLine = 0
-        Me.AGaugeAFR.ScaleNumbersStepScaleLines = 1
-        Me.AGaugeAFR.Size = New System.Drawing.Size(512, 451)
-        Me.AGaugeAFR.TabIndex = 196
-        Me.AGaugeAFR.Tag = ""
-        Me.AGaugeAFR.Text = "AGaugeAFR"
-        Me.AGaugeAFR.Value = 10.0!
+        Me.AGauge2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AGauge2.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge2.BaseArcRadius = 200
+        Me.AGauge2.BaseArcStart = 135
+        Me.AGauge2.BaseArcSweep = 270
+        Me.AGauge2.BaseArcWidth = 2
+        Me.AGauge2.Center = New System.Drawing.Point(255, 255)
+        Me.AGauge2.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGauge2.Location = New System.Drawing.Point(685, 137)
+        Me.AGauge2.MaxValue = 18.0!
+        Me.AGauge2.MinValue = 10.0!
+        Me.AGauge2.Name = "AGauge2"
+        Me.AGauge2.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGauge2.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge2.NeedleRadius = 180
+        Me.AGauge2.NeedleType = System.Windows.Forms.NeedleType.Advance
+        Me.AGauge2.NeedleWidth = 2
+        Me.AGauge2.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge2.ScaleLinesInterInnerRadius = 180
+        Me.AGauge2.ScaleLinesInterOuterRadius = 170
+        Me.AGauge2.ScaleLinesInterWidth = 1
+        Me.AGauge2.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge2.ScaleLinesMajorInnerRadius = 180
+        Me.AGauge2.ScaleLinesMajorOuterRadius = 165
+        Me.AGauge2.ScaleLinesMajorStepValue = 1.0!
+        Me.AGauge2.ScaleLinesMajorWidth = 2
+        Me.AGauge2.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge2.ScaleLinesMinorInnerRadius = 180
+        Me.AGauge2.ScaleLinesMinorOuterRadius = 175
+        Me.AGauge2.ScaleLinesMinorTicks = 9
+        Me.AGauge2.ScaleLinesMinorWidth = 1
+        Me.AGauge2.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge2.ScaleNumbersFormat = Nothing
+        Me.AGauge2.ScaleNumbersRadius = 190
+        Me.AGauge2.ScaleNumbersRotation = 0
+        Me.AGauge2.ScaleNumbersStartScaleLine = 0
+        Me.AGauge2.ScaleNumbersStepScaleLines = 1
+        Me.AGauge2.Size = New System.Drawing.Size(512, 451)
+        Me.AGauge2.TabIndex = 196
+        Me.AGauge2.Tag = ""
+        Me.AGauge2.Text = "AGaugeAFR"
+        Me.AGauge2.Value = 10.0!
         '
         'LabelPower
         '
@@ -1249,14 +1069,22 @@ Public Class Main
         Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
         Me.pnlSignalWindow.TabIndex = 33
         '
-        'ButtonProfile
+        'btnProfile
         '
-        Me.ButtonProfile.Location = New System.Drawing.Point(224, 1)
-        Me.ButtonProfile.Name = "ButtonProfile"
-        Me.ButtonProfile.Size = New System.Drawing.Size(68, 21)
-        Me.ButtonProfile.TabIndex = 204
-        Me.ButtonProfile.Text = "Profile"
-        Me.ButtonProfile.UseVisualStyleBackColor = True
+        Me.btnProfile.Location = New System.Drawing.Point(224, 1)
+        Me.btnProfile.Name = "btnProfile"
+        Me.btnProfile.Size = New System.Drawing.Size(68, 21)
+        Me.btnProfile.TabIndex = 204
+        Me.btnProfile.Text = "Profile"
+        Me.btnProfile.UseVisualStyleBackColor = True
+        '
+        'CartesianChart1
+        '
+        Me.CartesianChart1.Location = New System.Drawing.Point(64, 658)
+        Me.CartesianChart1.Name = "CartesianChart1"
+        Me.CartesianChart1.Size = New System.Drawing.Size(1808, 314)
+        Me.CartesianChart1.TabIndex = 205
+        Me.CartesianChart1.Text = "CartesianChart1"
         '
         'Main
         '
@@ -1264,22 +1092,23 @@ Public Class Main
         Me.AutoScroll = True
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(1904, 1041)
-        Me.Controls.Add(Me.ButtonProfile)
+        Me.Controls.Add(Me.CartesianChart1)
+        Me.Controls.Add(Me.btnProfile)
         Me.Controls.Add(Me.LabelValMotorTorque)
         Me.Controls.Add(Me.LabelMotorTorque)
         Me.Controls.Add(Me.LabelValPower)
         Me.Controls.Add(Me.LabelPower)
-        Me.Controls.Add(Me.LabelValAFR)
-        Me.Controls.Add(Me.LabelAFR)
-        Me.Controls.Add(Me.AGaugeAFR)
-        Me.Controls.Add(Me.LabelValSpeed)
-        Me.Controls.Add(Me.LabelSubSpeed)
-        Me.Controls.Add(Me.LabelSpeed)
-        Me.Controls.Add(Me.AGaugeSpeed)
-        Me.Controls.Add(Me.LabelValRPM)
-        Me.Controls.Add(Me.LabelSubRPM)
-        Me.Controls.Add(Me.LabelRPM)
-        Me.Controls.Add(Me.AGaugeRPM)
+        Me.Controls.Add(Me.LabelValGauge2)
+        Me.Controls.Add(Me.LabelGauge2)
+        Me.Controls.Add(Me.AGauge2)
+        Me.Controls.Add(Me.LabelValGauge3)
+        Me.Controls.Add(Me.LabelSubGauge3)
+        Me.Controls.Add(Me.LabelGauge3)
+        Me.Controls.Add(Me.AGauge3)
+        Me.Controls.Add(Me.LabelValGauge1)
+        Me.Controls.Add(Me.LabelSubGauge1)
+        Me.Controls.Add(Me.LabelGauge1)
+        Me.Controls.Add(Me.AGauge1)
         Me.Controls.Add(Me.txtThreshold1)
         Me.Controls.Add(Me.pnlSignalWindow)
         Me.Controls.Add(Me.txtThreshold2)
@@ -1293,40 +1122,15 @@ Public Class Main
         Me.Controls.Add(Me.lblZeroDetect)
         Me.Controls.Add(Me.txtZeroTimeDetect)
         Me.Controls.Add(Me.txtInterface)
-        '
-        'Me.Controls.Add(Me.lblInterface)
-        '
         Me.Controls.Add(Me.btnCOM)
         Me.Controls.Add(Me.btnDyno)
         Me.Controls.Add(Me.btnAnalysis)
-        '
-        'Me.Controls.Add(Me.btnResetMaxima)
-        'Me.Controls.Add(Me.btnClose)
-        'Me.Controls.Add(Me.btnMultiYTime)
-        'Me.Controls.Add(Me.btnLoad)
-        '
         Me.Controls.Add(Me.txtPowerRunThreshold)
-        '
-        'Me.Controls.Add(Me.btnSave)
-        'Me.Controls.Add(Me.btnShow)
-        '
         Me.Controls.Add(Me.btnStartPowerRun)
-        '
-        'Me.Controls.Add(Me.btnStartLoggingRaw)
-        'Me.Controls.Add(Me.btnNewGauge)
-        'Me.Controls.Add(Me.btnHide)
-        'Me.Controls.Add(Me.btnSaveAs)
-        '
         Me.Controls.Add(Me.Label17)
-        '
-        'Me.Controls.Add(Me.btnNewLabel)
-        '
         Me.Controls.Add(Me.chkAdvancedProcessing)
         Me.Controls.Add(Me.btnPerformanceTest)
         Me.Controls.Add(Me.cmbBufferSize)
-        '
-        'Me.Controls.Add(Me.Button1)
-        '
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1600,13 +1404,17 @@ Public Class Main
                 WhichDataMode = LIVE
             Else
                 'btnHide_Click(Me, EventArgs.Empty)
-                With SaveFileDialog1
-                    .Reset()
-                    .Filter = "Power Run files (*.sdp)|*.sdp"
-                    .ShowDialog()
-                End With
+                'With SaveFileDialog1
+                '    .Reset()
+                '    .Filter = "Power Run files (*.sdp)|*.sdp"
+                '    .ShowDialog()
+                'End With
+                If SaveFileDialog1.FileName = "" Then
+                    btnProfile_Click(Me, EventArgs.Empty)
+                End If
                 If SaveFileDialog1.FileName <> "" Then
-                    LogPowerRunDataFileName = SaveFileDialog1.FileName
+                    LogPowerRunDataFileName = SaveFileDialog1.FileName.Replace(".sdp", ("_" & DateAndTime.Today.ToString("yyyyMMdd") & "_" & DateAndTime.Now.ToString("HHmmss") & ".sdp"))
+                    'LogPowerRunDataFileName = SaveFileDialog1.FileName
                     ResetValues()
                     DataPoints = 0
                     ' DataPoints2 = 0
@@ -3960,20 +3768,26 @@ Public Class Main
 #End Region
     Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
 
-        Me.AGaugeRPM.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
-        Me.LabelValRPM.Text = NewCustomFormat(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
+        Me.AGauge1.Value = CSng(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1) / 1000)
+        Me.LabelValGauge1.Text = NewCustomFormat(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1))
 
-        Me.AGaugeSpeed.Value = CSng(Data(SPEED, ACTUAL) * DataUnits(SPEED, 2))
-        Me.LabelValSpeed.Text = NewCustomFormat(Data(SPEED, ACTUAL) * DataUnits(SPEED, 2))
+        Me.AGauge3.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
+        Me.LabelValGauge3.Text = NewCustomFormat(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
 
-        Me.AGaugeAFR.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
-        Me.LabelValAFR.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+        Me.AGauge2.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+        Me.LabelValGauge2.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
 
         Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
         Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
     End Sub
 
-
+    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+        With SaveFileDialog1
+            .Reset()
+            .Filter = "Power Run files (*.sdp)|*.sdp"
+            .ShowDialog()
+        End With
+    End Sub
 End Class
 #Region "DoubleBufferPanel Class"
 Public Class DoubleBufferPanel

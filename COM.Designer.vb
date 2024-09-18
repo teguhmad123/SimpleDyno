@@ -598,9 +598,9 @@ Partial Class COM
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(52, 415)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(62, 23)
+        Me.Label2.Size = New System.Drawing.Size(43, 23)
         Me.Label2.TabIndex = 240
-        Me.Label2.Text = "Pin A4"
+        Me.Label2.Text = "AFR"
         '
         'txtPin5Value2
         '

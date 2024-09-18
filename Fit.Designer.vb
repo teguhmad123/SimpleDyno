@@ -439,7 +439,6 @@ Partial Class Fit
     Friend WithEvents scrlVoltageSmooth As System.Windows.Forms.VScrollBar
     Friend WithEvents txtCurrentSmooth As System.Windows.Forms.TextBox
     Friend WithEvents scrlCurrentSmooth As System.Windows.Forms.VScrollBar
-    Friend WithEvents btnAddAnalysis As System.Windows.Forms.Button
     Friend WithEvents chkAddOrNew As System.Windows.Forms.CheckBox
     Friend WithEvents prgFit As System.Windows.Forms.ProgressBar
     Friend WithEvents lblProgress As System.Windows.Forms.Label
@@ -453,4 +452,5 @@ Partial Class Fit
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtCoastDownSmooth As System.Windows.Forms.TextBox
     Friend WithEvents scrlCoastDownSmooth As System.Windows.Forms.VScrollBar
+    Friend WithEvents btnAddAnalysis As Button
 End Class
