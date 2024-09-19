@@ -137,7 +137,6 @@ Partial Class Fit
         '
         Me.txtVoltageSmooth.BackColor = System.Drawing.Color.White
         Me.txtVoltageSmooth.CausesValidation = False
-        Me.txtVoltageSmooth.Enabled = False
         Me.txtVoltageSmooth.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVoltageSmooth.Location = New System.Drawing.Point(119, 245)
         Me.txtVoltageSmooth.Name = "txtVoltageSmooth"
@@ -150,7 +149,6 @@ Partial Class Fit
         '
         'scrlVoltageSmooth
         '
-        Me.scrlVoltageSmooth.Enabled = False
         Me.scrlVoltageSmooth.LargeChange = 1
         Me.scrlVoltageSmooth.Location = New System.Drawing.Point(166, 245)
         Me.scrlVoltageSmooth.Maximum = 19
@@ -163,7 +161,6 @@ Partial Class Fit
         '
         Me.txtCurrentSmooth.BackColor = System.Drawing.Color.White
         Me.txtCurrentSmooth.CausesValidation = False
-        Me.txtCurrentSmooth.Enabled = False
         Me.txtCurrentSmooth.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCurrentSmooth.Location = New System.Drawing.Point(119, 211)
         Me.txtCurrentSmooth.Name = "txtCurrentSmooth"
@@ -176,7 +173,6 @@ Partial Class Fit
         '
         'scrlCurrentSmooth
         '
-        Me.scrlCurrentSmooth.Enabled = False
         Me.scrlCurrentSmooth.LargeChange = 1
         Me.scrlCurrentSmooth.Location = New System.Drawing.Point(166, 211)
         Me.scrlCurrentSmooth.Maximum = 19

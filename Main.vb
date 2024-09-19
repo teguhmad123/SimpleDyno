@@ -166,6 +166,7 @@ Public Class Main
     Friend WithEvents LabelValMotorTorque As Label
     Friend WithEvents LabelMotorTorque As Label
     Friend WithEvents btnProfile As Button
+    Friend WithEvents btnRefreshCOM As Button
     Friend WithEvents CartesianChart1 As LiveCharts.WinForms.CartesianChart
     '
     'Friend WithEvents ButtonCorrection As Button
@@ -235,6 +236,7 @@ Public Class Main
     'Serial Port Coms and measures
     Private mySerialPort As New SerialPort
     Private COMPortsAvailable As Boolean = False
+    Friend BaudRate As Integer = 9600
     Public Shared COMPortMessage() As String
     Public Shared Voltage1 As Double
     Public Shared Voltage2 As Double
@@ -361,7 +363,7 @@ Public Class Main
 
     'Signal Plotting Specific
     Private SignalPinned As Boolean = False
-    Private SignalWindowBMP As Graphics
+    'Private SignalWindowBMP As Graphics
     Public SignalBitmap As Bitmap
     Private Channel1SignalPen As New Pen(Color.Red)
     Private Channel2SignalPen As New Pen(Color.Yellow)
@@ -470,12 +472,6 @@ Public Class Main
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
-
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    Friend WithEvents txtPowerRunThreshold As System.Windows.Forms.TextBox
-    Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     '
     'Friend WithEvents btnStartLoggingRaw As System.Windows.Forms.Button
@@ -483,9 +479,6 @@ Public Class Main
     '
     Public WithEvents btnStartPowerRun As System.Windows.Forms.Button
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
-    Friend WithEvents txtZeroTimeDetect As System.Windows.Forms.TextBox
-    Friend WithEvents lblZeroDetect As System.Windows.Forms.Label
-    Friend WithEvents pnlSignalWindow As SimpleDyno.DoubleBufferPanel
     '
     'Friend WithEvents btnClose As System.Windows.Forms.Button
     'Friend WithEvents btnMultiYTime As System.Windows.Forms.Button
@@ -498,12 +491,7 @@ Public Class Main
     'Friend WithEvents btnLoad As System.Windows.Forms.Button
     '
     Friend WithEvents btnStartAcquisition As System.Windows.Forms.Button
-    Friend WithEvents cmbAcquisition As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbSampleRate As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbChannels As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbBaudRate As System.Windows.Forms.ComboBox
     Friend WithEvents cmbCOMPorts As System.Windows.Forms.ComboBox
-    Friend WithEvents lblCOMActive As System.Windows.Forms.Label
     Friend WithEvents txtThreshold2 As System.Windows.Forms.TextBox
     Friend WithEvents txtThreshold1 As System.Windows.Forms.TextBox
     Friend WithEvents btnCOM As System.Windows.Forms.Button
@@ -513,7 +501,6 @@ Public Class Main
     'Friend WithEvents lblInterface As System.Windows.Forms.Label
     '
     Friend WithEvents txtInterface As System.Windows.Forms.TextBox
-    Friend WithEvents chkAdvancedProcessing As System.Windows.Forms.CheckBox
     Friend WithEvents cmbBufferSize As System.Windows.Forms.ComboBox
     Friend WithEvents btnPerformanceTest As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -526,20 +513,10 @@ Public Class Main
         Me.btnAnalysis = New System.Windows.Forms.Button()
         Me.txtThreshold2 = New System.Windows.Forms.TextBox()
         Me.txtThreshold1 = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.txtPowerRunThreshold = New System.Windows.Forms.TextBox()
-        Me.txtZeroTimeDetect = New System.Windows.Forms.TextBox()
-        Me.lblZeroDetect = New System.Windows.Forms.Label()
         Me.btnStartAcquisition = New System.Windows.Forms.Button()
-        Me.cmbAcquisition = New System.Windows.Forms.ComboBox()
-        Me.cmbSampleRate = New System.Windows.Forms.ComboBox()
-        Me.cmbChannels = New System.Windows.Forms.ComboBox()
-        Me.cmbBaudRate = New System.Windows.Forms.ComboBox()
         Me.cmbCOMPorts = New System.Windows.Forms.ComboBox()
-        Me.lblCOMActive = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.txtInterface = New System.Windows.Forms.TextBox()
-        Me.chkAdvancedProcessing = New System.Windows.Forms.CheckBox()
         Me.cmbBufferSize = New System.Windows.Forms.ComboBox()
         Me.btnPerformanceTest = New System.Windows.Forms.Button()
         Me.AGauge1 = New System.Windows.Forms.AGauge()
@@ -558,9 +535,9 @@ Public Class Main
         Me.LabelValPower = New System.Windows.Forms.Label()
         Me.LabelValMotorTorque = New System.Windows.Forms.Label()
         Me.LabelMotorTorque = New System.Windows.Forms.Label()
-        Me.pnlSignalWindow = New SimpleDyno.DoubleBufferPanel()
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.CartesianChart1 = New LiveCharts.WinForms.CartesianChart()
+        Me.btnRefreshCOM = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'SaveFileDialog1
@@ -572,7 +549,7 @@ Public Class Main
         Me.btnStartPowerRun.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStartPowerRun.Location = New System.Drawing.Point(298, 2)
         Me.btnStartPowerRun.Name = "btnStartPowerRun"
-        Me.btnStartPowerRun.Size = New System.Drawing.Size(68, 21)
+        Me.btnStartPowerRun.Size = New System.Drawing.Size(68, 22)
         Me.btnStartPowerRun.TabIndex = 43
         Me.btnStartPowerRun.Text = "Power Run"
         '
@@ -581,7 +558,7 @@ Public Class Main
         Me.btnCOM.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCOM.Location = New System.Drawing.Point(76, 1)
         Me.btnCOM.Name = "btnCOM"
-        Me.btnCOM.Size = New System.Drawing.Size(68, 21)
+        Me.btnCOM.Size = New System.Drawing.Size(68, 23)
         Me.btnCOM.TabIndex = 172
         Me.btnCOM.Text = "COM"
         Me.btnCOM.UseVisualStyleBackColor = True
@@ -591,7 +568,7 @@ Public Class Main
         Me.btnDyno.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDyno.Location = New System.Drawing.Point(2, 1)
         Me.btnDyno.Name = "btnDyno"
-        Me.btnDyno.Size = New System.Drawing.Size(68, 21)
+        Me.btnDyno.Size = New System.Drawing.Size(68, 23)
         Me.btnDyno.TabIndex = 170
         Me.btnDyno.Text = "Dyno"
         Me.btnDyno.UseVisualStyleBackColor = True
@@ -601,7 +578,7 @@ Public Class Main
         Me.btnAnalysis.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnalysis.Location = New System.Drawing.Point(150, 2)
         Me.btnAnalysis.Name = "btnAnalysis"
-        Me.btnAnalysis.Size = New System.Drawing.Size(68, 21)
+        Me.btnAnalysis.Size = New System.Drawing.Size(68, 22)
         Me.btnAnalysis.TabIndex = 171
         Me.btnAnalysis.Text = "Analysis"
         Me.btnAnalysis.UseVisualStyleBackColor = True
@@ -634,111 +611,23 @@ Public Class Main
         Me.txtThreshold1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtThreshold1.Visible = False
         '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(226, 27)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(66, 13)
-        Me.Label17.TabIndex = 58
-        Me.Label17.Text = "Run Start at"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtPowerRunThreshold
-        '
-        Me.txtPowerRunThreshold.CausesValidation = False
-        Me.txtPowerRunThreshold.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPowerRunThreshold.Location = New System.Drawing.Point(298, 24)
-        Me.txtPowerRunThreshold.Name = "txtPowerRunThreshold"
-        Me.txtPowerRunThreshold.Size = New System.Drawing.Size(67, 21)
-        Me.txtPowerRunThreshold.TabIndex = 44
-        Me.txtPowerRunThreshold.Tag = "1\999999"
-        Me.txtPowerRunThreshold.Text = "0"
-        Me.txtPowerRunThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtZeroTimeDetect
-        '
-        Me.txtZeroTimeDetect.CausesValidation = False
-        Me.txtZeroTimeDetect.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtZeroTimeDetect.Location = New System.Drawing.Point(492, 68)
-        Me.txtZeroTimeDetect.Name = "txtZeroTimeDetect"
-        Me.txtZeroTimeDetect.Size = New System.Drawing.Size(38, 21)
-        Me.txtZeroTimeDetect.TabIndex = 51
-        Me.txtZeroTimeDetect.Tag = "0.1\2"
-        Me.txtZeroTimeDetect.Text = "1"
-        Me.txtZeroTimeDetect.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'lblZeroDetect
-        '
-        Me.lblZeroDetect.AutoSize = True
-        Me.lblZeroDetect.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblZeroDetect.Location = New System.Drawing.Point(426, 72)
-        Me.lblZeroDetect.Name = "lblZeroDetect"
-        Me.lblZeroDetect.Size = New System.Drawing.Size(64, 13)
-        Me.lblZeroDetect.TabIndex = 32
-        Me.lblZeroDetect.Text = "Zero Detect"
-        Me.lblZeroDetect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'btnStartAcquisition
         '
-        Me.btnStartAcquisition.Location = New System.Drawing.Point(425, 90)
+        Me.btnStartAcquisition.Location = New System.Drawing.Point(554, 1)
         Me.btnStartAcquisition.Name = "btnStartAcquisition"
-        Me.btnStartAcquisition.Size = New System.Drawing.Size(105, 21)
+        Me.btnStartAcquisition.Size = New System.Drawing.Size(88, 23)
         Me.btnStartAcquisition.TabIndex = 163
         Me.btnStartAcquisition.Text = "Start"
         Me.btnStartAcquisition.UseVisualStyleBackColor = True
-        '
-        'cmbAcquisition
-        '
-        Me.cmbAcquisition.FormattingEnabled = True
-        Me.cmbAcquisition.Location = New System.Drawing.Point(426, 2)
-        Me.cmbAcquisition.Name = "cmbAcquisition"
-        Me.cmbAcquisition.Size = New System.Drawing.Size(171, 21)
-        Me.cmbAcquisition.TabIndex = 162
-        '
-        'cmbSampleRate
-        '
-        Me.cmbSampleRate.FormattingEnabled = True
-        Me.cmbSampleRate.Location = New System.Drawing.Point(508, 24)
-        Me.cmbSampleRate.Name = "cmbSampleRate"
-        Me.cmbSampleRate.Size = New System.Drawing.Size(89, 21)
-        Me.cmbSampleRate.TabIndex = 161
-        '
-        'cmbChannels
-        '
-        Me.cmbChannels.FormattingEnabled = True
-        Me.cmbChannels.Location = New System.Drawing.Point(426, 24)
-        Me.cmbChannels.Name = "cmbChannels"
-        Me.cmbChannels.Size = New System.Drawing.Size(81, 21)
-        Me.cmbChannels.TabIndex = 160
-        '
-        'cmbBaudRate
-        '
-        Me.cmbBaudRate.FormattingEnabled = True
-        Me.cmbBaudRate.Location = New System.Drawing.Point(531, 46)
-        Me.cmbBaudRate.Name = "cmbBaudRate"
-        Me.cmbBaudRate.Size = New System.Drawing.Size(66, 21)
-        Me.cmbBaudRate.TabIndex = 159
         '
         'cmbCOMPorts
         '
         Me.cmbCOMPorts.DropDownWidth = 300
         Me.cmbCOMPorts.FormattingEnabled = True
-        Me.cmbCOMPorts.Location = New System.Drawing.Point(426, 46)
+        Me.cmbCOMPorts.Location = New System.Drawing.Point(372, 3)
         Me.cmbCOMPorts.Name = "cmbCOMPorts"
         Me.cmbCOMPorts.Size = New System.Drawing.Size(104, 21)
         Me.cmbCOMPorts.TabIndex = 158
-        '
-        'lblCOMActive
-        '
-        Me.lblCOMActive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblCOMActive.Location = New System.Drawing.Point(531, 91)
-        Me.lblCOMActive.Name = "lblCOMActive"
-        Me.lblCOMActive.Size = New System.Drawing.Size(66, 19)
-        Me.lblCOMActive.TabIndex = 157
-        Me.lblCOMActive.Text = "COM Active"
-        Me.lblCOMActive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'OpenFileDialog1
         '
@@ -756,17 +645,6 @@ Public Class Main
         Me.txtInterface.Tag = ""
         Me.txtInterface.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtInterface.Visible = False
-        '
-        'chkAdvancedProcessing
-        '
-        Me.chkAdvancedProcessing.AutoSize = True
-        Me.chkAdvancedProcessing.Location = New System.Drawing.Point(531, 71)
-        Me.chkAdvancedProcessing.Name = "chkAdvancedProcessing"
-        Me.chkAdvancedProcessing.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.chkAdvancedProcessing.Size = New System.Drawing.Size(45, 17)
-        Me.chkAdvancedProcessing.TabIndex = 182
-        Me.chkAdvancedProcessing.Text = "Adv"
-        Me.chkAdvancedProcessing.UseVisualStyleBackColor = True
         '
         'cmbBufferSize
         '
@@ -1059,21 +937,11 @@ Public Class Main
         Me.LabelMotorTorque.TabIndex = 202
         Me.LabelMotorTorque.Text = "Motor Torque(Nm)"
         '
-        'pnlSignalWindow
-        '
-        Me.pnlSignalWindow.BackColor = System.Drawing.SystemColors.Control
-        Me.pnlSignalWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.pnlSignalWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlSignalWindow.Location = New System.Drawing.Point(599, 2)
-        Me.pnlSignalWindow.Name = "pnlSignalWindow"
-        Me.pnlSignalWindow.Size = New System.Drawing.Size(25, 108)
-        Me.pnlSignalWindow.TabIndex = 33
-        '
         'btnProfile
         '
         Me.btnProfile.Location = New System.Drawing.Point(224, 1)
         Me.btnProfile.Name = "btnProfile"
-        Me.btnProfile.Size = New System.Drawing.Size(68, 21)
+        Me.btnProfile.Size = New System.Drawing.Size(68, 23)
         Me.btnProfile.TabIndex = 204
         Me.btnProfile.Text = "Profile"
         Me.btnProfile.UseVisualStyleBackColor = True
@@ -1086,12 +954,22 @@ Public Class Main
         Me.CartesianChart1.TabIndex = 205
         Me.CartesianChart1.Text = "CartesianChart1"
         '
+        'btnRefreshCOM
+        '
+        Me.btnRefreshCOM.Location = New System.Drawing.Point(482, 1)
+        Me.btnRefreshCOM.Name = "btnRefreshCOM"
+        Me.btnRefreshCOM.Size = New System.Drawing.Size(66, 23)
+        Me.btnRefreshCOM.TabIndex = 206
+        Me.btnRefreshCOM.Text = "Refresh"
+        Me.btnRefreshCOM.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.AutoScroll = True
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.Controls.Add(Me.btnRefreshCOM)
         Me.Controls.Add(Me.CartesianChart1)
         Me.Controls.Add(Me.btnProfile)
         Me.Controls.Add(Me.LabelValMotorTorque)
@@ -1110,25 +988,14 @@ Public Class Main
         Me.Controls.Add(Me.LabelGauge1)
         Me.Controls.Add(Me.AGauge1)
         Me.Controls.Add(Me.txtThreshold1)
-        Me.Controls.Add(Me.pnlSignalWindow)
         Me.Controls.Add(Me.txtThreshold2)
         Me.Controls.Add(Me.btnStartAcquisition)
-        Me.Controls.Add(Me.lblCOMActive)
         Me.Controls.Add(Me.cmbCOMPorts)
-        Me.Controls.Add(Me.cmbBaudRate)
-        Me.Controls.Add(Me.cmbChannels)
-        Me.Controls.Add(Me.cmbSampleRate)
-        Me.Controls.Add(Me.cmbAcquisition)
-        Me.Controls.Add(Me.lblZeroDetect)
-        Me.Controls.Add(Me.txtZeroTimeDetect)
         Me.Controls.Add(Me.txtInterface)
         Me.Controls.Add(Me.btnCOM)
         Me.Controls.Add(Me.btnDyno)
         Me.Controls.Add(Me.btnAnalysis)
-        Me.Controls.Add(Me.txtPowerRunThreshold)
         Me.Controls.Add(Me.btnStartPowerRun)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.chkAdvancedProcessing)
         Me.Controls.Add(Me.btnPerformanceTest)
         Me.Controls.Add(Me.cmbBufferSize)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1162,10 +1029,10 @@ Public Class Main
         frmCorrection = New Correction
 
         'Populate combo boxes
-        cmbChannels.Items.AddRange(AvailableChannels)
-        cmbChannels.SelectedIndex = 0
-        cmbSampleRate.Items.AddRange(AvailableSampleRates)
-        cmbSampleRate.SelectedIndex = 0
+        'cmbChannels.Items.AddRange(AvailableChannels)
+        'cmbChannels.SelectedIndex = 0
+        'cmbSampleRate.Items.AddRange(AvailableSampleRates)
+        'cmbSampleRate.SelectedIndex = 0
         cmbBufferSize.Items.AddRange(AvailableBufferSizes)
         cmbBufferSize.SelectedIndex = 0
 
@@ -1175,12 +1042,12 @@ Public Class Main
         'Check and load available COM Ports
         GetAvailableCOMPorts()
 
-        If COMPortsAvailable = True Then
-            cmbAcquisition.Items.AddRange(AcquisitionOptions)
-        Else
-            cmbAcquisition.Items.Add(AcquisitionOptions(0))
-        End If
-        cmbAcquisition.SelectedIndex = 0
+        'If COMPortsAvailable = True Then
+        '    cmbAcquisition.Items.AddRange(AcquisitionOptions)
+        'Else
+        '    cmbAcquisition.Items.Add(AcquisitionOptions(0))
+        'End If
+        'cmbAcquisition.SelectedIndex = 0
 
         frmAnalysis.Analysis_Setup()
         frmFit.Fit_Setup()
@@ -1192,7 +1059,7 @@ Public Class Main
         frmCOM.COM_Setup()
 
         'Setup graphics data
-        PrepareGraphicsParameters()
+        'PrepareGraphicsParameters()
 
         SetupTextBoxCharacterHandling()
 
@@ -1232,58 +1099,58 @@ Public Class Main
     '    frmCorrection.ShowDialog()
     'End Sub
     '
-    Private Sub pnlSignalWindow_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pnlSignalWindow.MouseClick
-        If e.Button = MouseButtons.Right Then
-            'set the RPM2 channel threshold
-            txtThreshold2.Text = (256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256).ToString
-            HighSignalThreshold2 = CDbl(txtThreshold2.Text) ' 256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256
-            If HighSignalThreshold2 > 128 Then WhichSignal2 = HIGHSIGNAL Else WhichSignal2 = LOWSIGNAL
-            SignalThreshold2YConverted = CInt(PicSignalHeight - HighSignalThreshold2 * SignalYConversion)
-        ElseIf e.Button = MouseButtons.Left Then
-            If pnlSignalWindow.Right - pnlSignalWindow.PointToClient(Control.MousePosition).X > 10 Then
-                'set the RPM1 channel threshold
-                txtThreshold1.Text = (256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256).ToString
-                HighSignalThreshold = CDbl(txtThreshold1.Text) '256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256
-                If HighSignalThreshold > 128 Then WhichSignal = HIGHSIGNAL Else WhichSignal = LOWSIGNAL
-                SignalThresholdYConverted = CInt(PicSignalHeight - HighSignalThreshold * SignalYConversion)
-            Else
-                SignalPinned = Not SignalPinned
-            End If
+    'Private Sub pnlSignalWindow_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+    '    If e.Button = MouseButtons.Right Then
+    '        'set the RPM2 channel threshold
+    '        txtThreshold2.Text = (256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256).ToString
+    '        HighSignalThreshold2 = CDbl(txtThreshold2.Text) ' 256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256
+    '        If HighSignalThreshold2 > 128 Then WhichSignal2 = HIGHSIGNAL Else WhichSignal2 = LOWSIGNAL
+    '        SignalThreshold2YConverted = CInt(PicSignalHeight - HighSignalThreshold2 * SignalYConversion)
+    '    ElseIf e.Button = MouseButtons.Left Then
+    '        If pnlSignalWindow.Right - pnlSignalWindow.PointToClient(Control.MousePosition).X > 10 Then
+    '            'set the RPM1 channel threshold
+    '            txtThreshold1.Text = (256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256).ToString
+    '            HighSignalThreshold = CDbl(txtThreshold1.Text) '256 - (pnlSignalWindow.PointToClient(Control.MousePosition).Y) / pnlSignalWindow.Height * 256
+    '            If HighSignalThreshold > 128 Then WhichSignal = HIGHSIGNAL Else WhichSignal = LOWSIGNAL
+    '            SignalThresholdYConverted = CInt(PicSignalHeight - HighSignalThreshold * SignalYConversion)
+    '        Else
+    '            SignalPinned = Not SignalPinned
+    '        End If
 
-        End If
-    End Sub
-    Private Sub pnlSignalWindow_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlSignalWindow.MouseEnter
-        If WavesStarted Then
-            With pnlSignalWindow
-                .Left = .Right - Me.Width + 10
-                .Width = Me.Width - 10
-            End With
-            PrepareGraphicsParameters()
-        End If
-    End Sub
-    Private Sub pnlSignalWindow_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlSignalWindow.MouseLeave
-        'Debug.Print(SignalPinned.ToString)
-        If WavesStarted Then
-            If SignalPinned = False Then
-                With pnlSignalWindow
-                    .Left = .Right - 25
-                    .Width = 25
-                End With
-                PrepareGraphicsParameters()
-            End If
-        End If
-    End Sub
+    '    End If
+    'End Sub
+    'Private Sub pnlSignalWindow_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs)
+    '    If WavesStarted Then
+    '        With pnlSignalWindow
+    '            .Left = .Right - Me.Width + 10
+    '            .Width = Me.Width - 10
+    '        End With
+    '        PrepareGraphicsParameters()
+    '    End If
+    'End Sub
+    'Private Sub pnlSignalWindow_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs)
+    '    'Debug.Print(SignalPinned.ToString)
+    '    If WavesStarted Then
+    '        If SignalPinned = False Then
+    '            With pnlSignalWindow
+    '                .Left = .Right - 25
+    '                .Width = 25
+    '            End With
+    '            PrepareGraphicsParameters()
+    '        End If
+    '    End If
+    'End Sub
 
-    Private Sub pnlSignalWindow_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pnlSignalWindow.MouseMove
-        If pnlSignalWindow.Right - pnlSignalWindow.PointToClient(Control.MousePosition).X < 10 Then
-            Me.Cursor = Cursors.Hand
-        Else
-            Me.Cursor = Cursors.Default
-        End If
-    End Sub
-    Private Sub pnlSignalWindow_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnlSignalWindow.Paint
-        pnlSignalWindow.BackgroundImage = SignalBitmap
-    End Sub
+    'Private Sub pnlSignalWindow_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+    '    If pnlSignalWindow.Right - pnlSignalWindow.PointToClient(Control.MousePosition).X < 10 Then
+    '        Me.Cursor = Cursors.Hand
+    '    Else
+    '        Me.Cursor = Cursors.Default
+    '    End If
+    'End Sub
+    'Private Sub pnlSignalWindow_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
+    '    pnlSignalWindow.BackgroundImage = SignalBitmap
+    'End Sub
 
     Delegate Sub SetControlBackColor_Delegate(ByVal [Control] As Control, ByVal [Color] As Color)
     Private Sub SetControlBackColor_ThreadSafe(ByVal [Control] As Control, ByVal [Color] As Color)
@@ -1375,13 +1242,13 @@ Public Class Main
 
         End If
     End Sub
-    Private Sub chkAdvancedProcessing_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkAdvancedProcessing.CheckedChanged
-        If chkAdvancedProcessing.Checked = True Then
-            UseAdvancedProcessing = True
-        Else
-            UseAdvancedProcessing = False
-        End If
-    End Sub
+    'Private Sub chkAdvancedProcessing_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkAdvancedProcessing.CheckedChanged
+    '    If chkAdvancedProcessing.Checked = True Then
+    '        UseAdvancedProcessing = True
+    '    Else
+    '        UseAdvancedProcessing = False
+    '    End If
+    'End Sub
     Friend Function CheckNumericalLimits(ByVal SentMin As Double, ByVal SentMax As Double, ByVal SentValue As Double) As Boolean
         If SentValue >= SentMin AndAlso SentValue <= SentMax Then
             Return True
@@ -1638,40 +1505,40 @@ Public Class Main
         ''This is an invisible box so text validation should not be needed
         'lblInterface.Text = txtInterface.Text.Substring(txtInterface.Text.LastIndexOf("\") + 1)
     End Sub
-    Private Sub txtZeroTimeDetect_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtZeroTimeDetect.Leave
-        Dim LocalMin As Double = 0.1
-        Dim LocalMax As Double = 2
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            WaitForNewSignal = TempDouble
-        Else
-            'btnHide_Click(Me, EventArgs.Empty)
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            'btnShow_Click(Me, EventArgs.Empty)
-            With CType(sender, TextBox)
-                .Text = WaitForNewSignal.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
-    Private Sub txtPowerRunThreshold_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPowerRunThreshold.Leave
-        Dim LocalMin As Double = 0
-        Dim LocalMax As Double = 999999
-        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
-            PowerRunThreshold = TempDouble
-            ActualPowerRunThreshold = (PowerRunThreshold / 60) * 2 * Math.PI ' convert it to rads/s
-            'Trying setting the minimum number of points to be collected in here also
-            'CHECK - this should also be set when Signals per RPM changes
-            MinimumPowerRunPoints = frmDyno.SignalsPerRPM * 10 'This somewhat arbitrary 
-        Else
-            'btnHide_Click(Me, EventArgs.Empty)
-            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
-            'btnShow_Click(Me, EventArgs.Empty)
-            With CType(sender, TextBox)
-                .Text = PowerRunThreshold.ToString
-                .Focus()
-            End With
-        End If
-    End Sub
+    'Private Sub txtZeroTimeDetect_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtZeroTimeDetect.Leave
+    '    Dim LocalMin As Double = 0.1
+    '    Dim LocalMax As Double = 2
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        WaitForNewSignal = TempDouble
+    '    Else
+    '        'btnHide_Click(Me, EventArgs.Empty)
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        'btnShow_Click(Me, EventArgs.Empty)
+    '        With CType(sender, TextBox)
+    '            .Text = WaitForNewSignal.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
+    'Private Sub txtPowerRunThreshold_Leave(ByVal sender As Object, ByVal e As System.EventArgs)
+    '    Dim LocalMin As Double = 0
+    '    Dim LocalMax As Double = 999999
+    '    If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+    '        PowerRunThreshold = TempDouble
+    '        ActualPowerRunThreshold = (PowerRunThreshold / 60) * 2 * Math.PI ' convert it to rads/s
+    '        'Trying setting the minimum number of points to be collected in here also
+    '        'CHECK - this should also be set when Signals per RPM changes
+    '        MinimumPowerRunPoints = frmDyno.SignalsPerRPM * 10 'This somewhat arbitrary 
+    '    Else
+    '        'btnHide_Click(Me, EventArgs.Empty)
+    '        MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+    '        'btnShow_Click(Me, EventArgs.Empty)
+    '        With CType(sender, TextBox)
+    '            .Text = PowerRunThreshold.ToString
+    '            .Focus()
+    '        End With
+    '    End If
+    'End Sub
 
 #End Region
 #Region "Read, Write, Update, and Reset Parameters"
@@ -2283,35 +2150,35 @@ Public Class Main
         A5ValueIntercept = (TempIntercept1 + TempIntercept2) / 2
     End Sub
 
-    Private Sub PrepareGraphicsParameters()
-        Try
+    'Private Sub PrepareGraphicsParameters()
+    '    Try
 
-            With pnlSignalWindow
-                PicSignalHeight = .Height
-                PicSignalWidth = .Width
-            End With
+    '        With pnlSignalWindow
+    '            PicSignalHeight = .Height
+    '            PicSignalWidth = .Width
+    '        End With
 
-            SignalBitmap = New Bitmap(PicSignalWidth, PicSignalHeight)
-            SignalWindowBMP = Graphics.FromImage(SignalBitmap)
+    '        SignalBitmap = New Bitmap(PicSignalWidth, PicSignalHeight)
+    '        SignalWindowBMP = Graphics.FromImage(SignalBitmap)
 
-            SignalXConversion = PicSignalWidth / BUFFER_SIZE * NUMBER_OF_CHANNELS
-            SignalYConversion = PicSignalHeight / 2 ^ BITS_PER_SAMPLE
+    '        SignalXConversion = PicSignalWidth / BUFFER_SIZE * NUMBER_OF_CHANNELS
+    '        SignalYConversion = PicSignalHeight / 2 ^ BITS_PER_SAMPLE
 
-            HighSignalThreshold2 = CDbl(txtThreshold2.Text)
-            HighSignalThreshold = CDbl(txtThreshold1.Text)
+    '        HighSignalThreshold2 = CDbl(txtThreshold2.Text)
+    '        HighSignalThreshold = CDbl(txtThreshold1.Text)
 
-            If HighSignalThreshold > 128 Then WhichSignal = HIGHSIGNAL Else WhichSignal = LOWSIGNAL
-            SignalThresholdYConverted = CInt(PicSignalHeight - HighSignalThreshold * SignalYConversion)
-            If HighSignalThreshold2 > 128 Then WhichSignal2 = HIGHSIGNAL Else WhichSignal2 = LOWSIGNAL
-            SignalThreshold2YConverted = CInt(PicSignalHeight - HighSignalThreshold2 * SignalYConversion)
+    '        If HighSignalThreshold > 128 Then WhichSignal = HIGHSIGNAL Else WhichSignal = LOWSIGNAL
+    '        SignalThresholdYConverted = CInt(PicSignalHeight - HighSignalThreshold * SignalYConversion)
+    '        If HighSignalThreshold2 > 128 Then WhichSignal2 = HIGHSIGNAL Else WhichSignal2 = LOWSIGNAL
+    '        SignalThreshold2YConverted = CInt(PicSignalHeight - HighSignalThreshold2 * SignalYConversion)
 
-        Catch e As Exception
-            'btnHide_Click(Me, EventArgs.Empty)
-            MsgBox("PrepareGraphicsParameters Error: " & e.ToString, MsgBoxStyle.Exclamation)
-            End
+    '    Catch e As Exception
+    '        'btnHide_Click(Me, EventArgs.Empty)
+    '        MsgBox("PrepareGraphicsParameters Error: " & e.ToString, MsgBoxStyle.Exclamation)
+    '        End
 
-        End Try
-    End Sub
+    '    End Try
+    'End Sub
     Private Sub ResetValues()
         Try
             Dim ParameterCount As Integer
@@ -2865,47 +2732,48 @@ Public Class Main
     '    End Sub
 #End Region
 #Region "Serial Port Communications"
-    Private Sub cmbAcquisition_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbAcquisition.SelectedIndexChanged
-        If InStr(cmbAcquisition.SelectedItem.ToString, "Audio") <> 0 Then
-            cmbChannels.Enabled = True
-            cmbSampleRate.Enabled = True
-        Else
-            cmbChannels.Enabled = False
-            cmbSampleRate.Enabled = False
-        End If
-        If InStr(cmbAcquisition.SelectedItem.ToString, "COM") <> 0 Then
-            cmbCOMPorts.Enabled = True
-            cmbBaudRate.Enabled = True
-            With frmFit
-                .rdoCurrent.Enabled = True
-                .rdoVoltage.Enabled = True
-                .txtCurrentSmooth.Enabled = True
-                .txtVoltageSmooth.Enabled = True
-                .scrlCurrentSmooth.Enabled = True
-                .scrlVoltageSmooth.Enabled = True
-            End With
-        Else
-            cmbCOMPorts.Enabled = False
-            cmbBaudRate.Enabled = False
-            With frmFit
-                .rdoCurrent.Enabled = False
-                .rdoVoltage.Enabled = False
-                .txtCurrentSmooth.Enabled = False
-                .txtVoltageSmooth.Enabled = False
-                .scrlCurrentSmooth.Enabled = False
-                .scrlVoltageSmooth.Enabled = False
-            End With
-        End If
-    End Sub
+    'Private Sub cmbAcquisition_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    'If InStr(cmbAcquisition.SelectedItem.ToString, "Audio") <> 0 Then
+    '    cmbChannels.Enabled = True
+    '    cmbSampleRate.Enabled = True
+    'Else
+    '    cmbChannels.Enabled = False
+    '    cmbSampleRate.Enabled = False
+    'End If
+    'If InStr(cmbAcquisition.SelectedItem.ToString, "COM") <> 0 Then
+    'cmbCOMPorts.Enabled = True
+    'cmbBaudRate.Enabled = True
+    'With frmFit
+    '    .rdoCurrent.Enabled = True
+    '    .rdoVoltage.Enabled = True
+    '    .txtCurrentSmooth.Enabled = True
+    '    .txtVoltageSmooth.Enabled = True
+    '    .scrlCurrentSmooth.Enabled = True
+    '    .scrlVoltageSmooth.Enabled = True
+    'End With
+    'Else
+    '    cmbCOMPorts.Enabled = False
+    '    cmbBaudRate.Enabled = False
+    '    With frmFit
+    '        .rdoCurrent.Enabled = False
+    '        .rdoVoltage.Enabled = False
+    '        .txtCurrentSmooth.Enabled = False
+    '        .txtVoltageSmooth.Enabled = False
+    '        .scrlCurrentSmooth.Enabled = False
+    '        .scrlVoltageSmooth.Enabled = False
+    '    End With
+    'End If
+    'End Sub
     Private Sub btnStartAcquisition_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStartAcquisition.Click
         btnStartAcquisition.Enabled = False
         'PauseForms()
         'ShutDownWaves()
         SerialClose()
-        SignalWindowBMP.Clear(System.Windows.Forms.Control.DefaultBackColor)
-        pnlSignalWindow.BackgroundImage = SignalBitmap
-        pnlSignalWindow.Invalidate()
-        SetControlBackColor_ThreadSafe(lblCOMActive, System.Windows.Forms.Control.DefaultBackColor)
+        'SignalWindowBMP.Clear(System.Windows.Forms.Control.DefaultBackColor)
+        'pnlSignalWindow.BackgroundImage = SignalBitmap
+        'pnlSignalWindow.Invalidate()
+        'SetControlBackColor_ThreadSafe(lblCOMActive, System.Windows.Forms.Control.DefaultBackColor)
+        SetControlBackColor_ThreadSafe(btnStartAcquisition, System.Windows.Forms.Control.DefaultBackColor)
         'Set all parameters to be available in interface components
         For count As Integer = 1 To LAST - 1
             DataAreUsed(count) = True
@@ -2918,83 +2786,84 @@ Public Class Main
             End If
         Next
 
-        If InStr(cmbAcquisition.SelectedItem.ToString, "Audio") <> 0 Then
-            SAMPLE_RATE = CInt(cmbSampleRate.SelectedItem.ToString.Substring(0, cmbSampleRate.SelectedItem.ToString.IndexOf(" ")))
-            NUMBER_OF_CHANNELS = CInt(cmbChannels.SelectedItem.ToString.Substring(0, cmbChannels.SelectedItem.ToString.IndexOf(" ")))
-#If QueryPerformance Then
-            BUFFER_SIZE = CInt(cmbBufferSize.SelectedItem.ToString.Substring(0, cmbBufferSize.SelectedItem.ToString.IndexOf(" "))) * NUMBER_OF_CHANNELS
-#Else
-            Select Case SAMPLE_RATE
-                Case Is = 11025
-                    BUFFER_SIZE = 1024 * NUMBER_OF_CHANNELS
-                Case Is = 22050
-                    BUFFER_SIZE = 2048 * NUMBER_OF_CHANNELS
-                Case Is = 44100
-                    BUFFER_SIZE = 4096 * NUMBER_OF_CHANNELS
-            End Select
-#End If
+        '        If InStr(cmbAcquisition.SelectedItem.ToString, "Audio") <> 0 Then
+        '            SAMPLE_RATE = CInt(cmbSampleRate.SelectedItem.ToString.Substring(0, cmbSampleRate.SelectedItem.ToString.IndexOf(" ")))
+        '            NUMBER_OF_CHANNELS = CInt(cmbChannels.SelectedItem.ToString.Substring(0, cmbChannels.SelectedItem.ToString.IndexOf(" ")))
+        '#If QueryPerformance Then
+        '            BUFFER_SIZE = CInt(cmbBufferSize.SelectedItem.ToString.Substring(0, cmbBufferSize.SelectedItem.ToString.IndexOf(" "))) * NUMBER_OF_CHANNELS
+        '#Else
+        '            Select Case SAMPLE_RATE
+        '                Case Is = 11025
+        '                    BUFFER_SIZE = 1024 * NUMBER_OF_CHANNELS
+        '                Case Is = 22050
+        '                    BUFFER_SIZE = 2048 * NUMBER_OF_CHANNELS
+        '                Case Is = 44100
+        '                    BUFFER_SIZE = 4096 * NUMBER_OF_CHANNELS
+        '            End Select
+        '#End If
 
-            If NUMBER_OF_CHANNELS = 1 Then
-                DataAreUsed(RPM2) = False
-                DataAreUsed(RPM2_RATIO) = False
-                DataAreUsed(RPM2_ROLLOUT) = False
-                DataAreUsed(CHAN2_FREQUENCY) = False
-                DataAreUsed(CHAN2_PULSEWIDTH) = False
-                DataAreUsed(CHAN2_DUTYCYCLE) = False
-            End If
+        '            If NUMBER_OF_CHANNELS = 1 Then
+        '                DataAreUsed(RPM2) = False
+        '                DataAreUsed(RPM2_RATIO) = False
+        '                DataAreUsed(RPM2_ROLLOUT) = False
+        '                DataAreUsed(CHAN2_FREQUENCY) = False
+        '                DataAreUsed(CHAN2_PULSEWIDTH) = False
+        '                DataAreUsed(CHAN2_DUTYCYCLE) = False
+        '            End If
 
-            ReDim RawWaveData(BUFFER_SIZE - 1)
-            ReDim RawWaveData0(BUFFER_SIZE - 1)
-            ReDim RawWaveData1(BUFFER_SIZE - 1)
-            ReDim RawWaveData2(BUFFER_SIZE - 1)
-            ReDim RawWaveData3(BUFFER_SIZE - 1)
-            ReDim RawWaveData4(BUFFER_SIZE - 1)
-            ReDim RawWaveData5(BUFFER_SIZE - 1)
-            ReDim RawWaveData6(BUFFER_SIZE - 1)
-            ReDim RawWaveData7(BUFFER_SIZE - 1)
-            ReDim RawWaveData8(BUFFER_SIZE - 1)
-            ReDim RawWaveData9(BUFFER_SIZE - 1)
-            ReDim RawWaveData10(BUFFER_SIZE - 1)
-            ReDim RawWaveData11(BUFFER_SIZE - 1)
-            ReDim RawWaveData12(BUFFER_SIZE - 1)
-            ReDim RawWaveData13(BUFFER_SIZE - 1)
-            ReDim RawWaveData14(BUFFER_SIZE - 1)
-            ReDim RawWaveData15(BUFFER_SIZE - 1)
-            ReDim RawWaveData16(BUFFER_SIZE - 1)
-            ReDim RawWaveData17(BUFFER_SIZE - 1)
-            ReDim RawWaveData18(BUFFER_SIZE - 1)
-            ReDim RawWaveData19(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData0(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData1(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData2(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData3(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData4(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData5(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData6(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData7(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData8(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData9(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData10(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData11(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData12(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData13(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData14(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData15(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData16(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData17(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData18(BUFFER_SIZE - 1)
+        '            ReDim RawWaveData19(BUFFER_SIZE - 1)
 
-            ReDim WaveBufferHeaders(NUMBER_OF_BUFFERS - 1)
+        '            ReDim WaveBufferHeaders(NUMBER_OF_BUFFERS - 1)
 
-            BytesToSeconds = 1 / (SAMPLE_RATE * NUMBER_OF_CHANNELS)
-            ElapsedTimeUnit = BytesToSeconds * NUMBER_OF_CHANNELS
-            PrepareGraphicsParameters()
-            'InitializeWaveInput()
-        Else
-            'CHECK - CLEAR THE SIGNAL WINDOW SCREEN TO GRAY IF NOT USED
-            'Scope stuff only uses audio
-            DataAreUsed(CHAN1_FREQUENCY) = False
-            DataAreUsed(CHAN1_PULSEWIDTH) = False
-            DataAreUsed(CHAN1_DUTYCYCLE) = False
-            DataAreUsed(CHAN2_FREQUENCY) = False
-            DataAreUsed(CHAN2_PULSEWIDTH) = False
-            DataAreUsed(CHAN2_DUTYCYCLE) = False
+        '            BytesToSeconds = 1 / (SAMPLE_RATE * NUMBER_OF_CHANNELS)
+        '            ElapsedTimeUnit = BytesToSeconds * NUMBER_OF_CHANNELS
+        '            'PrepareGraphicsParameters()
+        '            'InitializeWaveInput()
+        '        Else
+        'CHECK - CLEAR THE SIGNAL WINDOW SCREEN TO GRAY IF NOT USED
+        'Scope stuff only uses audio
+        DataAreUsed(CHAN1_FREQUENCY) = False
+        DataAreUsed(CHAN1_PULSEWIDTH) = False
+        DataAreUsed(CHAN1_DUTYCYCLE) = False
+        DataAreUsed(CHAN2_FREQUENCY) = False
+        DataAreUsed(CHAN2_PULSEWIDTH) = False
+        DataAreUsed(CHAN2_DUTYCYCLE) = False
 
-        End If
+        'End If
 
-        If InStr(cmbAcquisition.SelectedItem.ToString, "COM") <> 0 Then
-            SerialOpen(cmbCOMPorts.Items(cmbCOMPorts.SelectedIndex).ToString, CInt(cmbBaudRate.Items(cmbBaudRate.SelectedIndex)))
-        Else
-            DataAreUsed(VOLTS) = False
-            DataAreUsed(AMPS) = False
-            DataAreUsed(WATTS_IN) = False
-            DataAreUsed(EFFICIENCY) = False
-            DataAreUsed(TEMPERATURE1) = False
-            DataAreUsed(TEMPERATURE2) = False
-            DataAreUsed(PIN04VALUE) = False
-            DataAreUsed(PIN05VALUE) = False
-        End If
+        'If InStr(cmbAcquisition.SelectedItem.ToString, "COM") <> 0 Then
+        'SerialOpen(cmbCOMPorts.Items(cmbCOMPorts.SelectedIndex).ToString, CInt(cmbBaudRate.Items(cmbBaudRate.SelectedIndex)))
+        SerialOpen(cmbCOMPorts.Items(cmbCOMPorts.SelectedIndex).ToString, BaudRate)
+        'Else
+        '    DataAreUsed(VOLTS) = False
+        '    DataAreUsed(AMPS) = False
+        '    DataAreUsed(WATTS_IN) = False
+        '    DataAreUsed(EFFICIENCY) = False
+        '    DataAreUsed(TEMPERATURE1) = False
+        '    DataAreUsed(TEMPERATURE2) = False
+        '    DataAreUsed(PIN04VALUE) = False
+        '    DataAreUsed(PIN05VALUE) = False
+        'End If
 
 
 
@@ -3012,6 +2881,7 @@ Public Class Main
     End Sub
     Private ClosingCOMPort As Boolean = False
     Private Sub GetAvailableCOMPorts()
+        cmbCOMPorts.Items.Clear()
         Dim Problem As String
         Problem = "No Value"
         Try
@@ -3036,9 +2906,9 @@ Public Class Main
                 Problem = "Creating Baud string"
                 Dim AvailableBauds() As String = {9600.ToString, 14400.ToString, 19200.ToString, 28800.ToString, 38400.ToString, 57600.ToString, 115200.ToString}
                 Problem = "Adding Baud to CMB"
-                cmbBaudRate.Items.AddRange(AvailableBauds)
+                'cmbBaudRate.Items.AddRange(AvailableBauds)
                 Problem = "Setting Index to 0"
-                cmbBaudRate.SelectedIndex = 0
+                'cmbBaudRate.SelectedIndex = 0
             End If
             'MsgBox("No Problems Found", MsgBoxStyle.OkOnly)
         Catch ex As Exception
@@ -3101,6 +2971,9 @@ Public Class Main
         End If
         ClosingCOMPort = False
     End Sub
+    Private Sub btnRefreshCOM_Click(sender As Object, e As EventArgs) Handles btnRefreshCOM.Click
+        GetAvailableCOMPorts()
+    End Sub
     Private Sub DataReceivedHandler(ByVal sender As Object, ByVal e As SerialDataReceivedEventArgs)
         If Not ClosingCOMPort Then
             Try
@@ -3119,7 +2992,8 @@ Public Class Main
 
                 rgbvalue += rgbincrement
                 If rgbvalue > 240 Or rgbvalue < 50 Then rgbincrement *= -1
-                SetControlBackColor_ThreadSafe(lblCOMActive, Color.FromArgb(0, rgbvalue, rgbvalue))
+                'SetControlBackColor_ThreadSafe(lblCOMActive, Color.FromArgb(0, rgbvalue, rgbvalue))
+                SetControlBackColor_ThreadSafe(btnStartAcquisition, Color.FromArgb(0, rgbvalue, rgbvalue))
 
                 If COMPortMessage.Length = 12 Then 'Timestamp, 2 new Time values,  2 interrupt times, 6 ports
                     SyncLock Locker

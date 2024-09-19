@@ -765,7 +765,8 @@ Public Class Fit
             'CHECK - this needs to be updated per version
             .WriteLine(Main.PowerRunVersion) 'Confirms power curve and version
             .WriteLine(Main.LogPowerRunDataFileName & vbCrLf & DateAndTime.Today & vbCrLf)
-            .WriteLine("Acquisition: " & Main.cmbAcquisition.SelectedItem.ToString)
+            '.WriteLine("Acquisition: " & Main.cmbAcquisition.SelectedItem.ToString)
+            .WriteLine("Acquisition: COM Port Only")
             .WriteLine("Number_of_Channels: " & Main.NUMBER_OF_CHANNELS.ToString)
             .WriteLine("Sampling_Rate " & Main.SAMPLE_RATE.ToString)
             If Main.cmbCOMPorts.SelectedItem IsNot Nothing Then
@@ -773,11 +774,11 @@ Public Class Fit
             Else
                 .WriteLine("No_COM_Port_Selected")
             End If
-            If Main.cmbBaudRate.SelectedItem IsNot Nothing Then
-                .WriteLine("Baud_Rate: " & Main.cmbBaudRate.SelectedItem.ToString)
-            Else
-                .WriteLine("No_Baud_Rate_Selected")
-            End If
+            'If Main.cmbBaudRate.SelectedItem IsNot Nothing Then
+            .WriteLine("Baud_Rate: " & Main.BaudRate.ToString)
+            'Else
+            '.WriteLine("No_Baud_Rate_Selected")
+            'End If
             .WriteLine("Car_Mass: " & Main.frmDyno.CarMass.ToString & " grams")
             .WriteLine("Frontal_Area: " & Main.frmDyno.FrontalArea.ToString & " mm2")
             .WriteLine("Drag_Coefficient: " & Main.frmDyno.DragCoefficient.ToString)
