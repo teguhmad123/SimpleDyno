@@ -96,6 +96,9 @@ Public Class Main
     Private Const BITS_PER_SAMPLE As Integer = 8
     Private Const NUMBER_OF_BUFFERS As Int32 = 20
 
+    Private btnRun As Integer = 0
+    Private btnRunTMP As Integer = 0
+
     'Constants for new data structure approach
     'Primary Dimensions for DATA
     Friend Const SESSIONTIME As Integer = 0
@@ -2997,6 +3000,9 @@ Public Class Main
 
                 If COMPortMessage.Length = 12 Then 'Timestamp, 2 new Time values,  2 interrupt times, 6 ports
                     SyncLock Locker
+                        If btnRunTMP <> CInt(COMPortMessage(11)) Then
+                            btnRunTMP = CInt(COMPortMessage(11))
+                        End If
                         Data(VOLTS, ACTUAL) = VoltageIntercept + VoltageSlope * CDbl(COMPortMessage(5)) 'Convert Volts signal to volts
                         Data(AMPS, ACTUAL) = CurrentIntercept + CurrentSlope * CDbl((COMPortMessage(6))) 'Convert Current signal to amps
                         Data(TEMPERATURE1, ACTUAL) = Temperature1Intercept + Temperature1Slope * CDbl(COMPortMessage(7))
@@ -3656,6 +3662,21 @@ Public Class Main
 
         Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
         Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
+
+        If btnRun <> btnRunTMP Then
+            btnRun = btnRunTMP
+            'Debug.Print(CStr(btnRun))
+            'ClickButton_ThreadSafe(btnStartPowerRun)
+            If btnRun <> 0 Then
+                btnStartPowerRun_Click(Me, EventArgs.Empty)
+            Else
+                SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
+                'DataPoints -= 1
+                'PauseForms()
+                WhichDataMode = LIVE
+            End If
+            'Me.Invoke(Sub() btnStartPowerRun.PerformClick())
+        End If
     End Sub
 
     Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
