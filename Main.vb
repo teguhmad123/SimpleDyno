@@ -175,7 +175,7 @@ Public Class Main
 #Region "SimpleDyno Function Declarations"
     'Wave call back function declaration
     Delegate Function WaveCallBackProcedure(ByVal hwi As IntPtr, ByVal uMsg As Int32, ByVal dwInstance As Int32, ByVal dwParam1 As Int32, ByVal dwParam2 As Int32) As Int32
-    Private myCallBackFunction As New WaveCallBackProcedure(AddressOf MyWaveCallBackProcedure) 'use with callback
+    'Private myCallBackFunction As New WaveCallBackProcedure(AddressOf MyWaveCallBackProcedure) 'use with callback
 
     'Custom Rounding and Formatting Functions
     Friend Function CustomRound(ByVal Sent As Double) As Double
@@ -276,7 +276,7 @@ Public Class Main
     Public Shared Resistance2 As Double
 
     'For new graphical interface
-    Public Shared WithEvents f As New List(Of SimpleDynoSubForm)
+    'Public Shared WithEvents f As New List(Of SimpleDynoSubForm)
 
     'NOTE - The following delclarations use the largest primary and secondary dimensions
     'Friend" declarations are to allow passing the information to the new graphical interface classes
@@ -805,26 +805,26 @@ Public Class Main
         Me.AGauge1.Name = "AGauge1"
         Me.AGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
         Me.AGauge1.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGauge1.NeedleRadius = 230
+        Me.AGauge1.NeedleRadius = 225
         Me.AGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge1.NeedleWidth = 2
         Me.AGauge1.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGauge1.ScaleLinesInterInnerRadius = 230
-        Me.AGauge1.ScaleLinesInterOuterRadius = 220
+        Me.AGauge1.ScaleLinesInterInnerRadius = 225
+        Me.AGauge1.ScaleLinesInterOuterRadius = 215
         Me.AGauge1.ScaleLinesInterWidth = 1
         Me.AGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGauge1.ScaleLinesMajorInnerRadius = 230
-        Me.AGauge1.ScaleLinesMajorOuterRadius = 215
+        Me.AGauge1.ScaleLinesMajorInnerRadius = 225
+        Me.AGauge1.ScaleLinesMajorOuterRadius = 210
         Me.AGauge1.ScaleLinesMajorStepValue = 1.0!
         Me.AGauge1.ScaleLinesMajorWidth = 2
         Me.AGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGauge1.ScaleLinesMinorInnerRadius = 230
-        Me.AGauge1.ScaleLinesMinorOuterRadius = 225
+        Me.AGauge1.ScaleLinesMinorInnerRadius = 225
+        Me.AGauge1.ScaleLinesMinorOuterRadius = 220
         Me.AGauge1.ScaleLinesMinorTicks = 9
         Me.AGauge1.ScaleLinesMinorWidth = 1
         Me.AGauge1.ScaleNumbersColor = System.Drawing.Color.Black
         Me.AGauge1.ScaleNumbersFormat = Nothing
-        Me.AGauge1.ScaleNumbersRadius = 240
+        Me.AGauge1.ScaleNumbersRadius = 235
         Me.AGauge1.ScaleNumbersRotation = 0
         Me.AGauge1.ScaleNumbersStartScaleLine = 0
         Me.AGauge1.ScaleNumbersStepScaleLines = 1
@@ -914,12 +914,12 @@ Public Class Main
         Me.AGauge3.Center = New System.Drawing.Point(255, 255)
         Me.AGauge3.Font = New System.Drawing.Font("Tahoma", 9.25!)
         Me.AGauge3.Location = New System.Drawing.Point(1346, 137)
-        Me.AGauge3.MaxValue = 180.0!
+        Me.AGauge3.MaxValue = 18.0!
         Me.AGauge3.MinValue = 0!
         Me.AGauge3.Name = "AGauge3"
         Me.AGauge3.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
         Me.AGauge3.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGauge3.NeedleRadius = 230
+        Me.AGauge3.NeedleRadius = 225
         Me.AGauge3.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge3.NeedleWidth = 2
         Me.AGauge3.ScaleLinesInterColor = System.Drawing.Color.Black
@@ -929,7 +929,7 @@ Public Class Main
         Me.AGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black
         Me.AGauge3.ScaleLinesMajorInnerRadius = 225
         Me.AGauge3.ScaleLinesMajorOuterRadius = 210
-        Me.AGauge3.ScaleLinesMajorStepValue = 10.0!
+        Me.AGauge3.ScaleLinesMajorStepValue = 1.0!
         Me.AGauge3.ScaleLinesMajorWidth = 2
         Me.AGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray
         Me.AGauge3.ScaleLinesMinorInnerRadius = 225
@@ -945,7 +945,7 @@ Public Class Main
         Me.AGauge3.Size = New System.Drawing.Size(512, 451)
         Me.AGauge3.TabIndex = 192
         Me.AGauge3.Tag = ""
-        Me.AGauge3.Text = "AGaugeSpeed"
+        Me.AGauge3.Text = "AGauge3"
         Me.AGauge3.Value = 0!
         '
         'LabelValGauge2
@@ -1012,7 +1012,7 @@ Public Class Main
         Me.AGauge2.Size = New System.Drawing.Size(512, 451)
         Me.AGauge2.TabIndex = 196
         Me.AGauge2.Tag = ""
-        Me.AGauge2.Text = "AGaugeAFR"
+        Me.AGauge2.Text = "AGauge2"
         Me.AGauge2.Value = 10.0!
         '
         'LabelPower
@@ -1209,8 +1209,8 @@ Public Class Main
     Private Sub Form1_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         SaveParametersToFile()
         'btnClose_Click(Me, EventArgs.Empty)
-        ShutDownWaves()
-        myCallBackFunction = Nothing
+        'ShutDownWaves()
+        'myCallBackFunction = Nothing
         SerialClose()
     End Sub
     Private Sub btnDyno_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDyno.Click
@@ -1400,7 +1400,8 @@ Public Class Main
                 With btnStartPowerRun
                     .BackColor = System.Windows.Forms.Control.DefaultBackColor
                 End With
-                StopFitting = True
+                'StopFitting = True
+                StopFitting = False
                 WhichDataMode = LIVE
             Else
                 'btnHide_Click(Me, EventArgs.Empty)
@@ -2321,7 +2322,7 @@ Public Class Main
                 Data(ParameterCount, MAXIMUM) = 0
             Next
 
-            ResetAllYTimeGraphs()
+            'ResetAllYTimeGraphs()
             Data(SESSIONTIME, ACTUAL) = 0
 
         Catch e As Exception
@@ -2333,534 +2334,535 @@ Public Class Main
 
 #End Region
 #Region "Initialize, Process and Shutdown Wave Input"
-    Private Sub InitializeWaveInput()
+    '    Private Sub InitializeWaveInput()
 
-        With waveFormat
-            .wFormatTag = WAVE_FORMAT_PCM       'uncompressed Pulse Code Modulation
-            .nchannels = CShort(NUMBER_OF_CHANNELS)    '1 for mono 2 for stereo
-            .nSamplesPerSec = SAMPLE_RATE       '44100 is CD quality
-            .wBitsPerSample = BITS_PER_SAMPLE               'BITS_PER_SAMPLE 'CD quality is 16
-            .nBlockAlign = CShort(.nchannels * (.wBitsPerSample / 8))
-            .nAvgBytesPerSec = .nSamplesPerSec * .nBlockAlign
-            .cbSize = 0
-        End With
+    '        With waveFormat
+    '            .wFormatTag = WAVE_FORMAT_PCM       'uncompressed Pulse Code Modulation
+    '            .nchannels = CShort(NUMBER_OF_CHANNELS)    '1 for mono 2 for stereo
+    '            .nSamplesPerSec = SAMPLE_RATE       '44100 is CD quality
+    '            .wBitsPerSample = BITS_PER_SAMPLE               'BITS_PER_SAMPLE 'CD quality is 16
+    '            .nBlockAlign = CShort(.nchannels * (.wBitsPerSample / 8))
+    '            .nAvgBytesPerSec = .nSamplesPerSec * .nBlockAlign
+    '            .cbSize = 0
+    '        End With
 
-        i = waveInOpen(WaveInHandle, IntPtr.op_Explicit(WAVE_MAPPER), waveFormat, myCallBackFunction, IntPtr.Zero, CALLBACK_FUNCTION)
-        If i <> 0 Then
-            'btnHide_Click(Me, EventArgs.Empty)
-            MsgBox("InitializeWaveInput / WaveInOpen Error", MsgBoxStyle.Exclamation)
-            End
-        End If
+    '        i = waveInOpen(WaveInHandle, IntPtr.op_Explicit(WAVE_MAPPER), waveFormat, myCallBackFunction, IntPtr.Zero, CALLBACK_FUNCTION)
+    '        If i <> 0 Then
+    '            'btnHide_Click(Me, EventArgs.Empty)
+    '            MsgBox("InitializeWaveInput / WaveInOpen Error", MsgBoxStyle.Exclamation)
+    '            End
+    '        End If
 
-        bufferpin0 = GCHandle.Alloc(RawWaveData0, GCHandleType.Pinned)
-        bufferpin1 = GCHandle.Alloc(RawWaveData1, GCHandleType.Pinned)
-        bufferpin2 = GCHandle.Alloc(RawWaveData2, GCHandleType.Pinned)
-        bufferpin3 = GCHandle.Alloc(RawWaveData3, GCHandleType.Pinned)
-        bufferpin4 = GCHandle.Alloc(RawWaveData4, GCHandleType.Pinned)
-        bufferpin5 = GCHandle.Alloc(RawWaveData5, GCHandleType.Pinned)
-        bufferpin6 = GCHandle.Alloc(RawWaveData6, GCHandleType.Pinned)
-        bufferpin7 = GCHandle.Alloc(RawWaveData7, GCHandleType.Pinned)
-        bufferpin8 = GCHandle.Alloc(RawWaveData8, GCHandleType.Pinned)
-        bufferpin9 = GCHandle.Alloc(RawWaveData9, GCHandleType.Pinned)
-        bufferpin10 = GCHandle.Alloc(RawWaveData10, GCHandleType.Pinned)
-        bufferpin11 = GCHandle.Alloc(RawWaveData11, GCHandleType.Pinned)
-        bufferpin12 = GCHandle.Alloc(RawWaveData12, GCHandleType.Pinned)
-        bufferpin13 = GCHandle.Alloc(RawWaveData13, GCHandleType.Pinned)
-        bufferpin14 = GCHandle.Alloc(RawWaveData14, GCHandleType.Pinned)
-        bufferpin15 = GCHandle.Alloc(RawWaveData15, GCHandleType.Pinned)
-        bufferpin16 = GCHandle.Alloc(RawWaveData16, GCHandleType.Pinned)
-        bufferpin17 = GCHandle.Alloc(RawWaveData17, GCHandleType.Pinned)
-        bufferpin18 = GCHandle.Alloc(RawWaveData18, GCHandleType.Pinned)
-        bufferpin19 = GCHandle.Alloc(RawWaveData19, GCHandleType.Pinned)
-
-
+    '        bufferpin0 = GCHandle.Alloc(RawWaveData0, GCHandleType.Pinned)
+    '        bufferpin1 = GCHandle.Alloc(RawWaveData1, GCHandleType.Pinned)
+    '        bufferpin2 = GCHandle.Alloc(RawWaveData2, GCHandleType.Pinned)
+    '        bufferpin3 = GCHandle.Alloc(RawWaveData3, GCHandleType.Pinned)
+    '        bufferpin4 = GCHandle.Alloc(RawWaveData4, GCHandleType.Pinned)
+    '        bufferpin5 = GCHandle.Alloc(RawWaveData5, GCHandleType.Pinned)
+    '        bufferpin6 = GCHandle.Alloc(RawWaveData6, GCHandleType.Pinned)
+    '        bufferpin7 = GCHandle.Alloc(RawWaveData7, GCHandleType.Pinned)
+    '        bufferpin8 = GCHandle.Alloc(RawWaveData8, GCHandleType.Pinned)
+    '        bufferpin9 = GCHandle.Alloc(RawWaveData9, GCHandleType.Pinned)
+    '        bufferpin10 = GCHandle.Alloc(RawWaveData10, GCHandleType.Pinned)
+    '        bufferpin11 = GCHandle.Alloc(RawWaveData11, GCHandleType.Pinned)
+    '        bufferpin12 = GCHandle.Alloc(RawWaveData12, GCHandleType.Pinned)
+    '        bufferpin13 = GCHandle.Alloc(RawWaveData13, GCHandleType.Pinned)
+    '        bufferpin14 = GCHandle.Alloc(RawWaveData14, GCHandleType.Pinned)
+    '        bufferpin15 = GCHandle.Alloc(RawWaveData15, GCHandleType.Pinned)
+    '        bufferpin16 = GCHandle.Alloc(RawWaveData16, GCHandleType.Pinned)
+    '        bufferpin17 = GCHandle.Alloc(RawWaveData17, GCHandleType.Pinned)
+    '        bufferpin18 = GCHandle.Alloc(RawWaveData18, GCHandleType.Pinned)
+    '        bufferpin19 = GCHandle.Alloc(RawWaveData19, GCHandleType.Pinned)
 
 
-        For j = 0 To NUMBER_OF_BUFFERS - 1
-            With WaveBufferHeaders(j)
-                .dwBufferLength = BUFFER_SIZE
-                .dwFlags = 0
-                .dwBytesRecorded = 0
-                .dwLoops = 0
-                .dwUser = IntPtr.op_Explicit(0)
-            End With
-
-        Next
-
-        WaveBufferHeaders(0).lpData = bufferpin0.AddrOfPinnedObject()
-        WaveBufferHeaders(1).lpData = bufferpin1.AddrOfPinnedObject()
-        WaveBufferHeaders(2).lpData = bufferpin2.AddrOfPinnedObject()
-        WaveBufferHeaders(3).lpData = bufferpin3.AddrOfPinnedObject()
-        WaveBufferHeaders(4).lpData = bufferpin4.AddrOfPinnedObject()
-        WaveBufferHeaders(5).lpData = bufferpin5.AddrOfPinnedObject()
-        WaveBufferHeaders(6).lpData = bufferpin6.AddrOfPinnedObject()
-        WaveBufferHeaders(7).lpData = bufferpin7.AddrOfPinnedObject()
-        WaveBufferHeaders(8).lpData = bufferpin8.AddrOfPinnedObject()
-        WaveBufferHeaders(9).lpData = bufferpin9.AddrOfPinnedObject()
-        WaveBufferHeaders(10).lpData = bufferpin10.AddrOfPinnedObject()
-        WaveBufferHeaders(11).lpData = bufferpin11.AddrOfPinnedObject()
-        WaveBufferHeaders(12).lpData = bufferpin12.AddrOfPinnedObject()
-        WaveBufferHeaders(13).lpData = bufferpin13.AddrOfPinnedObject()
-        WaveBufferHeaders(14).lpData = bufferpin14.AddrOfPinnedObject()
-        WaveBufferHeaders(15).lpData = bufferpin15.AddrOfPinnedObject()
-        WaveBufferHeaders(16).lpData = bufferpin16.AddrOfPinnedObject()
-        WaveBufferHeaders(17).lpData = bufferpin17.AddrOfPinnedObject()
-        WaveBufferHeaders(18).lpData = bufferpin18.AddrOfPinnedObject()
-        WaveBufferHeaders(19).lpData = bufferpin19.AddrOfPinnedObject()
-
-        For j = 0 To NUMBER_OF_BUFFERS - 1
-            i = waveInPrepareHeader(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
-            If i <> 0 Then
-                'btnHide_Click(Me, EventArgs.Empty)
-                MsgBox("InitializeWaveInput / waveInPrepareHeader Error", MsgBoxStyle.Exclamation)
-                End
-            End If
-        Next
-
-        For j = 0 To NUMBER_OF_BUFFERS - 1
-            i = waveInAddBuffer(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
-            If i <> 0 Then
-                'btnHide_Click(Me, EventArgs.Empty)
-                MsgBox("InitializeWaveInput / waveInAddBuffer Error", MsgBoxStyle.Exclamation)
-                End
-            End If
-        Next
-
-        i = waveInStart(WaveInHandle)
-        If i <> 0 Then
-            'btnHide_Click(Me, EventArgs.Empty)
-            MsgBox("InitializeWaveInput / waveInStart Error", MsgBoxStyle.Exclamation)
-            End
-        Else
-            WavesStarted = True
-        End If
-
-    End Sub
-    Private Function MyWaveCallBackProcedure(ByVal hwi As IntPtr, ByVal uMsg As Int32, ByVal dwInstance As Int32, ByVal dwParam1 As Int32, ByVal dwParam2 As Int32) As Int32
-        If StopAddingBuffers = False Then
-            If uMsg = WIM_DATA And WaveBufferHeaders(BufferCount).dwBytesRecorded = BUFFER_SIZE Then
-                myWaveHandler_ProcessWave()
-            End If
-        End If
-    End Function
-    Private Sub myWaveHandler_ProcessWave()
-        Try
-#If QueryPerformance Then
-            QueryPerformanceCounter(StartWatch)
-#End If
-            If StopAddingBuffers = False Then 'StopAddingBuffers is true when ShutDownWaves has been called
-
-                Marshal.Copy(WaveBufferHeaders(BufferCount).lpData, RawWaveData, 0, WaveBufferHeaders(BufferCount).dwBytesRecorded) 'Copy the current buffer (based on buffercount) to the working buffer, RawWaveData
-                WaveBufferHeaders(BufferCount).dwBytesRecorded = 0     'Reset bytes recorded...
-                i = waveInAddBuffer(WaveInHandle, WaveBufferHeaders(BufferCount), Marshal.SizeOf(WaveBufferHeaders(BufferCount)))  '...and add the buffer back to the queue
-                If i <> 0 Then 'Check that there were no problems adding back the buffer.'This could be skipped in a release version using a compiler constant
-                    'btnHide_Click(Me, EventArgs.Empty)
-                    MsgBox("myWaveHandler_ProcessWave / waveInAddBuffer Error" & i, MsgBoxStyle.Exclamation)
-                    End
-                End If
-
-                SignalWindowBMP.Clear(Color.Black) 'Clear the signal window and draw the RPM1 threshold line
-                SignalWindowBMP.DrawLine(Channel1ThresholdPen, 0, SignalThresholdYConverted, PicSignalWidth, SignalThresholdYConverted)
-
-                For j = 0 To (BUFFER_SIZE - 1) Step NUMBER_OF_CHANNELS 'Main loop through the raw data
-
-                    NextYPosition = CInt(PicSignalHeight - RawWaveData(j) * SignalYConversion) 'Calculate the next drawing position for the signal
-                    SignalWindowBMP.DrawLine(Channel1SignalPen, CInt(CurrentSignalXPosition - SignalXConversion), LastYPosition, CInt(CurrentSignalXPosition), NextYPosition)  'Draw the line
-                    LastYPosition = NextYPosition 'Remember the new drawing position for the next drawing operation
-
-                    Data(SESSIONTIME, ACTUAL) += ElapsedTimeUnit 'Increase the session time value - used by the Graphing form for time info
-
-                    If (WhichSignal = HIGHSIGNAL AndAlso RawWaveData(j) > HighSignalThreshold) Or (WhichSignal = LOWSIGNAL AndAlso RawWaveData(j) < HighSignalThreshold) Then 'Check is we have found a signal depending on where the threshold line is set
-
-                        k = k + NUMBER_OF_CHANNELS 'Counting bytes for pulsewidth
-
-                        If FoundHighSignal = False Then 'if FoundHighSigal is false, then this is the start of a new pulse rather than already being in a pulse
-                            FoundHighSignal = True  'flag that we are inside a pulse - this gets set to false when we drop below the threshold
-                            Select Case UseAdvancedProcessing 'Calculate elapsed time simply by the byte count since last or by interpolation through the threshold line
-                                Case Is = False
-                                    ElapsedTime = (j - LastHighBufferPosition) * BytesToSeconds
-                                Case Is = True
-                                    NewElapsedTimeCorrection = Math.Abs((RawWaveData(j) - HighSignalThreshold) / (RawWaveData(j) - LastSignal))
-                                    ElapsedTime = ((j - LastHighBufferPosition) + OldElapsedTimeCorrection - NewElapsedTimeCorrection) * BytesToSeconds
-                                    OldElapsedTimeCorrection = NewElapsedTimeCorrection
-                            End Select
-                            LastHighBufferPosition = j    'set the new buffer position from which to count the next set of bytes
-
-                            Data(CHAN1_FREQUENCY, ACTUAL) = 1 / ElapsedTime 'calculate frequency for scope work - this should be compiler constant controlled
-                            If Data(CHAN1_FREQUENCY, ACTUAL) > Data(CHAN1_FREQUENCY, MAXIMUM) Then Data(CHAN1_FREQUENCY, MAXIMUM) = Data(CHAN1_FREQUENCY, ACTUAL)
-                            If Data(CHAN1_FREQUENCY, ACTUAL) < Data(CHAN1_FREQUENCY, MINIMUM) Then Data(CHAN1_FREQUENCY, MINIMUM) = Data(CHAN1_FREQUENCY, ACTUAL)
-
-                            Data(RPM1_ROLLER, ACTUAL) = ElapsedTimeToRadPerSec / ElapsedTime 'calculate roller angular velocity in Rad/s
-                            Data(RPM1_WHEEL, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRPMtoWheelRPM 'calculate the wheel and motor angular velocities based on roller and wheel diameters and gear ratio
-                            Data(RPM1_MOTOR, ACTUAL) = Data(RPM1_WHEEL, ACTUAL) * GearRatio
-                            Data(SPEED, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRadsPerSecToMetersPerSec 'calculate the speed (meters/s) based on roller rad/s
-                            Data(DRAG, ACTUAL) = Data(SPEED, ACTUAL) ^ 3 * ForceAir  'calculate drag based on vehicle speed (meters/s)
-
-                            If Data(RPM1_ROLLER, ACTUAL) > Data(RPM1_ROLLER, MAXIMUM) Then  'set the maximum values for roller, wheel, and motor RPM; Speed and Drag
-                                Data(RPM1_ROLLER, MAXIMUM) = Data(RPM1_ROLLER, ACTUAL)
-                                Data(RPM1_WHEEL, MAXIMUM) = Data(RPM1_WHEEL, ACTUAL)
-                                Data(RPM1_MOTOR, MAXIMUM) = Data(RPM1_MOTOR, ACTUAL)
-                                Data(SPEED, MAXIMUM) = Data(SPEED, ACTUAL)
-                                Data(DRAG, MAXIMUM) = Data(DRAG, ACTUAL)
-                            End If
-
-                            If Data(RPM1_ROLLER, ACTUAL) < Data(RPM1_ROLLER, MINIMUM) Then
-                                Data(RPM1_ROLLER, MINIMUM) = Data(RPM1_ROLLER, ACTUAL)
-                                Data(RPM1_WHEEL, MINIMUM) = Data(RPM1_WHEEL, ACTUAL)
-                                Data(RPM1_MOTOR, MINIMUM) = Data(RPM1_MOTOR, ACTUAL)
-                                Data(SPEED, MINIMUM) = Data(SPEED, ACTUAL)
-                                Data(DRAG, MINIMUM) = Data(DRAG, ACTUAL)
-                            End If
-
-                            Data(TORQUE_ROLLER, ACTUAL) = (Data(RPM1_ROLLER, ACTUAL) - OldAngularVelocity) / ElapsedTime * DynoMomentOfInertia 'calculate torque based on angular acceleration (delta speed per time) and MOI
-                            'removing the power calc based on average 06DEC13
-                            'Data(POWER, ACTUAL) = Data(TORQUE_ROLLER, ACTUAL) * ((Data(RPM1_ROLLER, ACTUAL) + OldAngularVelocity) / 2) 'calculate power based on torque and average angular velocity between two points
-                            Data(POWER, ACTUAL) = Data(TORQUE_ROLLER, ACTUAL) * Data(RPM1_ROLLER, ACTUAL) ' + OldAngularVelocity) / 2) 'calculate power based on torque and average angular velocity between two points
-                            If Data(POWER, ACTUAL) > 0 Then
-                                Data(EFFICIENCY, ACTUAL) = Data(WATTS_IN, ACTUAL) / Data(POWER, ACTUAL)
-                            Else
-                                Data(EFFICIENCY, ACTUAL) = 0
-                            End If
-                            'Original versions of wheel and motor torque relied on back calc from Power
-                            Data(TORQUE_WHEEL, ACTUAL) = Data(POWER, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'back calculate the torque at the wheel and motor based on the calculated power
-                            Data(TORQUE_MOTOR, ACTUAL) = Data(POWER, ACTUAL) / Data(RPM1_MOTOR, ACTUAL)
-
-                            If Data(TORQUE_ROLLER, ACTUAL) > Data(TORQUE_ROLLER, MAXIMUM) Then 'set the maximum values for torque
-                                Data(TORQUE_ROLLER, MAXIMUM) = Data(TORQUE_ROLLER, ACTUAL)
-                                Data(TORQUE_WHEEL, MAXIMUM) = Data(TORQUE_WHEEL, ACTUAL)
-                                Data(TORQUE_MOTOR, MAXIMUM) = Data(TORQUE_MOTOR, ACTUAL)
-                            End If
-
-                            If Data(TORQUE_ROLLER, ACTUAL) < Data(TORQUE_ROLLER, MINIMUM) Then
-                                Data(TORQUE_ROLLER, MINIMUM) = Data(TORQUE_ROLLER, ACTUAL)
-                                Data(TORQUE_WHEEL, MINIMUM) = Data(TORQUE_WHEEL, ACTUAL)
-                                Data(TORQUE_MOTOR, MINIMUM) = Data(TORQUE_MOTOR, ACTUAL)
-                            End If
-
-                            If Data(POWER, ACTUAL) > Data(POWER, MAXIMUM) Then 'set the maximum value for power
-                                Data(POWER, MAXIMUM) = Data(POWER, ACTUAL)
-                            End If
-                            If Data(POWER, ACTUAL) < Data(POWER, MINIMUM) Then
-                                Data(POWER, MINIMUM) = Data(POWER, ACTUAL)
-                            End If
-                            If Data(EFFICIENCY, ACTUAL) > Data(EFFICIENCY, MAXIMUM) Then 'set the maximum value for power
-                                Data(EFFICIENCY, MAXIMUM) = Data(EFFICIENCY, ACTUAL)
-                            End If
-                            If Data(EFFICIENCY, ACTUAL) < Data(EFFICIENCY, MINIMUM) Then 'set the maximum value for power
-                                Data(EFFICIENCY, MINIMUM) = Data(EFFICIENCY, ACTUAL)
-                            End If
-
-                            OldAngularVelocity = Data(RPM1_ROLLER, ACTUAL) 'remember the current angular velocity for next pulse
-
-                            Select Case WhichDataMode 'Live, PowerRun or LogRaw ?
-                                Case Is = LIVE
-                                    'Don't do anything.  This helps skip through the Select Case Faster
-                                Case Is = POWERRUN
-                                    If Data(RPM1_ROLLER, ACTUAL) > ActualPowerRunThreshold Then
-                                        DataPoints += 1
-                                        If DataPoints = 1 Then
-                                            TotalElapsedTime = 0
-                                        Else
-                                            TotalElapsedTime += ElapsedTime
-                                        End If
-                                        If DataPoints = MinimumPowerRunPoints Then btnStartPowerRun.BackColor = Color.Green
-                                        CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
-                                        CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
-                                        CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
-                                        CollectedData(VOLTS, DataPoints) = Data(VOLTS, ACTUAL)
-                                        CollectedData(AMPS, DataPoints) = Data(AMPS, ACTUAL)
-                                        CollectedData(TEMPERATURE1, DataPoints) = Data(TEMPERATURE1, ACTUAL)
-                                        CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
-                                        CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
-                                        CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
-                                        CollectedData(CHAN1_FREQUENCY, DataPoints) = Data(CHAN1_FREQUENCY, ACTUAL)
-                                        CollectedData(CHAN1_PULSEWIDTH, DataPoints) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                                        CollectedData(CHAN1_DUTYCYCLE, DataPoints) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                                        CollectedData(CHAN2_FREQUENCY, DataPoints) = Data(CHAN2_FREQUENCY, ACTUAL)
-                                        CollectedData(CHAN2_PULSEWIDTH, DataPoints) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                                        CollectedData(CHAN2_DUTYCYCLE, DataPoints) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                                        'DataPoints += 1
-                                        If DataPoints = MAXDATAPOINTS Then
-                                            DataPoints = MAXDATAPOINTS - 1
-                                            'btnStartPowerRun.BackColor = Color.Red
-                                        End If
-                                    End If
-                                Case Is = LOGRAW
-                                    DataPoints += 1
-                                    If DataPoints = 1 Then
-                                        'btnStartLoggingRaw.BackColor = Color.Green
-                                        TotalElapsedTime = 0
-                                    Else
-                                        TotalElapsedTime += ElapsedTime
-                                    End If
-                                    CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
-                                    CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
-                                    CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
-                                    CollectedData(VOLTS, DataPoints) = Data(VOLTS, ACTUAL)
-                                    CollectedData(AMPS, DataPoints) = Data(AMPS, ACTUAL)
-                                    CollectedData(TEMPERATURE1, DataPoints) = Data(TEMPERATURE1, ACTUAL)
-                                    CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
-                                    CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
-                                    CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
-                                    CollectedData(CHAN1_FREQUENCY, DataPoints) = Data(CHAN1_FREQUENCY, ACTUAL)
-                                    CollectedData(CHAN1_PULSEWIDTH, DataPoints) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                                    CollectedData(CHAN1_DUTYCYCLE, DataPoints) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                                    CollectedData(CHAN2_FREQUENCY, DataPoints) = Data(CHAN2_FREQUENCY, ACTUAL)
-                                    CollectedData(CHAN2_PULSEWIDTH, DataPoints) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                                    CollectedData(CHAN2_DUTYCYCLE, DataPoints) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                                    ' DataPoints += 1
-                                    If DataPoints = MAXDATAPOINTS Then
-                                        DataPoints = MAXDATAPOINTS - 1
-                                        'btnStartLoggingRaw.BackColor = Color.Red
-                                    End If
-                            End Select
-                        End If
-                    End If
-                    If (WhichSignal = HIGHSIGNAL AndAlso RawWaveData(j) <= HighSignalThreshold - 3) Or (WhichSignal = LOWSIGNAL AndAlso RawWaveData(j) >= HighSignalThreshold + 3) Then
-                        If FoundHighSignal = True Then
-                            Data(CHAN1_PULSEWIDTH, ACTUAL) = k * BytesToSeconds * 1000
-                            If Data(CHAN1_PULSEWIDTH, ACTUAL) > Data(CHAN1_PULSEWIDTH, MAXIMUM) Then Data(CHAN1_PULSEWIDTH, MAXIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                            If Data(CHAN1_PULSEWIDTH, ACTUAL) < Data(CHAN1_PULSEWIDTH, MINIMUM) Then Data(CHAN1_PULSEWIDTH, MINIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                            k = 0
-                            Data(CHAN1_DUTYCYCLE, ACTUAL) = Data(CHAN1_PULSEWIDTH, ACTUAL) * Data(CHAN1_FREQUENCY, ACTUAL) / 10
-                            If Data(CHAN1_DUTYCYCLE, ACTUAL) > Data(CHAN1_DUTYCYCLE, MAXIMUM) Then Data(CHAN1_DUTYCYCLE, MAXIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                            If Data(CHAN1_DUTYCYCLE, ACTUAL) < Data(CHAN1_DUTYCYCLE, MINIMUM) Then Data(CHAN1_DUTYCYCLE, MINIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                        End If
-                        FoundHighSignal = False
-                    End If
-
-                    LastSignal = RawWaveData(j) 'remember the last high signal and the current correction time
-
-                    If NUMBER_OF_CHANNELS = 2 Then
-
-                        SignalWindowBMP.DrawLine(Channel2ThresholdPen, 0, SignalThreshold2YConverted, PicSignalWidth, SignalThreshold2YConverted)
-                        NextYPosition2 = CInt(PicSignalHeight - RawWaveData(j + 1) * SignalYConversion) + 1    'calculate coordinate for next channel 2 signal point
-                        SignalWindowBMP.DrawLine(Channel2SignalPen, CInt(CurrentSignalXPosition - SignalXConversion), LastYPosition2, CInt(CurrentSignalXPosition), NextYPosition2) 'draw line to the newly calculated point...
-                        LastYPosition2 = NextYPosition2 '...and remember the new position for the next cycle
-
-                        If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) > HighSignalThreshold2) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) < HighSignalThreshold2) Then 'Check is we have found a signal depending on where the threshold line is set
-
-                            k2 = k2 + NUMBER_OF_CHANNELS 'count bytes for channel 2 pulsewidth
-
-                            If FoundHighSignal2 = False Then    'if FoundHighSigal is false, then this is the start of a new pulse not the middle of an existing pulse
-
-                                FoundHighSignal2 = True 'flag that we are in the middle of a pulse
-
-                                Select Case UseAdvancedProcessing 'Calculate elapsed time simply by the byte count since last or by interpolation through the threshold line
-                                    Case Is = False
-                                        ElapsedTime2 = (j + 1 - LastHighBufferPosition2) * BytesToSeconds 'calculate the elapsed time by multiplying the number of bytes since the last pulse 'by the time taken for each byte (which depends on the sampling rate)
-                                    Case Is = True
-                                        NewElapsedTimeCorrection2 = Math.Abs((RawWaveData(j + 1) - HighSignalThreshold) / (RawWaveData(j + 1) - LastSignal2))
-                                        ElapsedTime2 = ((j + 1 - LastHighBufferPosition2) + OldElapsedTimeCorrection2 - NewElapsedTimeCorrection2) * BytesToSeconds
-                                        OldElapsedTimeCorrection2 = NewElapsedTimeCorrection2
-                                End Select
-
-                                LastHighBufferPosition2 = j + 1   'set the current buffer position for the next pulse
-
-                                Data(CHAN2_FREQUENCY, ACTUAL) = 1 / ElapsedTime2 'calculate frequency for scope work 
-                                If Data(CHAN2_FREQUENCY, ACTUAL) > Data(CHAN2_FREQUENCY, MAXIMUM) Then Data(CHAN2_FREQUENCY, MAXIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
-                                If Data(CHAN2_FREQUENCY, ACTUAL) < Data(CHAN2_FREQUENCY, MINIMUM) Then Data(CHAN2_FREQUENCY, MINIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
 
 
-                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / ElapsedTime2 'calculate roller angular velocity in Rad/s
-                                Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'calculate the ratios between RPM2 and RPM1 - wheel
+    '        For j = 0 To NUMBER_OF_BUFFERS - 1
+    '            With WaveBufferHeaders(j)
+    '                .dwBufferLength = BUFFER_SIZE
+    '                .dwFlags = 0
+    '                .dwBytesRecorded = 0
+    '                .dwLoops = 0
+    '                .dwUser = IntPtr.op_Explicit(0)
+    '            End With
 
-                                Data(RPM2_ROLLOUT, ACTUAL) = WheelCircumference / Data(RPM2_RATIO, ACTUAL) 'calculate Rollout (default unit is mm).  This assumes RPM2 is measuring motor RPM   'Rollout is the number of mm traveled for 1 rotation of the wheel
+    '        Next
 
-                                If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then 'check and set maximum values for RPM2, Ratio and rollout
-                                    Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
-                                End If
-                                If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
-                                    Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
-                                End If
-                                If Data(RPM2_RATIO, ACTUAL) > Data(RPM2_RATIO, MAXIMUM) Then
-                                    Data(RPM2_RATIO, MAXIMUM) = Data(RPM2_RATIO, ACTUAL)
-                                End If
-                                If Data(RPM2_RATIO, ACTUAL) < Data(RPM2_RATIO, MINIMUM) Then
-                                    Data(RPM2_RATIO, MINIMUM) = Data(RPM2_RATIO, ACTUAL)
-                                End If
-                                If Data(RPM2_ROLLOUT, ACTUAL) > Data(RPM2_ROLLOUT, MAXIMUM) Then
-                                    Data(RPM2_ROLLOUT, MAXIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
-                                End If
-                                If Data(RPM2_ROLLOUT, ACTUAL) < Data(RPM2_ROLLOUT, MINIMUM) Then
-                                    Data(RPM2_ROLLOUT, MINIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
-                                End If
-                            End If
-                        End If
-                        If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) <= HighSignalThreshold2 - 3) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) >= HighSignalThreshold2 + 3) Then
-                            If FoundHighSignal2 = True Then
-                                Data(CHAN2_PULSEWIDTH, ACTUAL) = k2 * BytesToSeconds * 1000
-                                k2 = 0
-                                If Data(CHAN2_PULSEWIDTH, ACTUAL) > Data(CHAN2_PULSEWIDTH, MAXIMUM) Then Data(CHAN2_PULSEWIDTH, MAXIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                                If Data(CHAN2_PULSEWIDTH, ACTUAL) < Data(CHAN2_PULSEWIDTH, MINIMUM) Then Data(CHAN2_PULSEWIDTH, MINIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                                Data(CHAN2_DUTYCYCLE, ACTUAL) = Data(CHAN2_PULSEWIDTH, ACTUAL) * Data(CHAN2_FREQUENCY, ACTUAL) / 10
-                                If Data(CHAN2_DUTYCYCLE, ACTUAL) > Data(CHAN2_DUTYCYCLE, MAXIMUM) Then Data(CHAN2_DUTYCYCLE, MAXIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                                If Data(CHAN2_DUTYCYCLE, ACTUAL) < Data(CHAN2_DUTYCYCLE, MINIMUM) Then Data(CHAN2_DUTYCYCLE, MINIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                            End If
+    '        WaveBufferHeaders(0).lpData = bufferpin0.AddrOfPinnedObject()
+    '        WaveBufferHeaders(1).lpData = bufferpin1.AddrOfPinnedObject()
+    '        WaveBufferHeaders(2).lpData = bufferpin2.AddrOfPinnedObject()
+    '        WaveBufferHeaders(3).lpData = bufferpin3.AddrOfPinnedObject()
+    '        WaveBufferHeaders(4).lpData = bufferpin4.AddrOfPinnedObject()
+    '        WaveBufferHeaders(5).lpData = bufferpin5.AddrOfPinnedObject()
+    '        WaveBufferHeaders(6).lpData = bufferpin6.AddrOfPinnedObject()
+    '        WaveBufferHeaders(7).lpData = bufferpin7.AddrOfPinnedObject()
+    '        WaveBufferHeaders(8).lpData = bufferpin8.AddrOfPinnedObject()
+    '        WaveBufferHeaders(9).lpData = bufferpin9.AddrOfPinnedObject()
+    '        WaveBufferHeaders(10).lpData = bufferpin10.AddrOfPinnedObject()
+    '        WaveBufferHeaders(11).lpData = bufferpin11.AddrOfPinnedObject()
+    '        WaveBufferHeaders(12).lpData = bufferpin12.AddrOfPinnedObject()
+    '        WaveBufferHeaders(13).lpData = bufferpin13.AddrOfPinnedObject()
+    '        WaveBufferHeaders(14).lpData = bufferpin14.AddrOfPinnedObject()
+    '        WaveBufferHeaders(15).lpData = bufferpin15.AddrOfPinnedObject()
+    '        WaveBufferHeaders(16).lpData = bufferpin16.AddrOfPinnedObject()
+    '        WaveBufferHeaders(17).lpData = bufferpin17.AddrOfPinnedObject()
+    '        WaveBufferHeaders(18).lpData = bufferpin18.AddrOfPinnedObject()
+    '        WaveBufferHeaders(19).lpData = bufferpin19.AddrOfPinnedObject()
 
-                            FoundHighSignal2 = False
+    '        For j = 0 To NUMBER_OF_BUFFERS - 1
+    '            i = waveInPrepareHeader(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
+    '            If i <> 0 Then
+    '                'btnHide_Click(Me, EventArgs.Empty)
+    '                MsgBox("InitializeWaveInput / waveInPrepareHeader Error", MsgBoxStyle.Exclamation)
+    '                End
+    '            End If
+    '        Next
 
-                        End If
-                        LastSignal2 = RawWaveData(j + 1) 'remember the last high signal and the current correction time
-                    End If
-                    CurrentSignalXPosition = (CurrentSignalXPosition + SignalXConversion) Mod PicSignalWidth
+    '        For j = 0 To NUMBER_OF_BUFFERS - 1
+    '            i = waveInAddBuffer(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
+    '            If i <> 0 Then
+    '                'btnHide_Click(Me, EventArgs.Empty)
+    '                MsgBox("InitializeWaveInput / waveInAddBuffer Error", MsgBoxStyle.Exclamation)
+    '                End
+    '            End If
+    '        Next
 
-                Next
+    '        i = waveInStart(WaveInHandle)
+    '        If i <> 0 Then
+    '            'btnHide_Click(Me, EventArgs.Empty)
+    '            MsgBox("InitializeWaveInput / waveInStart Error", MsgBoxStyle.Exclamation)
+    '            End
+    '        Else
+    '            WavesStarted = True
+    '        End If
 
-                pnlSignalWindow.Invalidate()
+    '    End Sub
+    '    Private Function MyWaveCallBackProcedure(ByVal hwi As IntPtr, ByVal uMsg As Int32, ByVal dwInstance As Int32, ByVal dwParam1 As Int32, ByVal dwParam2 As Int32) As Int32
+    '        If StopAddingBuffers = False Then
+    '            If uMsg = WIM_DATA And WaveBufferHeaders(BufferCount).dwBytesRecorded = BUFFER_SIZE Then
+    '                myWaveHandler_ProcessWave()
+    '            End If
+    '        End If
+    '    End Function
+    '    Private Sub myWaveHandler_ProcessWave()
+    '        Try
+    '#If QueryPerformance Then
+    '            QueryPerformanceCounter(StartWatch)
+    '#End If
+    '            If StopAddingBuffers = False Then 'StopAddingBuffers is true when ShutDownWaves has been called
 
-                If NUMBER_OF_CHANNELS = 2 Then
-                    LastHighBufferPosition2 = LastHighBufferPosition2 - BUFFER_SIZE
-                    If LastHighBufferPosition2 / SAMPLE_RATE * -1 > WaitForNewSignal * NUMBER_OF_CHANNELS Then
-                        Data(RPM2, ACTUAL) = 0
-                        Data(RPM2_RATIO, ACTUAL) = 0
-                        Data(RPM2_ROLLOUT, ACTUAL) = 0
-                        Data(CHAN2_DUTYCYCLE, ACTUAL) = 0
-                        Data(CHAN2_FREQUENCY, ACTUAL) = 0
-                        Data(CHAN2_PULSEWIDTH, ACTUAL) = 0
-                    End If
-                End If
+    '                Marshal.Copy(WaveBufferHeaders(BufferCount).lpData, RawWaveData, 0, WaveBufferHeaders(BufferCount).dwBytesRecorded) 'Copy the current buffer (based on buffercount) to the working buffer, RawWaveData
+    '                WaveBufferHeaders(BufferCount).dwBytesRecorded = 0     'Reset bytes recorded...
+    '                i = waveInAddBuffer(WaveInHandle, WaveBufferHeaders(BufferCount), Marshal.SizeOf(WaveBufferHeaders(BufferCount)))  '...and add the buffer back to the queue
+    '                If i <> 0 Then 'Check that there were no problems adding back the buffer.'This could be skipped in a release version using a compiler constant
+    '                    'btnHide_Click(Me, EventArgs.Empty)
+    '                    MsgBox("myWaveHandler_ProcessWave / waveInAddBuffer Error" & i, MsgBoxStyle.Exclamation)
+    '                    End
+    '                End If
 
-                LastHighBufferPosition = LastHighBufferPosition - BUFFER_SIZE
-                If LastHighBufferPosition / SAMPLE_RATE * -1 > WaitForNewSignal * NUMBER_OF_CHANNELS Then
-                    Data(RPM1_ROLLER, ACTUAL) = 0
-                    Data(RPM1_WHEEL, ACTUAL) = 0
-                    Data(RPM1_MOTOR, ACTUAL) = 0
-                    Data(SPEED, ACTUAL) = 0
-                    Data(DRAG, ACTUAL) = 0
-                    Data(TORQUE_ROLLER, ACTUAL) = 0
-                    Data(TORQUE_WHEEL, ACTUAL) = 0
-                    Data(TORQUE_MOTOR, ACTUAL) = 0
-                    Data(POWER, ACTUAL) = 0
-                    Data(RPM2_RATIO, ACTUAL) = 0
-                    Data(CHAN1_DUTYCYCLE, ACTUAL) = 0
-                    Data(CHAN1_FREQUENCY, ACTUAL) = 0
-                    Data(CHAN1_PULSEWIDTH, ACTUAL) = 0
-                    If WhichDataMode = LOGRAW Then
-                        TotalElapsedTime += ElapsedTime
-                        CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
-                        CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
-                        CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
-                        CollectedData(VOLTS, DataPoints) = Data(VOLTS, ACTUAL)
-                        CollectedData(AMPS, DataPoints) = Data(AMPS, ACTUAL)
-                        CollectedData(TEMPERATURE1, DataPoints) = Data(TEMPERATURE1, ACTUAL)
-                        CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
-                        CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
-                        CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
-                        CollectedData(CHAN1_FREQUENCY, DataPoints) = Data(CHAN1_FREQUENCY, ACTUAL)
-                        CollectedData(CHAN1_PULSEWIDTH, DataPoints) = Data(CHAN1_PULSEWIDTH, ACTUAL)
-                        CollectedData(CHAN1_DUTYCYCLE, DataPoints) = Data(CHAN1_DUTYCYCLE, ACTUAL)
-                        CollectedData(CHAN2_FREQUENCY, DataPoints) = Data(CHAN2_FREQUENCY, ACTUAL)
-                        CollectedData(CHAN2_PULSEWIDTH, DataPoints) = Data(CHAN2_PULSEWIDTH, ACTUAL)
-                        CollectedData(CHAN2_DUTYCYCLE, DataPoints) = Data(CHAN2_DUTYCYCLE, ACTUAL)
-                        DataPoints += 1
-                        If DataPoints = MAXDATAPOINTS Then
-                            DataPoints = MAXDATAPOINTS - 1
-                            'btnStartLoggingRaw.BackColor = Color.Red
-                        End If
-                    End If
-                End If
+    '                SignalWindowBMP.Clear(Color.Black) 'Clear the signal window and draw the RPM1 threshold line
+    '                SignalWindowBMP.DrawLine(Channel1ThresholdPen, 0, SignalThresholdYConverted, PicSignalWidth, SignalThresholdYConverted)
 
-                If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
-                    SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
-                    'DataPoints -= 1
-                    PauseForms()
-                    WhichDataMode = LIVE
-                End If
-            End If
-            BufferCount = BufferCount + 1
-            If BufferCount > NUMBER_OF_BUFFERS - 1 Then BufferCount = 0
-#If QueryPerformance Then
-            QueryPerformanceCounter(StopWatch)
-            If PerfBufferCount < 150 Then PerfBufferCount += 1
-            Data(PERFORMANCE, ACTUAL) = ((StopWatch - StartWatch) / WatchTickConversion * 1000) / (BUFFER_SIZE / SAMPLE_RATE * 1000) * 100
-            PerformanceData(P_FREQ, PerfBufferCount) = Data(CHAN1_FREQUENCY, ACTUAL)
-            PerformanceData(P_TIME, PerfBufferCount) = Data(PERFORMANCE, ACTUAL)
-            '11MAY2011 Sub running at an average of 0.01 secs with buffers being retured at 3200 (buffsize) / 44100 (rate) which is 0.07 seconds
-            '29NOV2012 Sub running at average 8 ms with theoretical callback every 72 ms
-            '17DEC12 Sub Running at 8 - 10 ms with theoretical callback every 72 ms
-            '12APR13 Sub Running at around 14 ms 
-            '19SEP13 Sub Running at around 20 ms for 2 channels, 44100 Hz, doesn't seem to be significantly affected id COM port is open.
-            '19SEP13 Max Processing time for 2Ch, 44K, COM Port 9600 Baud is 47ms
-#End If
-        Catch e As Exception
-            'btnHide_Click(Me, EventArgs.Empty)
-            MsgBox("myWaveHandler_ProcessWave Error: " & e.ToString, MsgBoxStyle.Exclamation)
-            End
-        End Try
-    End Sub
-    Private Sub ShutDownWaves()
-        If WavesStarted Then
-            Try
-                Dim temp As Integer, counter As Integer
-                StopAddingBuffers = True
-                Do
-                    Application.DoEvents()
-                    temp = 0
-                    For counter = 0 To NUMBER_OF_BUFFERS - 1
-                        If WaveBufferHeaders(counter).dwBytesRecorded = WaveBufferHeaders(counter).dwBufferLength Then
-                            temp = temp + 1
-                        End If
-                    Next
-                Loop Until temp = NUMBER_OF_BUFFERS 'Not InCallBackProcedure
-                i = waveInReset(WaveInHandle)
-                If i <> 0 Then
-                    'btnHide_Click(Me, EventArgs.Empty)
-                    MsgBox("ShutDownWaves / waveInReset Error", MsgBoxStyle.Exclamation)
-                    End
-                End If
-                i = waveInStop(WaveInHandle)
-                If i <> 0 Then
-                    'btnHide_Click(Me, EventArgs.Empty)
-                    MsgBox("ShutDownWaves / waveInStop Error", MsgBoxStyle.Exclamation)
-                    End
-                End If
-                For j = 0 To NUMBER_OF_BUFFERS - 1
-                    i = waveInUnprepareHeader(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
-                    If i <> 0 Then
-                        'btnHide_Click(Me, EventArgs.Empty)
-                        MsgBox("ShutDownWaves / waveInUnprepareHeader Error" & i, MsgBoxStyle.Exclamation)
-                        End
-                    End If
-                Next
-                bufferpin0.Free()
-                bufferpin1.Free()
-                bufferpin2.Free()
-                bufferpin3.Free()
-                bufferpin4.Free()
-                bufferpin5.Free()
-                bufferpin6.Free()
-                bufferpin7.Free()
-                bufferpin8.Free()
-                bufferpin9.Free()
-                bufferpin10.Free()
-                bufferpin11.Free()
-                bufferpin12.Free()
-                bufferpin13.Free()
-                bufferpin14.Free()
-                bufferpin15.Free()
-                bufferpin16.Free()
-                bufferpin17.Free()
-                bufferpin18.Free()
-                bufferpin19.Free()
-                i = waveInClose(WaveInHandle)
-                If i <> 0 Then
-                    'btnHide_Click(Me, EventArgs.Empty)
-                    MsgBox("ShutDownWaves / waveInClose Error", MsgBoxStyle.Exclamation)
-                    End
-                Else
+    '                For j = 0 To (BUFFER_SIZE - 1) Step NUMBER_OF_CHANNELS 'Main loop through the raw data
 
-                End If
-                BufferCount = 0
-                StopAddingBuffers = False
-                WavesStarted = False
-            Catch e As Exception
-                'btnHide_Click(Me, EventArgs.Empty)
-                MsgBox("ShutDownWaves Error: " & e.ToString, MsgBoxStyle.Exclamation)
-                End
-            End Try
-        End If
-    End Sub
+    '                    NextYPosition = CInt(PicSignalHeight - RawWaveData(j) * SignalYConversion) 'Calculate the next drawing position for the signal
+    '                    SignalWindowBMP.DrawLine(Channel1SignalPen, CInt(CurrentSignalXPosition - SignalXConversion), LastYPosition, CInt(CurrentSignalXPosition), NextYPosition)  'Draw the line
+    '                    LastYPosition = NextYPosition 'Remember the new drawing position for the next drawing operation
+
+    '                    Data(SESSIONTIME, ACTUAL) += ElapsedTimeUnit 'Increase the session time value - used by the Graphing form for time info
+
+    '                    If (WhichSignal = HIGHSIGNAL AndAlso RawWaveData(j) > HighSignalThreshold) Or (WhichSignal = LOWSIGNAL AndAlso RawWaveData(j) < HighSignalThreshold) Then 'Check is we have found a signal depending on where the threshold line is set
+
+    '                        k = k + NUMBER_OF_CHANNELS 'Counting bytes for pulsewidth
+
+    '                        If FoundHighSignal = False Then 'if FoundHighSigal is false, then this is the start of a new pulse rather than already being in a pulse
+    '                            FoundHighSignal = True  'flag that we are inside a pulse - this gets set to false when we drop below the threshold
+    '                            Select Case UseAdvancedProcessing 'Calculate elapsed time simply by the byte count since last or by interpolation through the threshold line
+    '                                Case Is = False
+    '                                    ElapsedTime = (j - LastHighBufferPosition) * BytesToSeconds
+    '                                Case Is = True
+    '                                    NewElapsedTimeCorrection = Math.Abs((RawWaveData(j) - HighSignalThreshold) / (RawWaveData(j) - LastSignal))
+    '                                    ElapsedTime = ((j - LastHighBufferPosition) + OldElapsedTimeCorrection - NewElapsedTimeCorrection) * BytesToSeconds
+    '                                    OldElapsedTimeCorrection = NewElapsedTimeCorrection
+    '                            End Select
+    '                            LastHighBufferPosition = j    'set the new buffer position from which to count the next set of bytes
+
+    '                            Data(CHAN1_FREQUENCY, ACTUAL) = 1 / ElapsedTime 'calculate frequency for scope work - this should be compiler constant controlled
+    '                            If Data(CHAN1_FREQUENCY, ACTUAL) > Data(CHAN1_FREQUENCY, MAXIMUM) Then Data(CHAN1_FREQUENCY, MAXIMUM) = Data(CHAN1_FREQUENCY, ACTUAL)
+    '                            If Data(CHAN1_FREQUENCY, ACTUAL) < Data(CHAN1_FREQUENCY, MINIMUM) Then Data(CHAN1_FREQUENCY, MINIMUM) = Data(CHAN1_FREQUENCY, ACTUAL)
+
+    '                            Data(RPM1_ROLLER, ACTUAL) = ElapsedTimeToRadPerSec / ElapsedTime 'calculate roller angular velocity in Rad/s
+    '                            Data(RPM1_WHEEL, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRPMtoWheelRPM 'calculate the wheel and motor angular velocities based on roller and wheel diameters and gear ratio
+    '                            Data(RPM1_MOTOR, ACTUAL) = Data(RPM1_WHEEL, ACTUAL) * GearRatio
+    '                            Data(SPEED, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRadsPerSecToMetersPerSec 'calculate the speed (meters/s) based on roller rad/s
+    '                            Data(DRAG, ACTUAL) = Data(SPEED, ACTUAL) ^ 3 * ForceAir  'calculate drag based on vehicle speed (meters/s)
+
+    '                            If Data(RPM1_ROLLER, ACTUAL) > Data(RPM1_ROLLER, MAXIMUM) Then  'set the maximum values for roller, wheel, and motor RPM; Speed and Drag
+    '                                Data(RPM1_ROLLER, MAXIMUM) = Data(RPM1_ROLLER, ACTUAL)
+    '                                Data(RPM1_WHEEL, MAXIMUM) = Data(RPM1_WHEEL, ACTUAL)
+    '                                Data(RPM1_MOTOR, MAXIMUM) = Data(RPM1_MOTOR, ACTUAL)
+    '                                Data(SPEED, MAXIMUM) = Data(SPEED, ACTUAL)
+    '                                Data(DRAG, MAXIMUM) = Data(DRAG, ACTUAL)
+    '                            End If
+
+    '                            If Data(RPM1_ROLLER, ACTUAL) < Data(RPM1_ROLLER, MINIMUM) Then
+    '                                Data(RPM1_ROLLER, MINIMUM) = Data(RPM1_ROLLER, ACTUAL)
+    '                                Data(RPM1_WHEEL, MINIMUM) = Data(RPM1_WHEEL, ACTUAL)
+    '                                Data(RPM1_MOTOR, MINIMUM) = Data(RPM1_MOTOR, ACTUAL)
+    '                                Data(SPEED, MINIMUM) = Data(SPEED, ACTUAL)
+    '                                Data(DRAG, MINIMUM) = Data(DRAG, ACTUAL)
+    '                            End If
+
+    '                            Data(TORQUE_ROLLER, ACTUAL) = (Data(RPM1_ROLLER, ACTUAL) - OldAngularVelocity) / ElapsedTime * DynoMomentOfInertia 'calculate torque based on angular acceleration (delta speed per time) and MOI
+    '                            'removing the power calc based on average 06DEC13
+    '                            'Data(POWER, ACTUAL) = Data(TORQUE_ROLLER, ACTUAL) * ((Data(RPM1_ROLLER, ACTUAL) + OldAngularVelocity) / 2) 'calculate power based on torque and average angular velocity between two points
+    '                            Data(POWER, ACTUAL) = Data(TORQUE_ROLLER, ACTUAL) * Data(RPM1_ROLLER, ACTUAL) ' + OldAngularVelocity) / 2) 'calculate power based on torque and average angular velocity between two points
+    '                            If Data(POWER, ACTUAL) > 0 Then
+    '                                Data(EFFICIENCY, ACTUAL) = Data(WATTS_IN, ACTUAL) / Data(POWER, ACTUAL)
+    '                            Else
+    '                                Data(EFFICIENCY, ACTUAL) = 0
+    '                            End If
+    '                            'Original versions of wheel and motor torque relied on back calc from Power
+    '                            Data(TORQUE_WHEEL, ACTUAL) = Data(POWER, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'back calculate the torque at the wheel and motor based on the calculated power
+    '                            Data(TORQUE_MOTOR, ACTUAL) = Data(POWER, ACTUAL) / Data(RPM1_MOTOR, ACTUAL)
+
+    '                            If Data(TORQUE_ROLLER, ACTUAL) > Data(TORQUE_ROLLER, MAXIMUM) Then 'set the maximum values for torque
+    '                                Data(TORQUE_ROLLER, MAXIMUM) = Data(TORQUE_ROLLER, ACTUAL)
+    '                                Data(TORQUE_WHEEL, MAXIMUM) = Data(TORQUE_WHEEL, ACTUAL)
+    '                                Data(TORQUE_MOTOR, MAXIMUM) = Data(TORQUE_MOTOR, ACTUAL)
+    '                            End If
+
+    '                            If Data(TORQUE_ROLLER, ACTUAL) < Data(TORQUE_ROLLER, MINIMUM) Then
+    '                                Data(TORQUE_ROLLER, MINIMUM) = Data(TORQUE_ROLLER, ACTUAL)
+    '                                Data(TORQUE_WHEEL, MINIMUM) = Data(TORQUE_WHEEL, ACTUAL)
+    '                                Data(TORQUE_MOTOR, MINIMUM) = Data(TORQUE_MOTOR, ACTUAL)
+    '                            End If
+
+    '                            If Data(POWER, ACTUAL) > Data(POWER, MAXIMUM) Then 'set the maximum value for power
+    '                                Data(POWER, MAXIMUM) = Data(POWER, ACTUAL)
+    '                            End If
+    '                            If Data(POWER, ACTUAL) < Data(POWER, MINIMUM) Then
+    '                                Data(POWER, MINIMUM) = Data(POWER, ACTUAL)
+    '                            End If
+    '                            If Data(EFFICIENCY, ACTUAL) > Data(EFFICIENCY, MAXIMUM) Then 'set the maximum value for power
+    '                                Data(EFFICIENCY, MAXIMUM) = Data(EFFICIENCY, ACTUAL)
+    '                            End If
+    '                            If Data(EFFICIENCY, ACTUAL) < Data(EFFICIENCY, MINIMUM) Then 'set the maximum value for power
+    '                                Data(EFFICIENCY, MINIMUM) = Data(EFFICIENCY, ACTUAL)
+    '                            End If
+
+    '                            OldAngularVelocity = Data(RPM1_ROLLER, ACTUAL) 'remember the current angular velocity for next pulse
+
+    '                            Select Case WhichDataMode 'Live, PowerRun or LogRaw ?
+    '                                Case Is = LIVE
+    '                                    'Don't do anything.  This helps skip through the Select Case Faster
+    '                                Case Is = POWERRUN
+    '                                    If Data(RPM1_ROLLER, ACTUAL) > ActualPowerRunThreshold Then
+    '                                        DataPoints += 1
+    '                                        If DataPoints = 1 Then
+    '                                            TotalElapsedTime = 0
+    '                                        Else
+    '                                            TotalElapsedTime += ElapsedTime
+    '                                        End If
+    '                                        If DataPoints = MinimumPowerRunPoints Then btnStartPowerRun.BackColor = Color.Green
+    '                                        CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
+    '                                        CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
+    '                                        CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
+    '                                        CollectedData(VOLTS, DataPoints) = Data(VOLTS, ACTUAL)
+    '                                        CollectedData(AMPS, DataPoints) = Data(AMPS, ACTUAL)
+    '                                        CollectedData(TEMPERATURE1, DataPoints) = Data(TEMPERATURE1, ACTUAL)
+    '                                        CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
+    '                                        CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
+    '                                        CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
+    '                                        CollectedData(CHAN1_FREQUENCY, DataPoints) = Data(CHAN1_FREQUENCY, ACTUAL)
+    '                                        CollectedData(CHAN1_PULSEWIDTH, DataPoints) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+    '                                        CollectedData(CHAN1_DUTYCYCLE, DataPoints) = Data(CHAN1_DUTYCYCLE, ACTUAL)
+    '                                        CollectedData(CHAN2_FREQUENCY, DataPoints) = Data(CHAN2_FREQUENCY, ACTUAL)
+    '                                        CollectedData(CHAN2_PULSEWIDTH, DataPoints) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+    '                                        CollectedData(CHAN2_DUTYCYCLE, DataPoints) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+    '                                        'DataPoints += 1
+    '                                        If DataPoints = MAXDATAPOINTS Then
+    '                                            DataPoints = MAXDATAPOINTS - 1
+    '                                            'btnStartPowerRun.BackColor = Color.Red
+    '                                        End If
+    '                                    End If
+    '                                Case Is = LOGRAW
+    '                                    DataPoints += 1
+    '                                    If DataPoints = 1 Then
+    '                                        'btnStartLoggingRaw.BackColor = Color.Green
+    '                                        TotalElapsedTime = 0
+    '                                    Else
+    '                                        TotalElapsedTime += ElapsedTime
+    '                                    End If
+    '                                    CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
+    '                                    CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
+    '                                    CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
+    '                                    CollectedData(VOLTS, DataPoints) = Data(VOLTS, ACTUAL)
+    '                                    CollectedData(AMPS, DataPoints) = Data(AMPS, ACTUAL)
+    '                                    CollectedData(TEMPERATURE1, DataPoints) = Data(TEMPERATURE1, ACTUAL)
+    '                                    CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
+    '                                    CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
+    '                                    CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
+    '                                    CollectedData(CHAN1_FREQUENCY, DataPoints) = Data(CHAN1_FREQUENCY, ACTUAL)
+    '                                    CollectedData(CHAN1_PULSEWIDTH, DataPoints) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+    '                                    CollectedData(CHAN1_DUTYCYCLE, DataPoints) = Data(CHAN1_DUTYCYCLE, ACTUAL)
+    '                                    CollectedData(CHAN2_FREQUENCY, DataPoints) = Data(CHAN2_FREQUENCY, ACTUAL)
+    '                                    CollectedData(CHAN2_PULSEWIDTH, DataPoints) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+    '                                    CollectedData(CHAN2_DUTYCYCLE, DataPoints) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+    '                                    ' DataPoints += 1
+    '                                    If DataPoints = MAXDATAPOINTS Then
+    '                                        DataPoints = MAXDATAPOINTS - 1
+    '                                        'btnStartLoggingRaw.BackColor = Color.Red
+    '                                    End If
+    '                            End Select
+    '                        End If
+    '                    End If
+    '                    If (WhichSignal = HIGHSIGNAL AndAlso RawWaveData(j) <= HighSignalThreshold - 3) Or (WhichSignal = LOWSIGNAL AndAlso RawWaveData(j) >= HighSignalThreshold + 3) Then
+    '                        If FoundHighSignal = True Then
+    '                            Data(CHAN1_PULSEWIDTH, ACTUAL) = k * BytesToSeconds * 1000
+    '                            If Data(CHAN1_PULSEWIDTH, ACTUAL) > Data(CHAN1_PULSEWIDTH, MAXIMUM) Then Data(CHAN1_PULSEWIDTH, MAXIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+    '                            If Data(CHAN1_PULSEWIDTH, ACTUAL) < Data(CHAN1_PULSEWIDTH, MINIMUM) Then Data(CHAN1_PULSEWIDTH, MINIMUM) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+    '                            k = 0
+    '                            Data(CHAN1_DUTYCYCLE, ACTUAL) = Data(CHAN1_PULSEWIDTH, ACTUAL) * Data(CHAN1_FREQUENCY, ACTUAL) / 10
+    '                            If Data(CHAN1_DUTYCYCLE, ACTUAL) > Data(CHAN1_DUTYCYCLE, MAXIMUM) Then Data(CHAN1_DUTYCYCLE, MAXIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
+    '                            If Data(CHAN1_DUTYCYCLE, ACTUAL) < Data(CHAN1_DUTYCYCLE, MINIMUM) Then Data(CHAN1_DUTYCYCLE, MINIMUM) = Data(CHAN1_DUTYCYCLE, ACTUAL)
+    '                        End If
+    '                        FoundHighSignal = False
+    '                    End If
+
+    '                    LastSignal = RawWaveData(j) 'remember the last high signal and the current correction time
+
+    '                    If NUMBER_OF_CHANNELS = 2 Then
+
+    '                        SignalWindowBMP.DrawLine(Channel2ThresholdPen, 0, SignalThreshold2YConverted, PicSignalWidth, SignalThreshold2YConverted)
+    '                        NextYPosition2 = CInt(PicSignalHeight - RawWaveData(j + 1) * SignalYConversion) + 1    'calculate coordinate for next channel 2 signal point
+    '                        SignalWindowBMP.DrawLine(Channel2SignalPen, CInt(CurrentSignalXPosition - SignalXConversion), LastYPosition2, CInt(CurrentSignalXPosition), NextYPosition2) 'draw line to the newly calculated point...
+    '                        LastYPosition2 = NextYPosition2 '...and remember the new position for the next cycle
+
+    '                        If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) > HighSignalThreshold2) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) < HighSignalThreshold2) Then 'Check is we have found a signal depending on where the threshold line is set
+
+    '                            k2 = k2 + NUMBER_OF_CHANNELS 'count bytes for channel 2 pulsewidth
+
+    '                            If FoundHighSignal2 = False Then    'if FoundHighSigal is false, then this is the start of a new pulse not the middle of an existing pulse
+
+    '                                FoundHighSignal2 = True 'flag that we are in the middle of a pulse
+
+    '                                Select Case UseAdvancedProcessing 'Calculate elapsed time simply by the byte count since last or by interpolation through the threshold line
+    '                                    Case Is = False
+    '                                        ElapsedTime2 = (j + 1 - LastHighBufferPosition2) * BytesToSeconds 'calculate the elapsed time by multiplying the number of bytes since the last pulse 'by the time taken for each byte (which depends on the sampling rate)
+    '                                    Case Is = True
+    '                                        NewElapsedTimeCorrection2 = Math.Abs((RawWaveData(j + 1) - HighSignalThreshold) / (RawWaveData(j + 1) - LastSignal2))
+    '                                        ElapsedTime2 = ((j + 1 - LastHighBufferPosition2) + OldElapsedTimeCorrection2 - NewElapsedTimeCorrection2) * BytesToSeconds
+    '                                        OldElapsedTimeCorrection2 = NewElapsedTimeCorrection2
+    '                                End Select
+
+    '                                LastHighBufferPosition2 = j + 1   'set the current buffer position for the next pulse
+
+    '                                Data(CHAN2_FREQUENCY, ACTUAL) = 1 / ElapsedTime2 'calculate frequency for scope work 
+    '                                If Data(CHAN2_FREQUENCY, ACTUAL) > Data(CHAN2_FREQUENCY, MAXIMUM) Then Data(CHAN2_FREQUENCY, MAXIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
+    '                                If Data(CHAN2_FREQUENCY, ACTUAL) < Data(CHAN2_FREQUENCY, MINIMUM) Then Data(CHAN2_FREQUENCY, MINIMUM) = Data(CHAN2_FREQUENCY, ACTUAL)
+
+
+    '                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / ElapsedTime2 'calculate roller angular velocity in Rad/s
+    '                                Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL) 'calculate the ratios between RPM2 and RPM1 - wheel
+
+    '                                Data(RPM2_ROLLOUT, ACTUAL) = WheelCircumference / Data(RPM2_RATIO, ACTUAL) 'calculate Rollout (default unit is mm).  This assumes RPM2 is measuring motor RPM   'Rollout is the number of mm traveled for 1 rotation of the wheel
+
+    '                                If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then 'check and set maximum values for RPM2, Ratio and rollout
+    '                                    Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
+    '                                End If
+    '                                If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
+    '                                    Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
+    '                                End If
+    '                                If Data(RPM2_RATIO, ACTUAL) > Data(RPM2_RATIO, MAXIMUM) Then
+    '                                    Data(RPM2_RATIO, MAXIMUM) = Data(RPM2_RATIO, ACTUAL)
+    '                                End If
+    '                                If Data(RPM2_RATIO, ACTUAL) < Data(RPM2_RATIO, MINIMUM) Then
+    '                                    Data(RPM2_RATIO, MINIMUM) = Data(RPM2_RATIO, ACTUAL)
+    '                                End If
+    '                                If Data(RPM2_ROLLOUT, ACTUAL) > Data(RPM2_ROLLOUT, MAXIMUM) Then
+    '                                    Data(RPM2_ROLLOUT, MAXIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
+    '                                End If
+    '                                If Data(RPM2_ROLLOUT, ACTUAL) < Data(RPM2_ROLLOUT, MINIMUM) Then
+    '                                    Data(RPM2_ROLLOUT, MINIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
+    '                                End If
+    '                            End If
+    '                        End If
+    '                        If (WhichSignal2 = HIGHSIGNAL AndAlso RawWaveData(j + 1) <= HighSignalThreshold2 - 3) Or (WhichSignal2 = LOWSIGNAL AndAlso RawWaveData(j + 1) >= HighSignalThreshold2 + 3) Then
+    '                            If FoundHighSignal2 = True Then
+    '                                Data(CHAN2_PULSEWIDTH, ACTUAL) = k2 * BytesToSeconds * 1000
+    '                                k2 = 0
+    '                                If Data(CHAN2_PULSEWIDTH, ACTUAL) > Data(CHAN2_PULSEWIDTH, MAXIMUM) Then Data(CHAN2_PULSEWIDTH, MAXIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+    '                                If Data(CHAN2_PULSEWIDTH, ACTUAL) < Data(CHAN2_PULSEWIDTH, MINIMUM) Then Data(CHAN2_PULSEWIDTH, MINIMUM) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+    '                                Data(CHAN2_DUTYCYCLE, ACTUAL) = Data(CHAN2_PULSEWIDTH, ACTUAL) * Data(CHAN2_FREQUENCY, ACTUAL) / 10
+    '                                If Data(CHAN2_DUTYCYCLE, ACTUAL) > Data(CHAN2_DUTYCYCLE, MAXIMUM) Then Data(CHAN2_DUTYCYCLE, MAXIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+    '                                If Data(CHAN2_DUTYCYCLE, ACTUAL) < Data(CHAN2_DUTYCYCLE, MINIMUM) Then Data(CHAN2_DUTYCYCLE, MINIMUM) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+    '                            End If
+
+    '                            FoundHighSignal2 = False
+
+    '                        End If
+    '                        LastSignal2 = RawWaveData(j + 1) 'remember the last high signal and the current correction time
+    '                    End If
+    '                    CurrentSignalXPosition = (CurrentSignalXPosition + SignalXConversion) Mod PicSignalWidth
+
+    '                Next
+
+    '                pnlSignalWindow.Invalidate()
+
+    '                If NUMBER_OF_CHANNELS = 2 Then
+    '                    LastHighBufferPosition2 = LastHighBufferPosition2 - BUFFER_SIZE
+    '                    If LastHighBufferPosition2 / SAMPLE_RATE * -1 > WaitForNewSignal * NUMBER_OF_CHANNELS Then
+    '                        Data(RPM2, ACTUAL) = 0
+    '                        Data(RPM2_RATIO, ACTUAL) = 0
+    '                        Data(RPM2_ROLLOUT, ACTUAL) = 0
+    '                        Data(CHAN2_DUTYCYCLE, ACTUAL) = 0
+    '                        Data(CHAN2_FREQUENCY, ACTUAL) = 0
+    '                        Data(CHAN2_PULSEWIDTH, ACTUAL) = 0
+    '                    End If
+    '                End If
+
+    '                LastHighBufferPosition = LastHighBufferPosition - BUFFER_SIZE
+    '                If LastHighBufferPosition / SAMPLE_RATE * -1 > WaitForNewSignal * NUMBER_OF_CHANNELS Then
+    '                    Data(RPM1_ROLLER, ACTUAL) = 0
+    '                    Data(RPM1_WHEEL, ACTUAL) = 0
+    '                    Data(RPM1_MOTOR, ACTUAL) = 0
+    '                    Data(SPEED, ACTUAL) = 0
+    '                    Data(DRAG, ACTUAL) = 0
+    '                    Data(TORQUE_ROLLER, ACTUAL) = 0
+    '                    Data(TORQUE_WHEEL, ACTUAL) = 0
+    '                    Data(TORQUE_MOTOR, ACTUAL) = 0
+    '                    Data(POWER, ACTUAL) = 0
+    '                    Data(RPM2_RATIO, ACTUAL) = 0
+    '                    Data(CHAN1_DUTYCYCLE, ACTUAL) = 0
+    '                    Data(CHAN1_FREQUENCY, ACTUAL) = 0
+    '                    Data(CHAN1_PULSEWIDTH, ACTUAL) = 0
+    '                    If WhichDataMode = LOGRAW Then
+    '                        TotalElapsedTime += ElapsedTime
+    '                        CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
+    '                        CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
+    '                        CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
+    '                        CollectedData(VOLTS, DataPoints) = Data(VOLTS, ACTUAL)
+    '                        CollectedData(AMPS, DataPoints) = Data(AMPS, ACTUAL)
+    '                        CollectedData(TEMPERATURE1, DataPoints) = Data(TEMPERATURE1, ACTUAL)
+    '                        CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
+    '                        CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
+    '                        CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
+    '                        CollectedData(CHAN1_FREQUENCY, DataPoints) = Data(CHAN1_FREQUENCY, ACTUAL)
+    '                        CollectedData(CHAN1_PULSEWIDTH, DataPoints) = Data(CHAN1_PULSEWIDTH, ACTUAL)
+    '                        CollectedData(CHAN1_DUTYCYCLE, DataPoints) = Data(CHAN1_DUTYCYCLE, ACTUAL)
+    '                        CollectedData(CHAN2_FREQUENCY, DataPoints) = Data(CHAN2_FREQUENCY, ACTUAL)
+    '                        CollectedData(CHAN2_PULSEWIDTH, DataPoints) = Data(CHAN2_PULSEWIDTH, ACTUAL)
+    '                        CollectedData(CHAN2_DUTYCYCLE, DataPoints) = Data(CHAN2_DUTYCYCLE, ACTUAL)
+    '                        DataPoints += 1
+    '                        If DataPoints = MAXDATAPOINTS Then
+    '                            DataPoints = MAXDATAPOINTS - 1
+    '                            'btnStartLoggingRaw.BackColor = Color.Red
+    '                        End If
+    '                    End If
+    '                End If
+
+    '                'If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
+    '                If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
+    '                    SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
+    '                    'DataPoints -= 1
+    '                    'PauseForms()
+    '                    WhichDataMode = LIVE
+    '                End If
+    '            End If
+    '            BufferCount = BufferCount + 1
+    '            If BufferCount > NUMBER_OF_BUFFERS - 1 Then BufferCount = 0
+    '#If QueryPerformance Then
+    '            QueryPerformanceCounter(StopWatch)
+    '            If PerfBufferCount < 150 Then PerfBufferCount += 1
+    '            Data(PERFORMANCE, ACTUAL) = ((StopWatch - StartWatch) / WatchTickConversion * 1000) / (BUFFER_SIZE / SAMPLE_RATE * 1000) * 100
+    '            PerformanceData(P_FREQ, PerfBufferCount) = Data(CHAN1_FREQUENCY, ACTUAL)
+    '            PerformanceData(P_TIME, PerfBufferCount) = Data(PERFORMANCE, ACTUAL)
+    '            '11MAY2011 Sub running at an average of 0.01 secs with buffers being retured at 3200 (buffsize) / 44100 (rate) which is 0.07 seconds
+    '            '29NOV2012 Sub running at average 8 ms with theoretical callback every 72 ms
+    '            '17DEC12 Sub Running at 8 - 10 ms with theoretical callback every 72 ms
+    '            '12APR13 Sub Running at around 14 ms 
+    '            '19SEP13 Sub Running at around 20 ms for 2 channels, 44100 Hz, doesn't seem to be significantly affected id COM port is open.
+    '            '19SEP13 Max Processing time for 2Ch, 44K, COM Port 9600 Baud is 47ms
+    '#End If
+    '        Catch e As Exception
+    '            'btnHide_Click(Me, EventArgs.Empty)
+    '            MsgBox("myWaveHandler_ProcessWave Error: " & e.ToString, MsgBoxStyle.Exclamation)
+    '            End
+    '        End Try
+    '    End Sub
+    '    Private Sub ShutDownWaves()
+    '        If WavesStarted Then
+    '            Try
+    '                Dim temp As Integer, counter As Integer
+    '                StopAddingBuffers = True
+    '                Do
+    '                    Application.DoEvents()
+    '                    temp = 0
+    '                    For counter = 0 To NUMBER_OF_BUFFERS - 1
+    '                        If WaveBufferHeaders(counter).dwBytesRecorded = WaveBufferHeaders(counter).dwBufferLength Then
+    '                            temp = temp + 1
+    '                        End If
+    '                    Next
+    '                Loop Until temp = NUMBER_OF_BUFFERS 'Not InCallBackProcedure
+    '                i = waveInReset(WaveInHandle)
+    '                If i <> 0 Then
+    '                    'btnHide_Click(Me, EventArgs.Empty)
+    '                    MsgBox("ShutDownWaves / waveInReset Error", MsgBoxStyle.Exclamation)
+    '                    End
+    '                End If
+    '                i = waveInStop(WaveInHandle)
+    '                If i <> 0 Then
+    '                    'btnHide_Click(Me, EventArgs.Empty)
+    '                    MsgBox("ShutDownWaves / waveInStop Error", MsgBoxStyle.Exclamation)
+    '                    End
+    '                End If
+    '                For j = 0 To NUMBER_OF_BUFFERS - 1
+    '                    i = waveInUnprepareHeader(WaveInHandle, WaveBufferHeaders(j), Marshal.SizeOf(WaveBufferHeaders(j)))
+    '                    If i <> 0 Then
+    '                        'btnHide_Click(Me, EventArgs.Empty)
+    '                        MsgBox("ShutDownWaves / waveInUnprepareHeader Error" & i, MsgBoxStyle.Exclamation)
+    '                        End
+    '                    End If
+    '                Next
+    '                bufferpin0.Free()
+    '                bufferpin1.Free()
+    '                bufferpin2.Free()
+    '                bufferpin3.Free()
+    '                bufferpin4.Free()
+    '                bufferpin5.Free()
+    '                bufferpin6.Free()
+    '                bufferpin7.Free()
+    '                bufferpin8.Free()
+    '                bufferpin9.Free()
+    '                bufferpin10.Free()
+    '                bufferpin11.Free()
+    '                bufferpin12.Free()
+    '                bufferpin13.Free()
+    '                bufferpin14.Free()
+    '                bufferpin15.Free()
+    '                bufferpin16.Free()
+    '                bufferpin17.Free()
+    '                bufferpin18.Free()
+    '                bufferpin19.Free()
+    '                i = waveInClose(WaveInHandle)
+    '                If i <> 0 Then
+    '                    'btnHide_Click(Me, EventArgs.Empty)
+    '                    MsgBox("ShutDownWaves / waveInClose Error", MsgBoxStyle.Exclamation)
+    '                    End
+    '                Else
+
+    '                End If
+    '                BufferCount = 0
+    '                StopAddingBuffers = False
+    '                WavesStarted = False
+    '            Catch e As Exception
+    '                'btnHide_Click(Me, EventArgs.Empty)
+    '                MsgBox("ShutDownWaves Error: " & e.ToString, MsgBoxStyle.Exclamation)
+    '                End
+    '            End Try
+    '        End If
+    '    End Sub
 #End Region
 #Region "Serial Port Communications"
     Private Sub cmbAcquisition_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbAcquisition.SelectedIndexChanged
@@ -2897,8 +2899,8 @@ Public Class Main
     End Sub
     Private Sub btnStartAcquisition_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStartAcquisition.Click
         btnStartAcquisition.Enabled = False
-        PauseForms()
-        ShutDownWaves()
+        'PauseForms()
+        'ShutDownWaves()
         SerialClose()
         SignalWindowBMP.Clear(System.Windows.Forms.Control.DefaultBackColor)
         pnlSignalWindow.BackgroundImage = SignalBitmap
@@ -2968,7 +2970,7 @@ Public Class Main
             BytesToSeconds = 1 / (SAMPLE_RATE * NUMBER_OF_CHANNELS)
             ElapsedTimeUnit = BytesToSeconds * NUMBER_OF_CHANNELS
             PrepareGraphicsParameters()
-            InitializeWaveInput()
+            'InitializeWaveInput()
         Else
             'CHECK - CLEAR THE SIGNAL WINDOW SCREEN TO GRAY IF NOT USED
             'Scope stuff only uses audio
@@ -3003,10 +3005,10 @@ Public Class Main
 
         'Need to update the menus available in already loaded graphical interface components
         'CHECK = Ultimately we should reconsider creating the menus live on right click to allow for min max to be listed in textboxes
-        For Each SDFrm As SimpleDynoSubForm In f
-            SDFrm.CreateTheMenu()
-        Next
-        RestartForms()
+        'For Each SDFrm As SimpleDynoSubForm In f
+        '    SDFrm.CreateTheMenu()
+        'Next
+        'RestartForms()
     End Sub
     Private ClosingCOMPort As Boolean = False
     Private Sub GetAvailableCOMPorts()
@@ -3119,7 +3121,7 @@ Public Class Main
                 If rgbvalue > 240 Or rgbvalue < 50 Then rgbincrement *= -1
                 SetControlBackColor_ThreadSafe(lblCOMActive, Color.FromArgb(0, rgbvalue, rgbvalue))
 
-                If COMPortMessage.Length = 11 Then 'Timestamp, 2 new Time values,  2 interrupt times, 6 ports
+                If COMPortMessage.Length = 12 Then 'Timestamp, 2 new Time values,  2 interrupt times, 6 ports
                     SyncLock Locker
                         Data(VOLTS, ACTUAL) = VoltageIntercept + VoltageSlope * CDbl(COMPortMessage(5)) 'Convert Volts signal to volts
                         Data(AMPS, ACTUAL) = CurrentIntercept + CurrentSlope * CDbl((COMPortMessage(6))) 'Convert Current signal to amps
@@ -3320,10 +3322,11 @@ Public Class Main
 
                     End SyncLock
 
-                    If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
+                    'If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
+                    If WhichDataMode = POWERRUN AndAlso DataPoints > 10 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) Then
                         SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
                         'DataPoints -= 1
-                        PauseForms()
+                        'PauseForms()
                         WhichDataMode = LIVE
                     End If
 
@@ -3472,61 +3475,61 @@ Public Class Main
 
     '    End If
     'End Sub
-    Private Function InterfaceConvert_63_toCurrent(ByVal Sent As String) As String
-        'Receives the 6.3 version of the string and updates the x and y pointers to the new ones
-        'Because the only x pointer in 6.3 was time, there is no need to convert this one.
-        Dim TempSplit() As String = Split(Sent, "_")
-        Dim TempYNumberAllowed As Integer = CInt(TempSplit(5))
-        For Count As Integer = 1 To TempYNumberAllowed
-            Select Case CInt(TempSplit(16 + (Count - 1) * 7))
-                Case Is = 21, 22, 23
-                    'CHAN1_FREQUENCY = 21   'CHAN1_FREQUENCY = 4
-                    'CHAN1_PULSEWIDTH = 22  'CHAN1_PULSEWIDTH = 5
-                    'CHAN1_DUTYCYCLE = 23   'CHAN1_DUTYCYCLE = 6
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) - 17).ToString
-                Case Is = 4, 5, 6, 7
-                    'SPEED = 4              'SPEED = 7
-                    'RPM2 = 5               'RPM2 = 8
-                    'RPM2_RATIO = 6         'RPM2_RATIO = 9
-                    'RPM2_ROLLOUT = 7       'RPM2_ROLLOUT = 10
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 3).ToString
-                Case Is = 24, 25, 26
-                    'CHAN2_FREQUENCY = 24   'CHAN2_FREQUENCY = 11
-                    'CHAN2_PULSEWIDTH = 25  'CHAN2_PULSEWIDTH = 12
-                    'CHAN2_DUTYCYCLE = 26   'CHAN2_DUTYCYCLE = 13
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) - 13).ToString
-                Case Is = 8, 9, 10
-                    'TORQUE_ROLLER = 8      'TORQUE_ROLLER = 14
-                    'TORQUE_WHEEL = 9       'TORQUE_WHEEL = 15
-                    'TORQUE_MOTOR = 10      'TORQUE_MOTOR = 16
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 6).ToString
-                Case Is = 11
-                    'POWER = 11             'POWER = 21
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 10).ToString
-                Case Is = 12, 13, 14, 15, 16, 17, 18, 19, 20
-                    'DRAG = 12              'DRAG = 26
-                    'VOLTS = 13             'VOLTS = 27
-                    'AMPS = 14              'AMPS = 28
-                    'WATTS_IN = 15          'WATTS_IN = 29
-                    'EFFICIENCY = 16        'EFFICIENCY = 30
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 14).ToString
-                Case Is = 17, 18, 19, 20
-                    'TEMPERATURE1 = 17      'TEMPERATURE1 = 32
-                    'TEMPERATURE2 = 18      'TEMPERATURE2 = 33
-                    'PIN04VALUE = 19        'PIN04VALUE = 34
-                    'PIN05VALUE = 20        'PIN05VALUE = 35
-                    TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 15).ToString
-            End Select
-        Next
+    'Private Function InterfaceConvert_63_toCurrent(ByVal Sent As String) As String
+    '    'Receives the 6.3 version of the string and updates the x and y pointers to the new ones
+    '    'Because the only x pointer in 6.3 was time, there is no need to convert this one.
+    '    Dim TempSplit() As String = Split(Sent, "_")
+    '    Dim TempYNumberAllowed As Integer = CInt(TempSplit(5))
+    '    For Count As Integer = 1 To TempYNumberAllowed
+    '        Select Case CInt(TempSplit(16 + (Count - 1) * 7))
+    '            Case Is = 21, 22, 23
+    '                'CHAN1_FREQUENCY = 21   'CHAN1_FREQUENCY = 4
+    '                'CHAN1_PULSEWIDTH = 22  'CHAN1_PULSEWIDTH = 5
+    '                'CHAN1_DUTYCYCLE = 23   'CHAN1_DUTYCYCLE = 6
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) - 17).ToString
+    '            Case Is = 4, 5, 6, 7
+    '                'SPEED = 4              'SPEED = 7
+    '                'RPM2 = 5               'RPM2 = 8
+    '                'RPM2_RATIO = 6         'RPM2_RATIO = 9
+    '                'RPM2_ROLLOUT = 7       'RPM2_ROLLOUT = 10
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 3).ToString
+    '            Case Is = 24, 25, 26
+    '                'CHAN2_FREQUENCY = 24   'CHAN2_FREQUENCY = 11
+    '                'CHAN2_PULSEWIDTH = 25  'CHAN2_PULSEWIDTH = 12
+    '                'CHAN2_DUTYCYCLE = 26   'CHAN2_DUTYCYCLE = 13
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) - 13).ToString
+    '            Case Is = 8, 9, 10
+    '                'TORQUE_ROLLER = 8      'TORQUE_ROLLER = 14
+    '                'TORQUE_WHEEL = 9       'TORQUE_WHEEL = 15
+    '                'TORQUE_MOTOR = 10      'TORQUE_MOTOR = 16
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 6).ToString
+    '            Case Is = 11
+    '                'POWER = 11             'POWER = 21
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 10).ToString
+    '            Case Is = 12, 13, 14, 15, 16, 17, 18, 19, 20
+    '                'DRAG = 12              'DRAG = 26
+    '                'VOLTS = 13             'VOLTS = 27
+    '                'AMPS = 14              'AMPS = 28
+    '                'WATTS_IN = 15          'WATTS_IN = 29
+    '                'EFFICIENCY = 16        'EFFICIENCY = 30
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 14).ToString
+    '            Case Is = 17, 18, 19, 20
+    '                'TEMPERATURE1 = 17      'TEMPERATURE1 = 32
+    '                'TEMPERATURE2 = 18      'TEMPERATURE2 = 33
+    '                'PIN04VALUE = 19        'PIN04VALUE = 34
+    '                'PIN05VALUE = 20        'PIN05VALUE = 35
+    '                TempSplit(16 + (Count - 1) * 7) = (CInt(TempSplit(16 + (Count - 1) * 7)) + 15).ToString
+    '        End Select
+    '    Next
 
-        'Now Rebuild the string
-        Dim TempReply As String = ""
-        For Count As Integer = 0 To UBound(TempSplit)
-            TempReply = TempReply & TempSplit(Count) & "_"
-        Next
-        InterfaceConvert_63_toCurrent = TempReply
+    '    'Now Rebuild the string
+    '    Dim TempReply As String = ""
+    '    For Count As Integer = 0 To UBound(TempSplit)
+    '        TempReply = TempReply & TempSplit(Count) & "_"
+    '    Next
+    '    InterfaceConvert_63_toCurrent = TempReply
 
-    End Function
+    'End Function
     'Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
     '    Dim TempString As String = InterfaceVersion & vbCrLf
     '    Dim frmcount As Integer
@@ -3585,23 +3588,23 @@ Public Class Main
     '    btnShow.Enabled = False
     '    btnHide.Enabled = True
     'End Sub
-    Friend Sub PauseForms()
-        For Each SDFrm As SimpleDynoSubForm In f
-            SDFrm.Pause()
-        Next
-    End Sub
-    Friend Sub RestartForms()
-        For Each SDFrm As SimpleDynoSubForm In f
-            SDFrm.Restart()
-        Next
-    End Sub
-    Friend Sub ResetAllYTimeGraphs()
-        For Each SDFrm As SimpleDynoSubForm In f
-            If SDFrm.myType = "MultiYTimeGraph" Then
-                SDFrm.ResetSDForm()
-            End If
-        Next
-    End Sub
+    'Friend Sub PauseForms()
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        SDFrm.Pause()
+    '    Next
+    'End Sub
+    'Friend Sub RestartForms()
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        SDFrm.Restart()
+    '    Next
+    'End Sub
+    'Friend Sub ResetAllYTimeGraphs()
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        If SDFrm.myType = "MultiYTimeGraph" Then
+    '            SDFrm.ResetSDForm()
+    '        End If
+    '    Next
+    'End Sub
     'Private Sub btnNewLabel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNewLabel.Click
     '    'New Label
     '    btnShow_Click(Me, EventArgs.Empty)
@@ -3634,9 +3637,9 @@ Public Class Main
     '    AddHandler f(f.Count - 1).SetToMyFormat, AddressOf SetAllFormats
     '    f(f.Count - 1).Initialize(f.Count - 1, Data, DataTags, DataUnits, DataUnitTags, DataAreUsed)
     'End Sub
-    Private Sub btnResetSDForm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        ResetAllYTimeGraphs()
-    End Sub
+    'Private Sub btnResetSDForm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    ResetAllYTimeGraphs()
+    'End Sub
     'Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClose.Click
     '    'Remove interface if it is closed down
     '    Do Until f.Count = 0
@@ -3650,21 +3653,21 @@ Public Class Main
     '    btnSave.Enabled = False
     '    btnSaveAs.Enabled = False
     'End Sub
-    Private Sub RemoveForm(ByVal SentToRemove As Integer)
-        For Each SDFrm As SimpleDynoSubForm In f
-            If SDFrm.myNumber = SentToRemove Then
-                f.Remove(SDFrm)
-                SDFrm.Dispose()
-                SDFrm = Nothing
-                Exit For
-            End If
-        Next
-    End Sub
-    Private Sub SetAllFormats(ByVal SentFormat As String)
-        For Each SDFrm As SimpleDynoSubForm In f
-            SDFrm.SetMyFormat(SentFormat)
-        Next
-    End Sub
+    'Private Sub RemoveForm(ByVal SentToRemove As Integer)
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        If SDFrm.myNumber = SentToRemove Then
+    '            f.Remove(SDFrm)
+    '            SDFrm.Dispose()
+    '            SDFrm = Nothing
+    '            Exit For
+    '        End If
+    '    Next
+    'End Sub
+    'Private Sub SetAllFormats(ByVal SentFormat As String)
+    '    For Each SDFrm As SimpleDynoSubForm In f
+    '        SDFrm.SetMyFormat(SentFormat)
+    '    Next
+    'End Sub
 #End Region
 #Region "Performance Testing"
 #If QueryPerformance Then

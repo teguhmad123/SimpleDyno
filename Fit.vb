@@ -63,7 +63,7 @@ Public Class Fit
         If e.CloseReason <> CloseReason.FormOwnerClosing Then
             Me.Hide()
             e.Cancel = True
-            Main.RestartForms()
+            'Main.RestartForms()
             'Main.btnShow_Click(Me, System.EventArgs.Empty)
         End If
     End Sub
@@ -395,7 +395,7 @@ Public Class Fit
                 rdoRPM1_CheckedChanged(Me, EventArgs.Empty)
 
             End If
-            Main.RestartForms()
+            'Main.RestartForms()
         Catch e As Exception
             MsgBox("ProcessData Error: " & e.ToString, MsgBoxStyle.Exclamation)
             End
