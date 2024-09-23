@@ -6,6 +6,9 @@ Imports System.Management
 Imports System.Drawing.Drawing2D
 Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
+Imports OxyPlot
+Imports OxyPlot.Axes
+
 Public Class Main
     Inherits System.Windows.Forms.Form
 #Region "Compiler Constants"
@@ -24,7 +27,7 @@ Public Class Main
 #End Region
 #Region "API structures"
     'Structures Required by winmm.dll
-    <StructLayout(LayoutKind.Sequential, Pack:=1)> _
+    <StructLayout(LayoutKind.Sequential, Pack:=1)>
     Structure WAVEFORMATEX
         Dim wFormatTag As Int16
         Dim nchannels As Int16
@@ -34,7 +37,7 @@ Public Class Main
         Dim wBitsPerSample As Int16
         Dim cbSize As Int16
     End Structure
-    <StructLayout(LayoutKind.Sequential, Pack:=1)> _
+    <StructLayout(LayoutKind.Sequential, Pack:=1)>
     Structure WAVEHDR
         Dim lpData As IntPtr
         Dim dwBufferLength As Int32
@@ -48,35 +51,35 @@ Public Class Main
 #End Region
 #Region "API declarations"
     'Function declarations for winmm.dll and kernel32.dll
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInOpen(ByRef lphWaveIn As IntPtr, ByVal uDeviceID As IntPtr, ByRef lpFormat As WAVEFORMATEX, ByVal dwCallback As WaveCallBackProcedure, ByVal dwInstance As IntPtr, ByVal dwFlags As Int32) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInClose(ByVal hWaveIn As IntPtr) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInReset(ByVal hWaveIn As IntPtr) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInStart(ByVal hWaveIn As IntPtr) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInStop(ByVal hWaveIn As IntPtr) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInAddBuffer(ByVal hWaveIn As IntPtr, ByRef lpWaveInHdr As WAVEHDR, ByVal uSize As Int32) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInPrepareHeader(ByVal hWaveIn As IntPtr, ByRef lpWaveInHdr As WAVEHDR, ByVal uSize As Int32) As Int32
     End Function
-    <DllImport("winmm.dll", SetLastError:=True)> _
+    <DllImport("winmm.dll", SetLastError:=True)>
     Shared Function waveInUnprepareHeader(ByVal hWaveIn As IntPtr, ByRef lpWaveInHdr As WAVEHDR, ByVal uSize As Int32) As Int32
     End Function
     'QueryPerformanceCounter and  QueryPerformanceFrequency are used for performance testing only
-    <DllImport("kernel32.dll", SetLastError:=True)> _
+    <DllImport("kernel32.dll", SetLastError:=True)>
     Shared Function QueryPerformanceCounter(ByRef lpPerformanceCount As Long) As Boolean
     End Function
-    <DllImport("kernel32.dll", SetLastError:=True)> _
+    <DllImport("kernel32.dll", SetLastError:=True)>
     Public Shared Function QueryPerformanceFrequency(<Out()> ByRef lpFrequency As Long) As Boolean
     End Function
 #End Region
@@ -169,8 +172,8 @@ Public Class Main
     Friend WithEvents LabelValMotorTorque As Label
     Friend WithEvents LabelMotorTorque As Label
     Friend WithEvents btnProfile As Button
+    Friend WithEvents PlotView1 As WindowsForms.PlotView
     Friend WithEvents btnRefreshCOM As Button
-    Friend WithEvents CartesianChart1 As LiveCharts.WinForms.CartesianChart
     '
     'Friend WithEvents ButtonCorrection As Button
     '
@@ -282,6 +285,9 @@ Public Class Main
 
     'For new graphical interface
     'Public Shared WithEvents f As New List(Of SimpleDynoSubForm)
+    Private plotModel As OxyPlot.PlotModel
+    Dim lineSeries1 As OxyPlot.Series.LineSeries
+    Dim lineSeries2 As OxyPlot.Series.LineSeries
 
     'NOTE - The following delclarations use the largest primary and secondary dimensions
     'Friend" declarations are to allow passing the information to the new graphical interface classes
@@ -539,8 +545,8 @@ Public Class Main
         Me.LabelValMotorTorque = New System.Windows.Forms.Label()
         Me.LabelMotorTorque = New System.Windows.Forms.Label()
         Me.btnProfile = New System.Windows.Forms.Button()
-        Me.CartesianChart1 = New LiveCharts.WinForms.CartesianChart()
         Me.btnRefreshCOM = New System.Windows.Forms.Button()
+        Me.PlotView1 = New OxyPlot.WindowsForms.PlotView()
         Me.SuspendLayout()
         '
         'SaveFileDialog1
@@ -550,9 +556,9 @@ Public Class Main
         'btnStartPowerRun
         '
         Me.btnStartPowerRun.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStartPowerRun.Location = New System.Drawing.Point(298, 2)
+        Me.btnStartPowerRun.Location = New System.Drawing.Point(298, 1)
         Me.btnStartPowerRun.Name = "btnStartPowerRun"
-        Me.btnStartPowerRun.Size = New System.Drawing.Size(68, 22)
+        Me.btnStartPowerRun.Size = New System.Drawing.Size(68, 47)
         Me.btnStartPowerRun.TabIndex = 43
         Me.btnStartPowerRun.Text = "Power Run"
         '
@@ -561,7 +567,7 @@ Public Class Main
         Me.btnCOM.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCOM.Location = New System.Drawing.Point(76, 1)
         Me.btnCOM.Name = "btnCOM"
-        Me.btnCOM.Size = New System.Drawing.Size(68, 23)
+        Me.btnCOM.Size = New System.Drawing.Size(68, 47)
         Me.btnCOM.TabIndex = 172
         Me.btnCOM.Text = "COM"
         Me.btnCOM.UseVisualStyleBackColor = True
@@ -571,7 +577,7 @@ Public Class Main
         Me.btnDyno.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDyno.Location = New System.Drawing.Point(2, 1)
         Me.btnDyno.Name = "btnDyno"
-        Me.btnDyno.Size = New System.Drawing.Size(68, 23)
+        Me.btnDyno.Size = New System.Drawing.Size(68, 47)
         Me.btnDyno.TabIndex = 170
         Me.btnDyno.Text = "Dyno"
         Me.btnDyno.UseVisualStyleBackColor = True
@@ -579,9 +585,9 @@ Public Class Main
         'btnAnalysis
         '
         Me.btnAnalysis.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAnalysis.Location = New System.Drawing.Point(150, 2)
+        Me.btnAnalysis.Location = New System.Drawing.Point(150, 1)
         Me.btnAnalysis.Name = "btnAnalysis"
-        Me.btnAnalysis.Size = New System.Drawing.Size(68, 22)
+        Me.btnAnalysis.Size = New System.Drawing.Size(68, 47)
         Me.btnAnalysis.TabIndex = 171
         Me.btnAnalysis.Text = "Analysis"
         Me.btnAnalysis.UseVisualStyleBackColor = True
@@ -616,11 +622,11 @@ Public Class Main
         '
         'btnStartAcquisition
         '
-        Me.btnStartAcquisition.Location = New System.Drawing.Point(554, 1)
+        Me.btnStartAcquisition.Location = New System.Drawing.Point(482, 1)
         Me.btnStartAcquisition.Name = "btnStartAcquisition"
-        Me.btnStartAcquisition.Size = New System.Drawing.Size(88, 23)
+        Me.btnStartAcquisition.Size = New System.Drawing.Size(88, 47)
         Me.btnStartAcquisition.TabIndex = 163
-        Me.btnStartAcquisition.Text = "Start"
+        Me.btnStartAcquisition.Text = "Connect"
         Me.btnStartAcquisition.UseVisualStyleBackColor = True
         '
         'cmbCOMPorts
@@ -750,7 +756,7 @@ Public Class Main
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 500
+        Me.Timer1.Interval = 200
         '
         'LabelValGauge3
         '
@@ -795,7 +801,7 @@ Public Class Main
         Me.AGauge3.Center = New System.Drawing.Point(255, 255)
         Me.AGauge3.Font = New System.Drawing.Font("Tahoma", 9.25!)
         Me.AGauge3.Location = New System.Drawing.Point(1346, 137)
-        Me.AGauge3.MaxValue = 18.0!
+        Me.AGauge3.MaxValue = 3.0!
         Me.AGauge3.MinValue = 0!
         Me.AGauge3.Name = "AGauge3"
         Me.AGauge3.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
@@ -810,7 +816,7 @@ Public Class Main
         Me.AGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black
         Me.AGauge3.ScaleLinesMajorInnerRadius = 225
         Me.AGauge3.ScaleLinesMajorOuterRadius = 210
-        Me.AGauge3.ScaleLinesMajorStepValue = 1.0!
+        Me.AGauge3.ScaleLinesMajorStepValue = 0.5!
         Me.AGauge3.ScaleLinesMajorWidth = 2
         Me.AGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray
         Me.AGauge3.ScaleLinesMinorInnerRadius = 225
@@ -944,27 +950,33 @@ Public Class Main
         '
         Me.btnProfile.Location = New System.Drawing.Point(224, 1)
         Me.btnProfile.Name = "btnProfile"
-        Me.btnProfile.Size = New System.Drawing.Size(68, 23)
+        Me.btnProfile.Size = New System.Drawing.Size(68, 47)
         Me.btnProfile.TabIndex = 204
         Me.btnProfile.Text = "Profile"
         Me.btnProfile.UseVisualStyleBackColor = True
         '
-        'CartesianChart1
-        '
-        Me.CartesianChart1.Location = New System.Drawing.Point(64, 658)
-        Me.CartesianChart1.Name = "CartesianChart1"
-        Me.CartesianChart1.Size = New System.Drawing.Size(1808, 314)
-        Me.CartesianChart1.TabIndex = 205
-        Me.CartesianChart1.Text = "CartesianChart1"
-        '
         'btnRefreshCOM
         '
-        Me.btnRefreshCOM.Location = New System.Drawing.Point(482, 1)
+        Me.btnRefreshCOM.Location = New System.Drawing.Point(372, 25)
         Me.btnRefreshCOM.Name = "btnRefreshCOM"
-        Me.btnRefreshCOM.Size = New System.Drawing.Size(66, 23)
+        Me.btnRefreshCOM.Size = New System.Drawing.Size(104, 23)
         Me.btnRefreshCOM.TabIndex = 206
         Me.btnRefreshCOM.Text = "Refresh"
         Me.btnRefreshCOM.UseVisualStyleBackColor = True
+        '
+        'PlotView1
+        '
+        Me.PlotView1.BackColor = System.Drawing.SystemColors.Control
+        Me.PlotView1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PlotView1.Location = New System.Drawing.Point(0, 645)
+        Me.PlotView1.Name = "PlotView1"
+        Me.PlotView1.PanCursor = System.Windows.Forms.Cursors.Hand
+        Me.PlotView1.Size = New System.Drawing.Size(1904, 396)
+        Me.PlotView1.TabIndex = 208
+        Me.PlotView1.Text = "PlotView1"
+        Me.PlotView1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE
+        Me.PlotView1.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE
+        Me.PlotView1.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS
         '
         'Main
         '
@@ -972,8 +984,8 @@ Public Class Main
         Me.AutoScroll = True
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.Controls.Add(Me.PlotView1)
         Me.Controls.Add(Me.btnRefreshCOM)
-        Me.Controls.Add(Me.CartesianChart1)
         Me.Controls.Add(Me.btnProfile)
         Me.Controls.Add(Me.LabelValMotorTorque)
         Me.Controls.Add(Me.LabelMotorTorque)
@@ -1054,6 +1066,7 @@ Public Class Main
 
         frmAnalysis.Analysis_Setup()
         frmFit.Fit_Setup()
+        Me.SetupDiagram()
 
         'Load saved setting
         LoadParametersFromFile()
@@ -1090,7 +1103,7 @@ Public Class Main
     Private Sub btnAnalysis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnalysis.Click
         'btnHide_Click(Me, EventArgs.Empty)
         frmAnalysis.ShowDialog()
-        frmAnalysis.pnlOverlaySetup()
+        'frmAnalysis.pnlOverlaySetup()
     End Sub
     Private Sub btnCOM_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCOM.Click
         'btnHide_Click(Me, EventArgs.Empty)
@@ -1261,6 +1274,7 @@ Public Class Main
     End Function
     Private Sub btnStartPowerRun_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStartPowerRun.Click
         Try
+            SetupDiagram()
             'Regardless of why we clicked it, the radio button for rpm on the fit form should be set for RPM
             frmFit.rdoRPM1.Checked = True
             If WhichDataMode = POWERRUN Then 'We are cancelling the power run
@@ -2768,6 +2782,7 @@ Public Class Main
     'End If
     'End Sub
     Private Sub btnStartAcquisition_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStartAcquisition.Click
+        SetupDiagram()
         btnStartAcquisition.Enabled = False
         'PauseForms()
         'ShutDownWaves()
@@ -2975,6 +2990,7 @@ Public Class Main
         ClosingCOMPort = False
     End Sub
     Private Sub btnRefreshCOM_Click(sender As Object, e As EventArgs) Handles btnRefreshCOM.Click
+        SetupDiagram()
         GetAvailableCOMPorts()
     End Sub
     Private Sub DataReceivedHandler(ByVal sender As Object, ByVal e As SerialDataReceivedEventArgs)
@@ -3203,7 +3219,7 @@ Public Class Main
                     End SyncLock
 
                     'If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
-                    If WhichDataMode = POWERRUN AndAlso DataPoints > 10 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) Then
+                    If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM2, MAXIMUM) * DataUnits(RPM2, 1)) >= 8000 Then
                         SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
                         'DataPoints -= 1
                         'PauseForms()
@@ -3663,6 +3679,10 @@ Public Class Main
         Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
         Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
 
+        lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
+        lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+        plotModel.InvalidatePlot(True)
+
         If btnRun <> btnRunTMP Then
             btnRun = btnRunTMP
             'Debug.Print(CStr(btnRun))
@@ -3686,6 +3706,134 @@ Public Class Main
             .ShowDialog()
         End With
     End Sub
+
+    Private Sub SetupDiagram()
+        Me.plotModel = New OxyPlot.PlotModel() With {
+            .Background = OxyColor.FromArgb(SystemColors.Control.A, SystemColors.Control.R, SystemColors.Control.G, SystemColors.Control.B),
+            .AxisTierDistance = 0,
+            .PlotMargins = New OxyThickness(100, 50, 100, 50),
+            .IsLegendVisible = True
+        }
+
+        Me.PlotView1.Model = Me.plotModel
+
+        Dim i As Integer
+        Dim xIndex As Integer = RPM2
+        Dim xUnitsIndex As Integer = 1
+
+        Dim xAxisUnit As String = Main.DataUnitTags(xIndex).Split(CType(" ", Char()))(xUnitsIndex)
+        Dim xAxisTitle As String = Main.DataTags(xIndex)
+
+        Dim y1Index As Integer
+        Dim y1UnitsIndex As Integer
+        Dim y1AxisUnit As String
+        Dim y1AxisTitle As String
+
+        Dim y2Index As Integer
+        Dim y2UnitsIndex As Integer
+        Dim y2AxisUnit As String
+        Dim y2AxisTitle As String
+
+        Me.SuspendLayout()
+
+        xIndex = RPM2
+        y1Index = POWER
+        y2Index = TORQUE_MOTOR
+
+        plotModel.Axes.Add(New LinearAxis() With {
+                           .Key = "x",
+                           .Position = OxyPlot.Axes.AxisPosition.Bottom,
+                           .Title = DataTags(xIndex),
+                           .MajorGridlineStyle = LineStyle.Solid,
+                           .Unit = "RPM",
+                           .AbsoluteMinimum = 0,
+                           .AbsoluteMaximum = 18000,
+                           .Maximum = 18000
+                           })
+
+        plotModel.Axes.Add(New LinearAxis() With {
+                           .Key = "y1",
+                           .Position = OxyPlot.Axes.AxisPosition.Left,
+                           .Title = DataTags(y1Index),
+                           .MajorGridlineStyle = LineStyle.Solid,
+                           .Unit = "HP"
+                           })
+
+        plotModel.Axes.Add(New LinearAxis() With {
+                           .Key = "y2",
+                           .Position = OxyPlot.Axes.AxisPosition.Right,
+                           .Title = DataTags(y2Index),
+                           .MajorGridlineStyle = LineStyle.Dash,
+                           .Unit = "N.m"
+                           })
+
+        Dim lineStyles As LineStyle() = {LineStyle.Solid, LineStyle.Dash, LineStyle.LongDash, LineStyle.DashDot, LineStyle.LongDashDot}
+        Dim colors As OxyColor() = {OxyColors.Black, OxyColors.Blue, OxyColors.Red, OxyColors.Green, OxyColors.Purple}
+
+        Dim row As Integer = 0
+        'For i = 0 To dataRecordsList.Count - 1
+        'For i = 0 To 18000
+
+        'If (clbFiles.CheckedIndices.Contains(i) = False) Then
+        '    Continue For
+        'End If
+
+        'Dim lineSeries1 As OxyPlot.Series.LineSeries
+        lineSeries1 = New OxyPlot.Series.LineSeries With {
+                .YAxisKey = "y1",
+                .LineStyle = LineStyle.Solid,
+                .Color = OxyColors.Red,
+                .Title = "POWER"
+            }
+        plotModel.Series.Add(lineSeries1)
+
+        'Dim lineSeries2 As OxyPlot.Series.LineSeries
+        lineSeries2 = New OxyPlot.Series.LineSeries With {
+                .YAxisKey = "y2",
+                .LineStyle = LineStyle.Solid,
+                .Color = OxyColors.Blue,
+                .Title = "TORQUE"
+            }
+        plotModel.Series.Add(lineSeries2)
+
+        Dim x1Max As Double = 0
+        Dim y1Max As Double = 0
+        Dim y1MaxX As Double = 0
+        Dim y2Max As Double = 0
+        Dim y2MaxX As Double = 0
+
+        'For Each dataRecord As DataRecord In dataRecordsList(i)
+        'For j = 0 To 18000
+        '    'Dim xValue As Double = Main.DataActions(xIndex)(DataRecord) * Main.DataUnits(xIndex, xUnitsIndex)
+        '    Dim xValue As Double = j
+        '    Dim y1Value As Double = 0
+        '    Dim y2Value As Double = 0
+
+
+        '    x1Max = Math.Max(x1Max, xValue)
+
+        '    'y1Value = Main.DataActions(y1Index)(DataRecord) * Main.DataUnits(y1Index, y1UnitsIndex)
+        '    y1Value = j / 1000
+        '    lineSeries1.Points.Add(New OxyPlot.DataPoint(xValue, y1Value))
+        '    If (y1Value > y1Max) Then
+        '        y1Max = y1Value
+        '        y1MaxX = xValue
+        '    End If
+
+        '    'y2Value = Main.DataActions(y2Index)(DataRecord) * Main.DataUnits(y2Index, y2UnitsIndex)
+        '    y2Value = j / 5000
+        '    lineSeries2.Points.Add(New OxyPlot.DataPoint(xValue, y2Value))
+        '    If (y2Value > y2Max) Then
+        '        y2Max = y2Value
+        '        y2MaxX = xValue
+        '    End If
+        'Next
+
+        row = row + 1
+        'Next
+        Me.ResumeLayout()
+    End Sub
+
 End Class
 #Region "DoubleBufferPanel Class"
 Public Class DoubleBufferPanel
@@ -3696,5 +3844,5 @@ Public Class DoubleBufferPanel
         UpdateStyles()
     End Sub
 End Class
-#End Region 
+#End Region
 
