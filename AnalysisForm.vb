@@ -464,6 +464,7 @@ Public Class AnalysisForm
 
 
                 c1X1Max = Math.Max(c1X1Max, x1Value)
+                c2X1Max = Math.Max(c2X1Max, x2Value)
 
                 If (C1Y1Index < Main.LAST) Then
                     y1Value = Main.DataActions(C1Y1Index)(dataRecord) * Main.DataUnits(C1Y1Index, C1Y1UnitsIndex)
@@ -515,8 +516,8 @@ Public Class AnalysisForm
                     lblC1Y2Max1.Text = Main.NewCustomFormat(c1Y2Max) & " @ " & Main.NewCustomFormat(c1Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c1Rpm2Max) & " " & rpmUnit
                     lblC2File1.Text = clbFiles.Items.Item(i).ToString()
                     lblC2XMax1.Text = Main.NewCustomFormat(c2X1Max)
-                    lblC2Y1Max1.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
-                    lblC2Y2Max1.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
+                    lblC2Y1Max1.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
+                    lblC2Y2Max1.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
                 Case 1
                     lblC1File2.Text = clbFiles.Items.Item(i).ToString()
                     lblC1XMax2.Text = Main.NewCustomFormat(c1X1Max)
@@ -524,8 +525,8 @@ Public Class AnalysisForm
                     lblC1Y2Max2.Text = Main.NewCustomFormat(c1Y2Max) & " @ " & Main.NewCustomFormat(c1Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c1Rpm2Max) & " " & rpmUnit
                     lblC2File2.Text = clbFiles.Items.Item(i).ToString()
                     lblC2XMax2.Text = Main.NewCustomFormat(c2X1Max)
-                    lblC2Y1Max2.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
-                    lblC2Y2Max2.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
+                    lblC2Y1Max2.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
+                    lblC2Y2Max2.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
                 Case 2
                     lblC1File3.Text = clbFiles.Items.Item(i).ToString()
                     lblC1XMax3.Text = Main.NewCustomFormat(c1X1Max)
@@ -533,8 +534,8 @@ Public Class AnalysisForm
                     lblC1Y2Max3.Text = Main.NewCustomFormat(c1Y2Max) & " @ " & Main.NewCustomFormat(c1Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c1Rpm2Max) & " " & rpmUnit
                     lblC2File3.Text = clbFiles.Items.Item(i).ToString()
                     lblC2XMax3.Text = Main.NewCustomFormat(c2X1Max)
-                    lblC2Y1Max3.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
-                    lblC2Y2Max3.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
+                    lblC2Y1Max3.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
+                    lblC2Y2Max3.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
                 Case 3
                     lblC1File4.Text = clbFiles.Items.Item(i).ToString()
                     lblC1XMax4.Text = Main.NewCustomFormat(c1X1Max)
@@ -542,8 +543,8 @@ Public Class AnalysisForm
                     lblC1Y2Max4.Text = Main.NewCustomFormat(c1Y2Max) & " @ " & Main.NewCustomFormat(c1Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c1Rpm2Max) & " " & rpmUnit
                     lblC2File4.Text = clbFiles.Items.Item(i).ToString()
                     lblC2XMax4.Text = Main.NewCustomFormat(c2X1Max)
-                    lblC2Y1Max4.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
-                    lblC2Y2Max4.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
+                    lblC2Y1Max4.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
+                    lblC2Y2Max4.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
                 Case 4
                     lblC1File5.Text = clbFiles.Items.Item(i).ToString()
                     lblC1XMax5.Text = Main.NewCustomFormat(c1X1Max)
@@ -551,8 +552,8 @@ Public Class AnalysisForm
                     lblC1Y2Max5.Text = Main.NewCustomFormat(c1Y2Max) & " @ " & Main.NewCustomFormat(c1Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c1Rpm2Max) & " " & rpmUnit
                     lblC2File5.Text = clbFiles.Items.Item(i).ToString()
                     lblC2XMax5.Text = Main.NewCustomFormat(c2X1Max)
-                    lblC2Y1Max5.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
-                    lblC2Y2Max5.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C1XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
+                    lblC2Y1Max5.Text = Main.NewCustomFormat(c2Y3Max) & " @ " & Main.NewCustomFormat(c2Y3MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm1Max) & " " & rpmUnit
+                    lblC2Y2Max5.Text = Main.NewCustomFormat(c2Y2Max) & " @ " & Main.NewCustomFormat(c2Y2MaxX) & " " & C2XAxisUnit & " @ " & Main.NewCustomFormat(c2Rpm2Max) & " " & rpmUnit
             End Select
 
             row = row + 1
@@ -587,7 +588,13 @@ Public Class AnalysisForm
         cmbOverlayC1UnitsX.Items.Clear()
         If cmbOverlayC1DataX.SelectedIndex <> Main.LAST Then
             cmbOverlayC1UnitsX.Items.AddRange(Split(Main.DataUnitTags(cmbOverlayC1DataX.SelectedIndex)))
-            cmbOverlayC1UnitsX.SelectedIndex = 0
+            If cmbOverlayC1UnitsX.Items.Contains("RPM") Then
+                cmbOverlayC1UnitsX.SelectedItem = "RPM"
+            ElseIf cmbOverlayC1UnitsX.Items.Contains("HP") Then
+                cmbOverlayC1UnitsX.SelectedItem = "HP"
+            Else
+                cmbOverlayC1UnitsX.SelectedIndex = 0
+            End If
         Else
             cmbOverlayC1UnitsX.Items.Add("--")
             cmbOverlayC1UnitsX.SelectedIndex = 0
@@ -600,7 +607,13 @@ Public Class AnalysisForm
         cmbOverlayC1UnitsY1.Items.Clear()
         If cmbOverlayC1DataY1.SelectedIndex <> Main.LAST Then
             cmbOverlayC1UnitsY1.Items.AddRange(Split(Main.DataUnitTags(cmbOverlayC1DataY1.SelectedIndex)))
-            cmbOverlayC1UnitsY1.SelectedIndex = 0
+            If cmbOverlayC1UnitsY1.Items.Contains("RPM") Then
+                cmbOverlayC1UnitsY1.SelectedItem = "RPM"
+            ElseIf cmbOverlayC1UnitsY1.Items.Contains("HP") Then
+                cmbOverlayC1UnitsY1.SelectedItem = "HP"
+            Else
+                cmbOverlayC1UnitsY1.SelectedIndex = 0
+            End If
         Else
             cmbOverlayC1UnitsY1.Items.Add("--")
             cmbOverlayC1UnitsY1.SelectedIndex = 0
@@ -613,7 +626,13 @@ Public Class AnalysisForm
         cmbOverlayC1UnitsY2.Items.Clear()
         If cmbOverlayC1DataY2.SelectedIndex <> Main.LAST Then
             cmbOverlayC1UnitsY2.Items.AddRange(Split(Main.DataUnitTags(cmbOverlayC1DataY2.SelectedIndex)))
-            cmbOverlayC1UnitsY2.SelectedIndex = 0
+            If cmbOverlayC1UnitsY2.Items.Contains("RPM") Then
+                cmbOverlayC1UnitsY2.SelectedItem = "RPM"
+            ElseIf cmbOverlayC1UnitsY2.Items.Contains("HP") Then
+                cmbOverlayC1UnitsY2.SelectedItem = "HP"
+            Else
+                cmbOverlayC1UnitsY2.SelectedIndex = 0
+            End If
         Else
             cmbOverlayC1UnitsY2.Items.Add("--")
             cmbOverlayC1UnitsY2.SelectedIndex = 0
@@ -626,7 +645,13 @@ Public Class AnalysisForm
         cmbOverlayC2UnitsX.Items.Clear()
         If cmbOverlayC2DataX.SelectedIndex <> Main.LAST Then
             cmbOverlayC2UnitsX.Items.AddRange(Split(Main.DataUnitTags(cmbOverlayC2DataX.SelectedIndex)))
-            cmbOverlayC2UnitsX.SelectedIndex = 0
+            If cmbOverlayC2UnitsX.Items.Contains("RPM") Then
+                cmbOverlayC2UnitsX.SelectedItem = "RPM"
+            ElseIf cmbOverlayC2UnitsX.Items.Contains("HP") Then
+                cmbOverlayC2UnitsX.SelectedItem = "HP"
+            Else
+                cmbOverlayC2UnitsX.SelectedIndex = 0
+            End If
         Else
             cmbOverlayC2UnitsX.Items.Add("--")
             cmbOverlayC2UnitsX.SelectedIndex = 0
@@ -639,7 +664,13 @@ Public Class AnalysisForm
         cmbOverlayC2UnitsY1.Items.Clear()
         If cmbOverlayC2DataY1.SelectedIndex <> Main.LAST Then
             cmbOverlayC2UnitsY1.Items.AddRange(Split(Main.DataUnitTags(cmbOverlayC2DataY1.SelectedIndex)))
-            cmbOverlayC2UnitsY1.SelectedIndex = 0
+            If cmbOverlayC2UnitsY1.Items.Contains("RPM") Then
+                cmbOverlayC2UnitsY1.SelectedItem = "RPM"
+            ElseIf cmbOverlayC2UnitsY1.Items.Contains("HP") Then
+                cmbOverlayC2UnitsY1.SelectedItem = "HP"
+            Else
+                cmbOverlayC2UnitsY1.SelectedIndex = 0
+            End If
         Else
             cmbOverlayC2UnitsY1.Items.Add("--")
             cmbOverlayC2UnitsY1.SelectedIndex = 0
@@ -652,7 +683,13 @@ Public Class AnalysisForm
         cmbOverlayC2UnitsY2.Items.Clear()
         If cmbOverlayC2DataY2.SelectedIndex <> Main.LAST Then
             cmbOverlayC2UnitsY2.Items.AddRange(Split(Main.DataUnitTags(cmbOverlayC2DataY2.SelectedIndex)))
-            cmbOverlayC2UnitsY2.SelectedIndex = 0
+            If cmbOverlayC2UnitsY2.Items.Contains("RPM") Then
+                cmbOverlayC2UnitsY2.SelectedItem = "RPM"
+            ElseIf cmbOverlayC2UnitsY2.Items.Contains("HP") Then
+                cmbOverlayC2UnitsY2.SelectedItem = "HP"
+            Else
+                cmbOverlayC2UnitsY2.SelectedIndex = 0
+            End If
         Else
             cmbOverlayC2UnitsY2.Items.Add("--")
             cmbOverlayC2UnitsY2.SelectedIndex = 0

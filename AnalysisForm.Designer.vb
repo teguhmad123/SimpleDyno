@@ -54,21 +54,17 @@ Partial Class AnalysisForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.cmbOverlayC2UnitsX = New System.Windows.Forms.ComboBox()
-        Me.cmbOverlayC2DataX = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.pnlDataC1Overlay = New SimpleDyno.DoubleBufferPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.clbFiles = New System.Windows.Forms.CheckedListBox()
+        Me.cmbOverlayC2DataX = New System.Windows.Forms.ComboBox()
+        Me.cmbOverlayC2UnitsX = New System.Windows.Forms.ComboBox()
         Me.PlotView1 = New OxyPlot.WindowsForms.PlotView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.PlotView2 = New OxyPlot.WindowsForms.PlotView()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblC1XTitle = New System.Windows.Forms.Label()
-        Me.lblC1Y1Title = New System.Windows.Forms.Label()
-        Me.lblC1Y2Title = New System.Windows.Forms.Label()
         Me.lblC2Y1Title = New System.Windows.Forms.Label()
         Me.lblC1Y1Unit = New System.Windows.Forms.Label()
         Me.lblC1XUnit = New System.Windows.Forms.Label()
@@ -108,17 +104,21 @@ Partial Class AnalysisForm
         Me.lblC2Y2Max5 = New System.Windows.Forms.Label()
         Me.lblC2XTitle = New System.Windows.Forms.Label()
         Me.lblC2XUnit = New System.Windows.Forms.Label()
-        Me.lblC2File1 = New System.Windows.Forms.Label()
-        Me.lblC2File2 = New System.Windows.Forms.Label()
-        Me.lblC2File3 = New System.Windows.Forms.Label()
-        Me.lblC2File4 = New System.Windows.Forms.Label()
-        Me.lblC2File5 = New System.Windows.Forms.Label()
         Me.lblC2XMax1 = New System.Windows.Forms.Label()
         Me.lblC2XMax2 = New System.Windows.Forms.Label()
         Me.lblC2XMax3 = New System.Windows.Forms.Label()
         Me.lblC2XMax4 = New System.Windows.Forms.Label()
         Me.lblC2XMax5 = New System.Windows.Forms.Label()
         Me.pnlDataC2Overlay = New SimpleDyno.DoubleBufferPanel()
+        Me.pnlDataC1Overlay = New SimpleDyno.DoubleBufferPanel()
+        Me.lblC2File5 = New System.Windows.Forms.Label()
+        Me.lblC1Y2Title = New System.Windows.Forms.Label()
+        Me.lblC2File4 = New System.Windows.Forms.Label()
+        Me.lblC1Y1Title = New System.Windows.Forms.Label()
+        Me.lblC2File3 = New System.Windows.Forms.Label()
+        Me.lblC1XTitle = New System.Windows.Forms.Label()
+        Me.lblC2File2 = New System.Windows.Forms.Label()
+        Me.lblC2File1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -440,25 +440,6 @@ Partial Class AnalysisForm
         Me.Label10.TabIndex = 116
         Me.Label10.Text = "Units:"
         '
-        'cmbOverlayC2UnitsX
-        '
-        Me.cmbOverlayC2UnitsX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbOverlayC2UnitsX.FormattingEnabled = True
-        Me.cmbOverlayC2UnitsX.Location = New System.Drawing.Point(120, 608)
-        Me.cmbOverlayC2UnitsX.Name = "cmbOverlayC2UnitsX"
-        Me.cmbOverlayC2UnitsX.Size = New System.Drawing.Size(48, 21)
-        Me.cmbOverlayC2UnitsX.TabIndex = 114
-        '
-        'cmbOverlayC2DataX
-        '
-        Me.cmbOverlayC2DataX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbOverlayC2DataX.DropDownWidth = 150
-        Me.cmbOverlayC2DataX.FormattingEnabled = True
-        Me.cmbOverlayC2DataX.Location = New System.Drawing.Point(14, 581)
-        Me.cmbOverlayC2DataX.Name = "cmbOverlayC2DataX"
-        Me.cmbOverlayC2DataX.Size = New System.Drawing.Size(154, 21)
-        Me.cmbOverlayC2DataX.TabIndex = 113
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -489,18 +470,6 @@ Partial Class AnalysisForm
         Me.Label7.TabIndex = 111
         Me.Label7.Text = "Chart 1"
         '
-        'pnlDataC1Overlay
-        '
-        Me.pnlDataC1Overlay.BackColor = System.Drawing.Color.White
-        Me.pnlDataC1Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.pnlDataC1Overlay.Location = New System.Drawing.Point(141, 6)
-        Me.pnlDataC1Overlay.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlDataC1Overlay.Name = "pnlDataC1Overlay"
-        Me.pnlDataC1Overlay.Size = New System.Drawing.Size(767, 136)
-        Me.pnlDataC1Overlay.TabIndex = 0
-        Me.pnlDataC1Overlay.TabStop = True
-        Me.pnlDataC1Overlay.Visible = False
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -517,6 +486,25 @@ Partial Class AnalysisForm
         Me.clbFiles.Name = "clbFiles"
         Me.clbFiles.Size = New System.Drawing.Size(154, 154)
         Me.clbFiles.TabIndex = 109
+        '
+        'cmbOverlayC2DataX
+        '
+        Me.cmbOverlayC2DataX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbOverlayC2DataX.DropDownWidth = 150
+        Me.cmbOverlayC2DataX.FormattingEnabled = True
+        Me.cmbOverlayC2DataX.Location = New System.Drawing.Point(14, 581)
+        Me.cmbOverlayC2DataX.Name = "cmbOverlayC2DataX"
+        Me.cmbOverlayC2DataX.Size = New System.Drawing.Size(154, 21)
+        Me.cmbOverlayC2DataX.TabIndex = 113
+        '
+        'cmbOverlayC2UnitsX
+        '
+        Me.cmbOverlayC2UnitsX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbOverlayC2UnitsX.FormattingEnabled = True
+        Me.cmbOverlayC2UnitsX.Location = New System.Drawing.Point(120, 608)
+        Me.cmbOverlayC2UnitsX.Name = "cmbOverlayC2UnitsX"
+        Me.cmbOverlayC2UnitsX.Size = New System.Drawing.Size(48, 21)
+        Me.cmbOverlayC2UnitsX.TabIndex = 114
         '
         'PlotView1
         '
@@ -643,42 +631,6 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(761, 174)
         Me.TableLayoutPanel2.TabIndex = 111
-        '
-        'lblC1XTitle
-        '
-        Me.lblC1XTitle.AutoSize = True
-        Me.lblC1XTitle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1XTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XTitle.Location = New System.Drawing.Point(98, 0)
-        Me.lblC1XTitle.Name = "lblC1XTitle"
-        Me.lblC1XTitle.Size = New System.Drawing.Size(89, 24)
-        Me.lblC1XTitle.TabIndex = 0
-        Me.lblC1XTitle.Text = "Label7"
-        Me.lblC1XTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'lblC1Y1Title
-        '
-        Me.lblC1Y1Title.AutoSize = True
-        Me.lblC1Y1Title.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y1Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Title.Location = New System.Drawing.Point(193, 0)
-        Me.lblC1Y1Title.Name = "lblC1Y1Title"
-        Me.lblC1Y1Title.Size = New System.Drawing.Size(89, 24)
-        Me.lblC1Y1Title.TabIndex = 1
-        Me.lblC1Y1Title.Text = "Label8"
-        Me.lblC1Y1Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'lblC1Y2Title
-        '
-        Me.lblC1Y2Title.AutoSize = True
-        Me.lblC1Y2Title.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Title.Location = New System.Drawing.Point(288, 0)
-        Me.lblC1Y2Title.Name = "lblC1Y2Title"
-        Me.lblC1Y2Title.Size = New System.Drawing.Size(89, 24)
-        Me.lblC1Y2Title.TabIndex = 2
-        Me.lblC1Y2Title.Text = "Label10"
-        Me.lblC1Y2Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'lblC2Y1Title
         '
@@ -1132,55 +1084,6 @@ Partial Class AnalysisForm
         Me.lblC2XUnit.Text = "Label12"
         Me.lblC2XUnit.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'lblC2File1
-        '
-        Me.lblC2File1.AutoSize = True
-        Me.lblC2File1.Location = New System.Drawing.Point(383, 48)
-        Me.lblC2File1.Name = "lblC2File1"
-        Me.lblC2File1.Size = New System.Drawing.Size(66, 20)
-        Me.lblC2File1.TabIndex = 45
-        Me.lblC2File1.Text = "Label13"
-        '
-        'lblC2File2
-        '
-        Me.lblC2File2.AutoSize = True
-        Me.lblC2File2.ForeColor = System.Drawing.Color.Blue
-        Me.lblC2File2.Location = New System.Drawing.Point(383, 72)
-        Me.lblC2File2.Name = "lblC2File2"
-        Me.lblC2File2.Size = New System.Drawing.Size(66, 20)
-        Me.lblC2File2.TabIndex = 46
-        Me.lblC2File2.Text = "Label14"
-        '
-        'lblC2File3
-        '
-        Me.lblC2File3.AutoSize = True
-        Me.lblC2File3.ForeColor = System.Drawing.Color.Red
-        Me.lblC2File3.Location = New System.Drawing.Point(383, 96)
-        Me.lblC2File3.Name = "lblC2File3"
-        Me.lblC2File3.Size = New System.Drawing.Size(66, 20)
-        Me.lblC2File3.TabIndex = 47
-        Me.lblC2File3.Text = "Label15"
-        '
-        'lblC2File4
-        '
-        Me.lblC2File4.AutoSize = True
-        Me.lblC2File4.ForeColor = System.Drawing.Color.Green
-        Me.lblC2File4.Location = New System.Drawing.Point(383, 120)
-        Me.lblC2File4.Name = "lblC2File4"
-        Me.lblC2File4.Size = New System.Drawing.Size(66, 20)
-        Me.lblC2File4.TabIndex = 48
-        Me.lblC2File4.Text = "Label16"
-        '
-        'lblC2File5
-        '
-        Me.lblC2File5.AutoSize = True
-        Me.lblC2File5.ForeColor = System.Drawing.Color.Purple
-        Me.lblC2File5.Location = New System.Drawing.Point(383, 144)
-        Me.lblC2File5.Name = "lblC2File5"
-        Me.lblC2File5.Size = New System.Drawing.Size(66, 20)
-        Me.lblC2File5.TabIndex = 49
-        Me.lblC2File5.Text = "Label17"
-        '
         'lblC2XMax1
         '
         Me.lblC2XMax1.AutoSize = True
@@ -1248,6 +1151,103 @@ Partial Class AnalysisForm
         Me.pnlDataC2Overlay.TabStop = True
         Me.pnlDataC2Overlay.Visible = False
         '
+        'pnlDataC1Overlay
+        '
+        Me.pnlDataC1Overlay.BackColor = System.Drawing.Color.White
+        Me.pnlDataC1Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.pnlDataC1Overlay.Location = New System.Drawing.Point(141, 6)
+        Me.pnlDataC1Overlay.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlDataC1Overlay.Name = "pnlDataC1Overlay"
+        Me.pnlDataC1Overlay.Size = New System.Drawing.Size(767, 136)
+        Me.pnlDataC1Overlay.TabIndex = 0
+        Me.pnlDataC1Overlay.TabStop = True
+        Me.pnlDataC1Overlay.Visible = False
+        '
+        'lblC2File5
+        '
+        Me.lblC2File5.AutoSize = True
+        Me.lblC2File5.ForeColor = System.Drawing.Color.Purple
+        Me.lblC2File5.Location = New System.Drawing.Point(383, 144)
+        Me.lblC2File5.Name = "lblC2File5"
+        Me.lblC2File5.Size = New System.Drawing.Size(66, 20)
+        Me.lblC2File5.TabIndex = 49
+        Me.lblC2File5.Text = "Label17"
+        '
+        'lblC1Y2Title
+        '
+        Me.lblC1Y2Title.AutoSize = True
+        Me.lblC1Y2Title.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblC1Y2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y2Title.Location = New System.Drawing.Point(288, 0)
+        Me.lblC1Y2Title.Name = "lblC1Y2Title"
+        Me.lblC1Y2Title.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Title.TabIndex = 2
+        Me.lblC1Y2Title.Text = "Label10"
+        Me.lblC1Y2Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblC2File4
+        '
+        Me.lblC2File4.AutoSize = True
+        Me.lblC2File4.ForeColor = System.Drawing.Color.Green
+        Me.lblC2File4.Location = New System.Drawing.Point(383, 120)
+        Me.lblC2File4.Name = "lblC2File4"
+        Me.lblC2File4.Size = New System.Drawing.Size(66, 20)
+        Me.lblC2File4.TabIndex = 48
+        Me.lblC2File4.Text = "Label16"
+        '
+        'lblC1Y1Title
+        '
+        Me.lblC1Y1Title.AutoSize = True
+        Me.lblC1Y1Title.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblC1Y1Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y1Title.Location = New System.Drawing.Point(193, 0)
+        Me.lblC1Y1Title.Name = "lblC1Y1Title"
+        Me.lblC1Y1Title.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Title.TabIndex = 1
+        Me.lblC1Y1Title.Text = "Label8"
+        Me.lblC1Y1Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblC2File3
+        '
+        Me.lblC2File3.AutoSize = True
+        Me.lblC2File3.ForeColor = System.Drawing.Color.Red
+        Me.lblC2File3.Location = New System.Drawing.Point(383, 96)
+        Me.lblC2File3.Name = "lblC2File3"
+        Me.lblC2File3.Size = New System.Drawing.Size(66, 20)
+        Me.lblC2File3.TabIndex = 47
+        Me.lblC2File3.Text = "Label15"
+        '
+        'lblC1XTitle
+        '
+        Me.lblC1XTitle.AutoSize = True
+        Me.lblC1XTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblC1XTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1XTitle.Location = New System.Drawing.Point(98, 0)
+        Me.lblC1XTitle.Name = "lblC1XTitle"
+        Me.lblC1XTitle.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XTitle.TabIndex = 0
+        Me.lblC1XTitle.Text = "Label7"
+        Me.lblC1XTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblC2File2
+        '
+        Me.lblC2File2.AutoSize = True
+        Me.lblC2File2.ForeColor = System.Drawing.Color.Blue
+        Me.lblC2File2.Location = New System.Drawing.Point(383, 72)
+        Me.lblC2File2.Name = "lblC2File2"
+        Me.lblC2File2.Size = New System.Drawing.Size(66, 20)
+        Me.lblC2File2.TabIndex = 46
+        Me.lblC2File2.Text = "Label14"
+        '
+        'lblC2File1
+        '
+        Me.lblC2File1.AutoSize = True
+        Me.lblC2File1.Location = New System.Drawing.Point(383, 48)
+        Me.lblC2File1.Name = "lblC2File1"
+        Me.lblC2File1.Size = New System.Drawing.Size(66, 20)
+        Me.lblC2File1.TabIndex = 45
+        Me.lblC2File1.Text = "Label13"
+        '
         'AnalysisForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1306,9 +1306,6 @@ Partial Class AnalysisForm
     Friend WithEvents Label6 As Label
     Friend WithEvents clbFiles As CheckedListBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents lblC1XTitle As Label
-    Friend WithEvents lblC1Y1Title As Label
-    Friend WithEvents lblC1Y2Title As Label
     Friend WithEvents lblC2Y1Title As Label
     Friend WithEvents lblC1Y1Unit As Label
     Friend WithEvents lblC1XUnit As Label
@@ -1348,11 +1345,6 @@ Partial Class AnalysisForm
     Friend WithEvents lblC2Y2Max5 As Label
     Friend WithEvents lblC2XTitle As Label
     Friend WithEvents lblC2XUnit As Label
-    Friend WithEvents lblC2File1 As Label
-    Friend WithEvents lblC2File2 As Label
-    Friend WithEvents lblC2File3 As Label
-    Friend WithEvents lblC2File4 As Label
-    Friend WithEvents lblC2File5 As Label
     Friend WithEvents lblC2XMax1 As Label
     Friend WithEvents lblC2XMax2 As Label
     Friend WithEvents lblC2XMax3 As Label
@@ -1366,4 +1358,12 @@ Partial Class AnalysisForm
     Friend WithEvents Label11 As Label
     Friend WithEvents PlotView2 As OxyPlot.WindowsForms.PlotView
     Friend WithEvents pnlDataC2Overlay As DoubleBufferPanel
+    Friend WithEvents lblC1XTitle As Label
+    Friend WithEvents lblC1Y1Title As Label
+    Friend WithEvents lblC1Y2Title As Label
+    Friend WithEvents lblC2File1 As Label
+    Friend WithEvents lblC2File2 As Label
+    Friend WithEvents lblC2File3 As Label
+    Friend WithEvents lblC2File4 As Label
+    Friend WithEvents lblC2File5 As Label
 End Class

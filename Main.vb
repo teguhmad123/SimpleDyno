@@ -678,6 +678,7 @@ Public Class Main
         '
         'AGauge1
         '
+        Me.AGauge1.BackColor = System.Drawing.SystemColors.Control
         Me.AGauge1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.AGauge1.BaseArcColor = System.Drawing.Color.Gray
         Me.AGauge1.BaseArcRadius = 250
@@ -756,7 +757,7 @@ Public Class Main
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 200
+        Me.Timer1.Interval = 100
         '
         'LabelValGauge3
         '
@@ -1020,6 +1021,7 @@ Public Class Main
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SimpleDyno beta by DTECH"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        SetupGauge()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1066,7 +1068,8 @@ Public Class Main
 
         frmAnalysis.Analysis_Setup()
         frmFit.Fit_Setup()
-        Me.SetupDiagram()
+
+        SetupDiagram()
 
         'Load saved setting
         LoadParametersFromFile()
@@ -1087,6 +1090,7 @@ Public Class Main
         'LoadInterface()
     End Sub
     Private Sub Form1_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
+        SetupGauge()
         Formloaded = True
     End Sub
     Private Sub Form1_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
@@ -1957,10 +1961,10 @@ Public Class Main
         DataActions(TORQUE_MOTOR) = Function(x) x.Motor_Torque
 
         DataTags(POWER) = "Power"
-        DataUnitTags(POWER) = "HP kW W"
-        DataUnits(POWER, 0) = 0.00134
+        DataUnitTags(POWER) = "W kW HP"
+        DataUnits(POWER, 0) = 1
         DataUnits(POWER, 1) = 0.001
-        DataUnits(POWER, 2) = 1
+        DataUnits(POWER, 2) = 0.00134
         DataActions(POWER) = Function(x) x.Power
 
         DataTags(DRAG) = "Drag"
@@ -3014,10 +3018,10 @@ Public Class Main
                 'SetControlBackColor_ThreadSafe(lblCOMActive, Color.FromArgb(0, rgbvalue, rgbvalue))
                 SetControlBackColor_ThreadSafe(btnStartAcquisition, Color.FromArgb(0, rgbvalue, rgbvalue))
 
-                If COMPortMessage.Length = 12 Then 'Timestamp, 2 new Time values,  2 interrupt times, 6 ports
+                If COMPortMessage.Length = 11 Then 'Timestamp, 2 new Time values,  2 interrupt times, 6 ports
                     SyncLock Locker
-                        If btnRunTMP <> CInt(COMPortMessage(11)) Then
-                            btnRunTMP = CInt(COMPortMessage(11))
+                        If btnRunTMP <> CInt(COMPortMessage(10)) Then
+                            btnRunTMP = CInt(COMPortMessage(10))
                         End If
                         Data(VOLTS, ACTUAL) = VoltageIntercept + VoltageSlope * CDbl(COMPortMessage(5)) 'Convert Volts signal to volts
                         Data(AMPS, ACTUAL) = CurrentIntercept + CurrentSlope * CDbl((COMPortMessage(6))) 'Convert Current signal to amps
@@ -3219,7 +3223,8 @@ Public Class Main
                     End SyncLock
 
                     'If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
-                    If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM2, MAXIMUM) * DataUnits(RPM2, 1)) >= 8000 Then
+                    'If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM2, MAXIMUM) * DataUnits(RPM2, 1)) >= 8000 Then
+                    If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM1_ROLLER, MAXIMUM) * DataUnits(RPM1_ROLLER, 1)) >= 500 Then
                         SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
                         'DataPoints -= 1
                         'PauseForms()
@@ -3685,17 +3690,12 @@ Public Class Main
 
         If btnRun <> btnRunTMP Then
             btnRun = btnRunTMP
-            'Debug.Print(CStr(btnRun))
-            'ClickButton_ThreadSafe(btnStartPowerRun)
             If btnRun <> 0 Then
                 btnStartPowerRun_Click(Me, EventArgs.Empty)
             Else
                 SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
-                'DataPoints -= 1
-                'PauseForms()
                 WhichDataMode = LIVE
             End If
-            'Me.Invoke(Sub() btnStartPowerRun.PerformClick())
         End If
     End Sub
 
@@ -3725,14 +3725,8 @@ Public Class Main
         Dim xAxisTitle As String = Main.DataTags(xIndex)
 
         Dim y1Index As Integer
-        Dim y1UnitsIndex As Integer
-        Dim y1AxisUnit As String
-        Dim y1AxisTitle As String
 
         Dim y2Index As Integer
-        Dim y2UnitsIndex As Integer
-        Dim y2AxisUnit As String
-        Dim y2AxisTitle As String
 
         Me.SuspendLayout()
 
@@ -3770,15 +3764,6 @@ Public Class Main
         Dim lineStyles As LineStyle() = {LineStyle.Solid, LineStyle.Dash, LineStyle.LongDash, LineStyle.DashDot, LineStyle.LongDashDot}
         Dim colors As OxyColor() = {OxyColors.Black, OxyColors.Blue, OxyColors.Red, OxyColors.Green, OxyColors.Purple}
 
-        Dim row As Integer = 0
-        'For i = 0 To dataRecordsList.Count - 1
-        'For i = 0 To 18000
-
-        'If (clbFiles.CheckedIndices.Contains(i) = False) Then
-        '    Continue For
-        'End If
-
-        'Dim lineSeries1 As OxyPlot.Series.LineSeries
         lineSeries1 = New OxyPlot.Series.LineSeries With {
                 .YAxisKey = "y1",
                 .LineStyle = LineStyle.Solid,
@@ -3787,7 +3772,6 @@ Public Class Main
             }
         plotModel.Series.Add(lineSeries1)
 
-        'Dim lineSeries2 As OxyPlot.Series.LineSeries
         lineSeries2 = New OxyPlot.Series.LineSeries With {
                 .YAxisKey = "y2",
                 .LineStyle = LineStyle.Solid,
@@ -3796,44 +3780,35 @@ Public Class Main
             }
         plotModel.Series.Add(lineSeries2)
 
-        Dim x1Max As Double = 0
-        Dim y1Max As Double = 0
-        Dim y1MaxX As Double = 0
-        Dim y2Max As Double = 0
-        Dim y2MaxX As Double = 0
-
-        'For Each dataRecord As DataRecord In dataRecordsList(i)
-        'For j = 0 To 18000
-        '    'Dim xValue As Double = Main.DataActions(xIndex)(DataRecord) * Main.DataUnits(xIndex, xUnitsIndex)
-        '    Dim xValue As Double = j
-        '    Dim y1Value As Double = 0
-        '    Dim y2Value As Double = 0
-
-
-        '    x1Max = Math.Max(x1Max, xValue)
-
-        '    'y1Value = Main.DataActions(y1Index)(DataRecord) * Main.DataUnits(y1Index, y1UnitsIndex)
-        '    y1Value = j / 1000
-        '    lineSeries1.Points.Add(New OxyPlot.DataPoint(xValue, y1Value))
-        '    If (y1Value > y1Max) Then
-        '        y1Max = y1Value
-        '        y1MaxX = xValue
-        '    End If
-
-        '    'y2Value = Main.DataActions(y2Index)(DataRecord) * Main.DataUnits(y2Index, y2UnitsIndex)
-        '    y2Value = j / 5000
-        '    lineSeries2.Points.Add(New OxyPlot.DataPoint(xValue, y2Value))
-        '    If (y2Value > y2Max) Then
-        '        y2Max = y2Value
-        '        y2MaxX = xValue
-        '    End If
-        'Next
-
-        row = row + 1
-        'Next
         Me.ResumeLayout()
     End Sub
 
+    Private Sub SetupGauge()
+        'AGauge1.GaugeRanges.Clear()
+
+        Dim highValueRange1 As New AGaugeRange()
+        highValueRange1.StartValue = 17
+        highValueRange1.EndValue = 18
+        highValueRange1.Color = Color.Red
+        highValueRange1.InnerRadius = 210
+        highValueRange1.OuterRadius = 225
+
+        AGauge1.GaugeRanges.Add(highValueRange1)
+
+        'AGauge3.GaugeRanges.Clear()
+
+        Dim highValueRange3 As New AGaugeRange()
+        highValueRange3.StartValue = 2.7
+        highValueRange3.EndValue = 3
+        highValueRange3.Color = Color.Red
+        highValueRange3.InnerRadius = 210
+        highValueRange3.OuterRadius = 225
+
+        AGauge3.GaugeRanges.Add(highValueRange3)
+
+        AGauge1.Invalidate()
+        AGauge3.Invalidate()
+    End Sub
 End Class
 #Region "DoubleBufferPanel Class"
 Public Class DoubleBufferPanel

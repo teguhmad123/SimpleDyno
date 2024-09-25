@@ -333,7 +333,7 @@ Public Class DataInputFileReader
                                     Select Case SearchString
                                         Case "Time_(Sec)"
                                             dataRecord.Time = value
-                                        Case "RPM1_Roller_(rad/s)"
+                                        Case "Roller_RPM_(rad/s)"
                                             dataRecord.RPM1_Roller = value
                                         Case "RPM1_Wheel_(rad/s)"
                                             dataRecord.RPM1_Wheel = value
@@ -347,7 +347,7 @@ Public Class DataInputFileReader
                                             dataRecord.Ch1_Duty_Cycle = value
                                         Case "Speed_(m/s)"
                                             dataRecord.Speed = value
-                                        Case "RPM2_(rad/s)"
+                                        Case "Engine_RPM_(rad/s)"
                                             dataRecord.RPM2 = value
                                         Case "Ratio_(M/W)"
                                             dataRecord.Ratio = value
@@ -399,7 +399,7 @@ Public Class DataInputFileReader
                                             dataRecord.Temperature1 = value
                                         Case "Temperature2_(°C)"
                                             dataRecord.Temperature2 = value
-                                        Case "Pin_4_Value_(Units)"
+                                        Case "AFR_(Units)"
                                             dataRecord.Pin_4_Value = value
                                         Case "Pin_5_Value_(Units)"
                                             dataRecord.Pin_5_Value = value

@@ -193,7 +193,7 @@ Partial Class Dyno
         Me.txtSignalsPerRPM2.Size = New System.Drawing.Size(72, 22)
         Me.txtSignalsPerRPM2.TabIndex = 296
         Me.txtSignalsPerRPM2.Tag = ""
-        Me.txtSignalsPerRPM2.Text = "1"
+        Me.txtSignalsPerRPM2.Text = "0.5"
         Me.txtSignalsPerRPM2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label24
@@ -215,7 +215,7 @@ Partial Class Dyno
         Me.txtSignalsPerRPM1.Size = New System.Drawing.Size(72, 22)
         Me.txtSignalsPerRPM1.TabIndex = 285
         Me.txtSignalsPerRPM1.Tag = ""
-        Me.txtSignalsPerRPM1.Text = "1"
+        Me.txtSignalsPerRPM1.Text = "8"
         Me.txtSignalsPerRPM1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label23
@@ -237,7 +237,7 @@ Partial Class Dyno
         Me.txtRollerDiameter.Size = New System.Drawing.Size(72, 22)
         Me.txtRollerDiameter.TabIndex = 276
         Me.txtRollerDiameter.Tag = ""
-        Me.txtRollerDiameter.Text = "100"
+        Me.txtRollerDiameter.Text = "355"
         Me.txtRollerDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label22
@@ -269,7 +269,7 @@ Partial Class Dyno
         Me.txtRollerMass.Size = New System.Drawing.Size(72, 22)
         Me.txtRollerMass.TabIndex = 278
         Me.txtRollerMass.Tag = ""
-        Me.txtRollerMass.Text = "1000"
+        Me.txtRollerMass.Text = "240000"
         Me.txtRollerMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label27
@@ -291,7 +291,7 @@ Partial Class Dyno
         Me.txtAxleDiameter.Size = New System.Drawing.Size(72, 22)
         Me.txtAxleDiameter.TabIndex = 279
         Me.txtAxleDiameter.Tag = ""
-        Me.txtAxleDiameter.Text = "10"
+        Me.txtAxleDiameter.Text = "1"
         Me.txtAxleDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'picDynoSettings
