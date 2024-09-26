@@ -321,7 +321,8 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Bottom,
                            .Title = C1XAxisTitle,
                            .MajorGridlineStyle = LineStyle.Solid,
-                           .Unit = C1XAxisUnit
+                           .Unit = C1XAxisUnit,
+                           .IsZoomEnabled = False
                            })
 
         If (C1Y1Index < Main.LAST) Then
@@ -330,7 +331,8 @@ Public Class AnalysisForm
                                 .Position = OxyPlot.Axes.AxisPosition.Left,
                                 .Title = C1Y1AxisTitle,
                                 .MajorGridlineStyle = LineStyle.Solid,
-                                .MajorStep = 1, .Unit = C1Y1AxisUnit
+                                .MajorStep = 1, .Unit = C1Y1AxisUnit,
+                                .IsZoomEnabled = False
                                 })
         End If
 
@@ -340,7 +342,8 @@ Public Class AnalysisForm
                                .Position = OxyPlot.Axes.AxisPosition.Right,
                                .Title = C1Y2AxisTitle,
                                .MajorGridlineStyle = LineStyle.Dash,
-                               .MajorStep = 1, .Unit = C1Y2AxisUnit
+                               .MajorStep = 1, .Unit = C1Y2AxisUnit,
+                               .IsZoomEnabled = False
                                })
         End If
 
@@ -349,7 +352,8 @@ Public Class AnalysisForm
                        .Position = OxyPlot.Axes.AxisPosition.Bottom,
                        .Title = C2XAxisTitle,
                        .MajorGridlineStyle = LineStyle.Solid,
-                       .Unit = C2XAxisUnit
+                       .Unit = C2XAxisUnit,
+                       .IsZoomEnabled = False
                        })
 
         If (C2Y1Index < Main.LAST) Then
@@ -358,7 +362,8 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Left,
                            .Title = C2Y1AxisTitle,
                            .MajorGridlineStyle = LineStyle.Solid,
-                           .MajorStep = 1, .Unit = C2Y1AxisUnit
+                           .MajorStep = 1, .Unit = C2Y1AxisUnit,
+                           .IsZoomEnabled = False
                            })
         End If
 
@@ -368,7 +373,8 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Right,
                            .Title = C2Y2AxisTitle,
                            .MajorGridlineStyle = LineStyle.Dash,
-                           .MajorStep = 1, .Unit = C2Y2AxisUnit
+                           .MajorStep = 1, .Unit = C2Y2AxisUnit,
+                           .IsZoomEnabled = False
                            })
         End If
 

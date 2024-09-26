@@ -3742,7 +3742,8 @@ Public Class Main
                            .Unit = "RPM",
                            .AbsoluteMinimum = 0,
                            .AbsoluteMaximum = 18000,
-                           .Maximum = 18000
+                           .Maximum = 18000,
+                           .IsZoomEnabled = False
                            })
 
         plotModel.Axes.Add(New LinearAxis() With {
@@ -3750,7 +3751,8 @@ Public Class Main
                            .Position = OxyPlot.Axes.AxisPosition.Left,
                            .Title = DataTags(y1Index),
                            .MajorGridlineStyle = LineStyle.Solid,
-                           .Unit = "HP"
+                           .Unit = "HP",
+                           .IsZoomEnabled = False
                            })
 
         plotModel.Axes.Add(New LinearAxis() With {
@@ -3758,7 +3760,8 @@ Public Class Main
                            .Position = OxyPlot.Axes.AxisPosition.Right,
                            .Title = DataTags(y2Index),
                            .MajorGridlineStyle = LineStyle.Dash,
-                           .Unit = "N.m"
+                           .Unit = "N.m",
+                           .IsZoomEnabled = False
                            })
 
         Dim lineStyles As LineStyle() = {LineStyle.Solid, LineStyle.Dash, LineStyle.LongDash, LineStyle.DashDot, LineStyle.LongDashDot}
