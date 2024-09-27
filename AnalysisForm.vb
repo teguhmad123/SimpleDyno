@@ -73,7 +73,7 @@ Public Class AnalysisForm
         tempstring = ""
         tempsplit2 = Split(Main.DataUnitTags(Main.SPEED), " ")
         cmbOverlayCorrectedSpeedUnits.Items.AddRange(tempsplit2)
-        cmbOverlayC1DataX.SelectedIndex = 8
+        cmbOverlayC1DataX.SelectedIndex = 3
         cmbOverlayC1DataY1.SelectedIndex = 21
         cmbOverlayC1DataY2.SelectedIndex = 16
         cmbOverlayC2DataX.SelectedIndex = 0
@@ -436,7 +436,7 @@ Public Class AnalysisForm
                 plotModel2.Series.Add(lineSeries4)
             End If
 
-            Dim rpmIndex As Integer = 8
+            Dim rpmIndex As Integer = 3
             Dim rpmUnitIndex As Integer = 1
             Dim rpmUnit As String = Main.DataUnitTags(rpmIndex).Split(CType(" ", Char()))(rpmUnitIndex)
 

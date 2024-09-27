@@ -1903,13 +1903,13 @@ Public Class Main
         DataUnits(RPM1_WHEEL, 1) = 60 / (2 * Math.PI)
         DataActions(RPM1_WHEEL) = Function(x) x.RPM1_Wheel
 
-        DataTags(RPM1_MOTOR) = "RPM1 Motor"
+        DataTags(RPM1_MOTOR) = "Engine RPM"
         DataUnitTags(RPM1_MOTOR) = "rad/s RPM"
         DataUnits(RPM1_MOTOR, 0) = 1
         DataUnits(RPM1_MOTOR, 1) = 60 / (2 * Math.PI)
         DataActions(RPM1_MOTOR) = Function(x) x.RPM1_Motor
 
-        DataTags(RPM2) = "Engine RPM"
+        DataTags(RPM2) = "RPM2"
         DataUnitTags(RPM2) = "rad/s RPM"
         DataUnits(RPM2, 0) = 1
         DataUnits(RPM2, 1) = 60 / (2 * Math.PI)
@@ -3059,12 +3059,28 @@ Public Class Main
                         If Not WavesStarted Then 'Use COM data for timing and RPM
                             Data(SESSIONTIME, ACTUAL) = CDbl(COMPortMessage(0)) / 1000000 'Increase the session time value - used by the Graphing form for time info
                             ElapsedTime = Data(SESSIONTIME, ACTUAL) - OldSessionTime 'CHECK - Are we actually using this anywhere for com communications?
+                            RPM2NewTriggerTime = CDbl(COMPortMessage(3)) / 1000000
+                            RPM2ElapsedTime = CDbl(COMPortMessage(4)) / 1000000
+                            If RPM2NewTriggerTime <> RPM2OldTriggerTime Then
+                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / RPM2ElapsedTime
+                                If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then
+                                    Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
+                                End If
+                                If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
+                                    Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
+                                End If
+                            Else
+                                If Data(SESSIONTIME, ACTUAL) - RPM2NewTriggerTime > WaitForNewSignal Then
+                                    Data(RPM2, ACTUAL) = 0
+                                End If
+                            End If
                             RPM1NewTriggerTime = CDbl(COMPortMessage(1)) / 1000000 'RPM1
                             RPM1ElapsedTime = CDbl(COMPortMessage(2)) / 1000000
                             If RPM1NewTriggerTime <> RPM1OldTriggerTime Then 'New trigger detected, go ahead and process RPM relevant info
                                 Data(RPM1_ROLLER, ACTUAL) = ElapsedTimeToRadPerSec / RPM1ElapsedTime
                                 Data(RPM1_WHEEL, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRPMtoWheelRPM 'calculate the wheel and motor angular velocities based on roller and wheel diameters and gear ratio
-                                Data(RPM1_MOTOR, ACTUAL) = Data(RPM1_WHEEL, ACTUAL) * GearRatio
+                                'Data(RPM1_MOTOR, ACTUAL) = Data(RPM1_WHEEL, ACTUAL) * GearRatio
+                                Data(RPM1_MOTOR, ACTUAL) = Data(RPM2, ACTUAL)
                                 Data(SPEED, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRadsPerSecToMetersPerSec 'calculate the speed (meters/s) based on roller rad/s
                                 Data(DRAG, ACTUAL) = Data(SPEED, ACTUAL) ^ 3 * ForceAir 'calculate drag based on vehicle speed (meters/s)
                                 If Data(RPM1_ROLLER, ACTUAL) > Data(RPM1_ROLLER, MAXIMUM) Then 'set the maximum values for roller, wheel, and motor RPM; Speed and Drag
@@ -3178,23 +3194,14 @@ Public Class Main
                                     Data(RPM2_RATIO, ACTUAL) = 0
                                 End If
                             End If
-                            RPM2NewTriggerTime = CDbl(COMPortMessage(3)) / 1000000
-                            RPM2ElapsedTime = CDbl(COMPortMessage(4)) / 1000000
                             If RPM2NewTriggerTime <> RPM2OldTriggerTime Then
-                                Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / RPM2ElapsedTime
                                 Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL)
                                 Data(RPM2_ROLLOUT, ACTUAL) = WheelCircumference / Data(RPM2_RATIO, ACTUAL)
-                                If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then
-                                    Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
-                                End If
                                 If Data(RPM2_RATIO, ACTUAL) > Data(RPM2_RATIO, MAXIMUM) Then
                                     Data(RPM2_RATIO, MAXIMUM) = Data(RPM2_RATIO, ACTUAL)
                                 End If
                                 If Data(RPM2_ROLLOUT, ACTUAL) > Data(RPM2_ROLLOUT, MAXIMUM) Then
                                     Data(RPM2_ROLLOUT, MAXIMUM) = Data(RPM2_ROLLOUT, ACTUAL)
-                                End If
-                                If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
-                                    Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
                                 End If
                                 If Data(RPM2_RATIO, ACTUAL) < Data(RPM2_RATIO, MINIMUM) Then
                                     Data(RPM2_RATIO, MINIMUM) = Data(RPM2_RATIO, ACTUAL)
@@ -3204,7 +3211,6 @@ Public Class Main
                                 End If
                             Else
                                 If Data(SESSIONTIME, ACTUAL) - RPM2NewTriggerTime > WaitForNewSignal Then
-                                    Data(RPM2, ACTUAL) = 0
                                     Data(RPM2_RATIO, ACTUAL) = 0
                                     Data(RPM2_ROLLOUT, ACTUAL) = 0
                                 End If
@@ -3672,8 +3678,8 @@ Public Class Main
 #End Region
     Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
 
-        Me.AGauge1.Value = CSng(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1) / 1000)
-        Me.LabelValGauge1.Text = NewCustomFormat(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1))
+        Me.AGauge1.Value = CSng(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1) / 1000)
+        Me.LabelValGauge1.Text = NewCustomFormat(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1))
 
         Me.AGauge3.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
         Me.LabelValGauge3.Text = NewCustomFormat(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
@@ -3684,8 +3690,8 @@ Public Class Main
         Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
         Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
 
-        lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
-        lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM2, ACTUAL) * DataUnits(RPM2, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+        lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
+        lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
         plotModel.InvalidatePlot(True)
 
         If btnRun <> btnRunTMP Then

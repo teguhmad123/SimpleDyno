@@ -337,7 +337,7 @@ Public Class DataInputFileReader
                                             dataRecord.RPM1_Roller = value
                                         Case "RPM1_Wheel_(rad/s)"
                                             dataRecord.RPM1_Wheel = value
-                                        Case "RPM1_Motor_(rad/s)"
+                                        Case "Engine_RPM_(rad/s)"
                                             dataRecord.RPM1_Motor = value
                                         Case "Ch1_Frequency_(Hz)"
                                             dataRecord.Ch1_Frequency = value
@@ -347,7 +347,7 @@ Public Class DataInputFileReader
                                             dataRecord.Ch1_Duty_Cycle = value
                                         Case "Speed_(m/s)"
                                             dataRecord.Speed = value
-                                        Case "Engine_RPM_(rad/s)"
+                                        Case "RPM2_(rad/s)"
                                             dataRecord.RPM2 = value
                                         Case "Ratio_(M/W)"
                                             dataRecord.Ratio = value
