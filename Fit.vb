@@ -840,7 +840,8 @@ Public Class Fit
                 'If FitData(Main.RPM1_ROLLER, count) > YMax Then YMax = FitData(Main.RPM1_ROLLER, count) 'for scaling the axis when we show the fit
                 'update wheel and motor RPM
                 FitData(Main.RPM1_WHEEL, Count) = FitData(Main.RPM1_ROLLER, Count) * Main.RollerRPMtoWheelRPM
-                FitData(Main.RPM1_MOTOR, Count) = FitData(Main.RPM1_ROLLER, Count) * Main.RollerRPMtoMotorRPM
+                'FitData(Main.RPM1_MOTOR, Count) = FitData(Main.RPM1_ROLLER, Count) * Main.RollerRPMtoMotorRPM
+                FitData(Main.RPM1_MOTOR, Count) = FitData(Main.RPM2, Count)
                 'update speed and drag
                 FitData(Main.SPEED, Count) = FitData(Main.RPM1_ROLLER, Count) * Main.RollerRadsPerSecToMetersPerSec
                 FitData(Main.DRAG, Count) = FitData(Main.SPEED, Count) ^ 3 * Main.ForceAir
@@ -946,7 +947,8 @@ Public Class Fit
                 're-calc speed, wheel and motor RPMs based on collected data
                 Main.CollectedData(Main.SPEED, Count) = Main.CollectedData(Main.RPM1_ROLLER, Count) * Main.RollerRadsPerSecToMetersPerSec
                 Main.CollectedData(Main.RPM1_WHEEL, Count) = Main.CollectedData(Main.RPM1_ROLLER, Count) * Main.RollerRPMtoWheelRPM
-                Main.CollectedData(Main.RPM1_MOTOR, Count) = Main.CollectedData(Main.RPM1_ROLLER, Count) * Main.RollerRPMtoMotorRPM
+                'Main.CollectedData(Main.RPM1_MOTOR, Count) = Main.CollectedData(Main.RPM1_ROLLER, Count) * Main.RollerRPMtoMotorRPM
+                Main.CollectedData(Main.RPM1_MOTOR, Count) = Main.CollectedData(Main.RPM2, Count)
                 're-calc roller torque and power useing the collected data
                 Main.CollectedData(Main.TORQUE_ROLLER, Count) = (Main.CollectedData(Main.RPM1_ROLLER, Count) - Main.CollectedData(Main.RPM1_ROLLER, Count - 1)) / (Main.CollectedData(Main.SESSIONTIME, Count) - Main.CollectedData(Main.SESSIONTIME, Count - 1)) * Main.DynoMomentOfInertia 'this is the roller torque, should calc the wheel and motor at this point also
                 'NOTE - new power calculation uses (new-old) / 2
