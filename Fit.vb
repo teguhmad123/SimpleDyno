@@ -1471,6 +1471,7 @@ Public Class Fit
         If Me.Visible = True Then
             If rdoRPM1.Checked Then
                 cmbWhichFit.Enabled = True
+                cmbWhichFit.SelectedIndex = 3
                 scrlRPM1Smooth.Enabled = True
                 scrlStartFit.Enabled = True
                 txtPowerRunSpikeLevel.Enabled = True

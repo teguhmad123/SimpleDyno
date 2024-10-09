@@ -457,6 +457,9 @@ Public Class Main
     Private MinimumPowerRunPoints As Double
     Private StopAddingBuffers As Boolean = False
 
+    Private RPM1TriggerStatus As Boolean = False
+    Private RPM2TriggerStatus As Boolean = False
+
 #End Region
 #Region " Windows Form Designer generated code "
     Public Sub New()
@@ -756,7 +759,8 @@ Public Class Main
         '
         'Timer1
         '
-        Me.Timer1.Enabled = True
+        'Me.Timer1.Enabled = True
+        Me.Timer1 = New Timer
         Me.Timer1.Interval = 100
         '
         'LabelValGauge3
@@ -1044,6 +1048,13 @@ Public Class Main
         frmAnalysis = New AnalysisForm
         frmFit = New Fit
         frmCorrection = New Correction
+
+        Timer1 = New Timer
+        Timer1.Interval = 100
+
+        AddHandler Me.Timer1.Tick, AddressOf Me.TimerTick
+
+        Timer1.Start()
 
         'Populate combo boxes
         'cmbChannels.Items.AddRange(AvailableChannels)
@@ -3062,38 +3073,48 @@ Public Class Main
                             RPM2NewTriggerTime = CDbl(COMPortMessage(3)) / 1000000
                             RPM2ElapsedTime = CDbl(COMPortMessage(4)) / 1000000
                             If RPM2NewTriggerTime <> RPM2OldTriggerTime Then
+                                RPM2TriggerStatus = True
                                 Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / RPM2ElapsedTime
+                                Data(RPM1_MOTOR, ACTUAL) = Data(RPM2, ACTUAL)
                                 If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then
                                     Data(RPM2, MAXIMUM) = Data(RPM2, ACTUAL)
+                                    Data(RPM1_MOTOR, MAXIMUM) = Data(RPM2, MAXIMUM)
                                 End If
                                 If Data(RPM2, ACTUAL) < Data(RPM2, MINIMUM) Then
                                     Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
+                                    Data(RPM1_MOTOR, MINIMUM) = Data(RPM2, MINIMUM)
                                 End If
                             Else
+                                RPM2TriggerStatus = False
+                                If (ElapsedTimeToRadPerSec2 / RPM2ElapsedTime) = 0 Then
+                                    RPM2TriggerStatus = True
+                                End If
                                 If Data(SESSIONTIME, ACTUAL) - RPM2NewTriggerTime > WaitForNewSignal Then
                                     Data(RPM2, ACTUAL) = 0
+                                    Data(RPM1_MOTOR, ACTUAL) = 0
                                 End If
                             End If
                             RPM1NewTriggerTime = CDbl(COMPortMessage(1)) / 1000000 'RPM1
                             RPM1ElapsedTime = CDbl(COMPortMessage(2)) / 1000000
                             If RPM1NewTriggerTime <> RPM1OldTriggerTime Then 'New trigger detected, go ahead and process RPM relevant info
+                                RPM1TriggerStatus = True
                                 Data(RPM1_ROLLER, ACTUAL) = ElapsedTimeToRadPerSec / RPM1ElapsedTime
                                 Data(RPM1_WHEEL, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRPMtoWheelRPM 'calculate the wheel and motor angular velocities based on roller and wheel diameters and gear ratio
                                 'Data(RPM1_MOTOR, ACTUAL) = Data(RPM1_WHEEL, ACTUAL) * GearRatio
-                                Data(RPM1_MOTOR, ACTUAL) = Data(RPM2, ACTUAL)
+                                'Data(RPM1_MOTOR, ACTUAL) = Data(RPM2, ACTUAL)
                                 Data(SPEED, ACTUAL) = Data(RPM1_ROLLER, ACTUAL) * RollerRadsPerSecToMetersPerSec 'calculate the speed (meters/s) based on roller rad/s
                                 Data(DRAG, ACTUAL) = Data(SPEED, ACTUAL) ^ 3 * ForceAir 'calculate drag based on vehicle speed (meters/s)
                                 If Data(RPM1_ROLLER, ACTUAL) > Data(RPM1_ROLLER, MAXIMUM) Then 'set the maximum values for roller, wheel, and motor RPM; Speed and Drag
                                     Data(RPM1_ROLLER, MAXIMUM) = Data(RPM1_ROLLER, ACTUAL)
                                     Data(RPM1_WHEEL, MAXIMUM) = Data(RPM1_WHEEL, ACTUAL)
-                                    Data(RPM1_MOTOR, MAXIMUM) = Data(RPM1_MOTOR, ACTUAL)
+                                    'Data(RPM1_MOTOR, MAXIMUM) = Data(RPM1_MOTOR, ACTUAL)
                                     Data(SPEED, MAXIMUM) = Data(SPEED, ACTUAL)
                                     Data(DRAG, MAXIMUM) = Data(DRAG, ACTUAL)
                                 End If
                                 If Data(RPM1_ROLLER, ACTUAL) < Data(RPM1_ROLLER, MINIMUM) Then 'set the maximum values for roller, wheel, and motor RPM; Speed and Drag
                                     Data(RPM1_ROLLER, MINIMUM) = Data(RPM1_ROLLER, ACTUAL)
                                     Data(RPM1_WHEEL, MINIMUM) = Data(RPM1_WHEEL, ACTUAL)
-                                    Data(RPM1_MOTOR, MINIMUM) = Data(RPM1_MOTOR, ACTUAL)
+                                    'Data(RPM1_MOTOR, MINIMUM) = Data(RPM1_MOTOR, ACTUAL)
                                     Data(SPEED, MINIMUM) = Data(SPEED, ACTUAL)
                                     Data(DRAG, MINIMUM) = Data(DRAG, ACTUAL)
                                 End If
@@ -3182,10 +3203,11 @@ Public Class Main
                                         End If
                                 End Select
                             Else
+                                RPM1TriggerStatus = False
                                 If Data(SESSIONTIME, ACTUAL) - RPM1NewTriggerTime > WaitForNewSignal Then
                                     Data(RPM1_ROLLER, ACTUAL) = 0
                                     Data(RPM1_WHEEL, ACTUAL) = 0
-                                    Data(RPM1_MOTOR, ACTUAL) = 0
+                                    'Data(RPM1_MOTOR, ACTUAL) = 0
                                     Data(SPEED, ACTUAL) = 0
                                     Data(TORQUE_ROLLER, ACTUAL) = 0
                                     Data(TORQUE_WHEEL, ACTUAL) = 0
@@ -3676,8 +3698,10 @@ Public Class Main
     End Sub
 #End If
 #End Region
-    Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
-
+    Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs)
+        If (RPM1TriggerStatus <> True Or RPM2TriggerStatus <> True) Then
+            Return
+        End If
         Me.AGauge1.Value = CSng(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1) / 1000)
         Me.LabelValGauge1.Text = NewCustomFormat(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1))
 
@@ -3723,7 +3747,7 @@ Public Class Main
 
         Me.PlotView1.Model = Me.plotModel
 
-        Dim i As Integer
+        'Dim i As Integer
         Dim xIndex As Integer = RPM2
         Dim xUnitsIndex As Integer = 1
 
