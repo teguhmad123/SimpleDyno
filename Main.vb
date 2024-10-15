@@ -3699,24 +3699,25 @@ Public Class Main
 #End If
 #End Region
     Private Sub TimerTick(ByVal sender As Object, ByVal e As EventArgs)
-        If (RPM1TriggerStatus <> True Or RPM2TriggerStatus <> True) Then
-            Return
+        If (RPM2TriggerStatus <> False) Then
+            Me.AGauge1.Value = CSng(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1) / 1000)
+            Me.LabelValGauge1.Text = NewCustomFormat(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1))
+
+            Me.AGauge2.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+            Me.LabelValGauge2.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+
+            lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
+            lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+            plotModel.InvalidatePlot(True)
         End If
-        Me.AGauge1.Value = CSng(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1) / 1000)
-        Me.LabelValGauge1.Text = NewCustomFormat(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1))
 
-        Me.AGauge3.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
-        Me.LabelValGauge3.Text = NewCustomFormat(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
-
-        Me.AGauge2.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
-        Me.LabelValGauge2.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
+        If (RPM1TriggerStatus <> False) Then
+            Me.AGauge3.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
+            Me.LabelValGauge3.Text = NewCustomFormat(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
+        End If
 
         Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
         Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
-
-        lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
-        lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
-        plotModel.InvalidatePlot(True)
 
         If btnRun <> btnRunTMP Then
             btnRun = btnRunTMP
@@ -3748,7 +3749,7 @@ Public Class Main
         Me.PlotView1.Model = Me.plotModel
 
         'Dim i As Integer
-        Dim xIndex As Integer = RPM2
+        Dim xIndex As Integer = RPM1_MOTOR
         Dim xUnitsIndex As Integer = 1
 
         Dim xAxisUnit As String = Main.DataUnitTags(xIndex).Split(CType(" ", Char()))(xUnitsIndex)
@@ -3760,7 +3761,7 @@ Public Class Main
 
         Me.SuspendLayout()
 
-        xIndex = RPM2
+        xIndex = RPM1_MOTOR
         y1Index = POWER
         y2Index = TORQUE_MOTOR
 
