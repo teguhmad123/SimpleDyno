@@ -17,7 +17,9 @@ Public Class Fit
     'Dim CopyRPM1Data(Main.MAXDATAPOINTS) As Double
     Private x(0) As Double 'Main.MAXDATAPOINTS) As Double
     Private y(0) As Double ' (Main.MAXDATAPOINTS) As Double
+    Private y2(0) As Double ' (Main.MAXDATAPOINTS) As Double
     Private fy(0) As Double '(Main.MAXDATAPOINTS) As Double
+    Private fy2(0) As Double '(Main.MAXDATAPOINTS) As Double
 
     Private Vx(0) As Double 'Main.MAXDATAPOINTS) As Double
     Private Vy(0) As Double ' (Main.MAXDATAPOINTS) As Double
@@ -37,6 +39,7 @@ Public Class Fit
     Private c() As Double
     Public Shared blnfit As Boolean = False
     Private blnRPMFit As Boolean = False
+    Private blnRPM2Fit As Boolean = False
     Private blnCoastDownDownFit As Boolean = False
     Private blnVoltageFit As Boolean = False
     Private blnCurrentFit As Boolean = False
@@ -403,9 +406,10 @@ Public Class Fit
     End Sub
     Sub FitRPMData()
 
-        Dim yoffset As Double, xoffset As Double, count As Integer, count2 As Integer, RawRPM1Max As Double
+        Dim yoffset As Double, y2offset As Double, xoffset As Double, count As Integer, count2 As Integer, RawRPM1Max As Double
 
         ReDim y(Main.DataPoints)
+        ReDim y2(Main.DataPoints)
         ReDim x(Main.DataPoints)
 
         'Flag to the code and to the user that we are fitting the data
@@ -423,6 +427,7 @@ Public Class Fit
             prgFit.Value = count
             count2 += 1
             y(count2) = Main.CollectedData(Main.RPM1_ROLLER, count)
+            y2(count2) = Main.CollectedData(Main.RPM2, count)
             x(count2) = Main.CollectedData(Main.SESSIONTIME, count)
             If Math.Abs(y(count2) - y(count2 - 1)) * Main.DataUnits(Main.RPM1_ROLLER, 1) > PowerRunSpikeLevel Then
                 y(count2) = y(count2 - 1) ' Main.CollectedData(Main.RPM1_ROLLER, count - 1)
@@ -432,6 +437,14 @@ Public Class Fit
                     RawRPM1Max = y(count2)
                 End If
             End If
+            If Math.Abs(y2(count2) - y2(count2 - 1)) * Main.DataUnits(Main.RPM2, 1) > PowerRunSpikeLevel Then
+                y2(count2) = y2(count2 - 1) ' Main.CollectedData(Main.RPM1_ROLLER, count - 1)
+            Else
+                If y2(count2) > RawRPM1Max Then
+                    MaxPosition = count2
+                    RawRPM1Max = y2(count2)
+                End If
+            End If
         Next
         prgFit.Value = prgFit.Maximum
         lblProgress.Text = "Done"
@@ -439,8 +452,10 @@ Public Class Fit
 
         ReDim Preserve FitData(Main.LAST, MaxPosition) '- FitStartPoint + 1)
         ReDim Preserve y(MaxPosition) ' - FitStartPoint + 1)
+        ReDim Preserve y2(MaxPosition) ' - FitStartPoint + 1)
         ReDim Preserve x(MaxPosition)
         ReDim fy(MaxPosition)
+        ReDim fy2(MaxPosition)
         'ReDim fx(MaxPosition)
 
         'the x and y value arrays sent to NonlinFit are working copies of the raw data
@@ -448,11 +463,17 @@ Public Class Fit
         'This means subtracting the first x and y values from all pairs
         'we need to remember the yoffset to add it back later.  We can apply this to all fits for simplicity
         yoffset = y(1) 'FitData(Main.RPM1_ROLLER, 1)
+        y2offset = y2(1)
         'xoffset = x(1) 'the first time point should now always be zero so no need for offset removal'FitData(Main.SESSIONTIME, 1)
 
         For count = 1 To UBound(y) 'UBound(FitData, 2)
             'x(count) = x(count) - xoffset 'FitData(Main.SESSIONTIME, Count) - xoffset 'FitData(Main.SESSIONTIME, 1)
             y(count) = y(count) - yoffset 'CopyRPM1Data(Count) - yoffset 'FitData(Main.RPM1_ROLLER, count) - yoffset
+        Next
+
+        For count = 1 To UBound(y2) 'UBound(FitData, 2)
+            'x(count) = x(count) - xoffset 'FitData(Main.SESSIONTIME, Count) - xoffset 'FitData(Main.SESSIONTIME, 1)
+            y2(count) = y2(count) - y2offset 'CopyRPM1Data(Count) - yoffset 'FitData(Main.RPM1_ROLLER, count) - yoffset
         Next
 
         blnfit = False
@@ -472,7 +493,8 @@ Public Class Fit
         'Original line is:
         ' BestCoeffs = FindPolynomialLeastSquaresFit(Points, degree)
         blnRPMFit = FindPolynomialLeastSquaresFit_NEW(x, y, fy, cmbWhichFit.SelectedIndex + 1)
-        If blnRPMFit Then
+        blnRPM2Fit = FindPolynomialLeastSquaresFit_NEW(x, y2, fy2, cmbWhichFit.SelectedIndex + 1)
+        If blnRPMFit And blnRPM2Fit Then
 
             'fy() now contains the fit data. Copy it to FitData adding back the offsets
             'FitData(Main.RPM1_ROLLER, 1) = fy(1) + yoffset
@@ -481,10 +503,13 @@ Public Class Fit
             For count = 1 To UBound(y) 'UBound(FitData, 2)
                 'x(count) = x(count) + xoffset
                 y(count) = y(count) + yoffset
+                y2(count) = y2(count) + y2offset
                 'fx(count) = fx(count) + xoffset
                 fy(count) = fy(count) + yoffset
+                fy2(count) = fy2(count) + y2offset
                 FitData(Main.SESSIONTIME, count) = x(count)
                 FitData(Main.RPM1_ROLLER, count) = fy(count)
+                FitData(Main.RPM2, count) = fy2(count)
                 'Setup power and torque temporarily
                 FitData(Main.TORQUE_ROLLER, count) = (FitData(Main.RPM1_ROLLER, count) - FitData(Main.RPM1_ROLLER, count - 1)) / (FitData(Main.SESSIONTIME, count) - FitData(Main.SESSIONTIME, count - 1)) * Main.DynoMomentOfInertia 'this is the roller torque, should calc the wheel and motor at this point also
                 FitData(Main.POWER, count) = FitData(Main.TORQUE_ROLLER, count) * FitData(Main.RPM1_ROLLER, count) ' + FitData(Main.RPM1_ROLLER, count - 1)) / 2)

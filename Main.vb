@@ -558,16 +558,18 @@ Public Class Main
         '
         'btnStartPowerRun
         '
-        Me.btnStartPowerRun.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStartPowerRun.Location = New System.Drawing.Point(298, 1)
+        Me.btnStartPowerRun.BackColor = System.Drawing.SystemColors.Control
+        Me.btnStartPowerRun.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStartPowerRun.Location = New System.Drawing.Point(347, 1)
         Me.btnStartPowerRun.Name = "btnStartPowerRun"
-        Me.btnStartPowerRun.Size = New System.Drawing.Size(68, 47)
+        Me.btnStartPowerRun.Size = New System.Drawing.Size(135, 47)
         Me.btnStartPowerRun.TabIndex = 43
         Me.btnStartPowerRun.Text = "Power Run"
+        Me.btnStartPowerRun.UseVisualStyleBackColor = False
         '
         'btnCOM
         '
-        Me.btnCOM.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCOM.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCOM.Location = New System.Drawing.Point(76, 1)
         Me.btnCOM.Name = "btnCOM"
         Me.btnCOM.Size = New System.Drawing.Size(68, 47)
@@ -577,7 +579,7 @@ Public Class Main
         '
         'btnDyno
         '
-        Me.btnDyno.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDyno.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDyno.Location = New System.Drawing.Point(2, 1)
         Me.btnDyno.Name = "btnDyno"
         Me.btnDyno.Size = New System.Drawing.Size(68, 47)
@@ -587,10 +589,10 @@ Public Class Main
         '
         'btnAnalysis
         '
-        Me.btnAnalysis.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnalysis.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnalysis.Location = New System.Drawing.Point(150, 1)
         Me.btnAnalysis.Name = "btnAnalysis"
-        Me.btnAnalysis.Size = New System.Drawing.Size(68, 47)
+        Me.btnAnalysis.Size = New System.Drawing.Size(100, 47)
         Me.btnAnalysis.TabIndex = 171
         Me.btnAnalysis.Text = "Analysis"
         Me.btnAnalysis.UseVisualStyleBackColor = True
@@ -625,9 +627,10 @@ Public Class Main
         '
         'btnStartAcquisition
         '
-        Me.btnStartAcquisition.Location = New System.Drawing.Point(482, 1)
+        Me.btnStartAcquisition.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStartAcquisition.Location = New System.Drawing.Point(602, 1)
         Me.btnStartAcquisition.Name = "btnStartAcquisition"
-        Me.btnStartAcquisition.Size = New System.Drawing.Size(88, 47)
+        Me.btnStartAcquisition.Size = New System.Drawing.Size(98, 47)
         Me.btnStartAcquisition.TabIndex = 163
         Me.btnStartAcquisition.Text = "Connect"
         Me.btnStartAcquisition.UseVisualStyleBackColor = True
@@ -636,7 +639,7 @@ Public Class Main
         '
         Me.cmbCOMPorts.DropDownWidth = 300
         Me.cmbCOMPorts.FormattingEnabled = True
-        Me.cmbCOMPorts.Location = New System.Drawing.Point(372, 3)
+        Me.cmbCOMPorts.Location = New System.Drawing.Point(490, 3)
         Me.cmbCOMPorts.Name = "cmbCOMPorts"
         Me.cmbCOMPorts.Size = New System.Drawing.Size(104, 21)
         Me.cmbCOMPorts.TabIndex = 158
@@ -687,35 +690,35 @@ Public Class Main
         Me.AGauge1.BaseArcRadius = 250
         Me.AGauge1.BaseArcStart = 135
         Me.AGauge1.BaseArcSweep = 270
-        Me.AGauge1.BaseArcWidth = 2
+        Me.AGauge1.BaseArcWidth = 7
         Me.AGauge1.Center = New System.Drawing.Point(255, 255)
-        Me.AGauge1.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGauge1.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AGauge1.Location = New System.Drawing.Point(18, 137)
         Me.AGauge1.MaxValue = 18.0!
         Me.AGauge1.MinValue = 0!
         Me.AGauge1.Name = "AGauge1"
         Me.AGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
         Me.AGauge1.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGauge1.NeedleRadius = 225
+        Me.AGauge1.NeedleRadius = 210
         Me.AGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance
-        Me.AGauge1.NeedleWidth = 2
+        Me.AGauge1.NeedleWidth = 7
         Me.AGauge1.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGauge1.ScaleLinesInterInnerRadius = 225
-        Me.AGauge1.ScaleLinesInterOuterRadius = 215
-        Me.AGauge1.ScaleLinesInterWidth = 1
+        Me.AGauge1.ScaleLinesInterInnerRadius = 210
+        Me.AGauge1.ScaleLinesInterOuterRadius = 200
+        Me.AGauge1.ScaleLinesInterWidth = 2
         Me.AGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGauge1.ScaleLinesMajorInnerRadius = 225
-        Me.AGauge1.ScaleLinesMajorOuterRadius = 210
+        Me.AGauge1.ScaleLinesMajorInnerRadius = 210
+        Me.AGauge1.ScaleLinesMajorOuterRadius = 195
         Me.AGauge1.ScaleLinesMajorStepValue = 1.0!
-        Me.AGauge1.ScaleLinesMajorWidth = 2
+        Me.AGauge1.ScaleLinesMajorWidth = 4
         Me.AGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGauge1.ScaleLinesMinorInnerRadius = 225
-        Me.AGauge1.ScaleLinesMinorOuterRadius = 220
+        Me.AGauge1.ScaleLinesMinorInnerRadius = 210
+        Me.AGauge1.ScaleLinesMinorOuterRadius = 205
         Me.AGauge1.ScaleLinesMinorTicks = 9
-        Me.AGauge1.ScaleLinesMinorWidth = 1
+        Me.AGauge1.ScaleLinesMinorWidth = 2
         Me.AGauge1.ScaleNumbersColor = System.Drawing.Color.Black
         Me.AGauge1.ScaleNumbersFormat = Nothing
-        Me.AGauge1.ScaleNumbersRadius = 235
+        Me.AGauge1.ScaleNumbersRadius = 227
         Me.AGauge1.ScaleNumbersRotation = 0
         Me.AGauge1.ScaleNumbersStartScaleLine = 0
         Me.AGauge1.ScaleNumbersStepScaleLines = 1
@@ -728,20 +731,21 @@ Public Class Main
         'LabelGauge1
         '
         Me.LabelGauge1.AutoSize = True
-        Me.LabelGauge1.Font = New System.Drawing.Font("Tahoma", 15.25!)
-        Me.LabelGauge1.Location = New System.Drawing.Point(208, 257)
+        Me.LabelGauge1.BackColor = System.Drawing.SystemColors.Control
+        Me.LabelGauge1.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGauge1.Location = New System.Drawing.Point(183, 249)
         Me.LabelGauge1.Name = "LabelGauge1"
-        Me.LabelGauge1.Size = New System.Drawing.Size(134, 25)
+        Me.LabelGauge1.Size = New System.Drawing.Size(194, 33)
         Me.LabelGauge1.TabIndex = 189
         Me.LabelGauge1.Text = "ENGINE RPM"
         '
         'LabelSubGauge1
         '
         Me.LabelSubGauge1.AutoSize = True
-        Me.LabelSubGauge1.Font = New System.Drawing.Font("Tahoma", 9.25!)
-        Me.LabelSubGauge1.Location = New System.Drawing.Point(235, 282)
+        Me.LabelSubGauge1.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSubGauge1.Location = New System.Drawing.Point(220, 282)
         Me.LabelSubGauge1.Name = "LabelSubGauge1"
-        Me.LabelSubGauge1.Size = New System.Drawing.Size(75, 16)
+        Me.LabelSubGauge1.Size = New System.Drawing.Size(107, 23)
         Me.LabelSubGauge1.TabIndex = 190
         Me.LabelSubGauge1.Text = "x1000(rpm)"
         '
@@ -749,28 +753,24 @@ Public Class Main
         '
         Me.LabelValGauge1.AutoSize = True
         Me.LabelValGauge1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValGauge1.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValGauge1.Location = New System.Drawing.Point(234, 500)
+        Me.LabelValGauge1.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValGauge1.Location = New System.Drawing.Point(224, 500)
+        Me.LabelValGauge1.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValGauge1.Name = "LabelValGauge1"
-        Me.LabelValGauge1.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValGauge1.Size = New System.Drawing.Size(97, 37)
         Me.LabelValGauge1.TabIndex = 191
         Me.LabelValGauge1.Text = "00000"
         Me.LabelValGauge1.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Timer1
-        '
-        'Me.Timer1.Enabled = True
-        Me.Timer1 = New Timer
-        Me.Timer1.Interval = 100
         '
         'LabelValGauge3
         '
         Me.LabelValGauge3.AutoSize = True
         Me.LabelValGauge3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValGauge3.Font = New System.Drawing.Font("Tahoma", 16.25!)
+        Me.LabelValGauge3.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelValGauge3.Location = New System.Drawing.Point(1562, 500)
+        Me.LabelValGauge3.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValGauge3.Name = "LabelValGauge3"
-        Me.LabelValGauge3.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValGauge3.Size = New System.Drawing.Size(97, 37)
         Me.LabelValGauge3.TabIndex = 195
         Me.LabelValGauge3.Text = "00000"
         Me.LabelValGauge3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -778,20 +778,20 @@ Public Class Main
         'LabelSubGauge3
         '
         Me.LabelSubGauge3.AutoSize = True
-        Me.LabelSubGauge3.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.LabelSubGauge3.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSubGauge3.Location = New System.Drawing.Point(1561, 282)
         Me.LabelSubGauge3.Name = "LabelSubGauge3"
-        Me.LabelSubGauge3.Size = New System.Drawing.Size(75, 16)
+        Me.LabelSubGauge3.Size = New System.Drawing.Size(120, 25)
         Me.LabelSubGauge3.TabIndex = 194
         Me.LabelSubGauge3.Text = "x1000(rpm)"
         '
         'LabelGauge3
         '
         Me.LabelGauge3.AutoSize = True
-        Me.LabelGauge3.Font = New System.Drawing.Font("Tahoma", 15.25!)
+        Me.LabelGauge3.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelGauge3.Location = New System.Drawing.Point(1531, 257)
         Me.LabelGauge3.Name = "LabelGauge3"
-        Me.LabelGauge3.Size = New System.Drawing.Size(133, 25)
+        Me.LabelGauge3.Size = New System.Drawing.Size(193, 33)
         Me.LabelGauge3.TabIndex = 193
         Me.LabelGauge3.Text = "ROLLER RPM"
         '
@@ -802,35 +802,35 @@ Public Class Main
         Me.AGauge3.BaseArcRadius = 250
         Me.AGauge3.BaseArcStart = 135
         Me.AGauge3.BaseArcSweep = 270
-        Me.AGauge3.BaseArcWidth = 2
+        Me.AGauge3.BaseArcWidth = 7
         Me.AGauge3.Center = New System.Drawing.Point(255, 255)
-        Me.AGauge3.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGauge3.Font = New System.Drawing.Font("Tahoma", 18.0!)
         Me.AGauge3.Location = New System.Drawing.Point(1346, 137)
         Me.AGauge3.MaxValue = 3.0!
         Me.AGauge3.MinValue = 0!
         Me.AGauge3.Name = "AGauge3"
         Me.AGauge3.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
         Me.AGauge3.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGauge3.NeedleRadius = 225
+        Me.AGauge3.NeedleRadius = 210
         Me.AGauge3.NeedleType = System.Windows.Forms.NeedleType.Advance
-        Me.AGauge3.NeedleWidth = 2
+        Me.AGauge3.NeedleWidth = 7
         Me.AGauge3.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGauge3.ScaleLinesInterInnerRadius = 225
-        Me.AGauge3.ScaleLinesInterOuterRadius = 215
-        Me.AGauge3.ScaleLinesInterWidth = 1
+        Me.AGauge3.ScaleLinesInterInnerRadius = 210
+        Me.AGauge3.ScaleLinesInterOuterRadius = 200
+        Me.AGauge3.ScaleLinesInterWidth = 2
         Me.AGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGauge3.ScaleLinesMajorInnerRadius = 225
-        Me.AGauge3.ScaleLinesMajorOuterRadius = 210
+        Me.AGauge3.ScaleLinesMajorInnerRadius = 210
+        Me.AGauge3.ScaleLinesMajorOuterRadius = 195
         Me.AGauge3.ScaleLinesMajorStepValue = 0.5!
-        Me.AGauge3.ScaleLinesMajorWidth = 2
+        Me.AGauge3.ScaleLinesMajorWidth = 4
         Me.AGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGauge3.ScaleLinesMinorInnerRadius = 225
-        Me.AGauge3.ScaleLinesMinorOuterRadius = 220
+        Me.AGauge3.ScaleLinesMinorInnerRadius = 210
+        Me.AGauge3.ScaleLinesMinorOuterRadius = 205
         Me.AGauge3.ScaleLinesMinorTicks = 9
-        Me.AGauge3.ScaleLinesMinorWidth = 1
+        Me.AGauge3.ScaleLinesMinorWidth = 2
         Me.AGauge3.ScaleNumbersColor = System.Drawing.Color.Black
         Me.AGauge3.ScaleNumbersFormat = Nothing
-        Me.AGauge3.ScaleNumbersRadius = 235
+        Me.AGauge3.ScaleNumbersRadius = 227
         Me.AGauge3.ScaleNumbersRotation = 0
         Me.AGauge3.ScaleNumbersStartScaleLine = 0
         Me.AGauge3.ScaleNumbersStepScaleLines = 1
@@ -844,10 +844,11 @@ Public Class Main
         '
         Me.LabelValGauge2.AutoSize = True
         Me.LabelValGauge2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValGauge2.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValGauge2.Location = New System.Drawing.Point(902, 477)
+        Me.LabelValGauge2.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValGauge2.Location = New System.Drawing.Point(902, 464)
+        Me.LabelValGauge2.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValGauge2.Name = "LabelValGauge2"
-        Me.LabelValGauge2.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValGauge2.Size = New System.Drawing.Size(97, 37)
         Me.LabelValGauge2.TabIndex = 199
         Me.LabelValGauge2.Text = "00000"
         Me.LabelValGauge2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -855,10 +856,10 @@ Public Class Main
         'LabelGauge2
         '
         Me.LabelGauge2.AutoSize = True
-        Me.LabelGauge2.Font = New System.Drawing.Font("Tahoma", 15.25!)
-        Me.LabelGauge2.Location = New System.Drawing.Point(914, 281)
+        Me.LabelGauge2.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGauge2.Location = New System.Drawing.Point(907, 312)
         Me.LabelGauge2.Name = "LabelGauge2"
-        Me.LabelGauge2.Size = New System.Drawing.Size(49, 25)
+        Me.LabelGauge2.Size = New System.Drawing.Size(69, 33)
         Me.LabelGauge2.TabIndex = 197
         Me.LabelGauge2.Text = "AFR"
         '
@@ -866,38 +867,38 @@ Public Class Main
         '
         Me.AGauge2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.AGauge2.BaseArcColor = System.Drawing.Color.Gray
-        Me.AGauge2.BaseArcRadius = 200
+        Me.AGauge2.BaseArcRadius = 150
         Me.AGauge2.BaseArcStart = 135
         Me.AGauge2.BaseArcSweep = 270
-        Me.AGauge2.BaseArcWidth = 2
+        Me.AGauge2.BaseArcWidth = 7
         Me.AGauge2.Center = New System.Drawing.Point(255, 255)
-        Me.AGauge2.Font = New System.Drawing.Font("Tahoma", 9.25!)
+        Me.AGauge2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AGauge2.Location = New System.Drawing.Point(685, 137)
         Me.AGauge2.MaxValue = 18.0!
         Me.AGauge2.MinValue = 10.0!
         Me.AGauge2.Name = "AGauge2"
         Me.AGauge2.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
         Me.AGauge2.NeedleColor2 = System.Drawing.Color.DimGray
-        Me.AGauge2.NeedleRadius = 180
+        Me.AGauge2.NeedleRadius = 120
         Me.AGauge2.NeedleType = System.Windows.Forms.NeedleType.Advance
-        Me.AGauge2.NeedleWidth = 2
+        Me.AGauge2.NeedleWidth = 5
         Me.AGauge2.ScaleLinesInterColor = System.Drawing.Color.Black
-        Me.AGauge2.ScaleLinesInterInnerRadius = 180
-        Me.AGauge2.ScaleLinesInterOuterRadius = 170
-        Me.AGauge2.ScaleLinesInterWidth = 1
+        Me.AGauge2.ScaleLinesInterInnerRadius = 120
+        Me.AGauge2.ScaleLinesInterOuterRadius = 110
+        Me.AGauge2.ScaleLinesInterWidth = 2
         Me.AGauge2.ScaleLinesMajorColor = System.Drawing.Color.Black
-        Me.AGauge2.ScaleLinesMajorInnerRadius = 180
-        Me.AGauge2.ScaleLinesMajorOuterRadius = 165
+        Me.AGauge2.ScaleLinesMajorInnerRadius = 120
+        Me.AGauge2.ScaleLinesMajorOuterRadius = 105
         Me.AGauge2.ScaleLinesMajorStepValue = 1.0!
-        Me.AGauge2.ScaleLinesMajorWidth = 2
+        Me.AGauge2.ScaleLinesMajorWidth = 4
         Me.AGauge2.ScaleLinesMinorColor = System.Drawing.Color.Gray
-        Me.AGauge2.ScaleLinesMinorInnerRadius = 180
-        Me.AGauge2.ScaleLinesMinorOuterRadius = 175
+        Me.AGauge2.ScaleLinesMinorInnerRadius = 120
+        Me.AGauge2.ScaleLinesMinorOuterRadius = 115
         Me.AGauge2.ScaleLinesMinorTicks = 9
-        Me.AGauge2.ScaleLinesMinorWidth = 1
+        Me.AGauge2.ScaleLinesMinorWidth = 2
         Me.AGauge2.ScaleNumbersColor = System.Drawing.Color.Black
         Me.AGauge2.ScaleNumbersFormat = Nothing
-        Me.AGauge2.ScaleNumbersRadius = 190
+        Me.AGauge2.ScaleNumbersRadius = 132
         Me.AGauge2.ScaleNumbersRotation = 0
         Me.AGauge2.ScaleNumbersStartScaleLine = 0
         Me.AGauge2.ScaleNumbersStepScaleLines = 1
@@ -910,10 +911,10 @@ Public Class Main
         'LabelPower
         '
         Me.LabelPower.AutoSize = True
-        Me.LabelPower.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelPower.Location = New System.Drawing.Point(565, 282)
+        Me.LabelPower.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelPower.Location = New System.Drawing.Point(549, 257)
         Me.LabelPower.Name = "LabelPower"
-        Me.LabelPower.Size = New System.Drawing.Size(129, 27)
+        Me.LabelPower.Size = New System.Drawing.Size(181, 33)
         Me.LabelPower.TabIndex = 200
         Me.LabelPower.Text = "POWER(Hp)"
         '
@@ -921,10 +922,11 @@ Public Class Main
         '
         Me.LabelValPower.AutoSize = True
         Me.LabelValPower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValPower.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValPower.Location = New System.Drawing.Point(586, 343)
+        Me.LabelValPower.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValPower.Location = New System.Drawing.Point(596, 326)
+        Me.LabelValPower.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValPower.Name = "LabelValPower"
-        Me.LabelValPower.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValPower.Size = New System.Drawing.Size(97, 37)
         Me.LabelValPower.TabIndex = 201
         Me.LabelValPower.Text = "00000"
         Me.LabelValPower.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -933,10 +935,11 @@ Public Class Main
         '
         Me.LabelValMotorTorque.AutoSize = True
         Me.LabelValMotorTorque.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LabelValMotorTorque.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelValMotorTorque.Location = New System.Drawing.Point(1212, 343)
+        Me.LabelValMotorTorque.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValMotorTorque.Location = New System.Drawing.Point(1182, 326)
+        Me.LabelValMotorTorque.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValMotorTorque.Name = "LabelValMotorTorque"
-        Me.LabelValMotorTorque.Size = New System.Drawing.Size(74, 29)
+        Me.LabelValMotorTorque.Size = New System.Drawing.Size(97, 37)
         Me.LabelValMotorTorque.TabIndex = 203
         Me.LabelValMotorTorque.Text = "00000"
         Me.LabelValMotorTorque.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -944,25 +947,27 @@ Public Class Main
         'LabelMotorTorque
         '
         Me.LabelMotorTorque.AutoSize = True
-        Me.LabelMotorTorque.Font = New System.Drawing.Font("Tahoma", 16.25!)
-        Me.LabelMotorTorque.Location = New System.Drawing.Point(1147, 282)
+        Me.LabelMotorTorque.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMotorTorque.Location = New System.Drawing.Point(1088, 257)
         Me.LabelMotorTorque.Name = "LabelMotorTorque"
-        Me.LabelMotorTorque.Size = New System.Drawing.Size(193, 27)
+        Me.LabelMotorTorque.Size = New System.Drawing.Size(271, 33)
         Me.LabelMotorTorque.TabIndex = 202
         Me.LabelMotorTorque.Text = "Motor Torque(Nm)"
         '
         'btnProfile
         '
-        Me.btnProfile.Location = New System.Drawing.Point(224, 1)
+        Me.btnProfile.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProfile.Location = New System.Drawing.Point(257, 1)
         Me.btnProfile.Name = "btnProfile"
-        Me.btnProfile.Size = New System.Drawing.Size(68, 47)
+        Me.btnProfile.Size = New System.Drawing.Size(83, 47)
         Me.btnProfile.TabIndex = 204
         Me.btnProfile.Text = "Profile"
         Me.btnProfile.UseVisualStyleBackColor = True
         '
         'btnRefreshCOM
         '
-        Me.btnRefreshCOM.Location = New System.Drawing.Point(372, 25)
+        Me.btnRefreshCOM.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefreshCOM.Location = New System.Drawing.Point(490, 25)
         Me.btnRefreshCOM.Name = "btnRefreshCOM"
         Me.btnRefreshCOM.Size = New System.Drawing.Size(104, 23)
         Me.btnRefreshCOM.TabIndex = 206
@@ -987,6 +992,7 @@ Public Class Main
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.AutoScroll = True
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(1904, 1041)
         Me.Controls.Add(Me.PlotView1)
@@ -1025,7 +1031,6 @@ Public Class Main
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SimpleDyno beta by DTECH"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        SetupGauge()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3204,6 +3209,9 @@ Public Class Main
                                 End Select
                             Else
                                 RPM1TriggerStatus = False
+                                If ElapsedTimeToRadPerSec / RPM1ElapsedTime = 0 Then
+                                    RPM1TriggerStatus = True
+                                End If
                                 If Data(SESSIONTIME, ACTUAL) - RPM1NewTriggerTime > WaitForNewSignal Then
                                     Data(RPM1_ROLLER, ACTUAL) = 0
                                     Data(RPM1_WHEEL, ACTUAL) = 0
@@ -3252,12 +3260,12 @@ Public Class Main
 
                     'If WhichDataMode = POWERRUN AndAlso DataPoints > MinimumPowerRunPoints AndAlso Data(RPM1_ROLLER, ACTUAL) <= ActualPowerRunThreshold Then
                     'If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM2, MAXIMUM) * DataUnits(RPM2, 1)) >= 8000 Then
-                    If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM1_ROLLER, MAXIMUM) * DataUnits(RPM1_ROLLER, 1)) >= 500 Then
-                        SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
-                        'DataPoints -= 1
-                        'PauseForms()
-                        WhichDataMode = LIVE
-                    End If
+                    'If WhichDataMode = POWERRUN AndAlso DataPoints > 20 AndAlso Data(RPM1_ROLLER, ACTUAL) <= (Data(RPM1_ROLLER, MAXIMUM) * 0.8) AndAlso (Data(RPM1_ROLLER, MAXIMUM) * DataUnits(RPM1_ROLLER, 1)) >= 500 Then
+                    '    SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
+                    '    'DataPoints -= 1
+                    '    'PauseForms()
+                    '    WhichDataMode = LIVE
+                    'End If
 
                     SetControlText_Threadsafe(frmCOM.lblCurrentVolts, NewCustomFormat(Data(VOLTS, ACTUAL)))
                     SetControlText_Threadsafe(frmCOM.lblCurrentAmps, NewCustomFormat(Data(AMPS, ACTUAL)))
@@ -3706,9 +3714,12 @@ Public Class Main
             Me.AGauge2.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
             Me.LabelValGauge2.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
 
-            lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
-            lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
-            plotModel.InvalidatePlot(True)
+            If WhichDataMode = POWERRUN Then
+                lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
+                lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+
+                plotModel.InvalidatePlot(True)
+            End If
         End If
 
         If (RPM1TriggerStatus <> False) Then
