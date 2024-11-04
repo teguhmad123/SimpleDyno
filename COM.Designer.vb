@@ -909,6 +909,7 @@ Partial Class COM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.ClientSize = New System.Drawing.Size(944, 555)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label24)

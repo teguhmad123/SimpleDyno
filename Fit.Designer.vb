@@ -216,10 +216,10 @@ Partial Class Fit
         '
         'btnAddAnalysis
         '
-        Me.btnAddAnalysis.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddAnalysis.Location = New System.Drawing.Point(2, 349)
+        Me.btnAddAnalysis.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddAnalysis.Location = New System.Drawing.Point(2, 361)
         Me.btnAddAnalysis.Name = "btnAddAnalysis"
-        Me.btnAddAnalysis.Size = New System.Drawing.Size(192, 21)
+        Me.btnAddAnalysis.Size = New System.Drawing.Size(192, 70)
         Me.btnAddAnalysis.TabIndex = 78
         Me.btnAddAnalysis.Text = "Go to Analysis"
         Me.btnAddAnalysis.UseVisualStyleBackColor = True
@@ -227,7 +227,7 @@ Partial Class Fit
         'chkAddOrNew
         '
         Me.chkAddOrNew.AutoSize = True
-        Me.chkAddOrNew.Location = New System.Drawing.Point(6, 377)
+        Me.chkAddOrNew.Location = New System.Drawing.Point(6, 442)
         Me.chkAddOrNew.Name = "chkAddOrNew"
         Me.chkAddOrNew.Size = New System.Drawing.Size(119, 17)
         Me.chkAddOrNew.TabIndex = 79
@@ -323,9 +323,10 @@ Partial Class Fit
         '
         'btnStopFitting
         '
+        Me.btnStopFitting.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStopFitting.Location = New System.Drawing.Point(2, 322)
         Me.btnStopFitting.Name = "btnStopFitting"
-        Me.btnStopFitting.Size = New System.Drawing.Size(192, 21)
+        Me.btnStopFitting.Size = New System.Drawing.Size(192, 35)
         Me.btnStopFitting.TabIndex = 88
         Me.btnStopFitting.Text = "Stop Fitting"
         Me.btnStopFitting.UseVisualStyleBackColor = True

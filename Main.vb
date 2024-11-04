@@ -141,6 +141,21 @@ Public Class Main
     Friend Const PIN04VALUE As Integer = 34
     Friend Const PIN05VALUE As Integer = 35
 
+    Friend Const COLOR_BASE As Integer = 0
+    Friend Const COLOR_DARK As Integer = 1
+    Friend Const COLOR_LIGHT As Integer = 2
+    Friend Const COLOR_TEXT As Integer = 3
+    Friend Const COLOR_OP_TEXT As Integer = 4
+    Friend Const COLOR_LINECHART1 As Integer = 5
+    Friend Const COLOR_LINECHART2 As Integer = 6
+    Friend Const COLOR_LINECHART3 As Integer = 7
+    Friend Const COLOR_LINECHART4 As Integer = 8
+    Friend Const COLOR_LINECHART5 As Integer = 9
+    Friend Const COLOR_SUCCESS As Integer = 10
+    Friend Const COLOR_DANGER As Integer = 11
+    Friend Const COLOR_WARNING As Integer = 12
+    Friend Const COLOR_ACCENT As Integer = 13
+
     Delegate Function GetValue(ByVal datarecord As DataRecord) As Double
 
     'CHECK INTEGERS FOR QUERY PERFORMANCE IF WE LEAVE RUNDOWN IN
@@ -300,6 +315,11 @@ Public Class Main
 
     'Use the new Data Structure approach for the collected data from power runs
     Public Shared CollectedData(LAST - 1, MAXDATAPOINTS) As Double
+
+    Public Shared ColorTheme As Color() = {System.Drawing.SystemColors.ControlDarkDark, System.Drawing.SystemColors.ControlDark, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.ControlText, System.Drawing.SystemColors.HighlightText, Color.Black, Color.Blue, Color.Red, Color.Green, Color.Purple, Color.Green, Color.Red, Color.Yellow, System.Drawing.Color.Silver}
+    Private Theme As String() = {"Light", "Dark", "Grey"}
+    Private SelectedTheme As Integer = 0
+    Private SelectedNeedleGaugeType As AGaugeNeedleColor = AGaugeNeedleColor.Red
 
     'General
     Private i As Integer, j As Integer, k As Integer, k2 As Integer
@@ -684,9 +704,9 @@ Public Class Main
         '
         'AGauge1
         '
-        Me.AGauge1.BackColor = System.Drawing.SystemColors.Control
+        Me.AGauge1.BackColor = ColorTheme(COLOR_BASE)
         Me.AGauge1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge1.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge1.BaseArcColor = ColorTheme(COLOR_DARK)
         Me.AGauge1.BaseArcRadius = 250
         Me.AGauge1.BaseArcStart = 135
         Me.AGauge1.BaseArcSweep = 270
@@ -697,26 +717,26 @@ Public Class Main
         Me.AGauge1.MaxValue = 18.0!
         Me.AGauge1.MinValue = 0!
         Me.AGauge1.Name = "AGauge1"
-        Me.AGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
-        Me.AGauge1.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge1.NeedleColor1 = SelectedNeedleGaugeType
+        Me.AGauge1.NeedleColor2 = ColorTheme(COLOR_BASE)
         Me.AGauge1.NeedleRadius = 210
         Me.AGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge1.NeedleWidth = 7
-        Me.AGauge1.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge1.ScaleLinesInterColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge1.ScaleLinesInterInnerRadius = 210
         Me.AGauge1.ScaleLinesInterOuterRadius = 200
         Me.AGauge1.ScaleLinesInterWidth = 2
-        Me.AGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge1.ScaleLinesMajorColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge1.ScaleLinesMajorInnerRadius = 210
         Me.AGauge1.ScaleLinesMajorOuterRadius = 195
         Me.AGauge1.ScaleLinesMajorStepValue = 1.0!
         Me.AGauge1.ScaleLinesMajorWidth = 4
-        Me.AGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge1.ScaleLinesMinorColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge1.ScaleLinesMinorInnerRadius = 210
         Me.AGauge1.ScaleLinesMinorOuterRadius = 205
         Me.AGauge1.ScaleLinesMinorTicks = 9
         Me.AGauge1.ScaleLinesMinorWidth = 2
-        Me.AGauge1.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge1.ScaleNumbersColor = ColorTheme(COLOR_TEXT)
         Me.AGauge1.ScaleNumbersFormat = Nothing
         Me.AGauge1.ScaleNumbersRadius = 227
         Me.AGauge1.ScaleNumbersRotation = 0
@@ -731,8 +751,9 @@ Public Class Main
         'LabelGauge1
         '
         Me.LabelGauge1.AutoSize = True
-        Me.LabelGauge1.BackColor = System.Drawing.SystemColors.Control
+        Me.LabelGauge1.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelGauge1.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGauge1.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelGauge1.Location = New System.Drawing.Point(183, 249)
         Me.LabelGauge1.Name = "LabelGauge1"
         Me.LabelGauge1.Size = New System.Drawing.Size(194, 33)
@@ -742,7 +763,9 @@ Public Class Main
         'LabelSubGauge1
         '
         Me.LabelSubGauge1.AutoSize = True
+        Me.LabelSubGauge1.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelSubGauge1.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSubGauge1.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelSubGauge1.Location = New System.Drawing.Point(220, 282)
         Me.LabelSubGauge1.Name = "LabelSubGauge1"
         Me.LabelSubGauge1.Size = New System.Drawing.Size(107, 23)
@@ -752,8 +775,10 @@ Public Class Main
         'LabelValGauge1
         '
         Me.LabelValGauge1.AutoSize = True
+        Me.LabelValGauge1.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelValGauge1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LabelValGauge1.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValGauge1.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelValGauge1.Location = New System.Drawing.Point(224, 500)
         Me.LabelValGauge1.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValGauge1.Name = "LabelValGauge1"
@@ -765,9 +790,11 @@ Public Class Main
         'LabelValGauge3
         '
         Me.LabelValGauge3.AutoSize = True
+        Me.LabelValGauge3.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelValGauge3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LabelValGauge3.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelValGauge3.Location = New System.Drawing.Point(1562, 500)
+        Me.LabelValGauge3.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelValGauge3.Location = New System.Drawing.Point(1556, 500)
         Me.LabelValGauge3.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValGauge3.Name = "LabelValGauge3"
         Me.LabelValGauge3.Size = New System.Drawing.Size(97, 37)
@@ -778,8 +805,10 @@ Public Class Main
         'LabelSubGauge3
         '
         Me.LabelSubGauge3.AutoSize = True
+        Me.LabelSubGauge3.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelSubGauge3.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelSubGauge3.Location = New System.Drawing.Point(1561, 282)
+        Me.LabelSubGauge3.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelSubGauge3.Location = New System.Drawing.Point(1550, 286)
         Me.LabelSubGauge3.Name = "LabelSubGauge3"
         Me.LabelSubGauge3.Size = New System.Drawing.Size(120, 25)
         Me.LabelSubGauge3.TabIndex = 194
@@ -788,8 +817,10 @@ Public Class Main
         'LabelGauge3
         '
         Me.LabelGauge3.AutoSize = True
+        Me.LabelGauge3.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelGauge3.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelGauge3.Location = New System.Drawing.Point(1531, 257)
+        Me.LabelGauge3.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelGauge3.Location = New System.Drawing.Point(1511, 257)
         Me.LabelGauge3.Name = "LabelGauge3"
         Me.LabelGauge3.Size = New System.Drawing.Size(193, 33)
         Me.LabelGauge3.TabIndex = 193
@@ -797,8 +828,9 @@ Public Class Main
         '
         'AGauge3
         '
+        Me.AGauge3.BackColor = ColorTheme(COLOR_BASE)
         Me.AGauge3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge3.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge3.BaseArcColor = ColorTheme(COLOR_DARK)
         Me.AGauge3.BaseArcRadius = 250
         Me.AGauge3.BaseArcStart = 135
         Me.AGauge3.BaseArcSweep = 270
@@ -809,26 +841,26 @@ Public Class Main
         Me.AGauge3.MaxValue = 3.0!
         Me.AGauge3.MinValue = 0!
         Me.AGauge3.Name = "AGauge3"
-        Me.AGauge3.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
-        Me.AGauge3.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge3.NeedleColor1 = SelectedNeedleGaugeType
+        Me.AGauge3.NeedleColor2 = ColorTheme(COLOR_BASE)
         Me.AGauge3.NeedleRadius = 210
         Me.AGauge3.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge3.NeedleWidth = 7
-        Me.AGauge3.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleLinesInterColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge3.ScaleLinesInterInnerRadius = 210
         Me.AGauge3.ScaleLinesInterOuterRadius = 200
         Me.AGauge3.ScaleLinesInterWidth = 2
-        Me.AGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleLinesMajorColor = ColorTheme(COLOR_DARK)
         Me.AGauge3.ScaleLinesMajorInnerRadius = 210
         Me.AGauge3.ScaleLinesMajorOuterRadius = 195
         Me.AGauge3.ScaleLinesMajorStepValue = 0.5!
         Me.AGauge3.ScaleLinesMajorWidth = 4
-        Me.AGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge3.ScaleLinesMinorColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge3.ScaleLinesMinorInnerRadius = 210
         Me.AGauge3.ScaleLinesMinorOuterRadius = 205
         Me.AGauge3.ScaleLinesMinorTicks = 9
         Me.AGauge3.ScaleLinesMinorWidth = 2
-        Me.AGauge3.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleNumbersColor = ColorTheme(COLOR_TEXT)
         Me.AGauge3.ScaleNumbersFormat = Nothing
         Me.AGauge3.ScaleNumbersRadius = 227
         Me.AGauge3.ScaleNumbersRotation = 0
@@ -843,9 +875,11 @@ Public Class Main
         'LabelValGauge2
         '
         Me.LabelValGauge2.AutoSize = True
+        Me.LabelValGauge2.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelValGauge2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LabelValGauge2.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelValGauge2.Location = New System.Drawing.Point(902, 464)
+        Me.LabelValGauge2.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelValGauge2.Location = New System.Drawing.Point(893, 464)
         Me.LabelValGauge2.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValGauge2.Name = "LabelValGauge2"
         Me.LabelValGauge2.Size = New System.Drawing.Size(97, 37)
@@ -856,7 +890,9 @@ Public Class Main
         'LabelGauge2
         '
         Me.LabelGauge2.AutoSize = True
+        Me.LabelGauge2.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelGauge2.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGauge2.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelGauge2.Location = New System.Drawing.Point(907, 312)
         Me.LabelGauge2.Name = "LabelGauge2"
         Me.LabelGauge2.Size = New System.Drawing.Size(69, 33)
@@ -866,7 +902,7 @@ Public Class Main
         'AGauge2
         '
         Me.AGauge2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge2.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge2.BaseArcColor = ColorTheme(COLOR_DARK)
         Me.AGauge2.BaseArcRadius = 150
         Me.AGauge2.BaseArcStart = 135
         Me.AGauge2.BaseArcSweep = 270
@@ -877,26 +913,26 @@ Public Class Main
         Me.AGauge2.MaxValue = 18.0!
         Me.AGauge2.MinValue = 10.0!
         Me.AGauge2.Name = "AGauge2"
-        Me.AGauge2.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray
+        Me.AGauge2.NeedleColor1 = SelectedNeedleGaugeType
         Me.AGauge2.NeedleColor2 = System.Drawing.Color.DimGray
         Me.AGauge2.NeedleRadius = 120
         Me.AGauge2.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge2.NeedleWidth = 5
-        Me.AGauge2.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge2.ScaleLinesInterColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge2.ScaleLinesInterInnerRadius = 120
         Me.AGauge2.ScaleLinesInterOuterRadius = 110
         Me.AGauge2.ScaleLinesInterWidth = 2
-        Me.AGauge2.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge2.ScaleLinesMajorColor = ColorTheme(COLOR_DARK)
         Me.AGauge2.ScaleLinesMajorInnerRadius = 120
         Me.AGauge2.ScaleLinesMajorOuterRadius = 105
         Me.AGauge2.ScaleLinesMajorStepValue = 1.0!
         Me.AGauge2.ScaleLinesMajorWidth = 4
-        Me.AGauge2.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge2.ScaleLinesMinorColor = ColorTheme(COLOR_ACCENT)
         Me.AGauge2.ScaleLinesMinorInnerRadius = 120
         Me.AGauge2.ScaleLinesMinorOuterRadius = 115
         Me.AGauge2.ScaleLinesMinorTicks = 9
         Me.AGauge2.ScaleLinesMinorWidth = 2
-        Me.AGauge2.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge2.ScaleNumbersColor = ColorTheme(COLOR_TEXT)
         Me.AGauge2.ScaleNumbersFormat = Nothing
         Me.AGauge2.ScaleNumbersRadius = 132
         Me.AGauge2.ScaleNumbersRotation = 0
@@ -911,7 +947,9 @@ Public Class Main
         'LabelPower
         '
         Me.LabelPower.AutoSize = True
+        Me.LabelPower.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelPower.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelPower.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelPower.Location = New System.Drawing.Point(549, 257)
         Me.LabelPower.Name = "LabelPower"
         Me.LabelPower.Size = New System.Drawing.Size(181, 33)
@@ -921,8 +959,10 @@ Public Class Main
         'LabelValPower
         '
         Me.LabelValPower.AutoSize = True
+        Me.LabelValPower.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelValPower.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LabelValPower.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValPower.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelValPower.Location = New System.Drawing.Point(596, 326)
         Me.LabelValPower.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValPower.Name = "LabelValPower"
@@ -934,8 +974,10 @@ Public Class Main
         'LabelValMotorTorque
         '
         Me.LabelValMotorTorque.AutoSize = True
+        Me.LabelValMotorTorque.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelValMotorTorque.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LabelValMotorTorque.Font = New System.Drawing.Font("Tahoma", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelValMotorTorque.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelValMotorTorque.Location = New System.Drawing.Point(1182, 326)
         Me.LabelValMotorTorque.MinimumSize = New System.Drawing.Size(97, 37)
         Me.LabelValMotorTorque.Name = "LabelValMotorTorque"
@@ -947,7 +989,9 @@ Public Class Main
         'LabelMotorTorque
         '
         Me.LabelMotorTorque.AutoSize = True
+        Me.LabelMotorTorque.BackColor = ColorTheme(COLOR_BASE)
         Me.LabelMotorTorque.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMotorTorque.ForeColor = ColorTheme(COLOR_TEXT)
         Me.LabelMotorTorque.Location = New System.Drawing.Point(1088, 257)
         Me.LabelMotorTorque.Name = "LabelMotorTorque"
         Me.LabelMotorTorque.Size = New System.Drawing.Size(271, 33)
@@ -976,12 +1020,12 @@ Public Class Main
         '
         'PlotView1
         '
-        Me.PlotView1.BackColor = System.Drawing.SystemColors.Control
+        Me.PlotView1.BackColor = ColorTheme(COLOR_BASE)
         Me.PlotView1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PlotView1.Location = New System.Drawing.Point(0, 645)
+        Me.PlotView1.Location = New System.Drawing.Point(0, 665)
         Me.PlotView1.Name = "PlotView1"
         Me.PlotView1.PanCursor = System.Windows.Forms.Cursors.Hand
-        Me.PlotView1.Size = New System.Drawing.Size(1904, 396)
+        Me.PlotView1.Size = New System.Drawing.Size(1924, 396)
         Me.PlotView1.TabIndex = 208
         Me.PlotView1.Text = "PlotView1"
         Me.PlotView1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE
@@ -992,9 +1036,9 @@ Public Class Main
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.AutoScroll = True
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = ColorTheme(COLOR_BASE)
         Me.CausesValidation = False
-        Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.ClientSize = New System.Drawing.Size(1924, 1061)
         Me.Controls.Add(Me.PlotView1)
         Me.Controls.Add(Me.btnRefreshCOM)
         Me.Controls.Add(Me.btnProfile)
@@ -1031,6 +1075,7 @@ Public Class Main
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SimpleDyno beta by DTECH"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.SetupGauge()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1039,6 +1084,57 @@ Public Class Main
 #End Region
 #Region "Form Load, WndProc, Button and Trackbar Events, Delgates and Close"
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        'Select Case SelectedTheme
+        '    Case Is = 0 'Light
+        '        ColorTheme(COLOR_BASE) = System.Drawing.SystemColors.Control
+        '        ColorTheme(COLOR_DARK) = System.Drawing.SystemColors.ControlDark
+        '        ColorTheme(COLOR_LIGHT) = System.Drawing.SystemColors.HighlightText
+        '        ColorTheme(COLOR_TEXT) = System.Drawing.SystemColors.ControlText
+        '        ColorTheme(COLOR_OP_TEXT) = System.Drawing.SystemColors.HighlightText
+        '        ColorTheme(COLOR_LINECHART1) = Color.Black
+        '        ColorTheme(COLOR_LINECHART2) = Color.Blue
+        '        ColorTheme(COLOR_LINECHART3) = Color.Red
+        '        ColorTheme(COLOR_LINECHART4) = Color.Green
+        '        ColorTheme(COLOR_LINECHART5) = Color.Purple
+        '        ColorTheme(COLOR_SUCCESS) = Color.Green
+        '        ColorTheme(COLOR_DANGER) = Color.Red
+        '        ColorTheme(COLOR_WARNING) = Color.Yellow
+        '        ColorTheme(COLOR_ACCENT) = System.Drawing.Color.Gray
+        '        SelectedNeedleGaugeType = AGaugeNeedleColor.Gray
+        '    Case Is = 1 'Dark
+        '        ColorTheme(COLOR_BASE) = System.Drawing.SystemColors.Desktop
+        '        ColorTheme(COLOR_DARK) = System.Drawing.SystemColors.Control
+        '        ColorTheme(COLOR_LIGHT) = System.Drawing.SystemColors.ControlText
+        '        ColorTheme(COLOR_TEXT) = System.Drawing.SystemColors.HighlightText
+        '        ColorTheme(COLOR_OP_TEXT) = System.Drawing.SystemColors.ControlText
+        '        ColorTheme(COLOR_LINECHART1) = Color.White
+        '        ColorTheme(COLOR_LINECHART2) = Color.Blue
+        '        ColorTheme(COLOR_LINECHART3) = Color.Red
+        '        ColorTheme(COLOR_LINECHART4) = Color.Green
+        '        ColorTheme(COLOR_LINECHART5) = Color.Purple
+        '        ColorTheme(COLOR_SUCCESS) = Color.Green
+        '        ColorTheme(COLOR_DANGER) = Color.Red
+        '        ColorTheme(COLOR_WARNING) = Color.Yellow
+        '        ColorTheme(COLOR_ACCENT) = System.Drawing.Color.Gainsboro
+        '        SelectedNeedleGaugeType = AGaugeNeedleColor.Red 'Red
+        '    Case Is = 2 'Gray
+        '        ColorTheme(COLOR_BASE) = System.Drawing.SystemColors.ControlDarkDark
+        '        ColorTheme(COLOR_DARK) = System.Drawing.SystemColors.Control
+        '        ColorTheme(COLOR_LIGHT) = System.Drawing.SystemColors.Control
+        '        ColorTheme(COLOR_TEXT) = System.Drawing.SystemColors.ControlText
+        '        ColorTheme(COLOR_OP_TEXT) = System.Drawing.SystemColors.HighlightText
+        '        ColorTheme(COLOR_LINECHART1) = Color.Black
+        '        ColorTheme(COLOR_LINECHART2) = Color.Blue
+        '        ColorTheme(COLOR_LINECHART3) = Color.Red
+        '        ColorTheme(COLOR_LINECHART4) = Color.Green
+        '        ColorTheme(COLOR_LINECHART5) = Color.Purple
+        '        ColorTheme(COLOR_SUCCESS) = Color.Green
+        '        ColorTheme(COLOR_DANGER) = Color.Red
+        '        ColorTheme(COLOR_WARNING) = Color.Yellow
+        '        ColorTheme(COLOR_ACCENT) = System.Drawing.Color.Silver
+        '        SelectedNeedleGaugeType = AGaugeNeedleColor.Red 'Red
+        'End Select
 #If QueryPerformance Then
         btnPerformanceTest.Visible = True
                 cmbBufferSize.Visible = True
@@ -1055,7 +1151,7 @@ Public Class Main
         frmCorrection = New Correction
 
         Timer1 = New Timer
-        Timer1.Interval = 100
+        Timer1.Interval = 30
 
         AddHandler Me.Timer1.Tick, AddressOf Me.TimerTick
 
@@ -2811,7 +2907,7 @@ Public Class Main
         'pnlSignalWindow.BackgroundImage = SignalBitmap
         'pnlSignalWindow.Invalidate()
         'SetControlBackColor_ThreadSafe(lblCOMActive, System.Windows.Forms.Control.DefaultBackColor)
-        SetControlBackColor_ThreadSafe(btnStartAcquisition, System.Windows.Forms.Control.DefaultBackColor)
+        SetControlBackColor_ThreadSafe(btnStartAcquisition, ColorTheme(COLOR_SUCCESS))
         'Set all parameters to be available in interface components
         For count As Integer = 1 To LAST - 1
             DataAreUsed(count) = True
@@ -3091,7 +3187,7 @@ Public Class Main
                                 End If
                             Else
                                 RPM2TriggerStatus = False
-                                If (ElapsedTimeToRadPerSec2 / RPM2ElapsedTime) = 0 Then
+                                If Math.Floor(RPM2ElapsedTime) = 0 Then
                                     RPM2TriggerStatus = True
                                 End If
                                 If Data(SESSIONTIME, ACTUAL) - RPM2NewTriggerTime > WaitForNewSignal Then
@@ -3168,7 +3264,7 @@ Public Class Main
                                             Else
                                                 TotalElapsedTime += (RPM1NewTriggerTime - RPM1OldTriggerTime)
                                             End If
-                                            If DataPoints = MinimumPowerRunPoints Then btnStartPowerRun.BackColor = Color.Green
+                                            If DataPoints = MinimumPowerRunPoints Then btnStartPowerRun.BackColor = ColorTheme(COLOR_SUCCESS)
                                             CollectedData(SESSIONTIME, DataPoints) = TotalElapsedTime
                                             CollectedData(RPM1_ROLLER, DataPoints) = Data(RPM1_ROLLER, ACTUAL)
                                             CollectedData(RPM2, DataPoints) = Data(RPM2, ACTUAL)
@@ -3181,7 +3277,7 @@ Public Class Main
                                             'DataPoints += 1
                                             If DataPoints = MAXDATAPOINTS Then
                                                 DataPoints = MAXDATAPOINTS - 1
-                                                btnStartPowerRun.BackColor = Color.Red
+                                                btnStartPowerRun.BackColor = ColorTheme(COLOR_DANGER)
                                             End If
                                         End If
 
@@ -3209,7 +3305,7 @@ Public Class Main
                                 End Select
                             Else
                                 RPM1TriggerStatus = False
-                                If ElapsedTimeToRadPerSec / RPM1ElapsedTime = 0 Then
+                                If Math.Floor(RPM2ElapsedTime) = 0 Then
                                     RPM1TriggerStatus = True
                                 End If
                                 If Data(SESSIONTIME, ACTUAL) - RPM1NewTriggerTime > WaitForNewSignal Then
@@ -3715,8 +3811,12 @@ Public Class Main
             Me.LabelValGauge2.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
 
             If WhichDataMode = POWERRUN Then
-                lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
-                lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+                If Data(POWER, ACTUAL) >= 0 Then
+                    lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
+                End If
+                If Data(TORQUE_MOTOR, ACTUAL) >= 0 Then
+                    lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+                End If
 
                 plotModel.InvalidatePlot(True)
             End If
@@ -3727,15 +3827,19 @@ Public Class Main
             Me.LabelValGauge3.Text = NewCustomFormat(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1))
         End If
 
-        Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
-        Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
+        If Data(POWER, ACTUAL) >= 0 Then
+            Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
+        End If
+        If Data(TORQUE_MOTOR, ACTUAL) >= 0 Then
+            Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
+        End If
 
         If btnRun <> btnRunTMP Then
             btnRun = btnRunTMP
             If btnRun <> 0 Then
                 btnStartPowerRun_Click(Me, EventArgs.Empty)
             Else
-                SetControlBackColor_ThreadSafe(btnStartPowerRun, System.Windows.Forms.Control.DefaultBackColor)
+                SetControlBackColor_ThreadSafe(btnStartPowerRun, ColorTheme(COLOR_SUCCESS))
                 WhichDataMode = LIVE
             End If
         End If
@@ -3751,10 +3855,11 @@ Public Class Main
 
     Private Sub SetupDiagram()
         Me.plotModel = New OxyPlot.PlotModel() With {
-            .Background = OxyColor.FromArgb(SystemColors.Control.A, SystemColors.Control.R, SystemColors.Control.G, SystemColors.Control.B),
+            .Background = OxyColor.FromArgb(ColorTheme(COLOR_ACCENT).A, ColorTheme(COLOR_ACCENT).R, ColorTheme(COLOR_ACCENT).G, ColorTheme(COLOR_ACCENT).B),
             .AxisTierDistance = 0,
-            .PlotMargins = New OxyThickness(100, 50, 100, 50),
-            .IsLegendVisible = True
+            .PlotMargins = New OxyThickness(100, 30, 100, 70),
+            .IsLegendVisible = True,
+            .DefaultFontSize = 18
         }
 
         Me.PlotView1.Model = Me.plotModel
@@ -3807,12 +3912,12 @@ Public Class Main
                            })
 
         Dim lineStyles As LineStyle() = {LineStyle.Solid, LineStyle.Dash, LineStyle.LongDash, LineStyle.DashDot, LineStyle.LongDashDot}
-        Dim colors As OxyColor() = {OxyColors.Black, OxyColors.Blue, OxyColors.Red, OxyColors.Green, OxyColors.Purple}
+        Dim colors As OxyColor() = {OxyColor.FromRgb(ColorTheme(COLOR_LINECHART1).R, ColorTheme(COLOR_LINECHART1).G, ColorTheme(COLOR_LINECHART1).B), OxyColor.FromRgb(ColorTheme(COLOR_LINECHART2).R, ColorTheme(COLOR_LINECHART2).G, ColorTheme(COLOR_LINECHART2).B), OxyColor.FromRgb(ColorTheme(COLOR_LINECHART3).R, ColorTheme(COLOR_LINECHART3).G, ColorTheme(COLOR_LINECHART3).B), OxyColor.FromRgb(ColorTheme(COLOR_LINECHART4).R, ColorTheme(COLOR_LINECHART4).G, ColorTheme(COLOR_LINECHART4).B), OxyColor.FromRgb(ColorTheme(COLOR_LINECHART5).R, ColorTheme(COLOR_LINECHART5).G, ColorTheme(COLOR_LINECHART5).B)}
 
         lineSeries1 = New OxyPlot.Series.LineSeries With {
                 .YAxisKey = "y1",
                 .LineStyle = LineStyle.Solid,
-                .Color = OxyColors.Red,
+                .Color = colors(1),
                 .Title = "POWER"
             }
         plotModel.Series.Add(lineSeries1)
@@ -3820,7 +3925,7 @@ Public Class Main
         lineSeries2 = New OxyPlot.Series.LineSeries With {
                 .YAxisKey = "y2",
                 .LineStyle = LineStyle.Solid,
-                .Color = OxyColors.Blue,
+                .Color = colors(2),
                 .Title = "TORQUE"
             }
         plotModel.Series.Add(lineSeries2)
@@ -3834,9 +3939,9 @@ Public Class Main
         Dim highValueRange1 As New AGaugeRange()
         highValueRange1.StartValue = 17
         highValueRange1.EndValue = 18
-        highValueRange1.Color = Color.Red
-        highValueRange1.InnerRadius = 210
-        highValueRange1.OuterRadius = 225
+        highValueRange1.Color = ColorTheme(COLOR_DANGER)
+        highValueRange1.InnerRadius = 195
+        highValueRange1.OuterRadius = 210
 
         AGauge1.GaugeRanges.Add(highValueRange1)
 
@@ -3845,9 +3950,9 @@ Public Class Main
         Dim highValueRange3 As New AGaugeRange()
         highValueRange3.StartValue = 2.7
         highValueRange3.EndValue = 3
-        highValueRange3.Color = Color.Red
-        highValueRange3.InnerRadius = 210
-        highValueRange3.OuterRadius = 225
+        highValueRange3.Color = ColorTheme(COLOR_DANGER)
+        highValueRange3.InnerRadius = 195
+        highValueRange3.OuterRadius = 210
 
         AGauge3.GaugeRanges.Add(highValueRange3)
 

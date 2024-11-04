@@ -382,6 +382,7 @@ Partial Class AnalysisForm
         '
         'Panel1
         '
+        Me.Panel1.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.pnlDataC2Overlay)
         Me.Panel1.Controls.Add(Me.Label10)
@@ -527,12 +528,12 @@ Partial Class AnalysisForm
         '
         'PlotView1
         '
-        Me.PlotView1.BackColor = System.Drawing.Color.White
+        Me.PlotView1.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.PlotView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PlotView1.Location = New System.Drawing.Point(3, 183)
         Me.PlotView1.Name = "PlotView1"
         Me.PlotView1.PanCursor = System.Windows.Forms.Cursors.Hand
-        Me.PlotView1.Size = New System.Drawing.Size(761, 345)
+        Me.PlotView1.Size = New System.Drawing.Size(761, 414)
         Me.PlotView1.TabIndex = 110
         Me.PlotView1.Text = "PlotView1"
         Me.PlotView1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE
@@ -541,7 +542,7 @@ Partial Class AnalysisForm
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.White
+        Me.TableLayoutPanel1.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.PlotView2, 0, 2)
@@ -553,19 +554,19 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.41908!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.79045!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.79045!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.67837!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.93658!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(767, 883)
         Me.TableLayoutPanel1.TabIndex = 109
         '
         'PlotView2
         '
-        Me.PlotView2.BackColor = System.Drawing.Color.White
+        Me.PlotView2.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.PlotView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PlotView2.Location = New System.Drawing.Point(3, 534)
+        Me.PlotView2.Location = New System.Drawing.Point(3, 603)
         Me.PlotView2.Name = "PlotView2"
         Me.PlotView2.PanCursor = System.Windows.Forms.Cursors.Hand
-        Me.PlotView2.Size = New System.Drawing.Size(761, 346)
+        Me.PlotView2.Size = New System.Drawing.Size(761, 277)
         Me.PlotView2.TabIndex = 112
         Me.PlotView2.Text = "PlotView2"
         Me.PlotView2.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE
@@ -574,7 +575,7 @@ Partial Class AnalysisForm
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.BackColor = System.Drawing.Color.White
+        Me.TableLayoutPanel2.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.TableLayoutPanel2.ColumnCount = 8
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))

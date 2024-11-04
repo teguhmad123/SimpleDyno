@@ -169,7 +169,7 @@ Public Class AnalysisForm
     Private Sub SetupDiagram()
 
         Me.plotModel1 = New OxyPlot.PlotModel() With {
-            .Background = OxyColors.White,
+            .Background = OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_DARK).R, Main.ColorTheme(Main.COLOR_DARK).G, Main.ColorTheme(Main.COLOR_DARK).B),
             .AxisTierDistance = 0,
             .PlotMargins = New OxyThickness(100, 50, 100, 50),
             .IsLegendVisible = True
@@ -178,7 +178,7 @@ Public Class AnalysisForm
         Me.PlotView1.Model = Me.plotModel1
 
         Me.plotModel2 = New OxyPlot.PlotModel() With {
-            .Background = OxyColors.White,
+            .Background = OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_DARK).R, Main.ColorTheme(Main.COLOR_DARK).G, Main.ColorTheme(Main.COLOR_DARK).B),
             .AxisTierDistance = 0,
             .PlotMargins = New OxyThickness(100, 50, 100, 50),
             .IsLegendVisible = True
@@ -362,7 +362,7 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Left,
                            .Title = C2Y1AxisTitle,
                            .MajorGridlineStyle = LineStyle.Solid,
-                           .MajorStep = 1, .Unit = C2Y1AxisUnit,
+                           .Unit = C2Y1AxisUnit,
                            .IsZoomEnabled = False
                            })
         End If
@@ -373,13 +373,15 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Right,
                            .Title = C2Y2AxisTitle,
                            .MajorGridlineStyle = LineStyle.Dash,
-                           .MajorStep = 1, .Unit = C2Y2AxisUnit,
+                           .Unit = C2Y2AxisUnit,
                            .IsZoomEnabled = False
                            })
         End If
 
         Dim lineStyles As LineStyle() = {LineStyle.Solid, LineStyle.Dash, LineStyle.LongDash, LineStyle.DashDot, LineStyle.LongDashDot}
-        Dim colors As OxyColor() = {OxyColors.Black, OxyColors.Blue, OxyColors.Red, OxyColors.Green, OxyColors.Purple}
+        'Dim colors As OxyColor() = {OxyColors.Black, OxyColors.Blue, OxyColors.Red, OxyColors.Green, OxyColors.Purple}
+
+        Dim colors As OxyColor() = {OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_LINECHART1).R, Main.ColorTheme(Main.COLOR_LINECHART1).G, Main.ColorTheme(Main.COLOR_LINECHART1).B), OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_LINECHART2).R, Main.ColorTheme(Main.COLOR_LINECHART2).G, Main.ColorTheme(Main.COLOR_LINECHART2).B), OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_LINECHART3).R, Main.ColorTheme(Main.COLOR_LINECHART3).G, Main.ColorTheme(Main.COLOR_LINECHART3).B), OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_LINECHART4).R, Main.ColorTheme(Main.COLOR_LINECHART4).G, Main.ColorTheme(Main.COLOR_LINECHART4).B), OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_LINECHART5).R, Main.ColorTheme(Main.COLOR_LINECHART5).G, Main.ColorTheme(Main.COLOR_LINECHART5).B)}
 
         Dim row As Integer = 0
         For i = 0 To dataRecordsList.Count - 1
