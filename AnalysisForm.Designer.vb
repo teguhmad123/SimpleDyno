@@ -549,7 +549,7 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.PlotView1, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(181, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
@@ -633,7 +633,7 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel2.Controls.Add(Me.lblC2XMax4, 5, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.lblC2XMax5, 5, 6)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableLayoutPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 7
@@ -756,7 +756,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1XMax1.AutoSize = True
         Me.lblC1XMax1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1XMax1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1XMax1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1XMax1.Location = New System.Drawing.Point(98, 48)
         Me.lblC1XMax1.Name = "lblC1XMax1"
         Me.lblC1XMax1.Size = New System.Drawing.Size(89, 24)
@@ -768,7 +768,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y1Max1.AutoSize = True
         Me.lblC1Y1Max1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y1Max1.Location = New System.Drawing.Point(193, 48)
         Me.lblC1Y1Max1.Name = "lblC1Y1Max1"
         Me.lblC1Y1Max1.Size = New System.Drawing.Size(89, 24)
@@ -780,7 +780,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y2Max1.AutoSize = True
         Me.lblC1Y2Max1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y2Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y2Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y2Max1.Location = New System.Drawing.Point(288, 48)
         Me.lblC1Y2Max1.Name = "lblC1Y2Max1"
         Me.lblC1Y2Max1.Size = New System.Drawing.Size(89, 24)
@@ -792,7 +792,7 @@ Partial Class AnalysisForm
         '
         Me.lblC2Y1Max1.AutoSize = True
         Me.lblC2Y1Max1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC2Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC2Y1Max1.Location = New System.Drawing.Point(573, 48)
         Me.lblC2Y1Max1.Name = "lblC2Y1Max1"
         Me.lblC2Y1Max1.Size = New System.Drawing.Size(89, 24)
@@ -814,7 +814,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1XMax2.AutoSize = True
         Me.lblC1XMax2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1XMax2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1XMax2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1XMax2.Location = New System.Drawing.Point(98, 72)
         Me.lblC1XMax2.Name = "lblC1XMax2"
         Me.lblC1XMax2.Size = New System.Drawing.Size(89, 24)
@@ -826,7 +826,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y1Max2.AutoSize = True
         Me.lblC1Y1Max2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y1Max2.Location = New System.Drawing.Point(193, 72)
         Me.lblC1Y1Max2.Name = "lblC1Y1Max2"
         Me.lblC1Y1Max2.Size = New System.Drawing.Size(89, 24)
@@ -838,7 +838,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y2Max2.AutoSize = True
         Me.lblC1Y2Max2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y2Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y2Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y2Max2.Location = New System.Drawing.Point(288, 72)
         Me.lblC1Y2Max2.Name = "lblC1Y2Max2"
         Me.lblC1Y2Max2.Size = New System.Drawing.Size(89, 24)
@@ -850,7 +850,7 @@ Partial Class AnalysisForm
         '
         Me.lblC2Y1Max2.AutoSize = True
         Me.lblC2Y1Max2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC2Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC2Y1Max2.Location = New System.Drawing.Point(573, 72)
         Me.lblC2Y1Max2.Name = "lblC2Y1Max2"
         Me.lblC2Y1Max2.Size = New System.Drawing.Size(89, 24)
@@ -872,7 +872,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1XMax3.AutoSize = True
         Me.lblC1XMax3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1XMax3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1XMax3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1XMax3.Location = New System.Drawing.Point(98, 96)
         Me.lblC1XMax3.Name = "lblC1XMax3"
         Me.lblC1XMax3.Size = New System.Drawing.Size(89, 24)
@@ -884,7 +884,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y1Max3.AutoSize = True
         Me.lblC1Y1Max3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y1Max3.Location = New System.Drawing.Point(193, 96)
         Me.lblC1Y1Max3.Name = "lblC1Y1Max3"
         Me.lblC1Y1Max3.Size = New System.Drawing.Size(89, 24)
@@ -896,7 +896,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y2Max3.AutoSize = True
         Me.lblC1Y2Max3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y2Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y2Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y2Max3.Location = New System.Drawing.Point(288, 96)
         Me.lblC1Y2Max3.Name = "lblC1Y2Max3"
         Me.lblC1Y2Max3.Size = New System.Drawing.Size(89, 24)
@@ -908,7 +908,7 @@ Partial Class AnalysisForm
         '
         Me.lblC2Y1Max3.AutoSize = True
         Me.lblC2Y1Max3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC2Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC2Y1Max3.Location = New System.Drawing.Point(573, 96)
         Me.lblC2Y1Max3.Name = "lblC2Y1Max3"
         Me.lblC2Y1Max3.Size = New System.Drawing.Size(89, 24)
@@ -930,7 +930,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1XMax4.AutoSize = True
         Me.lblC1XMax4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1XMax4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1XMax4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1XMax4.Location = New System.Drawing.Point(98, 120)
         Me.lblC1XMax4.Name = "lblC1XMax4"
         Me.lblC1XMax4.Size = New System.Drawing.Size(89, 24)
@@ -942,7 +942,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y1Max4.AutoSize = True
         Me.lblC1Y1Max4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y1Max4.Location = New System.Drawing.Point(193, 120)
         Me.lblC1Y1Max4.Name = "lblC1Y1Max4"
         Me.lblC1Y1Max4.Size = New System.Drawing.Size(89, 24)
@@ -954,7 +954,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y2Max4.AutoSize = True
         Me.lblC1Y2Max4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y2Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y2Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y2Max4.Location = New System.Drawing.Point(288, 120)
         Me.lblC1Y2Max4.Name = "lblC1Y2Max4"
         Me.lblC1Y2Max4.Size = New System.Drawing.Size(89, 24)
@@ -966,7 +966,7 @@ Partial Class AnalysisForm
         '
         Me.lblC2Y1Max4.AutoSize = True
         Me.lblC2Y1Max4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC2Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC2Y1Max4.Location = New System.Drawing.Point(573, 120)
         Me.lblC2Y1Max4.Name = "lblC2Y1Max4"
         Me.lblC2Y1Max4.Size = New System.Drawing.Size(89, 24)
@@ -988,7 +988,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1XMax5.AutoSize = True
         Me.lblC1XMax5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1XMax5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1XMax5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1XMax5.Location = New System.Drawing.Point(98, 144)
         Me.lblC1XMax5.Name = "lblC1XMax5"
         Me.lblC1XMax5.Size = New System.Drawing.Size(89, 30)
@@ -1000,7 +1000,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y1Max5.AutoSize = True
         Me.lblC1Y1Max5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y1Max5.Location = New System.Drawing.Point(193, 144)
         Me.lblC1Y1Max5.Name = "lblC1Y1Max5"
         Me.lblC1Y1Max5.Size = New System.Drawing.Size(89, 30)
@@ -1012,7 +1012,7 @@ Partial Class AnalysisForm
         '
         Me.lblC1Y2Max5.AutoSize = True
         Me.lblC1Y2Max5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC1Y2Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC1Y2Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC1Y2Max5.Location = New System.Drawing.Point(288, 144)
         Me.lblC1Y2Max5.Name = "lblC1Y2Max5"
         Me.lblC1Y2Max5.Size = New System.Drawing.Size(89, 30)
@@ -1024,7 +1024,7 @@ Partial Class AnalysisForm
         '
         Me.lblC2Y1Max5.AutoSize = True
         Me.lblC2Y1Max5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblC2Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblC2Y1Max5.Location = New System.Drawing.Point(573, 144)
         Me.lblC2Y1Max5.Name = "lblC2Y1Max5"
         Me.lblC2Y1Max5.Size = New System.Drawing.Size(89, 30)

@@ -472,6 +472,7 @@ Public Class Main
     Public Shared StopFitting As Boolean = False
     Public Shared ProcessingData As Boolean = False
     Public Shared DataPoints As Integer
+    Public Shared ModelDataUnits As Integer
     Public Shared PowerRunThreshold As Double ' = 1
     Private ActualPowerRunThreshold As Double
     Private MinimumPowerRunPoints As Double
@@ -706,7 +707,7 @@ Public Class Main
         '
         Me.AGauge1.BackColor = ColorTheme(COLOR_BASE)
         Me.AGauge1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge1.BaseArcColor = ColorTheme(COLOR_DARK)
+        Me.AGauge1.BaseArcColor = ColorTheme(COLOR_LIGHT)
         Me.AGauge1.BaseArcRadius = 250
         Me.AGauge1.BaseArcStart = 135
         Me.AGauge1.BaseArcSweep = 270
@@ -830,7 +831,7 @@ Public Class Main
         '
         Me.AGauge3.BackColor = ColorTheme(COLOR_BASE)
         Me.AGauge3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge3.BaseArcColor = ColorTheme(COLOR_DARK)
+        Me.AGauge3.BaseArcColor = ColorTheme(COLOR_LIGHT)
         Me.AGauge3.BaseArcRadius = 250
         Me.AGauge3.BaseArcStart = 135
         Me.AGauge3.BaseArcSweep = 270
@@ -902,7 +903,7 @@ Public Class Main
         'AGauge2
         '
         Me.AGauge2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge2.BaseArcColor = ColorTheme(COLOR_DARK)
+        Me.AGauge2.BaseArcColor = ColorTheme(COLOR_LIGHT)
         Me.AGauge2.BaseArcRadius = 150
         Me.AGauge2.BaseArcStart = 135
         Me.AGauge2.BaseArcSweep = 270
@@ -1151,7 +1152,7 @@ Public Class Main
         frmCorrection = New Correction
 
         Timer1 = New Timer
-        Timer1.Interval = 30
+        Timer1.Interval = 20
 
         AddHandler Me.Timer1.Tick, AddressOf Me.TimerTick
 
@@ -1196,7 +1197,7 @@ Public Class Main
 
         'Set Size and Title
         Me.Top = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - Me.Height
-        Me.Text = "SimpleDyno 6.5.3" ' MainTitle
+        Me.Text = "Dyno 0.1.3" ' MainTitle
 
         'Open Up the default interface
         'LoadInterface()
@@ -3274,6 +3275,11 @@ Public Class Main
                                             CollectedData(TEMPERATURE2, DataPoints) = Data(TEMPERATURE2, ACTUAL)
                                             CollectedData(PIN04VALUE, DataPoints) = Data(PIN04VALUE, ACTUAL)
                                             CollectedData(PIN05VALUE, DataPoints) = Data(PIN05VALUE, ACTUAL)
+
+                                            CollectedData(RPM1_MOTOR, DataPoints) = Data(RPM1_MOTOR, ACTUAL)
+                                            CollectedData(POWER, DataPoints) = Data(POWER, ACTUAL)
+                                            CollectedData(TORQUE_MOTOR, DataPoints) = Data(TORQUE_MOTOR, ACTUAL)
+
                                             'DataPoints += 1
                                             If DataPoints = MAXDATAPOINTS Then
                                                 DataPoints = MAXDATAPOINTS - 1
@@ -3305,7 +3311,7 @@ Public Class Main
                                 End Select
                             Else
                                 RPM1TriggerStatus = False
-                                If Math.Floor(RPM2ElapsedTime) = 0 Then
+                                If Math.Floor(RPM1ElapsedTime) = 0 Then
                                     RPM1TriggerStatus = True
                                 End If
                                 If Data(SESSIONTIME, ACTUAL) - RPM1NewTriggerTime > WaitForNewSignal Then
@@ -3810,17 +3816,20 @@ Public Class Main
             Me.AGauge2.Value = CSng(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
             Me.LabelValGauge2.Text = NewCustomFormat(Data(PIN04VALUE, ACTUAL) * DataUnits(PIN04VALUE, 0))
 
-            If WhichDataMode = POWERRUN Then
-                If Data(POWER, ACTUAL) >= 0 Then
-                    lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 0)))
+            If WhichDataMode = POWERRUN And ModelDataUnits < DataPoints Then
+                ModelDataUnits += 1
+                If CollectedData(POWER, DataPoints) > 0 Then
+                    'lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 2)))
+                    lineSeries1.Points.Add(New OxyPlot.DataPoint(CollectedData(RPM1_MOTOR, DataPoints - 1) * DataUnits(RPM1_MOTOR, 1), CollectedData(POWER, DataPoints - 1) * DataUnits(POWER, 2)))
                 End If
-                If Data(TORQUE_MOTOR, ACTUAL) >= 0 Then
-                    lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+                If CollectedData(TORQUE_MOTOR, DataPoints) > 0 Then
+                    'lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+                    lineSeries2.Points.Add(New OxyPlot.DataPoint(CollectedData(RPM1_MOTOR, DataPoints - 1) * DataUnits(RPM1_MOTOR, 1), CollectedData(TORQUE_MOTOR, DataPoints - 1) * DataUnits(TORQUE_MOTOR, 0)))
                 End If
 
                 plotModel.InvalidatePlot(True)
+                End If
             End If
-        End If
 
         If (RPM1TriggerStatus <> False) Then
             Me.AGauge3.Value = CSng(Data(RPM1_ROLLER, ACTUAL) * DataUnits(RPM1_ROLLER, 1) / 1000)
@@ -3828,7 +3837,7 @@ Public Class Main
         End If
 
         If Data(POWER, ACTUAL) >= 0 Then
-            Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 0))
+            Me.LabelValPower.Text = NewCustomFormat(Data(POWER, ACTUAL) * DataUnits(POWER, 2))
         End If
         If Data(TORQUE_MOTOR, ACTUAL) >= 0 Then
             Me.LabelValMotorTorque.Text = NewCustomFormat(Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0))
@@ -3842,6 +3851,18 @@ Public Class Main
                 SetControlBackColor_ThreadSafe(btnStartPowerRun, ColorTheme(COLOR_SUCCESS))
                 WhichDataMode = LIVE
             End If
+        End If
+    End Sub
+
+    Private Sub DataPointsTick(data_points As Integer)
+        If WhichDataMode = POWERRUN Then
+            'lineSeries1.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(POWER, ACTUAL) * DataUnits(POWER, 2)))
+            lineSeries1.Points.Add(New OxyPlot.DataPoint(CollectedData(RPM1_MOTOR, data_points) * DataUnits(RPM1_MOTOR, 1), CollectedData(POWER, data_points) * DataUnits(POWER, 2)))
+
+            'lineSeries2.Points.Add(New OxyPlot.DataPoint(Data(RPM1_MOTOR, ACTUAL) * DataUnits(RPM1_MOTOR, 1), Data(TORQUE_MOTOR, ACTUAL) * DataUnits(TORQUE_MOTOR, 0)))
+            lineSeries2.Points.Add(New OxyPlot.DataPoint(CollectedData(RPM1_MOTOR, data_points) * DataUnits(RPM1_MOTOR, 1), CollectedData(TORQUE_MOTOR, data_points) * DataUnits(TORQUE_MOTOR, 0)))
+
+            plotModel.InvalidatePlot(True)
         End If
     End Sub
 
