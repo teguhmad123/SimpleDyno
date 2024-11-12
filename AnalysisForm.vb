@@ -169,7 +169,10 @@ Public Class AnalysisForm
     Private Sub SetupDiagram()
 
         Me.plotModel1 = New OxyPlot.PlotModel() With {
-            .Background = OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_DARK).R, Main.ColorTheme(Main.COLOR_DARK).G, Main.ColorTheme(Main.COLOR_DARK).B),
+            .Background = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_BASE).A, Main.ColorTheme(Main.COLOR_BASE).R, Main.ColorTheme(Main.COLOR_BASE).G, Main.ColorTheme(Main.COLOR_BASE).B),
+            .LegendTextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+            .TextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+            .PlotAreaBorderColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
             .AxisTierDistance = 0,
             .PlotMargins = New OxyThickness(100, 50, 100, 50),
             .IsLegendVisible = True
@@ -178,7 +181,10 @@ Public Class AnalysisForm
         Me.PlotView1.Model = Me.plotModel1
 
         Me.plotModel2 = New OxyPlot.PlotModel() With {
-            .Background = OxyColor.FromRgb(Main.ColorTheme(Main.COLOR_DARK).R, Main.ColorTheme(Main.COLOR_DARK).G, Main.ColorTheme(Main.COLOR_DARK).B),
+            .Background = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_BASE).A, Main.ColorTheme(Main.COLOR_BASE).R, Main.ColorTheme(Main.COLOR_BASE).G, Main.ColorTheme(Main.COLOR_BASE).B),
+            .LegendTextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+            .TextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+            .PlotAreaBorderColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
             .AxisTierDistance = 0,
             .PlotMargins = New OxyThickness(100, 50, 100, 50),
             .IsLegendVisible = True
@@ -321,6 +327,8 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Bottom,
                            .Title = C1XAxisTitle,
                            .MajorGridlineStyle = LineStyle.Solid,
+                           .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+                           .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
                            .Unit = C1XAxisUnit,
                            .IsZoomEnabled = False
                            })
@@ -331,6 +339,8 @@ Public Class AnalysisForm
                                 .Position = OxyPlot.Axes.AxisPosition.Left,
                                 .Title = C1Y1AxisTitle,
                                 .MajorGridlineStyle = LineStyle.Solid,
+                                .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+                                .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
                                 .Unit = C1Y1AxisUnit,
                                 .IsZoomEnabled = False
                                 })
@@ -342,6 +352,8 @@ Public Class AnalysisForm
                                .Position = OxyPlot.Axes.AxisPosition.Right,
                                .Title = C1Y2AxisTitle,
                                .MajorGridlineStyle = LineStyle.Dash,
+                               .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+                               .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
                                .Unit = C1Y2AxisUnit,
                                .IsZoomEnabled = False
                                })
@@ -352,6 +364,8 @@ Public Class AnalysisForm
                        .Position = OxyPlot.Axes.AxisPosition.Bottom,
                        .Title = C2XAxisTitle,
                        .MajorGridlineStyle = LineStyle.Solid,
+                       .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+                       .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
                        .Unit = C2XAxisUnit,
                        .IsZoomEnabled = False
                        })
@@ -362,6 +376,8 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Left,
                            .Title = C2Y1AxisTitle,
                            .MajorGridlineStyle = LineStyle.Solid,
+                           .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+                           .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
                            .Unit = C2Y1AxisUnit,
                            .IsZoomEnabled = False
                            })
@@ -373,6 +389,8 @@ Public Class AnalysisForm
                            .Position = OxyPlot.Axes.AxisPosition.Right,
                            .Title = C2Y2AxisTitle,
                            .MajorGridlineStyle = LineStyle.Dash,
+                           .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+                           .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
                            .Unit = C2Y2AxisUnit,
                            .IsZoomEnabled = False
                            })

@@ -121,6 +121,9 @@ Partial Class AnalysisForm
         '
         'btnAddOverlayFile
         '
+        Me.btnAddOverlayFile.BackColor = Main.ColorTheme(Main.COLOR_TEXT)
+        'Me.btnAddOverlayFile.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnAddOverlayFile.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnAddOverlayFile.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddOverlayFile.Location = New System.Drawing.Point(12, 12)
         Me.btnAddOverlayFile.Name = "btnAddOverlayFile"
@@ -130,6 +133,9 @@ Partial Class AnalysisForm
         '
         'btnClearOverlay
         '
+        Me.btnClearOverlay.BackColor = Main.ColorTheme(Main.COLOR_TEXT)
+        'Me.btnClearOverlay.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnClearOverlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnClearOverlay.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearOverlay.Location = New System.Drawing.Point(12, 47)
         Me.btnClearOverlay.Name = "btnClearOverlay"
@@ -139,6 +145,9 @@ Partial Class AnalysisForm
         '
         'btnSaveOverlay
         '
+        Me.btnSaveOverlay.BackColor = Main.ColorTheme(Main.COLOR_TEXT)
+        'Me.btnSaveOverlay.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnSaveOverlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSaveOverlay.Enabled = False
         Me.btnSaveOverlay.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveOverlay.Location = New System.Drawing.Point(12, 82)
@@ -176,6 +185,7 @@ Partial Class AnalysisForm
         '
         'Label48
         '
+        Me.Label48.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label48.AutoSize = True
         Me.Label48.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label48.Location = New System.Drawing.Point(11, 468)
@@ -186,6 +196,7 @@ Partial Class AnalysisForm
         '
         'Label47
         '
+        Me.Label47.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label47.AutoSize = True
         Me.Label47.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.Location = New System.Drawing.Point(11, 401)
@@ -196,6 +207,7 @@ Partial Class AnalysisForm
         '
         'Label46
         '
+        Me.Label46.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.Location = New System.Drawing.Point(11, 334)
@@ -236,6 +248,7 @@ Partial Class AnalysisForm
         '
         'Label51
         '
+        Me.Label51.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label51.AutoSize = True
         Me.Label51.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label51.Location = New System.Drawing.Point(76, 775)
@@ -273,6 +286,7 @@ Partial Class AnalysisForm
         '
         'Label50
         '
+        Me.Label50.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label50.AutoSize = True
         Me.Label50.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label50.Location = New System.Drawing.Point(11, 699)
@@ -283,6 +297,7 @@ Partial Class AnalysisForm
         '
         'Label49
         '
+        Me.Label49.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label49.AutoSize = True
         Me.Label49.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label49.Location = New System.Drawing.Point(11, 632)
@@ -313,6 +328,7 @@ Partial Class AnalysisForm
         '
         'lblCurrentXValue
         '
+        Me.lblCurrentXValue.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblCurrentXValue.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCurrentXValue.Location = New System.Drawing.Point(96, 833)
         Me.lblCurrentXValue.Name = "lblCurrentXValue"
@@ -322,6 +338,7 @@ Partial Class AnalysisForm
         '
         'Label9
         '
+        Me.Label9.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(11, 833)
@@ -337,6 +354,7 @@ Partial Class AnalysisForm
         '
         'Label1
         '
+        Me.Label1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(83, 380)
         Me.Label1.Name = "Label1"
@@ -346,6 +364,7 @@ Partial Class AnalysisForm
         '
         'Label2
         '
+        Me.Label2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(83, 447)
         Me.Label2.Name = "Label2"
@@ -355,6 +374,7 @@ Partial Class AnalysisForm
         '
         'Label3
         '
+        Me.Label3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(83, 514)
         Me.Label3.Name = "Label3"
@@ -364,6 +384,7 @@ Partial Class AnalysisForm
         '
         'Label4
         '
+        Me.Label4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(86, 678)
         Me.Label4.Name = "Label4"
@@ -373,6 +394,7 @@ Partial Class AnalysisForm
         '
         'Label5
         '
+        Me.Label5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(83, 745)
         Me.Label5.Name = "Label5"
@@ -429,7 +451,7 @@ Partial Class AnalysisForm
         '
         'pnlDataC2Overlay
         '
-        Me.pnlDataC2Overlay.BackColor = System.Drawing.Color.White
+        Me.pnlDataC2Overlay.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
         Me.pnlDataC2Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.pnlDataC2Overlay.Location = New System.Drawing.Point(122, 70)
         Me.pnlDataC2Overlay.Margin = New System.Windows.Forms.Padding(0)
@@ -441,6 +463,7 @@ Partial Class AnalysisForm
         '
         'Label10
         '
+        Me.Label10.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(86, 611)
         Me.Label10.Name = "Label10"
@@ -450,6 +473,7 @@ Partial Class AnalysisForm
         '
         'Label11
         '
+        Me.Label11.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(11, 565)
@@ -460,6 +484,7 @@ Partial Class AnalysisForm
         '
         'Label8
         '
+        Me.Label8.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(11, 545)
@@ -470,6 +495,7 @@ Partial Class AnalysisForm
         '
         'Label7
         '
+        Me.Label7.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(11, 314)
@@ -492,6 +518,7 @@ Partial Class AnalysisForm
         '
         'Label6
         '
+        Me.Label6.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(11, 136)
         Me.Label6.Name = "Label6"
@@ -528,7 +555,7 @@ Partial Class AnalysisForm
         '
         'PlotView1
         '
-        Me.PlotView1.BackColor = Main.ColorTheme(Main.COLOR_DARK)
+        Me.PlotView1.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.PlotView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PlotView1.Location = New System.Drawing.Point(3, 183)
         Me.PlotView1.Name = "PlotView1"
@@ -542,7 +569,7 @@ Partial Class AnalysisForm
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.BackColor = Main.ColorTheme(Main.COLOR_DARK)
+        Me.TableLayoutPanel1.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.PlotView2, 0, 2)
@@ -561,7 +588,7 @@ Partial Class AnalysisForm
         '
         'PlotView2
         '
-        Me.PlotView2.BackColor = Main.ColorTheme(Main.COLOR_DARK)
+        Me.PlotView2.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.PlotView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PlotView2.Location = New System.Drawing.Point(3, 603)
         Me.PlotView2.Name = "PlotView2"
@@ -575,7 +602,7 @@ Partial Class AnalysisForm
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.BackColor = Main.ColorTheme(Main.COLOR_DARK)
+        Me.TableLayoutPanel2.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.TableLayoutPanel2.ColumnCount = 8
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
@@ -649,6 +676,7 @@ Partial Class AnalysisForm
         '
         'lblC1XTitle
         '
+        Me.lblC1XTitle.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XTitle.AutoSize = True
         Me.lblC1XTitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -661,6 +689,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Title
         '
+        Me.lblC1Y1Title.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Title.AutoSize = True
         Me.lblC1Y1Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -673,6 +702,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Title
         '
+        Me.lblC1Y2Title.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Title.AutoSize = True
         Me.lblC1Y2Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -685,6 +715,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Title
         '
+        Me.lblC2Y1Title.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Title.AutoSize = True
         Me.lblC2Y1Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -697,6 +728,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Unit
         '
+        Me.lblC1Y1Unit.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Unit.AutoSize = True
         Me.lblC1Y1Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -709,6 +741,7 @@ Partial Class AnalysisForm
         '
         'lblC1XUnit
         '
+        Me.lblC1XUnit.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XUnit.AutoSize = True
         Me.lblC1XUnit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -721,6 +754,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Unit
         '
+        Me.lblC1Y2Unit.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Unit.AutoSize = True
         Me.lblC1Y2Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -733,6 +767,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Unit
         '
+        Me.lblC2Y1Unit.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Unit.AutoSize = True
         Me.lblC2Y1Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -745,6 +780,7 @@ Partial Class AnalysisForm
         '
         'lblC1File1
         '
+        Me.lblC1File1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File1.AutoSize = True
         Me.lblC1File1.Location = New System.Drawing.Point(3, 48)
         Me.lblC1File1.Name = "lblC1File1"
@@ -754,6 +790,7 @@ Partial Class AnalysisForm
         '
         'lblC1XMax1
         '
+        Me.lblC1XMax1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XMax1.AutoSize = True
         Me.lblC1XMax1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -766,6 +803,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Max1
         '
+        Me.lblC1Y1Max1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Max1.AutoSize = True
         Me.lblC1Y1Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -778,6 +816,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Max1
         '
+        Me.lblC1Y2Max1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Max1.AutoSize = True
         Me.lblC1Y2Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -790,6 +829,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Max1
         '
+        Me.lblC2Y1Max1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Max1.AutoSize = True
         Me.lblC2Y1Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -802,6 +842,7 @@ Partial Class AnalysisForm
         '
         'lblC1File2
         '
+        Me.lblC1File2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File2.AutoSize = True
         Me.lblC1File2.ForeColor = System.Drawing.Color.Blue
         Me.lblC1File2.Location = New System.Drawing.Point(3, 72)
@@ -812,6 +853,7 @@ Partial Class AnalysisForm
         '
         'lblC1XMax2
         '
+        Me.lblC1XMax2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XMax2.AutoSize = True
         Me.lblC1XMax2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -824,6 +866,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Max2
         '
+        Me.lblC1Y1Max2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Max2.AutoSize = True
         Me.lblC1Y1Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -836,6 +879,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Max2
         '
+        Me.lblC1Y2Max2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Max2.AutoSize = True
         Me.lblC1Y2Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -848,6 +892,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Max2
         '
+        Me.lblC2Y1Max2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Max2.AutoSize = True
         Me.lblC2Y1Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -860,6 +905,7 @@ Partial Class AnalysisForm
         '
         'lblC1File3
         '
+        Me.lblC1File3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File3.AutoSize = True
         Me.lblC1File3.ForeColor = System.Drawing.Color.Red
         Me.lblC1File3.Location = New System.Drawing.Point(3, 96)
@@ -870,6 +916,7 @@ Partial Class AnalysisForm
         '
         'lblC1XMax3
         '
+        Me.lblC1XMax3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XMax3.AutoSize = True
         Me.lblC1XMax3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -882,6 +929,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Max3
         '
+        Me.lblC1Y1Max3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Max3.AutoSize = True
         Me.lblC1Y1Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -894,6 +942,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Max3
         '
+        Me.lblC1Y2Max3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Max3.AutoSize = True
         Me.lblC1Y2Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -906,6 +955,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Max3
         '
+        Me.lblC2Y1Max3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Max3.AutoSize = True
         Me.lblC2Y1Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -918,6 +968,7 @@ Partial Class AnalysisForm
         '
         'lblC1File4
         '
+        Me.lblC1File4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File4.AutoSize = True
         Me.lblC1File4.ForeColor = System.Drawing.Color.Green
         Me.lblC1File4.Location = New System.Drawing.Point(3, 120)
@@ -928,6 +979,7 @@ Partial Class AnalysisForm
         '
         'lblC1XMax4
         '
+        Me.lblC1XMax4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XMax4.AutoSize = True
         Me.lblC1XMax4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -940,6 +992,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Max4
         '
+        Me.lblC1Y1Max4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Max4.AutoSize = True
         Me.lblC1Y1Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -952,6 +1005,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Max4
         '
+        Me.lblC1Y2Max4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Max4.AutoSize = True
         Me.lblC1Y2Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -964,6 +1018,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Max4
         '
+        Me.lblC2Y1Max4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Max4.AutoSize = True
         Me.lblC2Y1Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -976,6 +1031,7 @@ Partial Class AnalysisForm
         '
         'lblC1File5
         '
+        Me.lblC1File5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File5.AutoSize = True
         Me.lblC1File5.ForeColor = System.Drawing.Color.Purple
         Me.lblC1File5.Location = New System.Drawing.Point(3, 144)
@@ -986,6 +1042,7 @@ Partial Class AnalysisForm
         '
         'lblC1XMax5
         '
+        Me.lblC1XMax5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1XMax5.AutoSize = True
         Me.lblC1XMax5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -998,6 +1055,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y1Max5
         '
+        Me.lblC1Y1Max5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y1Max5.AutoSize = True
         Me.lblC1Y1Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1010,6 +1068,7 @@ Partial Class AnalysisForm
         '
         'lblC1Y2Max5
         '
+        Me.lblC1Y2Max5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1Y2Max5.AutoSize = True
         Me.lblC1Y2Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1022,6 +1081,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y1Max5
         '
+        Me.lblC2Y1Max5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y1Max5.AutoSize = True
         Me.lblC2Y1Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1034,6 +1094,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Title
         '
+        Me.lblC2Y2Title.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Title.AutoSize = True
         Me.lblC2Y2Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1046,6 +1107,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Unit
         '
+        Me.lblC2Y2Unit.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Unit.AutoSize = True
         Me.lblC2Y2Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1058,6 +1120,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Max1
         '
+        Me.lblC2Y2Max1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max1.AutoSize = True
         Me.lblC2Y2Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Max1.Location = New System.Drawing.Point(668, 48)
@@ -1069,6 +1132,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Max2
         '
+        Me.lblC2Y2Max2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max2.AutoSize = True
         Me.lblC2Y2Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Max2.Location = New System.Drawing.Point(668, 72)
@@ -1080,6 +1144,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Max3
         '
+        Me.lblC2Y2Max3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max3.AutoSize = True
         Me.lblC2Y2Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Max3.Location = New System.Drawing.Point(668, 96)
@@ -1091,6 +1156,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Max4
         '
+        Me.lblC2Y2Max4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max4.AutoSize = True
         Me.lblC2Y2Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Max4.Location = New System.Drawing.Point(668, 120)
@@ -1102,6 +1168,7 @@ Partial Class AnalysisForm
         '
         'lblC2Y2Max5
         '
+        Me.lblC2Y2Max5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max5.AutoSize = True
         Me.lblC2Y2Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Max5.Location = New System.Drawing.Point(668, 144)
@@ -1113,6 +1180,7 @@ Partial Class AnalysisForm
         '
         'lblC2XTitle
         '
+        Me.lblC2XTitle.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XTitle.AutoSize = True
         Me.lblC2XTitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1125,6 +1193,7 @@ Partial Class AnalysisForm
         '
         'lblC2XUnit
         '
+        Me.lblC2XUnit.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XUnit.AutoSize = True
         Me.lblC2XUnit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1137,6 +1206,7 @@ Partial Class AnalysisForm
         '
         'lblC2XMax1
         '
+        Me.lblC2XMax1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax1.AutoSize = True
         Me.lblC2XMax1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XMax1.Location = New System.Drawing.Point(478, 48)
@@ -1148,6 +1218,7 @@ Partial Class AnalysisForm
         '
         'lblC2XMax2
         '
+        Me.lblC2XMax2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax2.AutoSize = True
         Me.lblC2XMax2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XMax2.Location = New System.Drawing.Point(478, 72)
@@ -1159,6 +1230,7 @@ Partial Class AnalysisForm
         '
         'lblC2XMax3
         '
+        Me.lblC2XMax3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax3.AutoSize = True
         Me.lblC2XMax3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XMax3.Location = New System.Drawing.Point(478, 96)
@@ -1170,6 +1242,7 @@ Partial Class AnalysisForm
         '
         'lblC2XMax4
         '
+        Me.lblC2XMax4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax4.AutoSize = True
         Me.lblC2XMax4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XMax4.Location = New System.Drawing.Point(478, 120)
@@ -1181,6 +1254,7 @@ Partial Class AnalysisForm
         '
         'lblC2XMax5
         '
+        Me.lblC2XMax5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax5.AutoSize = True
         Me.lblC2XMax5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XMax5.Location = New System.Drawing.Point(478, 144)

@@ -63,6 +63,7 @@ Partial Class Dyno
         Me.Label12.TabIndex = 245
         Me.Label12.Text = "Vehicle Mass (g)"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label12.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtCarMass
         '
@@ -75,6 +76,9 @@ Partial Class Dyno
         Me.txtCarMass.Tag = ""
         Me.txtCarMass.Text = "1000"
         Me.txtCarMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtCarMass.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtCarMass.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtCarMass.BorderStyle = BorderStyle.FixedSingle
         '
         'Label2
         '
@@ -85,6 +89,7 @@ Partial Class Dyno
         Me.Label2.TabIndex = 275
         Me.Label2.Text = "Non Critical Parameters"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label20
         '
@@ -95,6 +100,7 @@ Partial Class Dyno
         Me.Label20.TabIndex = 271
         Me.Label20.Text = "Wheel Diameter (mm)"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label20.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtWheelDiameter
         '
@@ -107,6 +113,9 @@ Partial Class Dyno
         Me.txtWheelDiameter.Tag = ""
         Me.txtWheelDiameter.Text = "100"
         Me.txtWheelDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtWheelDiameter.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtWheelDiameter.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtWheelDiameter.BorderStyle = BorderStyle.FixedSingle
         '
         'Label5
         '
@@ -117,6 +126,7 @@ Partial Class Dyno
         Me.Label5.TabIndex = 272
         Me.Label5.Text = "Gear Ratio"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtGearRatio
         '
@@ -129,6 +139,9 @@ Partial Class Dyno
         Me.txtGearRatio.Tag = ""
         Me.txtGearRatio.Text = "1"
         Me.txtGearRatio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtGearRatio.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtGearRatio.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtGearRatio.BorderStyle = BorderStyle.FixedSingle
         '
         'Label6
         '
@@ -139,6 +152,7 @@ Partial Class Dyno
         Me.Label6.TabIndex = 273
         Me.Label6.Text = "Frontal Area (mm2)"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label6.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtFrontalArea
         '
@@ -151,6 +165,9 @@ Partial Class Dyno
         Me.txtFrontalArea.Tag = ""
         Me.txtFrontalArea.Text = "1000"
         Me.txtFrontalArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtFrontalArea.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtFrontalArea.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtFrontalArea.BorderStyle = BorderStyle.FixedSingle
         '
         'Label8
         '
@@ -161,6 +178,7 @@ Partial Class Dyno
         Me.Label8.TabIndex = 274
         Me.Label8.Text = "Drag Coeff."
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label8.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtDragCoefficient
         '
@@ -173,6 +191,9 @@ Partial Class Dyno
         Me.txtDragCoefficient.Tag = ""
         Me.txtDragCoefficient.Text = "1"
         Me.txtDragCoefficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtDragCoefficient.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtDragCoefficient.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtDragCoefficient.BorderStyle = BorderStyle.FixedSingle
         '
         'Label4
         '
@@ -183,6 +204,7 @@ Partial Class Dyno
         Me.Label4.TabIndex = 298
         Me.Label4.Text = "Critical Parameters"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtSignalsPerRPM2
         '
@@ -195,6 +217,9 @@ Partial Class Dyno
         Me.txtSignalsPerRPM2.Tag = ""
         Me.txtSignalsPerRPM2.Text = "0.5"
         Me.txtSignalsPerRPM2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtSignalsPerRPM2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtSignalsPerRPM2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtSignalsPerRPM2.BorderStyle = BorderStyle.FixedSingle
         '
         'Label24
         '
@@ -205,6 +230,7 @@ Partial Class Dyno
         Me.Label24.TabIndex = 297
         Me.Label24.Text = "Signals per Engine RPM"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label24.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtSignalsPerRPM1
         '
@@ -217,6 +243,9 @@ Partial Class Dyno
         Me.txtSignalsPerRPM1.Tag = ""
         Me.txtSignalsPerRPM1.Text = "8"
         Me.txtSignalsPerRPM1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtSignalsPerRPM1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtSignalsPerRPM1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtSignalsPerRPM1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label23
         '
@@ -227,6 +256,7 @@ Partial Class Dyno
         Me.Label23.TabIndex = 289
         Me.Label23.Text = "Signals per Roller RPM"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label23.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtRollerDiameter
         '
@@ -239,6 +269,9 @@ Partial Class Dyno
         Me.txtRollerDiameter.Tag = ""
         Me.txtRollerDiameter.Text = "355"
         Me.txtRollerDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtRollerDiameter.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtRollerDiameter.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtRollerDiameter.BorderStyle = BorderStyle.FixedSingle
         '
         'Label22
         '
@@ -249,6 +282,7 @@ Partial Class Dyno
         Me.Label22.TabIndex = 288
         Me.Label22.Text = "Roller Mass (g)"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label22.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label19
         '
@@ -259,6 +293,7 @@ Partial Class Dyno
         Me.Label19.TabIndex = 286
         Me.Label19.Text = "Roller Diameter (mm)"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label19.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtRollerMass
         '
@@ -271,6 +306,9 @@ Partial Class Dyno
         Me.txtRollerMass.Tag = ""
         Me.txtRollerMass.Text = "240000"
         Me.txtRollerMass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtRollerMass.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtRollerMass.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtRollerMass.BorderStyle = BorderStyle.FixedSingle
         '
         'Label27
         '
@@ -281,6 +319,7 @@ Partial Class Dyno
         Me.Label27.TabIndex = 290
         Me.Label27.Text = "Axle Diameter (mm)"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label27.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtAxleDiameter
         '
@@ -293,6 +332,9 @@ Partial Class Dyno
         Me.txtAxleDiameter.Tag = ""
         Me.txtAxleDiameter.Text = "1"
         Me.txtAxleDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtAxleDiameter.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtAxleDiameter.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtAxleDiameter.BorderStyle = BorderStyle.FixedSingle
         '
         'picDynoSettings
         '
@@ -303,6 +345,9 @@ Partial Class Dyno
         Me.picDynoSettings.Size = New System.Drawing.Size(669, 383)
         Me.picDynoSettings.TabIndex = 299
         Me.picDynoSettings.TabStop = False
+        Me.picDynoSettings.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.picDynoSettings.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.picDynoSettings.BorderStyle = BorderStyle.FixedSingle
         '
         'lblTargetRollerMass
         '
@@ -313,6 +358,7 @@ Partial Class Dyno
         Me.lblTargetRollerMass.TabIndex = 302
         Me.lblTargetRollerMass.Text = "Target Roller Mass"
         Me.lblTargetRollerMass.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblTargetRollerMass.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblActualMomentOfInertia
         '
@@ -323,6 +369,7 @@ Partial Class Dyno
         Me.lblActualMomentOfInertia.TabIndex = 301
         Me.lblActualMomentOfInertia.Text = "Actual MOI"
         Me.lblActualMomentOfInertia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblActualMomentOfInertia.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblTargetMomentOfInertia
         '
@@ -333,6 +380,7 @@ Partial Class Dyno
         Me.lblTargetMomentOfInertia.TabIndex = 300
         Me.lblTargetMomentOfInertia.Text = "Target MOI"
         Me.lblTargetMomentOfInertia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblTargetMomentOfInertia.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblDynoSettings
         '
@@ -342,6 +390,7 @@ Partial Class Dyno
         Me.lblDynoSettings.Size = New System.Drawing.Size(672, 131)
         Me.lblDynoSettings.TabIndex = 303
         Me.lblDynoSettings.Text = "Dyno Settings Information"
+        Me.lblDynoSettings.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label1
         '
@@ -352,12 +401,13 @@ Partial Class Dyno
         Me.Label1.TabIndex = 304
         Me.Label1.Text = "Moment of Inertia (MOI)"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Dyno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = Main.ColorTheme(Main.COLOR_DARK)
+        Me.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.ClientSize = New System.Drawing.Size(944, 555)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblDynoSettings)

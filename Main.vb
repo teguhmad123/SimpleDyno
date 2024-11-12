@@ -316,7 +316,8 @@ Public Class Main
     'Use the new Data Structure approach for the collected data from power runs
     Public Shared CollectedData(LAST - 1, MAXDATAPOINTS) As Double
 
-    Public Shared ColorTheme As Color() = {System.Drawing.SystemColors.ControlDarkDark, System.Drawing.SystemColors.ControlDark, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.ControlText, System.Drawing.SystemColors.HighlightText, Color.Black, Color.Blue, Color.Red, Color.Green, Color.Purple, Color.Green, Color.Red, Color.Yellow, System.Drawing.Color.Silver}
+    'Public Shared ColorTheme As Color() = {System.Drawing.SystemColors.ControlDarkDark, System.Drawing.SystemColors.ControlDark, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.ControlText, System.Drawing.SystemColors.HighlightText, Color.Black, Color.Blue, Color.Red, Color.Green, Color.Purple, Color.Green, Color.Red, Color.Yellow, System.Drawing.Color.Silver}
+    Public Shared ColorTheme As Color() = {Color.FromArgb(255, 42, 45, 50), Color.FromArgb(255, 26, 30, 33), Color.FromArgb(255, 49, 54, 58), System.Drawing.SystemColors.HighlightText, System.Drawing.SystemColors.ControlText, Color.White, Color.Blue, Color.Red, Color.Green, Color.Purple, Color.Green, Color.Red, Color.Yellow, Color.FromArgb(255, 134, 138, 141)}
     Private Theme As String() = {"Light", "Dark", "Grey"}
     Private SelectedTheme As Integer = 0
     Private SelectedNeedleGaugeType As AGaugeNeedleColor = AGaugeNeedleColor.Red
@@ -579,7 +580,9 @@ Public Class Main
         '
         'btnStartPowerRun
         '
-        Me.btnStartPowerRun.BackColor = System.Drawing.SystemColors.Control
+        Me.btnStartPowerRun.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnStartPowerRun.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnStartPowerRun.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnStartPowerRun.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStartPowerRun.Location = New System.Drawing.Point(347, 1)
         Me.btnStartPowerRun.Name = "btnStartPowerRun"
@@ -590,33 +593,42 @@ Public Class Main
         '
         'btnCOM
         '
+        Me.btnCOM.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnCOM.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnCOM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCOM.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCOM.Location = New System.Drawing.Point(76, 1)
         Me.btnCOM.Name = "btnCOM"
         Me.btnCOM.Size = New System.Drawing.Size(68, 47)
         Me.btnCOM.TabIndex = 172
         Me.btnCOM.Text = "COM"
-        Me.btnCOM.UseVisualStyleBackColor = True
+        Me.btnCOM.UseVisualStyleBackColor = False
         '
         'btnDyno
         '
+        Me.btnDyno.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnDyno.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnDyno.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnDyno.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDyno.Location = New System.Drawing.Point(2, 1)
         Me.btnDyno.Name = "btnDyno"
         Me.btnDyno.Size = New System.Drawing.Size(68, 47)
         Me.btnDyno.TabIndex = 170
         Me.btnDyno.Text = "Dyno"
-        Me.btnDyno.UseVisualStyleBackColor = True
+        Me.btnDyno.UseVisualStyleBackColor = False
         '
         'btnAnalysis
         '
+        Me.btnAnalysis.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnAnalysis.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnAnalysis.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnAnalysis.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnalysis.Location = New System.Drawing.Point(150, 1)
         Me.btnAnalysis.Name = "btnAnalysis"
         Me.btnAnalysis.Size = New System.Drawing.Size(100, 47)
         Me.btnAnalysis.TabIndex = 171
         Me.btnAnalysis.Text = "Analysis"
-        Me.btnAnalysis.UseVisualStyleBackColor = True
+        Me.btnAnalysis.UseVisualStyleBackColor = False
         '
         'txtThreshold2
         '
@@ -648,16 +660,22 @@ Public Class Main
         '
         'btnStartAcquisition
         '
+        Me.btnStartAcquisition.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnStartAcquisition.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnStartAcquisition.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnStartAcquisition.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStartAcquisition.Location = New System.Drawing.Point(602, 1)
         Me.btnStartAcquisition.Name = "btnStartAcquisition"
         Me.btnStartAcquisition.Size = New System.Drawing.Size(98, 47)
         Me.btnStartAcquisition.TabIndex = 163
         Me.btnStartAcquisition.Text = "Connect"
-        Me.btnStartAcquisition.UseVisualStyleBackColor = True
+        Me.btnStartAcquisition.UseVisualStyleBackColor = False
         '
         'cmbCOMPorts
         '
+        Me.cmbCOMPorts.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.cmbCOMPorts.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.cmbCOMPorts.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cmbCOMPorts.DropDownWidth = 300
         Me.cmbCOMPorts.FormattingEnabled = True
         Me.cmbCOMPorts.Location = New System.Drawing.Point(490, 3)
@@ -707,7 +725,7 @@ Public Class Main
         '
         Me.AGauge1.BackColor = ColorTheme(COLOR_BASE)
         Me.AGauge1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge1.BaseArcColor = ColorTheme(COLOR_LIGHT)
+        Me.AGauge1.BaseArcColor = ColorTheme(COLOR_TEXT)
         Me.AGauge1.BaseArcRadius = 250
         Me.AGauge1.BaseArcStart = 135
         Me.AGauge1.BaseArcSweep = 270
@@ -723,16 +741,16 @@ Public Class Main
         Me.AGauge1.NeedleRadius = 210
         Me.AGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge1.NeedleWidth = 7
-        Me.AGauge1.ScaleLinesInterColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge1.ScaleLinesInterColor = ColorTheme(COLOR_TEXT)
         Me.AGauge1.ScaleLinesInterInnerRadius = 210
         Me.AGauge1.ScaleLinesInterOuterRadius = 200
         Me.AGauge1.ScaleLinesInterWidth = 2
-        Me.AGauge1.ScaleLinesMajorColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge1.ScaleLinesMajorColor = ColorTheme(COLOR_TEXT)
         Me.AGauge1.ScaleLinesMajorInnerRadius = 210
         Me.AGauge1.ScaleLinesMajorOuterRadius = 195
         Me.AGauge1.ScaleLinesMajorStepValue = 1.0!
         Me.AGauge1.ScaleLinesMajorWidth = 4
-        Me.AGauge1.ScaleLinesMinorColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge1.ScaleLinesMinorColor = ColorTheme(COLOR_TEXT)
         Me.AGauge1.ScaleLinesMinorInnerRadius = 210
         Me.AGauge1.ScaleLinesMinorOuterRadius = 205
         Me.AGauge1.ScaleLinesMinorTicks = 9
@@ -831,7 +849,7 @@ Public Class Main
         '
         Me.AGauge3.BackColor = ColorTheme(COLOR_BASE)
         Me.AGauge3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge3.BaseArcColor = ColorTheme(COLOR_LIGHT)
+        Me.AGauge3.BaseArcColor = ColorTheme(COLOR_TEXT)
         Me.AGauge3.BaseArcRadius = 250
         Me.AGauge3.BaseArcStart = 135
         Me.AGauge3.BaseArcSweep = 270
@@ -847,16 +865,16 @@ Public Class Main
         Me.AGauge3.NeedleRadius = 210
         Me.AGauge3.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge3.NeedleWidth = 7
-        Me.AGauge3.ScaleLinesInterColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge3.ScaleLinesInterColor = ColorTheme(COLOR_TEXT)
         Me.AGauge3.ScaleLinesInterInnerRadius = 210
         Me.AGauge3.ScaleLinesInterOuterRadius = 200
         Me.AGauge3.ScaleLinesInterWidth = 2
-        Me.AGauge3.ScaleLinesMajorColor = ColorTheme(COLOR_DARK)
+        Me.AGauge3.ScaleLinesMajorColor = ColorTheme(COLOR_TEXT)
         Me.AGauge3.ScaleLinesMajorInnerRadius = 210
         Me.AGauge3.ScaleLinesMajorOuterRadius = 195
         Me.AGauge3.ScaleLinesMajorStepValue = 0.5!
         Me.AGauge3.ScaleLinesMajorWidth = 4
-        Me.AGauge3.ScaleLinesMinorColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge3.ScaleLinesMinorColor = ColorTheme(COLOR_TEXT)
         Me.AGauge3.ScaleLinesMinorInnerRadius = 210
         Me.AGauge3.ScaleLinesMinorOuterRadius = 205
         Me.AGauge3.ScaleLinesMinorTicks = 9
@@ -903,7 +921,7 @@ Public Class Main
         'AGauge2
         '
         Me.AGauge2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.AGauge2.BaseArcColor = ColorTheme(COLOR_LIGHT)
+        Me.AGauge2.BaseArcColor = ColorTheme(COLOR_TEXT)
         Me.AGauge2.BaseArcRadius = 150
         Me.AGauge2.BaseArcStart = 135
         Me.AGauge2.BaseArcSweep = 270
@@ -915,20 +933,20 @@ Public Class Main
         Me.AGauge2.MinValue = 10.0!
         Me.AGauge2.Name = "AGauge2"
         Me.AGauge2.NeedleColor1 = SelectedNeedleGaugeType
-        Me.AGauge2.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge2.NeedleColor2 = ColorTheme(COLOR_BASE)
         Me.AGauge2.NeedleRadius = 120
         Me.AGauge2.NeedleType = System.Windows.Forms.NeedleType.Advance
         Me.AGauge2.NeedleWidth = 5
-        Me.AGauge2.ScaleLinesInterColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge2.ScaleLinesInterColor = ColorTheme(COLOR_TEXT)
         Me.AGauge2.ScaleLinesInterInnerRadius = 120
         Me.AGauge2.ScaleLinesInterOuterRadius = 110
         Me.AGauge2.ScaleLinesInterWidth = 2
-        Me.AGauge2.ScaleLinesMajorColor = ColorTheme(COLOR_DARK)
+        Me.AGauge2.ScaleLinesMajorColor = ColorTheme(COLOR_TEXT)
         Me.AGauge2.ScaleLinesMajorInnerRadius = 120
         Me.AGauge2.ScaleLinesMajorOuterRadius = 105
         Me.AGauge2.ScaleLinesMajorStepValue = 1.0!
         Me.AGauge2.ScaleLinesMajorWidth = 4
-        Me.AGauge2.ScaleLinesMinorColor = ColorTheme(COLOR_ACCENT)
+        Me.AGauge2.ScaleLinesMinorColor = ColorTheme(COLOR_TEXT)
         Me.AGauge2.ScaleLinesMinorInnerRadius = 120
         Me.AGauge2.ScaleLinesMinorOuterRadius = 115
         Me.AGauge2.ScaleLinesMinorTicks = 9
@@ -1001,23 +1019,29 @@ Public Class Main
         '
         'btnProfile
         '
+        Me.btnProfile.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnProfile.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnProfile.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProfile.Location = New System.Drawing.Point(257, 1)
         Me.btnProfile.Name = "btnProfile"
         Me.btnProfile.Size = New System.Drawing.Size(83, 47)
         Me.btnProfile.TabIndex = 204
         Me.btnProfile.Text = "Profile"
-        Me.btnProfile.UseVisualStyleBackColor = True
+        Me.btnProfile.UseVisualStyleBackColor = False
         '
         'btnRefreshCOM
         '
+        Me.btnRefreshCOM.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.btnRefreshCOM.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.btnRefreshCOM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnRefreshCOM.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRefreshCOM.Location = New System.Drawing.Point(490, 25)
         Me.btnRefreshCOM.Name = "btnRefreshCOM"
         Me.btnRefreshCOM.Size = New System.Drawing.Size(104, 23)
         Me.btnRefreshCOM.TabIndex = 206
         Me.btnRefreshCOM.Text = "Refresh"
-        Me.btnRefreshCOM.UseVisualStyleBackColor = True
+        Me.btnRefreshCOM.UseVisualStyleBackColor = False
         '
         'PlotView1
         '
@@ -1399,7 +1423,7 @@ Public Class Main
                 'btnStartLoggingRaw.Enabled = True
                 'btnShow_Click(Me, EventArgs.Empty)
                 With btnStartPowerRun
-                    .BackColor = System.Windows.Forms.Control.DefaultBackColor
+                    .BackColor = ColorTheme(COLOR_LIGHT)
                 End With
                 'StopFitting = True
                 StopFitting = False
@@ -1423,7 +1447,7 @@ Public Class Main
                     'btnStartLoggingRaw.Enabled = False
                     'btnShow_Click(Me, EventArgs.Empty)
                     With btnStartPowerRun
-                        .BackColor = Color.Red
+                        .BackColor = ColorTheme(COLOR_DANGER)
                     End With
                     WhichDataMode = POWERRUN
                     StopFitting = False
@@ -3876,7 +3900,10 @@ Public Class Main
 
     Private Sub SetupDiagram()
         Me.plotModel = New OxyPlot.PlotModel() With {
-            .Background = OxyColor.FromArgb(ColorTheme(COLOR_ACCENT).A, ColorTheme(COLOR_ACCENT).R, ColorTheme(COLOR_ACCENT).G, ColorTheme(COLOR_ACCENT).B),
+            .Background = OxyColor.FromArgb(ColorTheme(COLOR_LIGHT).A, ColorTheme(COLOR_LIGHT).R, ColorTheme(COLOR_LIGHT).G, ColorTheme(COLOR_LIGHT).B),
+            .LegendTextColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
+            .TextColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
+            .PlotAreaBorderColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
             .AxisTierDistance = 0,
             .PlotMargins = New OxyThickness(100, 30, 100, 70),
             .IsLegendVisible = True,
@@ -3907,6 +3934,8 @@ Public Class Main
                            .Position = OxyPlot.Axes.AxisPosition.Bottom,
                            .Title = DataTags(xIndex),
                            .MajorGridlineStyle = LineStyle.Solid,
+                           .MajorGridlineColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
+                           .TicklineColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
                            .Unit = "RPM",
                            .AbsoluteMinimum = 0,
                            .AbsoluteMaximum = 18000,
@@ -3919,6 +3948,8 @@ Public Class Main
                            .Position = OxyPlot.Axes.AxisPosition.Left,
                            .Title = DataTags(y1Index),
                            .MajorGridlineStyle = LineStyle.Solid,
+                           .MajorGridlineColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
+                           .TicklineColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
                            .Unit = "HP",
                            .IsZoomEnabled = False
                            })
@@ -3928,6 +3959,8 @@ Public Class Main
                            .Position = OxyPlot.Axes.AxisPosition.Right,
                            .Title = DataTags(y2Index),
                            .MajorGridlineStyle = LineStyle.Dash,
+                           .MajorGridlineColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
+                           .TicklineColor = OxyColor.FromArgb(ColorTheme(COLOR_TEXT).A, ColorTheme(COLOR_TEXT).R, ColorTheme(COLOR_TEXT).G, ColorTheme(COLOR_TEXT).B),
                            .Unit = "N.m",
                            .IsZoomEnabled = False
                            })

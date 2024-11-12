@@ -65,6 +65,7 @@ Partial Class Fit
         '
         'Label1
         '
+        Me.Label1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(27, 89)
@@ -101,6 +102,7 @@ Partial Class Fit
         '
         'Label7
         '
+        Me.Label7.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(31, 64)
@@ -112,6 +114,7 @@ Partial Class Fit
         '
         'lblPowerRunSpikeLevel
         '
+        Me.lblPowerRunSpikeLevel.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblPowerRunSpikeLevel.AutoSize = True
         Me.lblPowerRunSpikeLevel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPowerRunSpikeLevel.Location = New System.Drawing.Point(166, 64)
@@ -183,6 +186,7 @@ Partial Class Fit
         '
         'rdoVoltage
         '
+        Me.rdoVoltage.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.rdoVoltage.AutoSize = True
         Me.rdoVoltage.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rdoVoltage.Location = New System.Drawing.Point(52, 246)
@@ -194,6 +198,7 @@ Partial Class Fit
         '
         'rdoCurrent
         '
+        Me.rdoCurrent.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.rdoCurrent.AutoSize = True
         Me.rdoCurrent.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rdoCurrent.Location = New System.Drawing.Point(51, 212)
@@ -205,6 +210,7 @@ Partial Class Fit
         '
         'rdoRPM1
         '
+        Me.rdoRPM1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.rdoRPM1.AutoSize = True
         Me.rdoRPM1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rdoRPM1.Location = New System.Drawing.Point(12, 11)
@@ -226,6 +232,7 @@ Partial Class Fit
         '
         'chkAddOrNew
         '
+        Me.chkAddOrNew.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.chkAddOrNew.AutoSize = True
         Me.chkAddOrNew.Location = New System.Drawing.Point(6, 442)
         Me.chkAddOrNew.Name = "chkAddOrNew"
@@ -245,6 +252,7 @@ Partial Class Fit
         '
         'lblProgress
         '
+        Me.lblProgress.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblProgress.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProgress.Location = New System.Drawing.Point(3, 282)
         Me.lblProgress.Name = "lblProgress"
@@ -265,6 +273,7 @@ Partial Class Fit
         '
         'rdoRunDown
         '
+        Me.rdoRunDown.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.rdoRunDown.AutoSize = True
         Me.rdoRunDown.Enabled = False
         Me.rdoRunDown.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -277,6 +286,7 @@ Partial Class Fit
         '
         'lblUsingRunDownFile
         '
+        Me.lblUsingRunDownFile.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblUsingRunDownFile.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsingRunDownFile.Location = New System.Drawing.Point(6, 176)
         Me.lblUsingRunDownFile.Name = "lblUsingRunDownFile"
@@ -312,6 +322,7 @@ Partial Class Fit
         '
         'Label2
         '
+        Me.Label2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(42, 37)
@@ -333,6 +344,7 @@ Partial Class Fit
         '
         'Label3
         '
+        Me.Label3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(42, 152)
@@ -380,6 +392,7 @@ Partial Class Fit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(944, 555)
+        Me.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtCoastDownSmooth)

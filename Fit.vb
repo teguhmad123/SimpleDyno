@@ -147,7 +147,7 @@ Public Class Fit
         Dim Ytop As Double = 0.1 * PicDataHeight
         Dim YBottom As Double = 0.9 * PicDataHeight
 
-        Dim AxesPen As New Pen(Color.Black)
+        Dim AxesPen As New Pen(Main.ColorTheme(Main.COLOR_TEXT))
         Dim AxisBrush As New SolidBrush(AxesPen.Color)
         Dim RawDataPen As New Pen(Color.Green, 2)
         Dim CopyDataPen As New Pen(Color.Black, 2)
@@ -235,7 +235,7 @@ Public Class Fit
         Dim YTickInterval As Double = 0
 
         With DataWindowBMP
-            .Clear(Color.White)
+            .Clear(Main.ColorTheme(Main.COLOR_LIGHT))
             .DrawLine(AxesPen, CInt(XLeft), CInt(Ytop), CInt(XLeft), CInt(YBottom)) 'Draw Left Y Axis
             .DrawLine(AxesPen, CInt(XLeft), CInt(YBottom), CInt(XRight), CInt(YBottom)) 'Draw Bottom X Axis  
             XTickInterval = (XRight - XLeft) / 5

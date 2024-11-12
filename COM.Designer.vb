@@ -116,6 +116,7 @@ Partial Class COM
         Me.Label72.Size = New System.Drawing.Size(49, 23)
         Me.Label72.TabIndex = 185
         Me.Label72.Text = "Volts"
+        Me.Label72.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label68
         '
@@ -125,6 +126,7 @@ Partial Class COM
         Me.Label68.Size = New System.Drawing.Size(37, 13)
         Me.Label68.TabIndex = 184
         Me.Label68.Text = "Ohms)"
+        Me.Label68.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label69
         '
@@ -134,6 +136,7 @@ Partial Class COM
         Me.Label69.Size = New System.Drawing.Size(37, 13)
         Me.Label69.TabIndex = 183
         Me.Label69.Text = "Ohms)"
+        Me.Label69.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label66
         '
@@ -143,6 +146,7 @@ Partial Class COM
         Me.Label66.Size = New System.Drawing.Size(37, 13)
         Me.Label66.TabIndex = 182
         Me.Label66.Text = "(Using"
+        Me.Label66.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label67
         '
@@ -152,6 +156,7 @@ Partial Class COM
         Me.Label67.Size = New System.Drawing.Size(37, 13)
         Me.Label67.TabIndex = 181
         Me.Label67.Text = "(Using"
+        Me.Label67.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtResistance2
         '
@@ -162,6 +167,9 @@ Partial Class COM
         Me.txtResistance2.Tag = ""
         Me.txtResistance2.Text = "0"
         Me.txtResistance2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtResistance2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtResistance2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtResistance2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtResistance1
         '
@@ -172,6 +180,9 @@ Partial Class COM
         Me.txtResistance1.Tag = ""
         Me.txtResistance1.Text = "0"
         Me.txtResistance1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtResistance1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtResistance1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtResistance1.BorderStyle = BorderStyle.FixedSingle
         '
         'btnCalibrateI2
         '
@@ -181,7 +192,10 @@ Partial Class COM
         Me.btnCalibrateI2.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateI2.TabIndex = 178
         Me.btnCalibrateI2.Text = "Calibrate"
-        Me.btnCalibrateI2.UseVisualStyleBackColor = True
+        Me.btnCalibrateI2.UseVisualStyleBackColor = False
+        Me.btnCalibrateI2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateI2.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateI2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibrateI1
         '
@@ -191,7 +205,10 @@ Partial Class COM
         Me.btnCalibrateI1.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateI1.TabIndex = 177
         Me.btnCalibrateI1.Text = "Calibrate"
-        Me.btnCalibrateI1.UseVisualStyleBackColor = True
+        Me.btnCalibrateI1.UseVisualStyleBackColor = False
+        Me.btnCalibrateI1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateI1.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibrateV2
         '
@@ -201,7 +218,10 @@ Partial Class COM
         Me.btnCalibrateV2.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateV2.TabIndex = 176
         Me.btnCalibrateV2.Text = "Calibrate"
-        Me.btnCalibrateV2.UseVisualStyleBackColor = True
+        Me.btnCalibrateV2.UseVisualStyleBackColor = False
+        Me.btnCalibrateV2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateV2.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateV2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibrateV1
         '
@@ -211,7 +231,10 @@ Partial Class COM
         Me.btnCalibrateV1.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateV1.TabIndex = 175
         Me.btnCalibrateV1.Text = "Calibrate"
-        Me.btnCalibrateV1.UseVisualStyleBackColor = True
+        Me.btnCalibrateV1.UseVisualStyleBackColor = False
+        Me.btnCalibrateV1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateV1.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'Label63
         '
@@ -222,6 +245,7 @@ Partial Class COM
         Me.Label63.Size = New System.Drawing.Size(73, 23)
         Me.Label63.TabIndex = 174
         Me.Label63.Text = "Current"
+        Me.Label63.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label62
         '
@@ -232,6 +256,7 @@ Partial Class COM
         Me.Label62.Size = New System.Drawing.Size(72, 23)
         Me.Label62.TabIndex = 173
         Me.Label62.Text = "Voltage"
+        Me.Label62.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtInputCurrent2
         '
@@ -242,6 +267,9 @@ Partial Class COM
         Me.txtInputCurrent2.Tag = ""
         Me.txtInputCurrent2.Text = "5"
         Me.txtInputCurrent2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputCurrent2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputCurrent2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputCurrent2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtInputCurrent1
         '
@@ -252,6 +280,9 @@ Partial Class COM
         Me.txtInputCurrent1.Tag = ""
         Me.txtInputCurrent1.Text = "0"
         Me.txtInputCurrent1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputCurrent1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputCurrent1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputCurrent1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label37
         '
@@ -262,6 +293,7 @@ Partial Class COM
         Me.Label37.TabIndex = 164
         Me.Label37.Text = "Voltage (V) = "
         Me.Label37.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label37.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtInputVoltage2
         '
@@ -272,6 +304,9 @@ Partial Class COM
         Me.txtInputVoltage2.Tag = ""
         Me.txtInputVoltage2.Text = "5"
         Me.txtInputVoltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputVoltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputVoltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputVoltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtInputVoltage1
         '
@@ -282,6 +317,9 @@ Partial Class COM
         Me.txtInputVoltage1.Tag = ""
         Me.txtInputVoltage1.Text = "0"
         Me.txtInputVoltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputVoltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputVoltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputVoltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label18
         '
@@ -292,6 +330,7 @@ Partial Class COM
         Me.Label18.Size = New System.Drawing.Size(56, 23)
         Me.Label18.TabIndex = 161
         Me.Label18.Text = "Amps"
+        Me.Label18.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblCurrentAmps
         '
@@ -302,6 +341,7 @@ Partial Class COM
         Me.lblCurrentAmps.TabIndex = 160
         Me.lblCurrentAmps.Text = "999999"
         Me.lblCurrentAmps.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCurrentAmps.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblCurrentVolts
         '
@@ -312,6 +352,7 @@ Partial Class COM
         Me.lblCurrentVolts.TabIndex = 159
         Me.lblCurrentVolts.Text = "999999"
         Me.lblCurrentVolts.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCurrentVolts.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label29
         '
@@ -321,6 +362,7 @@ Partial Class COM
         Me.Label29.Size = New System.Drawing.Size(82, 13)
         Me.Label29.TabIndex = 157
         Me.Label29.Text = "When Pin A0 = "
+        Me.Label29.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtA1Voltage2
         '
@@ -331,6 +373,9 @@ Partial Class COM
         Me.txtA1Voltage2.Tag = ""
         Me.txtA1Voltage2.Text = "5"
         Me.txtA1Voltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA1Voltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA1Voltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA1Voltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA1Voltage1
         '
@@ -341,6 +386,9 @@ Partial Class COM
         Me.txtA1Voltage1.Tag = ""
         Me.txtA1Voltage1.Text = "0"
         Me.txtA1Voltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA1Voltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA1Voltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA1Voltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA0Voltage2
         '
@@ -351,6 +399,9 @@ Partial Class COM
         Me.txtA0Voltage2.Tag = ""
         Me.txtA0Voltage2.Text = "5"
         Me.txtA0Voltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA0Voltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA0Voltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA0Voltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA0Voltage1
         '
@@ -361,6 +412,9 @@ Partial Class COM
         Me.txtA0Voltage1.Tag = ""
         Me.txtA0Voltage1.Text = "0"
         Me.txtA0Voltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA0Voltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA0Voltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA0Voltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label71
         '
@@ -371,6 +425,7 @@ Partial Class COM
         Me.Label71.Size = New System.Drawing.Size(129, 23)
         Me.Label71.TabIndex = 215
         Me.Label71.Text = "Temperature2"
+        Me.Label71.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'btnCalibrateTemp2T2
         '
@@ -380,7 +435,10 @@ Partial Class COM
         Me.btnCalibrateTemp2T2.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateTemp2T2.TabIndex = 214
         Me.btnCalibrateTemp2T2.Text = "Calibrate"
-        Me.btnCalibrateTemp2T2.UseVisualStyleBackColor = True
+        Me.btnCalibrateTemp2T2.UseVisualStyleBackColor = False
+        Me.btnCalibrateTemp2T2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateTemp2T2.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateTemp2T2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibrateTemp2T1
         '
@@ -390,7 +448,10 @@ Partial Class COM
         Me.btnCalibrateTemp2T1.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateTemp2T1.TabIndex = 213
         Me.btnCalibrateTemp2T1.Text = "Calibrate"
-        Me.btnCalibrateTemp2T1.UseVisualStyleBackColor = True
+        Me.btnCalibrateTemp2T1.UseVisualStyleBackColor = False
+        Me.btnCalibrateTemp2T1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateTemp2T1.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateTemp2T1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibrateTemp1T2
         '
@@ -400,7 +461,10 @@ Partial Class COM
         Me.btnCalibrateTemp1T2.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateTemp1T2.TabIndex = 212
         Me.btnCalibrateTemp1T2.Text = "Calibrate"
-        Me.btnCalibrateTemp1T2.UseVisualStyleBackColor = True
+        Me.btnCalibrateTemp1T2.UseVisualStyleBackColor = False
+        Me.btnCalibrateTemp1T2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateTemp1T2.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateTemp1T2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibrateTemp1T1
         '
@@ -410,7 +474,10 @@ Partial Class COM
         Me.btnCalibrateTemp1T1.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibrateTemp1T1.TabIndex = 211
         Me.btnCalibrateTemp1T1.Text = "Calibrate"
-        Me.btnCalibrateTemp1T1.UseVisualStyleBackColor = True
+        Me.btnCalibrateTemp1T1.UseVisualStyleBackColor = False
+        Me.btnCalibrateTemp1T1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibrateTemp1T1.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibrateTemp1T1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'Label64
         '
@@ -421,6 +488,7 @@ Partial Class COM
         Me.Label64.Size = New System.Drawing.Size(129, 23)
         Me.Label64.TabIndex = 210
         Me.Label64.Text = "Temperature1"
+        Me.Label64.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtInputTemp2Temperature2
         '
@@ -431,6 +499,9 @@ Partial Class COM
         Me.txtInputTemp2Temperature2.Tag = "0\999999"
         Me.txtInputTemp2Temperature2.Text = "30"
         Me.txtInputTemp2Temperature2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputTemp2Temperature2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputTemp2Temperature2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputTemp2Temperature2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtInputTemp2Temperature1
         '
@@ -441,6 +512,9 @@ Partial Class COM
         Me.txtInputTemp2Temperature1.Tag = ""
         Me.txtInputTemp2Temperature1.Text = "15"
         Me.txtInputTemp2Temperature1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputTemp2Temperature1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputTemp2Temperature1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputTemp2Temperature1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label55
         '
@@ -451,6 +525,7 @@ Partial Class COM
         Me.Label55.Size = New System.Drawing.Size(30, 23)
         Me.Label55.TabIndex = 204
         Me.Label55.Text = "°C"
+        Me.Label55.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblCurrentTemperature2
         '
@@ -461,6 +536,7 @@ Partial Class COM
         Me.lblCurrentTemperature2.TabIndex = 203
         Me.lblCurrentTemperature2.Text = "999999"
         Me.lblCurrentTemperature2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCurrentTemperature2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtA3Voltage2
         '
@@ -471,6 +547,9 @@ Partial Class COM
         Me.txtA3Voltage2.Tag = ""
         Me.txtA3Voltage2.Text = "5"
         Me.txtA3Voltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA3Voltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA3Voltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA3Voltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA3Voltage1
         '
@@ -481,6 +560,9 @@ Partial Class COM
         Me.txtA3Voltage1.Tag = ""
         Me.txtA3Voltage1.Text = "0"
         Me.txtA3Voltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA3Voltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA3Voltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA3Voltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'txtInputTemp1Temperature2
         '
@@ -491,6 +573,9 @@ Partial Class COM
         Me.txtInputTemp1Temperature2.Tag = ""
         Me.txtInputTemp1Temperature2.Text = "30"
         Me.txtInputTemp1Temperature2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputTemp1Temperature2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputTemp1Temperature2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputTemp1Temperature2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtInputTemp1Temperature1
         '
@@ -501,6 +586,9 @@ Partial Class COM
         Me.txtInputTemp1Temperature1.Tag = ""
         Me.txtInputTemp1Temperature1.Text = "15"
         Me.txtInputTemp1Temperature1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtInputTemp1Temperature1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtInputTemp1Temperature1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtInputTemp1Temperature1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label10
         '
@@ -511,6 +599,7 @@ Partial Class COM
         Me.Label10.Size = New System.Drawing.Size(30, 23)
         Me.Label10.TabIndex = 192
         Me.Label10.Text = "°C"
+        Me.Label10.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'lblCurrentTemperature1
         '
@@ -521,6 +610,7 @@ Partial Class COM
         Me.lblCurrentTemperature1.TabIndex = 191
         Me.lblCurrentTemperature1.Text = "999999"
         Me.lblCurrentTemperature1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCurrentTemperature1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtA2Voltage2
         '
@@ -531,6 +621,9 @@ Partial Class COM
         Me.txtA2Voltage2.Tag = ""
         Me.txtA2Voltage2.Text = "5"
         Me.txtA2Voltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA2Voltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA2Voltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA2Voltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA2Voltage1
         '
@@ -541,6 +634,9 @@ Partial Class COM
         Me.txtA2Voltage1.Tag = ""
         Me.txtA2Voltage1.Text = "0"
         Me.txtA2Voltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA2Voltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA2Voltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA2Voltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label1
         '
@@ -551,6 +647,7 @@ Partial Class COM
         Me.Label1.Size = New System.Drawing.Size(62, 23)
         Me.Label1.TabIndex = 245
         Me.Label1.Text = "Pin A5"
+        Me.Label1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'btnCalibratePinA5V2
         '
@@ -560,7 +657,10 @@ Partial Class COM
         Me.btnCalibratePinA5V2.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibratePinA5V2.TabIndex = 244
         Me.btnCalibratePinA5V2.Text = "Calibrate"
-        Me.btnCalibratePinA5V2.UseVisualStyleBackColor = True
+        Me.btnCalibratePinA5V2.UseVisualStyleBackColor = False
+        Me.btnCalibratePinA5V2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibratePinA5V2.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibratePinA5V2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibratePinA5V1
         '
@@ -570,7 +670,10 @@ Partial Class COM
         Me.btnCalibratePinA5V1.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibratePinA5V1.TabIndex = 243
         Me.btnCalibratePinA5V1.Text = "Calibrate"
-        Me.btnCalibratePinA5V1.UseVisualStyleBackColor = True
+        Me.btnCalibratePinA5V1.UseVisualStyleBackColor = False
+        Me.btnCalibratePinA5V1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibratePinA5V1.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibratePinA5V1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibratePinA4V2
         '
@@ -580,7 +683,10 @@ Partial Class COM
         Me.btnCalibratePinA4V2.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibratePinA4V2.TabIndex = 242
         Me.btnCalibratePinA4V2.Text = "Calibrate"
-        Me.btnCalibratePinA4V2.UseVisualStyleBackColor = True
+        Me.btnCalibratePinA4V2.UseVisualStyleBackColor = False
+        Me.btnCalibratePinA4V2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibratePinA4V2.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibratePinA4V2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'btnCalibratePinA4V1
         '
@@ -590,7 +696,10 @@ Partial Class COM
         Me.btnCalibratePinA4V1.Size = New System.Drawing.Size(56, 21)
         Me.btnCalibratePinA4V1.TabIndex = 241
         Me.btnCalibratePinA4V1.Text = "Calibrate"
-        Me.btnCalibratePinA4V1.UseVisualStyleBackColor = True
+        Me.btnCalibratePinA4V1.UseVisualStyleBackColor = False
+        Me.btnCalibratePinA4V1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.btnCalibratePinA4V1.BackColor = Main.ColorTheme(Main.COLOR_ACCENT)
+        Me.btnCalibratePinA4V1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         '
         'Label2
         '
@@ -601,6 +710,7 @@ Partial Class COM
         Me.Label2.Size = New System.Drawing.Size(43, 23)
         Me.Label2.TabIndex = 240
         Me.Label2.Text = "AFR"
+        Me.Label2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtPin5Value2
         '
@@ -611,6 +721,9 @@ Partial Class COM
         Me.txtPin5Value2.Tag = "0\999999"
         Me.txtPin5Value2.Text = "30"
         Me.txtPin5Value2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtPin5Value2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtPin5Value2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtPin5Value2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtPin5Value1
         '
@@ -621,6 +734,9 @@ Partial Class COM
         Me.txtPin5Value1.Tag = ""
         Me.txtPin5Value1.Text = "15"
         Me.txtPin5Value1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtPin5Value1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtPin5Value1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtPin5Value1.BorderStyle = BorderStyle.FixedSingle
         '
         'lblCurrentPinA5
         '
@@ -631,6 +747,7 @@ Partial Class COM
         Me.lblCurrentPinA5.TabIndex = 233
         Me.lblCurrentPinA5.Text = "999999"
         Me.lblCurrentPinA5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCurrentPinA5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtA5Voltage2
         '
@@ -641,6 +758,9 @@ Partial Class COM
         Me.txtA5Voltage2.Tag = ""
         Me.txtA5Voltage2.Text = "5"
         Me.txtA5Voltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA5Voltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA5Voltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA5Voltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA5Voltage1
         '
@@ -651,6 +771,9 @@ Partial Class COM
         Me.txtA5Voltage1.Tag = ""
         Me.txtA5Voltage1.Text = "0"
         Me.txtA5Voltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA5Voltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA5Voltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA5Voltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'txtPin4Value2
         '
@@ -661,6 +784,9 @@ Partial Class COM
         Me.txtPin4Value2.Tag = ""
         Me.txtPin4Value2.Text = "30"
         Me.txtPin4Value2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtPin4Value2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtPin4Value2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtPin4Value2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtPin4Value1
         '
@@ -671,6 +797,9 @@ Partial Class COM
         Me.txtPin4Value1.Tag = ""
         Me.txtPin4Value1.Text = "15"
         Me.txtPin4Value1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtPin4Value1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtPin4Value1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtPin4Value1.BorderStyle = BorderStyle.FixedSingle
         '
         'lblCurrentPinA4
         '
@@ -681,6 +810,7 @@ Partial Class COM
         Me.lblCurrentPinA4.TabIndex = 221
         Me.lblCurrentPinA4.Text = "999999"
         Me.lblCurrentPinA4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblCurrentPinA4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'txtA4Voltage2
         '
@@ -691,6 +821,9 @@ Partial Class COM
         Me.txtA4Voltage2.Tag = ""
         Me.txtA4Voltage2.Text = "5"
         Me.txtA4Voltage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA4Voltage2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA4Voltage2.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA4Voltage2.BorderStyle = BorderStyle.FixedSingle
         '
         'txtA4Voltage1
         '
@@ -701,6 +834,9 @@ Partial Class COM
         Me.txtA4Voltage1.Tag = ""
         Me.txtA4Voltage1.Text = "0"
         Me.txtA4Voltage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtA4Voltage1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtA4Voltage1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtA4Voltage1.BorderStyle = BorderStyle.FixedSingle
         '
         'Label4
         '
@@ -711,6 +847,7 @@ Partial Class COM
         Me.Label4.TabIndex = 247
         Me.Label4.Text = "Voltage (V) = "
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label5
         '
@@ -720,6 +857,7 @@ Partial Class COM
         Me.Label5.Size = New System.Drawing.Size(82, 13)
         Me.Label5.TabIndex = 246
         Me.Label5.Text = "When Pin A0 = "
+        Me.Label5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label3
         '
@@ -729,6 +867,7 @@ Partial Class COM
         Me.Label3.Size = New System.Drawing.Size(65, 13)
         Me.Label3.TabIndex = 251
         Me.Label3.Text = "Current (I) = "
+        Me.Label3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label6
         '
@@ -738,6 +877,7 @@ Partial Class COM
         Me.Label6.Size = New System.Drawing.Size(82, 13)
         Me.Label6.TabIndex = 250
         Me.Label6.Text = "When Pin A1 = "
+        Me.Label6.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label7
         '
@@ -747,6 +887,7 @@ Partial Class COM
         Me.Label7.Size = New System.Drawing.Size(65, 13)
         Me.Label7.TabIndex = 249
         Me.Label7.Text = "Current (I) = "
+        Me.Label7.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label8
         '
@@ -756,6 +897,7 @@ Partial Class COM
         Me.Label8.Size = New System.Drawing.Size(82, 13)
         Me.Label8.TabIndex = 248
         Me.Label8.Text = "When Pin A1 = "
+        Me.Label8.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label9
         '
@@ -766,6 +908,7 @@ Partial Class COM
         Me.Label9.TabIndex = 255
         Me.Label9.Text = "Temp1 (°C) = "
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label9.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label11
         '
@@ -775,6 +918,7 @@ Partial Class COM
         Me.Label11.Size = New System.Drawing.Size(82, 13)
         Me.Label11.TabIndex = 254
         Me.Label11.Text = "When Pin A2 = "
+        Me.Label11.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label12
         '
@@ -785,6 +929,7 @@ Partial Class COM
         Me.Label12.TabIndex = 253
         Me.Label12.Text = "Temp1 (°C) = "
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label12.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label13
         '
@@ -794,6 +939,7 @@ Partial Class COM
         Me.Label13.Size = New System.Drawing.Size(82, 13)
         Me.Label13.TabIndex = 252
         Me.Label13.Text = "When Pin A2 = "
+        Me.Label13.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label14
         '
@@ -803,6 +949,7 @@ Partial Class COM
         Me.Label14.Size = New System.Drawing.Size(72, 13)
         Me.Label14.TabIndex = 259
         Me.Label14.Text = "Temp2 (°C) = "
+        Me.Label14.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label15
         '
@@ -812,6 +959,7 @@ Partial Class COM
         Me.Label15.Size = New System.Drawing.Size(82, 13)
         Me.Label15.TabIndex = 258
         Me.Label15.Text = "When Pin A3 = "
+        Me.Label15.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label16
         '
@@ -821,6 +969,7 @@ Partial Class COM
         Me.Label16.Size = New System.Drawing.Size(72, 13)
         Me.Label16.TabIndex = 257
         Me.Label16.Text = "Temp2 (°C) = "
+        Me.Label16.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label17
         '
@@ -830,6 +979,7 @@ Partial Class COM
         Me.Label17.Size = New System.Drawing.Size(82, 13)
         Me.Label17.TabIndex = 256
         Me.Label17.Text = "When Pin A3 = "
+        Me.Label17.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label19
         '
@@ -840,6 +990,7 @@ Partial Class COM
         Me.Label19.TabIndex = 263
         Me.Label19.Text = "A4 Value = "
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label19.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label20
         '
@@ -849,6 +1000,7 @@ Partial Class COM
         Me.Label20.Size = New System.Drawing.Size(82, 13)
         Me.Label20.TabIndex = 262
         Me.Label20.Text = "When Pin A4 = "
+        Me.Label20.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label21
         '
@@ -859,6 +1011,7 @@ Partial Class COM
         Me.Label21.TabIndex = 261
         Me.Label21.Text = "A4 Value = "
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label21.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label22
         '
@@ -868,6 +1021,7 @@ Partial Class COM
         Me.Label22.Size = New System.Drawing.Size(82, 13)
         Me.Label22.TabIndex = 260
         Me.Label22.Text = "When Pin A4 = "
+        Me.Label22.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label23
         '
@@ -877,6 +1031,7 @@ Partial Class COM
         Me.Label23.Size = New System.Drawing.Size(62, 13)
         Me.Label23.TabIndex = 267
         Me.Label23.Text = "A5 Value = "
+        Me.Label23.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label24
         '
@@ -886,6 +1041,7 @@ Partial Class COM
         Me.Label24.Size = New System.Drawing.Size(82, 13)
         Me.Label24.TabIndex = 266
         Me.Label24.Text = "When Pin A5 = "
+        Me.Label24.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label25
         '
@@ -895,6 +1051,7 @@ Partial Class COM
         Me.Label25.Size = New System.Drawing.Size(62, 13)
         Me.Label25.TabIndex = 265
         Me.Label25.Text = "A5 Value = "
+        Me.Label25.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'Label26
         '
@@ -904,12 +1061,13 @@ Partial Class COM
         Me.Label26.Size = New System.Drawing.Size(82, 13)
         Me.Label26.TabIndex = 264
         Me.Label26.Text = "When Pin A5 = "
+        Me.Label26.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         '
         'COM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = Main.ColorTheme(Main.COLOR_DARK)
+        Me.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.ClientSize = New System.Drawing.Size(944, 555)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label24)
