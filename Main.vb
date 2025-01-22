@@ -188,6 +188,12 @@ Public Class Main
     Friend WithEvents LabelMotorTorque As Label
     Friend WithEvents btnProfile As Button
     Friend WithEvents PlotView1 As WindowsForms.PlotView
+    Friend WithEvents LabelRunStartAt As Label
+    Friend WithEvents LabelUnitRunStartAt As Label
+    Friend WithEvents LabelRunStopAt As Label
+    Friend WithEvents LabelUnitStopAt As Label
+    Friend WithEvents txtRunStopAtThreshold As TextBox
+    Friend WithEvents txtRunStartAtThreshold As TextBox
     Friend WithEvents btnRefreshCOM As Button
     '
     'Friend WithEvents ButtonCorrection As Button
@@ -474,8 +480,10 @@ Public Class Main
     Public Shared ProcessingData As Boolean = False
     Public Shared DataPoints As Integer
     Public Shared ModelDataUnits As Integer
-    Public Shared PowerRunThreshold As Double ' = 1
-    Private ActualPowerRunThreshold As Double
+    Public Shared PowerRunMinThreshold As Double ' = 1
+    Public Shared PowerRunMaxThreshold As Double ' = 1
+    Private ActualPowerRunMinThreshold As Double
+    Private ActualPowerRunMaxThreshold As Double
     Private MinimumPowerRunPoints As Double
     Private StopAddingBuffers As Boolean = False
 
@@ -572,6 +580,12 @@ Public Class Main
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.btnRefreshCOM = New System.Windows.Forms.Button()
         Me.PlotView1 = New OxyPlot.WindowsForms.PlotView()
+        Me.LabelRunStartAt = New System.Windows.Forms.Label()
+        Me.LabelUnitRunStartAt = New System.Windows.Forms.Label()
+        Me.LabelRunStopAt = New System.Windows.Forms.Label()
+        Me.LabelUnitStopAt = New System.Windows.Forms.Label()
+        Me.txtRunStopAtThreshold = New System.Windows.Forms.TextBox()
+        Me.txtRunStartAtThreshold = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'SaveFileDialog1
@@ -587,7 +601,7 @@ Public Class Main
         Me.btnStartPowerRun.Location = New System.Drawing.Point(347, 1)
         Me.btnStartPowerRun.Name = "btnStartPowerRun"
         Me.btnStartPowerRun.Size = New System.Drawing.Size(135, 47)
-        Me.btnStartPowerRun.TabIndex = 43
+        Me.btnStartPowerRun.TabIndex = 5
         Me.btnStartPowerRun.Text = "Power Run"
         Me.btnStartPowerRun.UseVisualStyleBackColor = False
         '
@@ -600,7 +614,7 @@ Public Class Main
         Me.btnCOM.Location = New System.Drawing.Point(76, 1)
         Me.btnCOM.Name = "btnCOM"
         Me.btnCOM.Size = New System.Drawing.Size(68, 47)
-        Me.btnCOM.TabIndex = 172
+        Me.btnCOM.TabIndex = 2
         Me.btnCOM.Text = "COM"
         Me.btnCOM.UseVisualStyleBackColor = False
         '
@@ -613,7 +627,7 @@ Public Class Main
         Me.btnDyno.Location = New System.Drawing.Point(2, 1)
         Me.btnDyno.Name = "btnDyno"
         Me.btnDyno.Size = New System.Drawing.Size(68, 47)
-        Me.btnDyno.TabIndex = 170
+        Me.btnDyno.TabIndex = 1
         Me.btnDyno.Text = "Dyno"
         Me.btnDyno.UseVisualStyleBackColor = False
         '
@@ -626,7 +640,7 @@ Public Class Main
         Me.btnAnalysis.Location = New System.Drawing.Point(150, 1)
         Me.btnAnalysis.Name = "btnAnalysis"
         Me.btnAnalysis.Size = New System.Drawing.Size(100, 47)
-        Me.btnAnalysis.TabIndex = 171
+        Me.btnAnalysis.TabIndex = 3
         Me.btnAnalysis.Text = "Analysis"
         Me.btnAnalysis.UseVisualStyleBackColor = False
         '
@@ -667,7 +681,7 @@ Public Class Main
         Me.btnStartAcquisition.Location = New System.Drawing.Point(602, 1)
         Me.btnStartAcquisition.Name = "btnStartAcquisition"
         Me.btnStartAcquisition.Size = New System.Drawing.Size(98, 47)
-        Me.btnStartAcquisition.TabIndex = 163
+        Me.btnStartAcquisition.TabIndex = 8
         Me.btnStartAcquisition.Text = "Connect"
         Me.btnStartAcquisition.UseVisualStyleBackColor = False
         '
@@ -681,7 +695,7 @@ Public Class Main
         Me.cmbCOMPorts.Location = New System.Drawing.Point(490, 3)
         Me.cmbCOMPorts.Name = "cmbCOMPorts"
         Me.cmbCOMPorts.Size = New System.Drawing.Size(104, 21)
-        Me.cmbCOMPorts.TabIndex = 158
+        Me.cmbCOMPorts.TabIndex = 6
         '
         'OpenFileDialog1
         '
@@ -1026,7 +1040,7 @@ Public Class Main
         Me.btnProfile.Location = New System.Drawing.Point(257, 1)
         Me.btnProfile.Name = "btnProfile"
         Me.btnProfile.Size = New System.Drawing.Size(83, 47)
-        Me.btnProfile.TabIndex = 204
+        Me.btnProfile.TabIndex = 4
         Me.btnProfile.Text = "Profile"
         Me.btnProfile.UseVisualStyleBackColor = False
         '
@@ -1039,7 +1053,7 @@ Public Class Main
         Me.btnRefreshCOM.Location = New System.Drawing.Point(490, 25)
         Me.btnRefreshCOM.Name = "btnRefreshCOM"
         Me.btnRefreshCOM.Size = New System.Drawing.Size(104, 23)
-        Me.btnRefreshCOM.TabIndex = 206
+        Me.btnRefreshCOM.TabIndex = 7
         Me.btnRefreshCOM.Text = "Refresh"
         Me.btnRefreshCOM.UseVisualStyleBackColor = False
         '
@@ -1057,6 +1071,74 @@ Public Class Main
         Me.PlotView1.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE
         Me.PlotView1.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS
         '
+        'LabelRunStartAt
+        '
+        Me.LabelRunStartAt.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelRunStartAt.AutoSize = True
+        Me.LabelRunStartAt.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRunStartAt.Location = New System.Drawing.Point(707, 3)
+        Me.LabelRunStartAt.Name = "LabelRunStartAt"
+        Me.LabelRunStartAt.Size = New System.Drawing.Size(88, 18)
+        Me.LabelRunStartAt.TabIndex = 209
+        Me.LabelRunStartAt.Text = "Run Start At"
+        '
+        'LabelUnitRunStartAt
+        '
+        Me.LabelUnitRunStartAt.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelUnitRunStartAt.AutoSize = True
+        Me.LabelUnitRunStartAt.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUnitRunStartAt.Location = New System.Drawing.Point(861, 3)
+        Me.LabelUnitRunStartAt.Name = "LabelUnitRunStartAt"
+        Me.LabelUnitRunStartAt.Size = New System.Drawing.Size(76, 18)
+        Me.LabelUnitRunStartAt.TabIndex = 210
+        Me.LabelUnitRunStartAt.Text = "RPM Roller"
+        '
+        'LabelRunStopAt
+        '
+        Me.LabelRunStopAt.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelRunStopAt.AutoSize = True
+        Me.LabelRunStopAt.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRunStopAt.Location = New System.Drawing.Point(708, 28)
+        Me.LabelRunStopAt.Name = "LabelRunStopAt"
+        Me.LabelRunStopAt.Size = New System.Drawing.Size(86, 18)
+        Me.LabelRunStopAt.TabIndex = 211
+        Me.LabelRunStopAt.Text = "Run Stop At"
+        '
+        'LabelUnitStopAt
+        '
+        Me.LabelUnitStopAt.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.LabelUnitStopAt.AutoSize = True
+        Me.LabelUnitStopAt.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUnitStopAt.Location = New System.Drawing.Point(861, 27)
+        Me.LabelUnitStopAt.Name = "LabelUnitStopAt"
+        Me.LabelUnitStopAt.Size = New System.Drawing.Size(76, 18)
+        Me.LabelUnitStopAt.TabIndex = 212
+        Me.LabelUnitStopAt.Text = "RPM Roller"
+        '
+        'txtRunStopAtThreshold
+        '
+        Me.txtRunStopAtThreshold.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.txtRunStopAtThreshold.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.txtRunStopAtThreshold.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRunStopAtThreshold.Location = New System.Drawing.Point(795, 26)
+        Me.txtRunStopAtThreshold.Name = "txtRunStopAtThreshold"
+        Me.txtRunStopAtThreshold.Size = New System.Drawing.Size(64, 23)
+        Me.txtRunStopAtThreshold.TabIndex = 10
+        Me.txtRunStopAtThreshold.Text = "0"
+        Me.txtRunStopAtThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtRunStartAtThreshold
+        '
+        Me.txtRunStartAtThreshold.BackColor = ColorTheme(COLOR_LIGHT)
+        Me.txtRunStartAtThreshold.ForeColor = ColorTheme(COLOR_TEXT)
+        Me.txtRunStartAtThreshold.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRunStartAtThreshold.Location = New System.Drawing.Point(795, 3)
+        Me.txtRunStartAtThreshold.Name = "txtRunStartAtThreshold"
+        Me.txtRunStartAtThreshold.Size = New System.Drawing.Size(64, 23)
+        Me.txtRunStartAtThreshold.TabIndex = 9
+        Me.txtRunStartAtThreshold.Text = "0"
+        Me.txtRunStartAtThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'Main
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
@@ -1064,6 +1146,12 @@ Public Class Main
         Me.BackColor = ColorTheme(COLOR_BASE)
         Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(1924, 1061)
+        Me.Controls.Add(Me.txtRunStartAtThreshold)
+        Me.Controls.Add(Me.txtRunStopAtThreshold)
+        Me.Controls.Add(Me.LabelUnitStopAt)
+        Me.Controls.Add(Me.LabelRunStopAt)
+        Me.Controls.Add(Me.LabelUnitRunStartAt)
+        Me.Controls.Add(Me.LabelRunStartAt)
         Me.Controls.Add(Me.PlotView1)
         Me.Controls.Add(Me.btnRefreshCOM)
         Me.Controls.Add(Me.btnProfile)
@@ -1221,7 +1309,7 @@ Public Class Main
 
         'Set Size and Title
         Me.Top = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - Me.Height
-        Me.Text = "Dyno 0.1.3" ' MainTitle
+        Me.Text = "Dyno 0.1.5" ' MainTitle
 
         'Open Up the default interface
         'LoadInterface()
@@ -1697,6 +1785,44 @@ Public Class Main
     '        End With
     '    End If
     'End Sub
+    Private Sub txtRunStartAtThreshold_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRunStartAtThreshold.Leave
+        Dim LocalMin As Double = 0
+        Dim LocalMax As Double = 999999
+        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+            PowerRunMinThreshold = TempDouble
+            ActualPowerRunMinThreshold = (PowerRunMinThreshold / 60) * 2 * Math.PI ' convert it to rads/s
+            'Trying setting the minimum number of points to be collected in here also
+            'CHECK - this should also be set when Signals per RPM changes
+            MinimumPowerRunPoints = frmDyno.SignalsPerRPM * 10 'This somewhat arbitrary 
+        Else
+            'btnHide_Click(Me, EventArgs.Empty)
+            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+            'btnShow_Click(Me, EventArgs.Empty)
+            With CType(sender, TextBox)
+                .Text = PowerRunMinThreshold.ToString
+                .Focus()
+            End With
+        End If
+    End Sub
+    Private Sub txtRunStopAtThreshold_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtRunStopAtThreshold.Leave
+        Dim LocalMin As Double = 0
+        Dim LocalMax As Double = 999999
+        If Double.TryParse(CType(sender, TextBox).Text, TempDouble) AndAlso CheckNumericalLimits(LocalMin, LocalMax, TempDouble) Then
+            PowerRunMaxThreshold = TempDouble
+            ActualPowerRunMaxThreshold = (PowerRunMaxThreshold / 60) * 2 * Math.PI ' convert it to rads/s
+            'Trying setting the minimum number of points to be collected in here also
+            'CHECK - this should also be set when Signals per RPM changes
+            MinimumPowerRunPoints = frmDyno.SignalsPerRPM * 10 'This somewhat arbitrary 
+        Else
+            'btnHide_Click(Me, EventArgs.Empty)
+            MsgBox(CType(sender, TextBox).Name & " : Value must be between " & LocalMin & " and " & LocalMax, MsgBoxStyle.Exclamation)
+            'btnShow_Click(Me, EventArgs.Empty)
+            With CType(sender, TextBox)
+                .Text = PowerRunMaxThreshold.ToString
+                .Focus()
+            End With
+        End If
+    End Sub
 
 #End Region
 #Region "Read, Write, Update, and Reset Parameters"
@@ -3282,7 +3408,7 @@ Public Class Main
                                     Case Is = LIVE
                                         'Don't do anything.  This helps skip through the Select Case Faster
                                     Case Is = POWERRUN
-                                        If Data(RPM1_ROLLER, ACTUAL) > ActualPowerRunThreshold Then
+                                        If Data(RPM1_ROLLER, ACTUAL) > ActualPowerRunMinThreshold AndAlso Data(RPM1_ROLLER, ACTUAL) < ActualPowerRunMaxThreshold Then
                                             DataPoints += 1
                                             If DataPoints = 1 Then
                                                 TotalElapsedTime = 0
