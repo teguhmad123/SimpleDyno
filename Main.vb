@@ -1103,6 +1103,7 @@ Public Class Main
         Me.LabelRunStopAt.Size = New System.Drawing.Size(86, 18)
         Me.LabelRunStopAt.TabIndex = 211
         Me.LabelRunStopAt.Text = "Run Stop At"
+        Me.LabelRunStopAt.Visible = False
         '
         'LabelUnitStopAt
         '
@@ -1114,6 +1115,7 @@ Public Class Main
         Me.LabelUnitStopAt.Size = New System.Drawing.Size(76, 18)
         Me.LabelUnitStopAt.TabIndex = 212
         Me.LabelUnitStopAt.Text = "RPM Roller"
+        Me.LabelUnitStopAt.Visible = False
         '
         'txtRunStopAtThreshold
         '
@@ -1126,6 +1128,7 @@ Public Class Main
         Me.txtRunStopAtThreshold.TabIndex = 10
         Me.txtRunStopAtThreshold.Text = "0"
         Me.txtRunStopAtThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtRunStopAtThreshold.Visible = False
         '
         'txtRunStartAtThreshold
         '
@@ -1264,7 +1267,7 @@ Public Class Main
         frmCorrection = New Correction
 
         Timer1 = New Timer
-        Timer1.Interval = 20
+        Timer1.Interval = 100
 
         AddHandler Me.Timer1.Tick, AddressOf Me.TimerTick
 
@@ -1309,7 +1312,7 @@ Public Class Main
 
         'Set Size and Title
         Me.Top = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - Me.Height
-        Me.Text = "Dyno 0.1.5" ' MainTitle
+        Me.Text = "Dyno 0.1.7" ' MainTitle
 
         'Open Up the default interface
         'LoadInterface()
@@ -3239,6 +3242,8 @@ Public Class Main
                     c.Enabled = False
                 End If
             Next
+
+            SetControlBackColor_ThreadSafe(btnStartAcquisition, ColorTheme(COLOR_LIGHT))
             'btnShow_Click(Me, EventArgs.Empty)
         End Try
     End Sub
@@ -3325,7 +3330,6 @@ Public Class Main
                             RPM2NewTriggerTime = CDbl(COMPortMessage(3)) / 1000000
                             RPM2ElapsedTime = CDbl(COMPortMessage(4)) / 1000000
                             If RPM2NewTriggerTime <> RPM2OldTriggerTime Then
-                                RPM2TriggerStatus = True
                                 Data(RPM2, ACTUAL) = ElapsedTimeToRadPerSec2 / RPM2ElapsedTime
                                 Data(RPM1_MOTOR, ACTUAL) = Data(RPM2, ACTUAL)
                                 If Data(RPM2, ACTUAL) > Data(RPM2, MAXIMUM) Then
@@ -3336,8 +3340,8 @@ Public Class Main
                                     Data(RPM2, MINIMUM) = Data(RPM2, ACTUAL)
                                     Data(RPM1_MOTOR, MINIMUM) = Data(RPM2, MINIMUM)
                                 End If
+                                RPM2TriggerStatus = True
                             Else
-                                RPM2TriggerStatus = False
                                 If Math.Floor(RPM2ElapsedTime) = 0 Then
                                     RPM2TriggerStatus = True
                                 End If
@@ -3345,6 +3349,7 @@ Public Class Main
                                     Data(RPM2, ACTUAL) = 0
                                     Data(RPM1_MOTOR, ACTUAL) = 0
                                 End If
+                                RPM2TriggerStatus = False
                             End If
                             RPM1NewTriggerTime = CDbl(COMPortMessage(1)) / 1000000 'RPM1
                             RPM1ElapsedTime = CDbl(COMPortMessage(2)) / 1000000
@@ -3408,7 +3413,7 @@ Public Class Main
                                     Case Is = LIVE
                                         'Don't do anything.  This helps skip through the Select Case Faster
                                     Case Is = POWERRUN
-                                        If Data(RPM1_ROLLER, ACTUAL) > ActualPowerRunMinThreshold AndAlso Data(RPM1_ROLLER, ACTUAL) < ActualPowerRunMaxThreshold Then
+                                        If Data(RPM1_ROLLER, ACTUAL) > ActualPowerRunMinThreshold AndAlso (ActualPowerRunMaxThreshold = 0 Or Data(RPM1_ROLLER, ACTUAL) < ActualPowerRunMaxThreshold) Then
                                             DataPoints += 1
                                             If DataPoints = 1 Then
                                                 TotalElapsedTime = 0
@@ -3459,6 +3464,8 @@ Public Class Main
                                             DataPoints = MAXDATAPOINTS - 1
                                         End If
                                 End Select
+
+                                'RPM1TriggerStatus = True
                             Else
                                 RPM1TriggerStatus = False
                                 If Math.Floor(RPM1ElapsedTime) = 0 Then
@@ -3475,6 +3482,8 @@ Public Class Main
                                     Data(POWER, ACTUAL) = 0
                                     Data(RPM2_RATIO, ACTUAL) = 0
                                 End If
+
+                                'RPM1TriggerStatus = False
                             End If
                             If RPM2NewTriggerTime <> RPM2OldTriggerTime Then
                                 Data(RPM2_RATIO, ACTUAL) = Data(RPM2, ACTUAL) / Data(RPM1_WHEEL, ACTUAL)
@@ -3998,7 +4007,9 @@ Public Class Main
             If btnRun <> 0 Then
                 btnStartPowerRun_Click(Me, EventArgs.Empty)
             Else
-                SetControlBackColor_ThreadSafe(btnStartPowerRun, ColorTheme(COLOR_SUCCESS))
+                'SetControlBackColor_ThreadSafe(btnStartPowerRun, ColorTheme(COLOR_SUCCESS))
+                SetControlBackColor_ThreadSafe(btnStartPowerRun, ColorTheme(COLOR_LIGHT))
+
                 WhichDataMode = LIVE
             End If
         End If

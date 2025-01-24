@@ -53,6 +53,10 @@ Partial Class AnalysisForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtMaxX1 = New System.Windows.Forms.TextBox()
+        Me.txtMinX1 = New System.Windows.Forms.TextBox()
+        Me.LabelMaxX1 = New System.Windows.Forms.Label()
+        Me.LabelMinX1 = New System.Windows.Forms.Label()
         Me.pnlDataC2Overlay = New SimpleDyno.DoubleBufferPanel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -147,8 +151,8 @@ Partial Class AnalysisForm
         '
         Me.btnSaveOverlay.BackColor = Main.ColorTheme(Main.COLOR_TEXT)
         'Me.btnSaveOverlay.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
-        Me.btnSaveOverlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSaveOverlay.Enabled = False
+        Me.btnSaveOverlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSaveOverlay.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveOverlay.Location = New System.Drawing.Point(12, 82)
         Me.btnSaveOverlay.Name = "btnSaveOverlay"
@@ -251,7 +255,7 @@ Partial Class AnalysisForm
         Me.Label51.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label51.AutoSize = True
         Me.Label51.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label51.Location = New System.Drawing.Point(76, 775)
+        Me.Label51.Location = New System.Drawing.Point(74, 553)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(96, 13)
         Me.Label51.TabIndex = 100
@@ -261,7 +265,7 @@ Partial Class AnalysisForm
         '
         Me.cmbOverlayCorrectedSpeedUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayCorrectedSpeedUnits.FormattingEnabled = True
-        Me.cmbOverlayCorrectedSpeedUnits.Location = New System.Drawing.Point(120, 791)
+        Me.cmbOverlayCorrectedSpeedUnits.Location = New System.Drawing.Point(120, 569)
         Me.cmbOverlayCorrectedSpeedUnits.Name = "cmbOverlayCorrectedSpeedUnits"
         Me.cmbOverlayCorrectedSpeedUnits.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayCorrectedSpeedUnits.TabIndex = 10
@@ -270,67 +274,73 @@ Partial Class AnalysisForm
         '
         Me.cmbOverlayC2UnitsY2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC2UnitsY2.FormattingEnabled = True
-        Me.cmbOverlayC2UnitsY2.Location = New System.Drawing.Point(120, 742)
+        Me.cmbOverlayC2UnitsY2.Location = New System.Drawing.Point(116, 1036)
         Me.cmbOverlayC2UnitsY2.Name = "cmbOverlayC2UnitsY2"
         Me.cmbOverlayC2UnitsY2.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayC2UnitsY2.TabIndex = 9
+        Me.cmbOverlayC2UnitsY2.Visible = False
         '
         'cmbOverlayC2UnitsY1
         '
         Me.cmbOverlayC2UnitsY1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC2UnitsY1.FormattingEnabled = True
-        Me.cmbOverlayC2UnitsY1.Location = New System.Drawing.Point(120, 675)
+        Me.cmbOverlayC2UnitsY1.Location = New System.Drawing.Point(116, 969)
         Me.cmbOverlayC2UnitsY1.Name = "cmbOverlayC2UnitsY1"
         Me.cmbOverlayC2UnitsY1.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayC2UnitsY1.TabIndex = 7
+        Me.cmbOverlayC2UnitsY1.Visible = False
         '
         'Label50
         '
         Me.Label50.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label50.AutoSize = True
         Me.Label50.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.Location = New System.Drawing.Point(11, 699)
+        Me.Label50.Location = New System.Drawing.Point(7, 993)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(46, 13)
         Me.Label50.TabIndex = 96
         Me.Label50.Text = "Y2 Axis:"
+        Me.Label50.Visible = False
         '
         'Label49
         '
         Me.Label49.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label49.AutoSize = True
         Me.Label49.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label49.Location = New System.Drawing.Point(11, 632)
+        Me.Label49.Location = New System.Drawing.Point(7, 926)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(46, 13)
         Me.Label49.TabIndex = 95
         Me.Label49.Text = "Y1 Axis:"
+        Me.Label49.Visible = False
         '
         'cmbOverlayC2DataY2
         '
         Me.cmbOverlayC2DataY2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC2DataY2.DropDownWidth = 150
         Me.cmbOverlayC2DataY2.FormattingEnabled = True
-        Me.cmbOverlayC2DataY2.Location = New System.Drawing.Point(14, 715)
+        Me.cmbOverlayC2DataY2.Location = New System.Drawing.Point(10, 1009)
         Me.cmbOverlayC2DataY2.Name = "cmbOverlayC2DataY2"
         Me.cmbOverlayC2DataY2.Size = New System.Drawing.Size(154, 21)
         Me.cmbOverlayC2DataY2.TabIndex = 8
+        Me.cmbOverlayC2DataY2.Visible = False
         '
         'cmbOverlayC2DataY1
         '
         Me.cmbOverlayC2DataY1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC2DataY1.DropDownWidth = 150
         Me.cmbOverlayC2DataY1.FormattingEnabled = True
-        Me.cmbOverlayC2DataY1.Location = New System.Drawing.Point(14, 648)
+        Me.cmbOverlayC2DataY1.Location = New System.Drawing.Point(10, 942)
         Me.cmbOverlayC2DataY1.Name = "cmbOverlayC2DataY1"
         Me.cmbOverlayC2DataY1.Size = New System.Drawing.Size(154, 21)
         Me.cmbOverlayC2DataY1.TabIndex = 6
+        Me.cmbOverlayC2DataY1.Visible = False
         '
         'lblCurrentXValue
         '
         Me.lblCurrentXValue.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblCurrentXValue.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentXValue.Location = New System.Drawing.Point(96, 833)
+        Me.lblCurrentXValue.Location = New System.Drawing.Point(97, 612)
         Me.lblCurrentXValue.Name = "lblCurrentXValue"
         Me.lblCurrentXValue.Size = New System.Drawing.Size(72, 13)
         Me.lblCurrentXValue.TabIndex = 102
@@ -341,7 +351,7 @@ Partial Class AnalysisForm
         Me.Label9.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(11, 833)
+        Me.Label9.Location = New System.Drawing.Point(11, 611)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(86, 13)
         Me.Label9.TabIndex = 101
@@ -386,26 +396,32 @@ Partial Class AnalysisForm
         '
         Me.Label4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(86, 678)
+        Me.Label4.Location = New System.Drawing.Point(82, 972)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(34, 13)
         Me.Label4.TabIndex = 107
         Me.Label4.Text = "Units:"
+        Me.Label4.Visible = False
         '
         'Label5
         '
         Me.Label5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(83, 745)
+        Me.Label5.Location = New System.Drawing.Point(79, 1039)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 13)
         Me.Label5.TabIndex = 108
         Me.Label5.Text = "Units:"
+        Me.Label5.Visible = False
         '
         'Panel1
         '
         Me.Panel1.BackColor = Main.ColorTheme(Main.COLOR_DARK)
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.txtMaxX1)
+        Me.Panel1.Controls.Add(Me.txtMinX1)
+        Me.Panel1.Controls.Add(Me.LabelMaxX1)
+        Me.Panel1.Controls.Add(Me.LabelMinX1)
         Me.Panel1.Controls.Add(Me.pnlDataC2Overlay)
         Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.Label11)
@@ -446,8 +462,50 @@ Partial Class AnalysisForm
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(181, 883)
+        Me.Panel1.Size = New System.Drawing.Size(181, 1061)
         Me.Panel1.TabIndex = 110
+        '
+        'txtMaxX1
+        '
+        Me.txtMaxX1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtMaxX1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtMaxX1.Location = New System.Drawing.Point(85, 682)
+        Me.txtMaxX1.Name = "txtMaxX1"
+        Me.txtMaxX1.Size = New System.Drawing.Size(83, 20)
+        Me.txtMaxX1.TabIndex = 120
+        Me.txtMaxX1.Text = "0"
+        Me.txtMaxX1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtMinX1
+        '
+        Me.txtMinX1.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.txtMinX1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.txtMinX1.Location = New System.Drawing.Point(85, 662)
+        Me.txtMinX1.Name = "txtMinX1"
+        Me.txtMinX1.Size = New System.Drawing.Size(83, 20)
+        Me.txtMinX1.TabIndex = 119
+        Me.txtMinX1.Text = "0"
+        Me.txtMinX1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'LabelMaxX1
+        '
+        Me.LabelMaxX1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.LabelMaxX1.AutoSize = True
+        Me.LabelMaxX1.Location = New System.Drawing.Point(11, 685)
+        Me.LabelMaxX1.Name = "LabelMaxX1"
+        Me.LabelMaxX1.Size = New System.Drawing.Size(66, 13)
+        Me.LabelMaxX1.TabIndex = 118
+        Me.LabelMaxX1.Text = "Max X value"
+        '
+        'LabelMinX1
+        '
+        Me.LabelMinX1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.LabelMinX1.AutoSize = True
+        Me.LabelMinX1.Location = New System.Drawing.Point(11, 665)
+        Me.LabelMinX1.Name = "LabelMinX1"
+        Me.LabelMinX1.Size = New System.Drawing.Size(63, 13)
+        Me.LabelMinX1.TabIndex = 117
+        Me.LabelMinX1.Text = "Min X value"
         '
         'pnlDataC2Overlay
         '
@@ -465,33 +523,36 @@ Partial Class AnalysisForm
         '
         Me.Label10.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(86, 611)
+        Me.Label10.Location = New System.Drawing.Point(82, 905)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(34, 13)
         Me.Label10.TabIndex = 116
         Me.Label10.Text = "Units:"
+        Me.Label10.Visible = False
         '
         'Label11
         '
         Me.Label11.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(11, 565)
+        Me.Label11.Location = New System.Drawing.Point(7, 859)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(40, 13)
         Me.Label11.TabIndex = 115
         Me.Label11.Text = "X Axis:"
+        Me.Label11.Visible = False
         '
         'Label8
         '
         Me.Label8.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(11, 545)
+        Me.Label8.Location = New System.Drawing.Point(7, 839)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(56, 16)
         Me.Label8.TabIndex = 112
         Me.Label8.Text = "Chart 2"
+        Me.Label8.Visible = False
         '
         'Label7
         '
@@ -539,28 +600,30 @@ Partial Class AnalysisForm
         Me.cmbOverlayC2DataX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC2DataX.DropDownWidth = 150
         Me.cmbOverlayC2DataX.FormattingEnabled = True
-        Me.cmbOverlayC2DataX.Location = New System.Drawing.Point(14, 581)
+        Me.cmbOverlayC2DataX.Location = New System.Drawing.Point(10, 875)
         Me.cmbOverlayC2DataX.Name = "cmbOverlayC2DataX"
         Me.cmbOverlayC2DataX.Size = New System.Drawing.Size(154, 21)
         Me.cmbOverlayC2DataX.TabIndex = 113
+        Me.cmbOverlayC2DataX.Visible = False
         '
         'cmbOverlayC2UnitsX
         '
         Me.cmbOverlayC2UnitsX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC2UnitsX.FormattingEnabled = True
-        Me.cmbOverlayC2UnitsX.Location = New System.Drawing.Point(120, 608)
+        Me.cmbOverlayC2UnitsX.Location = New System.Drawing.Point(116, 902)
         Me.cmbOverlayC2UnitsX.Name = "cmbOverlayC2UnitsX"
         Me.cmbOverlayC2UnitsX.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayC2UnitsX.TabIndex = 114
+        Me.cmbOverlayC2UnitsX.Visible = False
         '
         'PlotView1
         '
         Me.PlotView1.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.PlotView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PlotView1.Location = New System.Drawing.Point(3, 183)
+        Me.PlotView1.Location = New System.Drawing.Point(3, 219)
         Me.PlotView1.Name = "PlotView1"
         Me.PlotView1.PanCursor = System.Windows.Forms.Cursors.Hand
-        Me.PlotView1.Size = New System.Drawing.Size(761, 414)
+        Me.PlotView1.Size = New System.Drawing.Size(1077, 807)
         Me.PlotView1.TabIndex = 110
         Me.PlotView1.Text = "PlotView1"
         Me.PlotView1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE
@@ -581,19 +644,19 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.41908!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.67837!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.93658!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(767, 883)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.67044!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.944507!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1083, 1061)
         Me.TableLayoutPanel1.TabIndex = 109
         '
         'PlotView2
         '
         Me.PlotView2.BackColor = Main.ColorTheme(Main.COLOR_BASE)
         Me.PlotView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PlotView2.Location = New System.Drawing.Point(3, 603)
+        Me.PlotView2.Location = New System.Drawing.Point(3, 1032)
         Me.PlotView2.Name = "PlotView2"
         Me.PlotView2.PanCursor = System.Windows.Forms.Cursors.Hand
-        Me.PlotView2.Size = New System.Drawing.Size(761, 277)
+        Me.PlotView2.Size = New System.Drawing.Size(1077, 26)
         Me.PlotView2.TabIndex = 112
         Me.PlotView2.Text = "PlotView2"
         Me.PlotView2.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE
@@ -671,7 +734,7 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(761, 174)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1077, 210)
         Me.TableLayoutPanel2.TabIndex = 111
         '
         'lblC1XTitle
@@ -680,9 +743,9 @@ Partial Class AnalysisForm
         Me.lblC1XTitle.AutoSize = True
         Me.lblC1XTitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XTitle.Location = New System.Drawing.Point(98, 0)
+        Me.lblC1XTitle.Location = New System.Drawing.Point(137, 0)
         Me.lblC1XTitle.Name = "lblC1XTitle"
-        Me.lblC1XTitle.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XTitle.Size = New System.Drawing.Size(128, 29)
         Me.lblC1XTitle.TabIndex = 0
         Me.lblC1XTitle.Text = "Label7"
         Me.lblC1XTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -693,9 +756,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Title.AutoSize = True
         Me.lblC1Y1Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Title.Location = New System.Drawing.Point(193, 0)
+        Me.lblC1Y1Title.Location = New System.Drawing.Point(271, 0)
         Me.lblC1Y1Title.Name = "lblC1Y1Title"
-        Me.lblC1Y1Title.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Title.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y1Title.TabIndex = 1
         Me.lblC1Y1Title.Text = "Label8"
         Me.lblC1Y1Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -706,9 +769,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Title.AutoSize = True
         Me.lblC1Y2Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Title.Location = New System.Drawing.Point(288, 0)
+        Me.lblC1Y2Title.Location = New System.Drawing.Point(405, 0)
         Me.lblC1Y2Title.Name = "lblC1Y2Title"
-        Me.lblC1Y2Title.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Title.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y2Title.TabIndex = 2
         Me.lblC1Y2Title.Text = "Label10"
         Me.lblC1Y2Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -719,9 +782,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Title.AutoSize = True
         Me.lblC2Y1Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Title.Location = New System.Drawing.Point(573, 0)
+        Me.lblC2Y1Title.Location = New System.Drawing.Point(807, 0)
         Me.lblC2Y1Title.Name = "lblC2Y1Title"
-        Me.lblC2Y1Title.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2Y1Title.Size = New System.Drawing.Size(128, 29)
         Me.lblC2Y1Title.TabIndex = 3
         Me.lblC2Y1Title.Text = "Label11"
         Me.lblC2Y1Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -732,9 +795,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Unit.AutoSize = True
         Me.lblC1Y1Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Unit.Location = New System.Drawing.Point(193, 24)
+        Me.lblC1Y1Unit.Location = New System.Drawing.Point(271, 29)
         Me.lblC1Y1Unit.Name = "lblC1Y1Unit"
-        Me.lblC1Y1Unit.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Unit.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y1Unit.TabIndex = 5
         Me.lblC1Y1Unit.Text = "Label13"
         Me.lblC1Y1Unit.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -745,9 +808,9 @@ Partial Class AnalysisForm
         Me.lblC1XUnit.AutoSize = True
         Me.lblC1XUnit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XUnit.Location = New System.Drawing.Point(98, 24)
+        Me.lblC1XUnit.Location = New System.Drawing.Point(137, 29)
         Me.lblC1XUnit.Name = "lblC1XUnit"
-        Me.lblC1XUnit.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XUnit.Size = New System.Drawing.Size(128, 29)
         Me.lblC1XUnit.TabIndex = 4
         Me.lblC1XUnit.Text = "Label12"
         Me.lblC1XUnit.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -758,9 +821,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Unit.AutoSize = True
         Me.lblC1Y2Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Unit.Location = New System.Drawing.Point(288, 24)
+        Me.lblC1Y2Unit.Location = New System.Drawing.Point(405, 29)
         Me.lblC1Y2Unit.Name = "lblC1Y2Unit"
-        Me.lblC1Y2Unit.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Unit.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y2Unit.TabIndex = 6
         Me.lblC1Y2Unit.Text = "Label14"
         Me.lblC1Y2Unit.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -771,9 +834,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Unit.AutoSize = True
         Me.lblC2Y1Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Unit.Location = New System.Drawing.Point(573, 24)
+        Me.lblC2Y1Unit.Location = New System.Drawing.Point(807, 29)
         Me.lblC2Y1Unit.Name = "lblC2Y1Unit"
-        Me.lblC2Y1Unit.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2Y1Unit.Size = New System.Drawing.Size(128, 29)
         Me.lblC2Y1Unit.TabIndex = 7
         Me.lblC2Y1Unit.Text = "Label15"
         Me.lblC2Y1Unit.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -782,9 +845,9 @@ Partial Class AnalysisForm
         '
         Me.lblC1File1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File1.AutoSize = True
-        Me.lblC1File1.Location = New System.Drawing.Point(3, 48)
+        Me.lblC1File1.Location = New System.Drawing.Point(3, 58)
         Me.lblC1File1.Name = "lblC1File1"
-        Me.lblC1File1.Size = New System.Drawing.Size(66, 20)
+        Me.lblC1File1.Size = New System.Drawing.Size(83, 24)
         Me.lblC1File1.TabIndex = 8
         Me.lblC1File1.Text = "Label16"
         '
@@ -794,9 +857,9 @@ Partial Class AnalysisForm
         Me.lblC1XMax1.AutoSize = True
         Me.lblC1XMax1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XMax1.Location = New System.Drawing.Point(98, 48)
+        Me.lblC1XMax1.Location = New System.Drawing.Point(137, 58)
         Me.lblC1XMax1.Name = "lblC1XMax1"
-        Me.lblC1XMax1.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XMax1.Size = New System.Drawing.Size(128, 29)
         Me.lblC1XMax1.TabIndex = 9
         Me.lblC1XMax1.Text = "lblX1Max"
         Me.lblC1XMax1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -807,9 +870,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Max1.AutoSize = True
         Me.lblC1Y1Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Max1.Location = New System.Drawing.Point(193, 48)
+        Me.lblC1Y1Max1.Location = New System.Drawing.Point(271, 58)
         Me.lblC1Y1Max1.Name = "lblC1Y1Max1"
-        Me.lblC1Y1Max1.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Max1.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y1Max1.TabIndex = 10
         Me.lblC1Y1Max1.Text = "Label18"
         Me.lblC1Y1Max1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -820,9 +883,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Max1.AutoSize = True
         Me.lblC1Y2Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Max1.Location = New System.Drawing.Point(288, 48)
+        Me.lblC1Y2Max1.Location = New System.Drawing.Point(405, 58)
         Me.lblC1Y2Max1.Name = "lblC1Y2Max1"
-        Me.lblC1Y2Max1.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Max1.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y2Max1.TabIndex = 11
         Me.lblC1Y2Max1.Text = "Label19"
         Me.lblC1Y2Max1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -833,9 +896,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Max1.AutoSize = True
         Me.lblC2Y1Max1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Max1.Location = New System.Drawing.Point(573, 48)
+        Me.lblC2Y1Max1.Location = New System.Drawing.Point(807, 58)
         Me.lblC2Y1Max1.Name = "lblC2Y1Max1"
-        Me.lblC2Y1Max1.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2Y1Max1.Size = New System.Drawing.Size(128, 29)
         Me.lblC2Y1Max1.TabIndex = 12
         Me.lblC2Y1Max1.Text = "Label20"
         Me.lblC2Y1Max1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -845,9 +908,9 @@ Partial Class AnalysisForm
         Me.lblC1File2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File2.AutoSize = True
         Me.lblC1File2.ForeColor = System.Drawing.Color.Blue
-        Me.lblC1File2.Location = New System.Drawing.Point(3, 72)
+        Me.lblC1File2.Location = New System.Drawing.Point(3, 87)
         Me.lblC1File2.Name = "lblC1File2"
-        Me.lblC1File2.Size = New System.Drawing.Size(66, 20)
+        Me.lblC1File2.Size = New System.Drawing.Size(83, 24)
         Me.lblC1File2.TabIndex = 13
         Me.lblC1File2.Text = "Label21"
         '
@@ -857,9 +920,9 @@ Partial Class AnalysisForm
         Me.lblC1XMax2.AutoSize = True
         Me.lblC1XMax2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XMax2.Location = New System.Drawing.Point(98, 72)
+        Me.lblC1XMax2.Location = New System.Drawing.Point(137, 87)
         Me.lblC1XMax2.Name = "lblC1XMax2"
-        Me.lblC1XMax2.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XMax2.Size = New System.Drawing.Size(128, 29)
         Me.lblC1XMax2.TabIndex = 14
         Me.lblC1XMax2.Text = "Label22"
         Me.lblC1XMax2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -870,9 +933,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Max2.AutoSize = True
         Me.lblC1Y1Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Max2.Location = New System.Drawing.Point(193, 72)
+        Me.lblC1Y1Max2.Location = New System.Drawing.Point(271, 87)
         Me.lblC1Y1Max2.Name = "lblC1Y1Max2"
-        Me.lblC1Y1Max2.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Max2.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y1Max2.TabIndex = 15
         Me.lblC1Y1Max2.Text = "Label23"
         Me.lblC1Y1Max2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -883,9 +946,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Max2.AutoSize = True
         Me.lblC1Y2Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Max2.Location = New System.Drawing.Point(288, 72)
+        Me.lblC1Y2Max2.Location = New System.Drawing.Point(405, 87)
         Me.lblC1Y2Max2.Name = "lblC1Y2Max2"
-        Me.lblC1Y2Max2.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Max2.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y2Max2.TabIndex = 16
         Me.lblC1Y2Max2.Text = "Label24"
         Me.lblC1Y2Max2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -896,9 +959,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Max2.AutoSize = True
         Me.lblC2Y1Max2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Max2.Location = New System.Drawing.Point(573, 72)
+        Me.lblC2Y1Max2.Location = New System.Drawing.Point(807, 87)
         Me.lblC2Y1Max2.Name = "lblC2Y1Max2"
-        Me.lblC2Y1Max2.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2Y1Max2.Size = New System.Drawing.Size(128, 29)
         Me.lblC2Y1Max2.TabIndex = 17
         Me.lblC2Y1Max2.Text = "Label25"
         Me.lblC2Y1Max2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -908,9 +971,9 @@ Partial Class AnalysisForm
         Me.lblC1File3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File3.AutoSize = True
         Me.lblC1File3.ForeColor = System.Drawing.Color.Red
-        Me.lblC1File3.Location = New System.Drawing.Point(3, 96)
+        Me.lblC1File3.Location = New System.Drawing.Point(3, 116)
         Me.lblC1File3.Name = "lblC1File3"
-        Me.lblC1File3.Size = New System.Drawing.Size(66, 20)
+        Me.lblC1File3.Size = New System.Drawing.Size(83, 24)
         Me.lblC1File3.TabIndex = 18
         Me.lblC1File3.Text = "Label26"
         '
@@ -920,9 +983,9 @@ Partial Class AnalysisForm
         Me.lblC1XMax3.AutoSize = True
         Me.lblC1XMax3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XMax3.Location = New System.Drawing.Point(98, 96)
+        Me.lblC1XMax3.Location = New System.Drawing.Point(137, 116)
         Me.lblC1XMax3.Name = "lblC1XMax3"
-        Me.lblC1XMax3.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XMax3.Size = New System.Drawing.Size(128, 29)
         Me.lblC1XMax3.TabIndex = 19
         Me.lblC1XMax3.Text = "Label27"
         Me.lblC1XMax3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -933,9 +996,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Max3.AutoSize = True
         Me.lblC1Y1Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Max3.Location = New System.Drawing.Point(193, 96)
+        Me.lblC1Y1Max3.Location = New System.Drawing.Point(271, 116)
         Me.lblC1Y1Max3.Name = "lblC1Y1Max3"
-        Me.lblC1Y1Max3.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Max3.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y1Max3.TabIndex = 20
         Me.lblC1Y1Max3.Text = "Label28"
         Me.lblC1Y1Max3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -946,9 +1009,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Max3.AutoSize = True
         Me.lblC1Y2Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Max3.Location = New System.Drawing.Point(288, 96)
+        Me.lblC1Y2Max3.Location = New System.Drawing.Point(405, 116)
         Me.lblC1Y2Max3.Name = "lblC1Y2Max3"
-        Me.lblC1Y2Max3.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Max3.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y2Max3.TabIndex = 21
         Me.lblC1Y2Max3.Text = "Label29"
         Me.lblC1Y2Max3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -959,9 +1022,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Max3.AutoSize = True
         Me.lblC2Y1Max3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Max3.Location = New System.Drawing.Point(573, 96)
+        Me.lblC2Y1Max3.Location = New System.Drawing.Point(807, 116)
         Me.lblC2Y1Max3.Name = "lblC2Y1Max3"
-        Me.lblC2Y1Max3.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2Y1Max3.Size = New System.Drawing.Size(128, 29)
         Me.lblC2Y1Max3.TabIndex = 22
         Me.lblC2Y1Max3.Text = "Label30"
         Me.lblC2Y1Max3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -971,9 +1034,9 @@ Partial Class AnalysisForm
         Me.lblC1File4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File4.AutoSize = True
         Me.lblC1File4.ForeColor = System.Drawing.Color.Green
-        Me.lblC1File4.Location = New System.Drawing.Point(3, 120)
+        Me.lblC1File4.Location = New System.Drawing.Point(3, 145)
         Me.lblC1File4.Name = "lblC1File4"
-        Me.lblC1File4.Size = New System.Drawing.Size(66, 20)
+        Me.lblC1File4.Size = New System.Drawing.Size(83, 24)
         Me.lblC1File4.TabIndex = 23
         Me.lblC1File4.Text = "Label31"
         '
@@ -983,9 +1046,9 @@ Partial Class AnalysisForm
         Me.lblC1XMax4.AutoSize = True
         Me.lblC1XMax4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XMax4.Location = New System.Drawing.Point(98, 120)
+        Me.lblC1XMax4.Location = New System.Drawing.Point(137, 145)
         Me.lblC1XMax4.Name = "lblC1XMax4"
-        Me.lblC1XMax4.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1XMax4.Size = New System.Drawing.Size(128, 29)
         Me.lblC1XMax4.TabIndex = 24
         Me.lblC1XMax4.Text = "Label32"
         Me.lblC1XMax4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -996,9 +1059,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Max4.AutoSize = True
         Me.lblC1Y1Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Max4.Location = New System.Drawing.Point(193, 120)
+        Me.lblC1Y1Max4.Location = New System.Drawing.Point(271, 145)
         Me.lblC1Y1Max4.Name = "lblC1Y1Max4"
-        Me.lblC1Y1Max4.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y1Max4.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y1Max4.TabIndex = 25
         Me.lblC1Y1Max4.Text = "Label33"
         Me.lblC1Y1Max4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1009,9 +1072,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Max4.AutoSize = True
         Me.lblC1Y2Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Max4.Location = New System.Drawing.Point(288, 120)
+        Me.lblC1Y2Max4.Location = New System.Drawing.Point(405, 145)
         Me.lblC1Y2Max4.Name = "lblC1Y2Max4"
-        Me.lblC1Y2Max4.Size = New System.Drawing.Size(89, 24)
+        Me.lblC1Y2Max4.Size = New System.Drawing.Size(128, 29)
         Me.lblC1Y2Max4.TabIndex = 26
         Me.lblC1Y2Max4.Text = "Label34"
         Me.lblC1Y2Max4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1022,9 +1085,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Max4.AutoSize = True
         Me.lblC2Y1Max4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Max4.Location = New System.Drawing.Point(573, 120)
+        Me.lblC2Y1Max4.Location = New System.Drawing.Point(807, 145)
         Me.lblC2Y1Max4.Name = "lblC2Y1Max4"
-        Me.lblC2Y1Max4.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2Y1Max4.Size = New System.Drawing.Size(128, 29)
         Me.lblC2Y1Max4.TabIndex = 27
         Me.lblC2Y1Max4.Text = "Label35"
         Me.lblC2Y1Max4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1034,9 +1097,9 @@ Partial Class AnalysisForm
         Me.lblC1File5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC1File5.AutoSize = True
         Me.lblC1File5.ForeColor = System.Drawing.Color.Purple
-        Me.lblC1File5.Location = New System.Drawing.Point(3, 144)
+        Me.lblC1File5.Location = New System.Drawing.Point(3, 174)
         Me.lblC1File5.Name = "lblC1File5"
-        Me.lblC1File5.Size = New System.Drawing.Size(66, 20)
+        Me.lblC1File5.Size = New System.Drawing.Size(83, 24)
         Me.lblC1File5.TabIndex = 28
         Me.lblC1File5.Text = "Label36"
         '
@@ -1046,9 +1109,9 @@ Partial Class AnalysisForm
         Me.lblC1XMax5.AutoSize = True
         Me.lblC1XMax5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1XMax5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1XMax5.Location = New System.Drawing.Point(98, 144)
+        Me.lblC1XMax5.Location = New System.Drawing.Point(137, 174)
         Me.lblC1XMax5.Name = "lblC1XMax5"
-        Me.lblC1XMax5.Size = New System.Drawing.Size(89, 30)
+        Me.lblC1XMax5.Size = New System.Drawing.Size(128, 36)
         Me.lblC1XMax5.TabIndex = 29
         Me.lblC1XMax5.Text = "Label37"
         Me.lblC1XMax5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1059,9 +1122,9 @@ Partial Class AnalysisForm
         Me.lblC1Y1Max5.AutoSize = True
         Me.lblC1Y1Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y1Max5.Location = New System.Drawing.Point(193, 144)
+        Me.lblC1Y1Max5.Location = New System.Drawing.Point(271, 174)
         Me.lblC1Y1Max5.Name = "lblC1Y1Max5"
-        Me.lblC1Y1Max5.Size = New System.Drawing.Size(89, 30)
+        Me.lblC1Y1Max5.Size = New System.Drawing.Size(128, 36)
         Me.lblC1Y1Max5.TabIndex = 30
         Me.lblC1Y1Max5.Text = "Label38"
         Me.lblC1Y1Max5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1072,9 +1135,9 @@ Partial Class AnalysisForm
         Me.lblC1Y2Max5.AutoSize = True
         Me.lblC1Y2Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC1Y2Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC1Y2Max5.Location = New System.Drawing.Point(288, 144)
+        Me.lblC1Y2Max5.Location = New System.Drawing.Point(405, 174)
         Me.lblC1Y2Max5.Name = "lblC1Y2Max5"
-        Me.lblC1Y2Max5.Size = New System.Drawing.Size(89, 30)
+        Me.lblC1Y2Max5.Size = New System.Drawing.Size(128, 36)
         Me.lblC1Y2Max5.TabIndex = 31
         Me.lblC1Y2Max5.Text = "Label39"
         Me.lblC1Y2Max5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1085,9 +1148,9 @@ Partial Class AnalysisForm
         Me.lblC2Y1Max5.AutoSize = True
         Me.lblC2Y1Max5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y1Max5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y1Max5.Location = New System.Drawing.Point(573, 144)
+        Me.lblC2Y1Max5.Location = New System.Drawing.Point(807, 174)
         Me.lblC2Y1Max5.Name = "lblC2Y1Max5"
-        Me.lblC2Y1Max5.Size = New System.Drawing.Size(89, 30)
+        Me.lblC2Y1Max5.Size = New System.Drawing.Size(128, 36)
         Me.lblC2Y1Max5.TabIndex = 32
         Me.lblC2Y1Max5.Text = "Label40"
         Me.lblC2Y1Max5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1098,9 +1161,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Title.AutoSize = True
         Me.lblC2Y2Title.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y2Title.Location = New System.Drawing.Point(668, 0)
+        Me.lblC2Y2Title.Location = New System.Drawing.Point(941, 0)
         Me.lblC2Y2Title.Name = "lblC2Y2Title"
-        Me.lblC2Y2Title.Size = New System.Drawing.Size(90, 24)
+        Me.lblC2Y2Title.Size = New System.Drawing.Size(133, 29)
         Me.lblC2Y2Title.TabIndex = 33
         Me.lblC2Y2Title.Text = "Label7"
         Me.lblC2Y2Title.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1111,9 +1174,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Unit.AutoSize = True
         Me.lblC2Y2Unit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2Y2Unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2Y2Unit.Location = New System.Drawing.Point(668, 24)
+        Me.lblC2Y2Unit.Location = New System.Drawing.Point(941, 29)
         Me.lblC2Y2Unit.Name = "lblC2Y2Unit"
-        Me.lblC2Y2Unit.Size = New System.Drawing.Size(90, 24)
+        Me.lblC2Y2Unit.Size = New System.Drawing.Size(133, 29)
         Me.lblC2Y2Unit.TabIndex = 34
         Me.lblC2Y2Unit.Text = "Label8"
         Me.lblC2Y2Unit.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1123,9 +1186,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Max1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max1.AutoSize = True
         Me.lblC2Y2Max1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y2Max1.Location = New System.Drawing.Point(668, 48)
+        Me.lblC2Y2Max1.Location = New System.Drawing.Point(941, 58)
         Me.lblC2Y2Max1.Name = "lblC2Y2Max1"
-        Me.lblC2Y2Max1.Size = New System.Drawing.Size(90, 24)
+        Me.lblC2Y2Max1.Size = New System.Drawing.Size(133, 29)
         Me.lblC2Y2Max1.TabIndex = 35
         Me.lblC2Y2Max1.Text = "Label10"
         Me.lblC2Y2Max1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1135,9 +1198,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Max2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max2.AutoSize = True
         Me.lblC2Y2Max2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y2Max2.Location = New System.Drawing.Point(668, 72)
+        Me.lblC2Y2Max2.Location = New System.Drawing.Point(941, 87)
         Me.lblC2Y2Max2.Name = "lblC2Y2Max2"
-        Me.lblC2Y2Max2.Size = New System.Drawing.Size(90, 24)
+        Me.lblC2Y2Max2.Size = New System.Drawing.Size(133, 29)
         Me.lblC2Y2Max2.TabIndex = 36
         Me.lblC2Y2Max2.Text = "Label11"
         Me.lblC2Y2Max2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1147,9 +1210,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Max3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max3.AutoSize = True
         Me.lblC2Y2Max3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y2Max3.Location = New System.Drawing.Point(668, 96)
+        Me.lblC2Y2Max3.Location = New System.Drawing.Point(941, 116)
         Me.lblC2Y2Max3.Name = "lblC2Y2Max3"
-        Me.lblC2Y2Max3.Size = New System.Drawing.Size(90, 24)
+        Me.lblC2Y2Max3.Size = New System.Drawing.Size(133, 29)
         Me.lblC2Y2Max3.TabIndex = 37
         Me.lblC2Y2Max3.Text = "Label12"
         Me.lblC2Y2Max3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1159,9 +1222,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Max4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max4.AutoSize = True
         Me.lblC2Y2Max4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y2Max4.Location = New System.Drawing.Point(668, 120)
+        Me.lblC2Y2Max4.Location = New System.Drawing.Point(941, 145)
         Me.lblC2Y2Max4.Name = "lblC2Y2Max4"
-        Me.lblC2Y2Max4.Size = New System.Drawing.Size(90, 24)
+        Me.lblC2Y2Max4.Size = New System.Drawing.Size(133, 29)
         Me.lblC2Y2Max4.TabIndex = 38
         Me.lblC2Y2Max4.Text = "Label13"
         Me.lblC2Y2Max4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1171,9 +1234,9 @@ Partial Class AnalysisForm
         Me.lblC2Y2Max5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2Y2Max5.AutoSize = True
         Me.lblC2Y2Max5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2Y2Max5.Location = New System.Drawing.Point(668, 144)
+        Me.lblC2Y2Max5.Location = New System.Drawing.Point(941, 174)
         Me.lblC2Y2Max5.Name = "lblC2Y2Max5"
-        Me.lblC2Y2Max5.Size = New System.Drawing.Size(90, 30)
+        Me.lblC2Y2Max5.Size = New System.Drawing.Size(133, 36)
         Me.lblC2Y2Max5.TabIndex = 39
         Me.lblC2Y2Max5.Text = "Label14"
         Me.lblC2Y2Max5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1184,9 +1247,9 @@ Partial Class AnalysisForm
         Me.lblC2XTitle.AutoSize = True
         Me.lblC2XTitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2XTitle.Location = New System.Drawing.Point(478, 0)
+        Me.lblC2XTitle.Location = New System.Drawing.Point(673, 0)
         Me.lblC2XTitle.Name = "lblC2XTitle"
-        Me.lblC2XTitle.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2XTitle.Size = New System.Drawing.Size(128, 29)
         Me.lblC2XTitle.TabIndex = 43
         Me.lblC2XTitle.Text = "Label11"
         Me.lblC2XTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1197,9 +1260,9 @@ Partial Class AnalysisForm
         Me.lblC2XUnit.AutoSize = True
         Me.lblC2XUnit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblC2XUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblC2XUnit.Location = New System.Drawing.Point(478, 24)
+        Me.lblC2XUnit.Location = New System.Drawing.Point(673, 29)
         Me.lblC2XUnit.Name = "lblC2XUnit"
-        Me.lblC2XUnit.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2XUnit.Size = New System.Drawing.Size(128, 29)
         Me.lblC2XUnit.TabIndex = 44
         Me.lblC2XUnit.Text = "Label12"
         Me.lblC2XUnit.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1209,9 +1272,9 @@ Partial Class AnalysisForm
         Me.lblC2XMax1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax1.AutoSize = True
         Me.lblC2XMax1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2XMax1.Location = New System.Drawing.Point(478, 48)
+        Me.lblC2XMax1.Location = New System.Drawing.Point(673, 58)
         Me.lblC2XMax1.Name = "lblC2XMax1"
-        Me.lblC2XMax1.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2XMax1.Size = New System.Drawing.Size(128, 29)
         Me.lblC2XMax1.TabIndex = 50
         Me.lblC2XMax1.Text = "Label18"
         Me.lblC2XMax1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1221,9 +1284,9 @@ Partial Class AnalysisForm
         Me.lblC2XMax2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax2.AutoSize = True
         Me.lblC2XMax2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2XMax2.Location = New System.Drawing.Point(478, 72)
+        Me.lblC2XMax2.Location = New System.Drawing.Point(673, 87)
         Me.lblC2XMax2.Name = "lblC2XMax2"
-        Me.lblC2XMax2.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2XMax2.Size = New System.Drawing.Size(128, 29)
         Me.lblC2XMax2.TabIndex = 51
         Me.lblC2XMax2.Text = "Label19"
         Me.lblC2XMax2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1233,9 +1296,9 @@ Partial Class AnalysisForm
         Me.lblC2XMax3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax3.AutoSize = True
         Me.lblC2XMax3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2XMax3.Location = New System.Drawing.Point(478, 96)
+        Me.lblC2XMax3.Location = New System.Drawing.Point(673, 116)
         Me.lblC2XMax3.Name = "lblC2XMax3"
-        Me.lblC2XMax3.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2XMax3.Size = New System.Drawing.Size(128, 29)
         Me.lblC2XMax3.TabIndex = 52
         Me.lblC2XMax3.Text = "Label20"
         Me.lblC2XMax3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1245,9 +1308,9 @@ Partial Class AnalysisForm
         Me.lblC2XMax4.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax4.AutoSize = True
         Me.lblC2XMax4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2XMax4.Location = New System.Drawing.Point(478, 120)
+        Me.lblC2XMax4.Location = New System.Drawing.Point(673, 145)
         Me.lblC2XMax4.Name = "lblC2XMax4"
-        Me.lblC2XMax4.Size = New System.Drawing.Size(89, 24)
+        Me.lblC2XMax4.Size = New System.Drawing.Size(128, 29)
         Me.lblC2XMax4.TabIndex = 53
         Me.lblC2XMax4.Text = "Label21"
         Me.lblC2XMax4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1257,9 +1320,9 @@ Partial Class AnalysisForm
         Me.lblC2XMax5.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblC2XMax5.AutoSize = True
         Me.lblC2XMax5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblC2XMax5.Location = New System.Drawing.Point(478, 144)
+        Me.lblC2XMax5.Location = New System.Drawing.Point(673, 174)
         Me.lblC2XMax5.Name = "lblC2XMax5"
-        Me.lblC2XMax5.Size = New System.Drawing.Size(89, 30)
+        Me.lblC2XMax5.Size = New System.Drawing.Size(128, 36)
         Me.lblC2XMax5.TabIndex = 54
         Me.lblC2XMax5.Text = "Label22"
         Me.lblC2XMax5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1268,7 +1331,7 @@ Partial Class AnalysisForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(948, 883)
+        Me.ClientSize = New System.Drawing.Size(1264, 1061)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -1377,4 +1440,8 @@ Partial Class AnalysisForm
     Friend WithEvents lblC1XTitle As Label
     Friend WithEvents lblC1Y1Title As Label
     Friend WithEvents lblC1Y2Title As Label
+    Friend WithEvents txtMaxX1 As TextBox
+    Friend WithEvents txtMinX1 As TextBox
+    Friend WithEvents LabelMaxX1 As Label
+    Friend WithEvents LabelMinX1 As Label
 End Class

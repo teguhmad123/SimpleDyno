@@ -30,7 +30,7 @@ Public Class AnalysisForm
     Private OverlayXSelected As Double
     Private OverlayPlotMax As Boolean = True
     Private plotModel1 As OxyPlot.PlotModel
-    Private plotModel2 As OxyPlot.PlotModel
+    'Private plotModel2 As OxyPlot.PlotModel
     Private dataRecordsList As List(Of List(Of DataRecord)) = New List(Of List(Of DataRecord))()
 
     Friend Sub Analysis_Setup()
@@ -73,7 +73,7 @@ Public Class AnalysisForm
         tempstring = ""
         tempsplit2 = Split(Main.DataUnitTags(Main.SPEED), " ")
         cmbOverlayCorrectedSpeedUnits.Items.AddRange(tempsplit2)
-        cmbOverlayC1DataX.SelectedIndex = 3
+        cmbOverlayC1DataX.SelectedIndex = 0
         cmbOverlayC1DataY1.SelectedIndex = 21
         cmbOverlayC1DataY2.SelectedIndex = 16
         cmbOverlayC2DataX.SelectedIndex = 0
@@ -180,17 +180,17 @@ Public Class AnalysisForm
 
         Me.PlotView1.Model = Me.plotModel1
 
-        Me.plotModel2 = New OxyPlot.PlotModel() With {
-            .Background = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_BASE).A, Main.ColorTheme(Main.COLOR_BASE).R, Main.ColorTheme(Main.COLOR_BASE).G, Main.ColorTheme(Main.COLOR_BASE).B),
-            .LegendTextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-            .TextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-            .PlotAreaBorderColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-            .AxisTierDistance = 0,
-            .PlotMargins = New OxyThickness(100, 50, 100, 50),
-            .IsLegendVisible = True
-        }
+        'Me.plotModel2 = New OxyPlot.PlotModel() With {
+        '    .Background = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_BASE).A, Main.ColorTheme(Main.COLOR_BASE).R, Main.ColorTheme(Main.COLOR_BASE).G, Main.ColorTheme(Main.COLOR_BASE).B),
+        '    .LegendTextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '    .TextColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '    .PlotAreaBorderColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '    .AxisTierDistance = 0,
+        '    .PlotMargins = New OxyThickness(100, 50, 100, 50),
+        '    .IsLegendVisible = True
+        '}
 
-        Me.PlotView2.Model = Me.plotModel2
+        'Me.PlotView2.Model = Me.plotModel2
 
         Dim i As Integer
         Dim C1XIndex As Integer = cmbOverlayC1DataX.SelectedIndex
@@ -359,42 +359,42 @@ Public Class AnalysisForm
                                })
         End If
 
-        plotModel2.Axes.Add(New LinearAxis() With {
-                       .Key = "x",
-                       .Position = OxyPlot.Axes.AxisPosition.Bottom,
-                       .Title = C2XAxisTitle,
-                       .MajorGridlineStyle = LineStyle.Solid,
-                       .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-                       .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-                       .Unit = C2XAxisUnit,
-                       .IsZoomEnabled = False
-                       })
+        'plotModel2.Axes.Add(New LinearAxis() With {
+        '               .Key = "x",
+        '               .Position = OxyPlot.Axes.AxisPosition.Bottom,
+        '               .Title = C2XAxisTitle,
+        '               .MajorGridlineStyle = LineStyle.Solid,
+        '               .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '               .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '               .Unit = C2XAxisUnit,
+        '               .IsZoomEnabled = False
+        '               })
 
-        If (C2Y1Index < Main.LAST) Then
-            plotModel2.Axes.Add(New LinearAxis() With {
-                           .Key = "y1",
-                           .Position = OxyPlot.Axes.AxisPosition.Left,
-                           .Title = C2Y1AxisTitle,
-                           .MajorGridlineStyle = LineStyle.Solid,
-                           .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-                           .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-                           .Unit = C2Y1AxisUnit,
-                           .IsZoomEnabled = False
-                           })
-        End If
+        'If (C2Y1Index < Main.LAST) Then
+        '    plotModel2.Axes.Add(New LinearAxis() With {
+        '                   .Key = "y1",
+        '                   .Position = OxyPlot.Axes.AxisPosition.Left,
+        '                   .Title = C2Y1AxisTitle,
+        '                   .MajorGridlineStyle = LineStyle.Solid,
+        '                   .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '                   .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '                   .Unit = C2Y1AxisUnit,
+        '                   .IsZoomEnabled = False
+        '                   })
+        'End If
 
-        If (C2Y2Index < Main.LAST) Then
-            plotModel2.Axes.Add(New LinearAxis() With {
-                           .Key = "y2",
-                           .Position = OxyPlot.Axes.AxisPosition.Right,
-                           .Title = C2Y2AxisTitle,
-                           .MajorGridlineStyle = LineStyle.Dash,
-                           .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-                           .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
-                           .Unit = C2Y2AxisUnit,
-                           .IsZoomEnabled = False
-                           })
-        End If
+        'If (C2Y2Index < Main.LAST) Then
+        '    plotModel2.Axes.Add(New LinearAxis() With {
+        '                   .Key = "y2",
+        '                   .Position = OxyPlot.Axes.AxisPosition.Right,
+        '                   .Title = C2Y2AxisTitle,
+        '                   .MajorGridlineStyle = LineStyle.Dash,
+        '                   .MajorGridlineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '                   .TicklineColor = OxyColor.FromArgb(Main.ColorTheme(Main.COLOR_TEXT).A, Main.ColorTheme(Main.COLOR_TEXT).R, Main.ColorTheme(Main.COLOR_TEXT).G, Main.ColorTheme(Main.COLOR_TEXT).B),
+        '                   .Unit = C2Y2AxisUnit,
+        '                   .IsZoomEnabled = False
+        '                   })
+        'End If
 
         Dim lineStyles As LineStyle() = {LineStyle.Solid, LineStyle.Dash, LineStyle.LongDash, LineStyle.DashDot, LineStyle.LongDashDot}
         'Dim colors As OxyColor() = {OxyColors.Black, OxyColors.Blue, OxyColors.Red, OxyColors.Green, OxyColors.Purple}
@@ -431,30 +431,30 @@ Public Class AnalysisForm
                 plotModel1.Series.Add(lineSeries2)
             End If
 
-            Dim lineSeries3 As OxyPlot.Series.LineSeries
-            If (C2Y1Index < Main.LAST) Then
+            'Dim lineSeries3 As OxyPlot.Series.LineSeries
+            'If (C2Y1Index < Main.LAST) Then
+            '
+            '    lineSeries3 = New OxyPlot.Series.LineSeries With {
+            '        .YAxisKey = "y1",
+            '        .LineStyle = LineStyle.Solid,
+            '        .Color = colors(row),
+            '        .Title = C2Y1AxisTitle
+            '    }
+            '
+            '    plotModel2.Series.Add(lineSeries3)
+            'End If
 
-                lineSeries3 = New OxyPlot.Series.LineSeries With {
-                    .YAxisKey = "y1",
-                    .LineStyle = LineStyle.Solid,
-                    .Color = colors(row),
-                    .Title = C2Y1AxisTitle
-                }
-
-                plotModel2.Series.Add(lineSeries3)
-            End If
-
-            Dim lineSeries4 As OxyPlot.Series.LineSeries
-            If (C2Y2Index < Main.LAST) Then
-                lineSeries4 = New OxyPlot.Series.LineSeries With {
-                    .YAxisKey = "y2",
-                    .LineStyle = LineStyle.Dash,
-                    .Color = OxyColor.FromArgb(200, colors(row).R, colors(row).G, colors(row).B),
-                    .Title = C2Y2AxisTitle
-                }
-
-                plotModel2.Series.Add(lineSeries4)
-            End If
+            'Dim lineSeries4 As OxyPlot.Series.LineSeries
+            'If (C2Y2Index < Main.LAST) Then
+            '    lineSeries4 = New OxyPlot.Series.LineSeries With {
+            '        .YAxisKey = "y2",
+            '        .LineStyle = LineStyle.Dash,
+            '        .Color = OxyColor.FromArgb(200, colors(row).R, colors(row).G, colors(row).B),
+            '        .Title = C2Y2AxisTitle
+            '    }
+            '
+            '    plotModel2.Series.Add(lineSeries4)
+            'End If
 
             Dim rpmIndex As Integer = 3
             Dim rpmUnitIndex As Integer = 1
@@ -468,6 +468,11 @@ Public Class AnalysisForm
             Dim c1Y2MaxX As Double = 0
             Dim c1Rpm2Max As Double = 0
 
+            Dim c1minX1 As Double = 0
+            Dim c1maxX1 As Double = 0
+
+            Double.TryParse(txtMinX1.Text, c1minX1)
+            Double.TryParse(txtMaxX1.Text, c1maxX1)
 
             Dim c2X1Max As Double = 0
             Dim c2Y1Max As Double = 0
@@ -488,6 +493,9 @@ Public Class AnalysisForm
                 Dim y3Value As Double = 0
                 Dim y4Value As Double = 0
 
+                If Not ((c1minX1 < x1Value Or c1minX1 = 0) AndAlso (x1Value < c1maxX1 Or c1maxX1 = 0)) Then
+                    Continue For
+                End If
 
                 c1X1Max = Math.Max(c1X1Max, x1Value)
                 c2X1Max = Math.Max(c2X1Max, x2Value)
@@ -512,25 +520,25 @@ Public Class AnalysisForm
                     End If
                 End If
 
-                If (C2Y1Index < Main.LAST) Then
-                    y3Value = Main.DataActions(C2Y1Index)(dataRecord) * Main.DataUnits(C2Y1Index, C2Y1UnitsIndex)
-                    lineSeries3.Points.Add(New OxyPlot.DataPoint(x2Value, y3Value))
-                    If (y3Value > c2Y3Max) Then
-                        c2Y3Max = y3Value
-                        c2Y3MaxX = x2Value
-                        c2Rpm1Max = rpmValue
-                    End If
-                End If
+                'If (C2Y1Index < Main.LAST) Then
+                '    y3Value = Main.DataActions(C2Y1Index)(dataRecord) * Main.DataUnits(C2Y1Index, C2Y1UnitsIndex)
+                '    lineSeries3.Points.Add(New OxyPlot.DataPoint(x2Value, y3Value))
+                '    If (y3Value > c2Y3Max) Then
+                '        c2Y3Max = y3Value
+                '        c2Y3MaxX = x2Value
+                '        c2Rpm1Max = rpmValue
+                '    End If
+                'End If
 
-                If (C2Y2Index < Main.LAST) Then
-                    y4Value = Main.DataActions(C2Y2Index)(dataRecord) * Main.DataUnits(C2Y2Index, C2Y2UnitsIndex)
-                    lineSeries4.Points.Add(New OxyPlot.DataPoint(x2Value, y4Value))
-                    If (y4Value > c2Y2Max) Then
-                        c2Y2Max = y4Value
-                        c2Y2MaxX = x2Value
-                        c2Rpm2Max = rpmValue
-                    End If
-                End If
+                'If (C2Y2Index < Main.LAST) Then
+                '    y4Value = Main.DataActions(C2Y2Index)(dataRecord) * Main.DataUnits(C2Y2Index, C2Y2UnitsIndex)
+                '    lineSeries4.Points.Add(New OxyPlot.DataPoint(x2Value, y4Value))
+                '    If (y4Value > c2Y2Max) Then
+                '        c2Y2Max = y4Value
+                '        c2Y2MaxX = x2Value
+                '        c2Rpm2Max = rpmValue
+                '    End If
+                'End If
 
             Next
 
@@ -800,5 +808,12 @@ Public Class AnalysisForm
 
         SetupDiagram()
 
+    End Sub
+
+    Private Sub txtMinX1_TextLeaved(sender As Object, e As EventArgs) Handles txtMinX1.Leave
+        SetupDiagram()
+    End Sub
+    Private Sub txtMaxX1_TextLeaved(sender As Object, e As EventArgs) Handles txtMaxX1.Leave
+        SetupDiagram()
     End Sub
 End Class
