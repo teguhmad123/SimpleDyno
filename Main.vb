@@ -1312,7 +1312,7 @@ Public Class Main
 
         'Set Size and Title
         Me.Top = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - Me.Height
-        Me.Text = "Dyno 0.1.7" ' MainTitle
+        Me.Text = "Dyno 0.1.8" ' MainTitle
 
         'Open Up the default interface
         'LoadInterface()
