@@ -631,11 +631,16 @@ Public Class AnalysisForm
     Private Sub btnSaveOverlay_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveOverlay.Click
         With SaveFileDialog1
             .Reset()
-            .Filter = "Bitmap files (*.bmp)|*.bmp"
+            .Filter = "PDF (*.pdf)|*.pdf"
             .ShowDialog()
         End With
         If SaveFileDialog1.FileName <> "" Then
-            OverlayBitMap.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Bmp)
+            lblNamePdf.Visible = True
+            lblNamePdf.Text = Path.GetFileNameWithoutExtension(SaveFileDialog1.FileName)
+            'OverlayBitMap.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Bmp)
+            Dim screenshot As New Screenshot()
+            screenshot.ConvertElementToPDF(Me.TableLayoutPanel1, SaveFileDialog1.FileName)
+            lblNamePdf.Visible = False
         End If
     End Sub
     Private Sub cmbOverlayC1X_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbOverlayC1DataX.SelectedIndexChanged

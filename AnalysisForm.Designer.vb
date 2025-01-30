@@ -57,12 +57,10 @@ Partial Class AnalysisForm
         Me.txtMinX1 = New System.Windows.Forms.TextBox()
         Me.LabelMaxX1 = New System.Windows.Forms.Label()
         Me.LabelMinX1 = New System.Windows.Forms.Label()
-        Me.pnlDataC2Overlay = New SimpleDyno.DoubleBufferPanel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.pnlDataC1Overlay = New SimpleDyno.DoubleBufferPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.clbFiles = New System.Windows.Forms.CheckedListBox()
         Me.cmbOverlayC2DataX = New System.Windows.Forms.ComboBox()
@@ -118,6 +116,9 @@ Partial Class AnalysisForm
         Me.lblC2XMax3 = New System.Windows.Forms.Label()
         Me.lblC2XMax4 = New System.Windows.Forms.Label()
         Me.lblC2XMax5 = New System.Windows.Forms.Label()
+        Me.lblNamePdf = New System.Windows.Forms.Label()
+        Me.pnlDataC2Overlay = New SimpleDyno.DoubleBufferPanel()
+        Me.pnlDataC1Overlay = New SimpleDyno.DoubleBufferPanel()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -151,20 +152,20 @@ Partial Class AnalysisForm
         '
         Me.btnSaveOverlay.BackColor = Main.ColorTheme(Main.COLOR_TEXT)
         'Me.btnSaveOverlay.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
-        Me.btnSaveOverlay.Enabled = False
+        Me.btnSaveOverlay.Enabled = True
         Me.btnSaveOverlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSaveOverlay.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveOverlay.Location = New System.Drawing.Point(12, 82)
         Me.btnSaveOverlay.Name = "btnSaveOverlay"
         Me.btnSaveOverlay.Size = New System.Drawing.Size(154, 29)
         Me.btnSaveOverlay.TabIndex = 67
-        Me.btnSaveOverlay.Text = "Save"
+        Me.btnSaveOverlay.Text = "Save PDF"
         '
         'cmbOverlayC1UnitsY2
         '
         Me.cmbOverlayC1UnitsY2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC1UnitsY2.FormattingEnabled = True
-        Me.cmbOverlayC1UnitsY2.Location = New System.Drawing.Point(120, 511)
+        Me.cmbOverlayC1UnitsY2.Location = New System.Drawing.Point(120, 506)
         Me.cmbOverlayC1UnitsY2.Name = "cmbOverlayC1UnitsY2"
         Me.cmbOverlayC1UnitsY2.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayC1UnitsY2.TabIndex = 5
@@ -173,7 +174,7 @@ Partial Class AnalysisForm
         '
         Me.cmbOverlayC1UnitsY1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC1UnitsY1.FormattingEnabled = True
-        Me.cmbOverlayC1UnitsY1.Location = New System.Drawing.Point(120, 444)
+        Me.cmbOverlayC1UnitsY1.Location = New System.Drawing.Point(120, 439)
         Me.cmbOverlayC1UnitsY1.Name = "cmbOverlayC1UnitsY1"
         Me.cmbOverlayC1UnitsY1.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayC1UnitsY1.TabIndex = 3
@@ -182,7 +183,7 @@ Partial Class AnalysisForm
         '
         Me.cmbOverlayC1UnitsX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC1UnitsX.FormattingEnabled = True
-        Me.cmbOverlayC1UnitsX.Location = New System.Drawing.Point(120, 377)
+        Me.cmbOverlayC1UnitsX.Location = New System.Drawing.Point(120, 372)
         Me.cmbOverlayC1UnitsX.Name = "cmbOverlayC1UnitsX"
         Me.cmbOverlayC1UnitsX.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayC1UnitsX.TabIndex = 1
@@ -192,7 +193,7 @@ Partial Class AnalysisForm
         Me.Label48.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label48.AutoSize = True
         Me.Label48.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.Location = New System.Drawing.Point(11, 468)
+        Me.Label48.Location = New System.Drawing.Point(11, 463)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(46, 13)
         Me.Label48.TabIndex = 89
@@ -203,7 +204,7 @@ Partial Class AnalysisForm
         Me.Label47.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label47.AutoSize = True
         Me.Label47.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.Location = New System.Drawing.Point(11, 401)
+        Me.Label47.Location = New System.Drawing.Point(11, 396)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(46, 13)
         Me.Label47.TabIndex = 88
@@ -214,7 +215,7 @@ Partial Class AnalysisForm
         Me.Label46.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.Location = New System.Drawing.Point(11, 334)
+        Me.Label46.Location = New System.Drawing.Point(11, 329)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(40, 13)
         Me.Label46.TabIndex = 87
@@ -225,7 +226,7 @@ Partial Class AnalysisForm
         Me.cmbOverlayC1DataY2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC1DataY2.DropDownWidth = 150
         Me.cmbOverlayC1DataY2.FormattingEnabled = True
-        Me.cmbOverlayC1DataY2.Location = New System.Drawing.Point(14, 484)
+        Me.cmbOverlayC1DataY2.Location = New System.Drawing.Point(14, 479)
         Me.cmbOverlayC1DataY2.Name = "cmbOverlayC1DataY2"
         Me.cmbOverlayC1DataY2.Size = New System.Drawing.Size(154, 21)
         Me.cmbOverlayC1DataY2.TabIndex = 4
@@ -235,7 +236,7 @@ Partial Class AnalysisForm
         Me.cmbOverlayC1DataY1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC1DataY1.DropDownWidth = 150
         Me.cmbOverlayC1DataY1.FormattingEnabled = True
-        Me.cmbOverlayC1DataY1.Location = New System.Drawing.Point(14, 417)
+        Me.cmbOverlayC1DataY1.Location = New System.Drawing.Point(14, 412)
         Me.cmbOverlayC1DataY1.Name = "cmbOverlayC1DataY1"
         Me.cmbOverlayC1DataY1.Size = New System.Drawing.Size(154, 21)
         Me.cmbOverlayC1DataY1.TabIndex = 2
@@ -245,7 +246,7 @@ Partial Class AnalysisForm
         Me.cmbOverlayC1DataX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayC1DataX.DropDownWidth = 150
         Me.cmbOverlayC1DataX.FormattingEnabled = True
-        Me.cmbOverlayC1DataX.Location = New System.Drawing.Point(14, 350)
+        Me.cmbOverlayC1DataX.Location = New System.Drawing.Point(14, 345)
         Me.cmbOverlayC1DataX.Name = "cmbOverlayC1DataX"
         Me.cmbOverlayC1DataX.Size = New System.Drawing.Size(154, 21)
         Me.cmbOverlayC1DataX.TabIndex = 0
@@ -255,7 +256,7 @@ Partial Class AnalysisForm
         Me.Label51.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label51.AutoSize = True
         Me.Label51.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label51.Location = New System.Drawing.Point(74, 553)
+        Me.Label51.Location = New System.Drawing.Point(74, 548)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(96, 13)
         Me.Label51.TabIndex = 100
@@ -265,7 +266,7 @@ Partial Class AnalysisForm
         '
         Me.cmbOverlayCorrectedSpeedUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOverlayCorrectedSpeedUnits.FormattingEnabled = True
-        Me.cmbOverlayCorrectedSpeedUnits.Location = New System.Drawing.Point(120, 569)
+        Me.cmbOverlayCorrectedSpeedUnits.Location = New System.Drawing.Point(120, 564)
         Me.cmbOverlayCorrectedSpeedUnits.Name = "cmbOverlayCorrectedSpeedUnits"
         Me.cmbOverlayCorrectedSpeedUnits.Size = New System.Drawing.Size(48, 21)
         Me.cmbOverlayCorrectedSpeedUnits.TabIndex = 10
@@ -340,7 +341,7 @@ Partial Class AnalysisForm
         '
         Me.lblCurrentXValue.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.lblCurrentXValue.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentXValue.Location = New System.Drawing.Point(97, 612)
+        Me.lblCurrentXValue.Location = New System.Drawing.Point(97, 607)
         Me.lblCurrentXValue.Name = "lblCurrentXValue"
         Me.lblCurrentXValue.Size = New System.Drawing.Size(72, 13)
         Me.lblCurrentXValue.TabIndex = 102
@@ -351,7 +352,7 @@ Partial Class AnalysisForm
         Me.Label9.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(11, 611)
+        Me.Label9.Location = New System.Drawing.Point(11, 606)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(86, 13)
         Me.Label9.TabIndex = 101
@@ -366,7 +367,7 @@ Partial Class AnalysisForm
         '
         Me.Label1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(83, 380)
+        Me.Label1.Location = New System.Drawing.Point(83, 375)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(34, 13)
         Me.Label1.TabIndex = 104
@@ -376,7 +377,7 @@ Partial Class AnalysisForm
         '
         Me.Label2.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(83, 447)
+        Me.Label2.Location = New System.Drawing.Point(83, 442)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(34, 13)
         Me.Label2.TabIndex = 105
@@ -386,7 +387,7 @@ Partial Class AnalysisForm
         '
         Me.Label3.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(83, 514)
+        Me.Label3.Location = New System.Drawing.Point(83, 509)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 106
@@ -491,7 +492,7 @@ Partial Class AnalysisForm
         '
         Me.LabelMaxX1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.LabelMaxX1.AutoSize = True
-        Me.LabelMaxX1.Location = New System.Drawing.Point(11, 685)
+        Me.LabelMaxX1.Location = New System.Drawing.Point(11, 680)
         Me.LabelMaxX1.Name = "LabelMaxX1"
         Me.LabelMaxX1.Size = New System.Drawing.Size(66, 13)
         Me.LabelMaxX1.TabIndex = 118
@@ -501,23 +502,11 @@ Partial Class AnalysisForm
         '
         Me.LabelMinX1.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.LabelMinX1.AutoSize = True
-        Me.LabelMinX1.Location = New System.Drawing.Point(11, 665)
+        Me.LabelMinX1.Location = New System.Drawing.Point(11, 660)
         Me.LabelMinX1.Name = "LabelMinX1"
         Me.LabelMinX1.Size = New System.Drawing.Size(63, 13)
         Me.LabelMinX1.TabIndex = 117
         Me.LabelMinX1.Text = "Min X value"
-        '
-        'pnlDataC2Overlay
-        '
-        Me.pnlDataC2Overlay.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
-        Me.pnlDataC2Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.pnlDataC2Overlay.Location = New System.Drawing.Point(122, 70)
-        Me.pnlDataC2Overlay.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlDataC2Overlay.Name = "pnlDataC2Overlay"
-        Me.pnlDataC2Overlay.Size = New System.Drawing.Size(767, 136)
-        Me.pnlDataC2Overlay.TabIndex = 1
-        Me.pnlDataC2Overlay.TabStop = True
-        Me.pnlDataC2Overlay.Visible = False
         '
         'Label10
         '
@@ -559,29 +548,17 @@ Partial Class AnalysisForm
         Me.Label7.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(11, 314)
+        Me.Label7.Location = New System.Drawing.Point(11, 309)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 16)
         Me.Label7.TabIndex = 111
         Me.Label7.Text = "Chart 1"
         '
-        'pnlDataC1Overlay
-        '
-        Me.pnlDataC1Overlay.BackColor = System.Drawing.Color.White
-        Me.pnlDataC1Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.pnlDataC1Overlay.Location = New System.Drawing.Point(141, 6)
-        Me.pnlDataC1Overlay.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlDataC1Overlay.Name = "pnlDataC1Overlay"
-        Me.pnlDataC1Overlay.Size = New System.Drawing.Size(767, 136)
-        Me.pnlDataC1Overlay.TabIndex = 0
-        Me.pnlDataC1Overlay.TabStop = True
-        Me.pnlDataC1Overlay.Visible = False
-        '
         'Label6
         '
         Me.Label6.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(11, 136)
+        Me.Label6.Location = New System.Drawing.Point(11, 131)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(108, 13)
         Me.Label6.TabIndex = 110
@@ -590,7 +567,7 @@ Partial Class AnalysisForm
         'clbFiles
         '
         Me.clbFiles.FormattingEnabled = True
-        Me.clbFiles.Location = New System.Drawing.Point(12, 152)
+        Me.clbFiles.Location = New System.Drawing.Point(12, 147)
         Me.clbFiles.Name = "clbFiles"
         Me.clbFiles.Size = New System.Drawing.Size(154, 154)
         Me.clbFiles.TabIndex = 109
@@ -722,6 +699,7 @@ Partial Class AnalysisForm
         Me.TableLayoutPanel2.Controls.Add(Me.lblC2XMax3, 5, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.lblC2XMax4, 5, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.lblC2XMax5, 5, 6)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblNamePdf, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
@@ -1327,6 +1305,42 @@ Partial Class AnalysisForm
         Me.lblC2XMax5.Text = "Label22"
         Me.lblC2XMax5.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'lblNamePdf
+        '
+        Me.lblNamePdf.ForeColor = Main.ColorTheme(Main.COLOR_TEXT)
+        Me.lblNamePdf.AutoSize = True
+        Me.lblNamePdf.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblNamePdf.Location = New System.Drawing.Point(3, 0)
+        Me.lblNamePdf.Name = "lblNamePdf"
+        Me.lblNamePdf.Size = New System.Drawing.Size(128, 29)
+        Me.lblNamePdf.TabIndex = 55
+        Me.lblNamePdf.Text = "Label12"
+        Me.lblNamePdf.Visible = False
+        '
+        'pnlDataC2Overlay
+        '
+        Me.pnlDataC2Overlay.BackColor = Main.ColorTheme(Main.COLOR_LIGHT)
+        Me.pnlDataC2Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.pnlDataC2Overlay.Location = New System.Drawing.Point(122, 70)
+        Me.pnlDataC2Overlay.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlDataC2Overlay.Name = "pnlDataC2Overlay"
+        Me.pnlDataC2Overlay.Size = New System.Drawing.Size(767, 136)
+        Me.pnlDataC2Overlay.TabIndex = 1
+        Me.pnlDataC2Overlay.TabStop = True
+        Me.pnlDataC2Overlay.Visible = False
+        '
+        'pnlDataC1Overlay
+        '
+        Me.pnlDataC1Overlay.BackColor = System.Drawing.Color.White
+        Me.pnlDataC1Overlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.pnlDataC1Overlay.Location = New System.Drawing.Point(141, 6)
+        Me.pnlDataC1Overlay.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlDataC1Overlay.Name = "pnlDataC1Overlay"
+        Me.pnlDataC1Overlay.Size = New System.Drawing.Size(767, 136)
+        Me.pnlDataC1Overlay.TabIndex = 0
+        Me.pnlDataC1Overlay.TabStop = True
+        Me.pnlDataC1Overlay.Visible = False
+        '
         'AnalysisForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1444,4 +1458,5 @@ Partial Class AnalysisForm
     Friend WithEvents txtMinX1 As TextBox
     Friend WithEvents LabelMaxX1 As Label
     Friend WithEvents LabelMinX1 As Label
+    Friend WithEvents lblNamePdf As Label
 End Class
